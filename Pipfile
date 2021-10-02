@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+pep8 = "*"
+autopep8 = "*"
+pylint = "*"
+pylint-flask = "*"
+dnspython = "*"
+flask-pymongo = "*"
+pycodestyle = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
