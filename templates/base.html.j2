@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/83ff66539b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    {% block styles %}
+    {% endblock %}
+    <title>ST-Archive</title>
+</head>
+
+<body class="has-navbar-fixed-top">
+
+    <header>
+        <nav class="navbar is-black is-fixed-top has-shadow">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="{{ url_for('index') }}">
+                    ST-Archive
+                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenu" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item is-active" href="{{ url_for('index') }}">
+                            Home
+                        </a>
+                        <a class="navbar-item" href="{{ url_for('copyright') }}">
+                            Copyright
+                        </a>
+                        <a class="navbar-item">
+                            Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <h1 class="title is-1 has-text-centered">To boldly go where no one has gone before!</h1>
+
+    <p class="px-3">
+        Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange
+        new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before. Many say exploration
+        i   s part of our destiny, but it’s actually our duty to future generations and their quest to ensure the survival of the
+        human species.
+    </p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!--
+    <script src="{{ url_for('static', filename='js/mtiFontTrackingCode.js') }}"></script>
+    -->
+    {% block scripts %}
+    {% endblock %}
+</body>
+
+</html>
