@@ -70,6 +70,9 @@ For all other text the Okuda font, which is based on the computer lettering (the
 
 ---
 
+I used Balsamiq to plan the site’s layout for different viewports (mobile, tablet and desktop). To better demonstrate the differences, I sort my wireframes by page and show the versions for mobile, tablet and desktop next to each other.
+All wireframes for this project can be found in the [wireframes sub-directory](https://github.com/Ryagg/st-archive/tree/main/wireframes).
+
 ### Database Schema
 
 ---
