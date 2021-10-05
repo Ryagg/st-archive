@@ -12,6 +12,7 @@ pylint-flask = "*"
 dnspython = "*"
 flask-pymongo = "*"
 pycodestyle = "*"
+pymongo = {extras = ["tls"], version = "*"}
 
 [dev-packages]
 
