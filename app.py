@@ -19,16 +19,15 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html.j2")
+    return render_template("index.html")
 
 
 @app.route("/copyright")
 def copyright():
-    return render_template("copyright.html.j2")
+    return render_template("copyright.html")
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            # change to False prior to deployment/submission
-            debug=True)
+            debug=os.environ.get("DEBUG"))
