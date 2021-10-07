@@ -1,18 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <!-- Account data -->
     <section class="hero hero_bg--register">
         <div class="hero-body">
             <div class="container">
-                <form class="form">
+                <h1 class="title is-1 has-text-centered has-text-white">Register</h1>
+                <ul class="has text-centered is-size-4 has-text-white">
+                    <li>All fields marked "required" must be completed.</li>
+                    <li>You can't enter anything into the "Favourite series", "Favourite books" and "Books in wish list" fields. This is intentional. Data from your profile will be added there automatically later.</li>
+
+                </ul>
+                <form class="form" method="POST" action="{{ url_for('register') }}">
                     <!-- Username -->
                     <div class="columns is-centered">
                         <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                             <div class="field">
-                                <label class="is-size-5 has-text-white has-text-weight-normal">Username</label>
+                                <label for="username"
+                                    class="is-size-4 has-text-white has-text-weight-normal">Username (required)</label>
                                 <div class="control has-icons-left">
-                                    <input class="input is-link" type="text" placeholder="Enter username" value="" required>
+                                    <input id="username" name="username" class="input is-link" type="text" minlength="5"
+                                        maxlength="20" pattern="^[a-zA-Z0-9]{5,15}$" placeholder="Enter username" value="" aria-label="username" aria-described-by="user-username"
+                                        required>
+                                    <span id="user-username" aria-live="assertive"></span>
                                     <span class="icon is-left has-text-link">
                                         <i class="fal fa-lg fa-user-plus"></i>
                                     </span>
@@ -21,12 +30,16 @@
                         </div>
                     </div>
                     <div class="columns is-centered">
-                        <!-- Password -->
+                        <!-- Password --> <!-- check pattern! -->
                         <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                             <div class="field">
-                                <label class="is-size-5 has-text-white-bis has-text-weight-medium">Password</label>
+                                <label for="password"
+                                    class="is-size-4 has-text-white-bis has-text-weight-medium">Password (required)</label>
                                 <div class="control has-icons-left">
-                                    <input class="input is-link" type="password" placeholder="******" value="" required>
+                                    <input id="password" name="password" class="input is-link" type="password" minlength="5"
+                                        maxlength="20" pattern="^[a-zA-Z0-9!+-_.*]{5,15}$" placeholder="******" value="" aria-label="password" aria-described-by="user-password"
+                                        required>
+                                    <span id="user-password" aria-live="assertive"></span>
                                     <span class="icon is-left has-text-link">
                                         <i class="fal fa-lg fa-lock"></i>
                                     </span>
@@ -38,9 +51,11 @@
                     <div class="columns is-centered">
                         <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                             <div class="field">
-                                <label class="is-size-5 has-text-white-bis has-text-weight-medium">Email</label>
+                                <label for="email" class="is-size-4 has-text-white-bis has-text-weight-medium">Email (required)</label>
                                 <div class="control has-icons-left">
-                                    <input class="input is-link" type="email" placeholder="you@mail.com" value="" required>
+                                    <input id="email" name="email" class="input is-link" type="email" minlength="12"
+                                        maxlength="30" placeholder="you@mail.com" value="" aria-label="email" aria-described-by="user-email" required>
+                                    <span id="user-email" aria-live="assertive"></span>
                                     <span class="icon is-left has-text-link">
                                         <i class="fal fa-lg fa-at"></i>
                                     </span>
@@ -48,6 +63,52 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Collections -->
+                    <div class="columns is-centered cards-container mt-3" id="sectioncontainer">
+                        <div class="column">
+                            <article class="message">
+                                <div class="message-header card_bg--register">
+                                    <p class="subtitle is-4 has-text-white">Favourite series</p>
+                                </div>
+                                <div class="message-body">
+                                    <ul>
+                                        <li class="is-size-5">leave empty</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="columns is-centered cards-container mt-3">
+                        <div class="column">
+                            <article class="message">
+                                <div class="message-header card_bg--register">
+                                    <p class="subtitle is-4 has-text-white">Favourite books</p>
+                                </div>
+                                <div class="message-body">
+                                    <ul>
+                                        <li class="is-size-5">leave empty</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="columns is-centered cards-container mt-3">
+                        <div class="column">
+                            <article class="message">
+                                <div class="message-header card_bg--register">
+                                    <p class="subtitle is-4 has-text-white">Books in wish list</p>
+                                </div>
+                                <div class="message-body">
+                                    <ul>
+                                        <li class="is-size-5">leave empty</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
                     <!-- Buttons -->
                     <div class="columns is-centered">
                         <div class="column is-6-tablet is-5-desktop is-4-widescreen">
@@ -66,54 +127,5 @@
             </div>
         </div>
     </section>
-
-    <!-- Collections -->
-    <section class="hero hero_bg--register2">
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns is-centered cards-container mt-3" id="sectioncontainer">
-                    <div class="column">
-                        <article class="message">
-                            <div class="message-header card_bg--register">
-                                <p class="subtitle is-4 has-text-white">Favourite series</p>
-                            </div>
-                            <div class="message-body">
-                                <ul>
-                                <li></li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="column">
-                        <article class="message">
-                            <div class="message-header card_bg--register">
-                                <p class="subtitle is-4 has-text-white">Favourite books</p>
-                            </div>
-                            <div class="message-body">
-                                <ul>
-                                <li></li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="column">
-                        <article class="message">
-                            <div class="message-header card_bg--register">
-                                <p class="subtitle is-4 has-text-white">Books in wish list</p>
-                            </div>
-                            <div class="message-body">
-                                <ul>
-                                <li></li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
 
 {% endblock %}
