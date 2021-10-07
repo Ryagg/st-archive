@@ -12,11 +12,14 @@
         human species.
     </p>
 
-    <section class="section">
+    <div class="columns">
         {% for serie in series %}
-        <div class="list">
-            <a clas="list-item">{{ serie.series_name }}</a>
+        <div class="column">
+            <div class="list">
+                <a clas="list-item">{{ serie.series_name }}</a>
+            </div>
         </div>
         {% endfor %}
-    </section>
+    </div>
+
 {% endblock %}

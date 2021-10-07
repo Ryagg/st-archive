@@ -1,4 +1,5 @@
 import os
+import ssl
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -15,11 +16,13 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-mongo = PyMongo(app)
+# pass keyword parameter to avoid pymongo error 'SSL: CERTIFICATE_VERIFY_FAILED'
+mongo = PyMongo(app, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    series = list(mongo.db.series.find())
+    return render_template("index.html", series=series)
 
 
 @app.route("/copyright")
