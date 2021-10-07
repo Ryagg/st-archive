@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Account data -->
+    <section class="hero hero_bg--register">
+        <div class="hero-body">
+            <div class="container">
+                <form class="form">
+                    <!-- Username -->
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                            <div class="field">
+                                <label class="is-size-5 has-text-white has-text-weight-normal">Username</label>
+                                <div class="control has-icons-left">
+                                    <input class="input is-link" type="text" placeholder="Enter username" value="" required>
+                                    <span class="icon is-left has-text-link">
+                                        <i class="fal fa-lg fa-user-plus"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <!-- Password -->
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                            <div class="field">
+                                <label class="is-size-5 has-text-white-bis has-text-weight-medium">Password</label>
+                                <div class="control has-icons-left">
+                                    <input class="input is-link" type="password" placeholder="******" value="" required>
+                                    <span class="icon is-left has-text-link">
+                                        <i class="fal fa-lg fa-lock"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                            <div class="field">
+                                <label class="is-size-5 has-text-white-bis has-text-weight-medium">Email</label>
+                                <div class="control has-icons-left">
+                                    <input class="input is-link" type="email" placeholder="you@mail.com" value="" required>
+                                    <span class="icon is-left has-text-link">
+                                        <i class="fal fa-lg fa-at"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <input class="button is-link" type="submit" value="Submit">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-link" type="reset" value="Clear form">Clear form
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections -->
+    <section class="hero hero_bg--register2">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered cards-container mt-3" id="sectioncontainer">
+                    <div class="column">
+                        <article class="message">
+                            <div class="message-header card_bg--register">
+                                <p class="subtitle is-4 has-text-white">Favourite series</p>
+                            </div>
+                            <div class="message-body">
+                                <ul>
+                                <li></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="column">
+                        <article class="message">
+                            <div class="message-header card_bg--register">
+                                <p class="subtitle is-4 has-text-white">Favourite books</p>
+                            </div>
+                            <div class="message-body">
+                                <ul>
+                                <li></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="column">
+                        <article class="message">
+                            <div class="message-header card_bg--register">
+                                <p class="subtitle is-4 has-text-white">Books in wish list</p>
+                            </div>
+                            <div class="message-body">
+                                <ul>
+                                <li></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+{% endblock %}
