@@ -25,8 +25,34 @@ def index():
     return render_template("index.html", series=series)
 
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # check if username already exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # user is not added to db, but flash doesn't work or disappears too quickly!
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        # create dictionary to be inserted into the database
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "email": request.form.get("email").lower(),
+            "favourites_series": "",
+            "favourites_books": "",
+            "wishlist": "",
+            "is_admin": "False"
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        # flash("Registration Successful!")
+        # return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
 
