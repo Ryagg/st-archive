@@ -30,11 +30,14 @@
                 </div>
                 <div id="navbarMenu" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item is-active" href="{{ url_for('index') }}">
+                        <a class="navbar-item" href="{{ url_for('index') }}">
                             Home
                         </a>
                         <a class="navbar-item" href="{{ url_for('register') }}">
                             Register
+                        </a>
+                        <a class="navbar-item is-active" href="{{ url_for('login') }}">
+                            Log in
                         </a>
                         <a class="navbar-item" href="{{ url_for('copyrights') }}">
                             Copyright
@@ -49,18 +52,18 @@
     </header>
 
     <section>
-    <!-- flash messages -->
-    {% with messages = get_flashed_messages() %}
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %}
         {% if messages %}
-            {% for message in messages %}
-                <div class="columns flashes my-5">
-                    <div class="column">
-                        <h3 class="title is-3 has-text-centered">{{ message }}</h3>
-                    </div>
-                </div>
-            {% endfor %}
+        {% for message in messages %}
+        <div class="columns flashes my-5">
+            <div class="column">
+                <h3 class="title is-3 has-text-centered">{{ message }}</h3>
+            </div>
+        </div>
+        {% endfor %}
         {% endif %}
-    {% endwith %}
+        {% endwith %}
     </section>
 
     <!-- need to add sections with different classes and containers in each template file!!! -->
