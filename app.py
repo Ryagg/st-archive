@@ -25,9 +25,46 @@ def index():
     return render_template("index.html", series=series)
 
 
-@app.route("/copyright")
-def copyright():
-    return render_template("copyright.html")
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    """Add newly created users to the database.
+
+    Return empty strings as values for favourites_series, favourites_books and wishlist
+    since they will be added to the database at a later point.
+    Set 'is_admin' to false by default for all users.
+    """
+    if request.method == "POST":
+        # check if username already exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("You have entered an invalid username or password")
+            return redirect(url_for("register"))
+
+        # create dictionary to be inserted into the database
+        user_register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "email": request.form.get("email").lower(),
+            "favourites_series": "",
+            "favourites_books": "",
+            "wishlist": "",
+            "is_admin": "False"
+        }
+        mongo.db.users.insert_one(user_register)
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        # flash("Registration Successful!")
+        # return redirect(url_for("profile", username=session["user"]))
+    return render_template("register.html")
+
+
+@app.route("/copyrights")
+def copyrights():
+    """Render page with info about copyrights and licenses."""
+    return render_template("copyrights.html")
 
 
 if __name__ == "__main__":
