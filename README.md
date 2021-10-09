@@ -37,6 +37,8 @@ ST-Archive provides an overview of the novels from the various series across the
 -   I want to be able to add books to the site.
 -   I want to be able to edit or delete my reviews, lists and reading progress.
 -   I want to be able to contact the site owner with queries.
+-   I want to be able to navigate the site by using a keyboard only.
+-   I want to be able to hear the content by using a screen reader.
 
 #### As the site owner/admin:
 
@@ -80,13 +82,13 @@ All wireframes for this project can be found in the [wireframes sub-directory](h
 ![Database Schema](images/readme/db-scheme.png)
 The project uses 4 collections which are stored in MongoDB.
 
--   The **users** collection stores the username, password and email to enable the user to create an account with a profile page and - as a future feature - to be notified if new books are added to series from his favourites list. Books that have been added to either the favourites list or the whish list, and series that have been added to the favourites list are also stored. Furthermore, information about whether a user is also an admin and the timestamp for the user creation are stored.
+-   The **users** collection stores the username, password and email to enable the user to create an account with a profile page and - as a future feature - to be notified if new books are added to series from his favourites list. Books that have been added to either the favourites list or the whish list, and series that have been added to the favourites list are also stored. Furthermore, information about whether a user is also an admin are stored.
 
--   The **series** collection stores the name and the code (e.g. 'DIS' for 'Discovery') for each series. It also stores information about whether the series has ended and includes arrays with the ObjectId from users that have set the series as favourite as well as users that have completed that particular series.
+-   The **series** collection stores the name and the code (e.g. 'DIS' for 'Discovery') for each series. It also stores information about whether the series has ended.
 
--   The **books** collection stores the title, ISBN, blurb and number (within a series) of each book. It also holds the URL for the book cover as well as information about in which format (e-book, paper book and audiobook) the book is available and whether it is part of a mini-series. The 'timespan_start' is the 'stardate' at which the story starts and can be used - as a future feature - to sort books by 'stardate'. The status can be either 'published' or 'announced'. Finally, the collection includes arrays with the ObjectId from users that have set the book as favourite as well as users that added the book to their wish list.
+-   The **books** collection stores the title, ISBN, blurb and number (within a series) of each book. It also holds the URL for the book cover as well as information about in which format (e-book, paper book and audiobook) the book is available and whether it is part of a mini-series. The 'timespan_start' is the 'stardate' at which the story starts and can be used - as a future feature - to sort books by 'stardate'. The status can be either 'published' or 'announced'.
 
--   The **reviews** collection stores the ObjectId and username from the user that wrote the review, the book being reviewed and the timestamp of the review.
+-   The **reviews** collection stores the ObjectId and username from the user that wrote the review, and the title of the book being reviewed.
 
 ## Features
 
@@ -110,13 +112,34 @@ The project uses 4 collections which are stored in MongoDB.
 
 ---
 
+-   [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+-   [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+-   [Python](https://www.python.org/)
+-   [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
 ### Libraries & Frameworks
 
 ---
 
+-   [Bulma](https://bulma.io/)
+-   [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+-   [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+-   [Font Awesome](https://fontawesome.com/)
+
 ### Tools
 
 ---
+
+-   [VSCode](https://code.visualstudio.com/)
+-   [GitHub](https://github.com/)
+-   [Heroku](https://www.heroku.com/)
+-   [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/)
+-   [Sizzy](https://sizzy.co/)
+-   [Balsamiq](https://balsamiq.com/)
+-   [Coolors colour palette generator](https://coolors.co/)
+-   [W3C HTML Validation Service](https://validator.w3.org/)
+-   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+-   [JSHint](https://jshint.com)
 
 ## Testing
 
@@ -159,6 +182,24 @@ Please refer to the separate [TESTING.md](TESTING.md)
 ---
 
 ---
+
+ADD HEROKU DEPLOYMENT STEPS!!!!!
+
+-   Forking
+    If you wish to use this repository as a starting point or to propose changes to this project, you can fork it. Follow the steps below.
+
+    1. Navigate to the repository [Ryagg/st-archive](https://github.com/Ryagg/st-archive)
+    2. Click 'Fork' in the top-right corner.
+
+-   Cloning
+    Cloning a repository creates a local copy on your computer. Follow the steps below.
+    1. Navigate to the repository [Ryagg/st-archive](https://github.com/Ryagg/st-archive)
+    2. Click 'Code' above the list of files.
+    3. In the new window, cloning using HTTPS is the default option. Copy the provided link manually or by clicking on the clipboard symbol.
+    4. Open Git Bash.
+    5. Navigate to your desired directory for the cloned project.
+    6. Type 'git clone' followed by the URL copied in step 3.
+    7. Press **Enter** to create your local clone.
 
 ## Credits
 
