@@ -39,8 +39,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            # user is not added to db, but flash doesn't work or disappears too quickly!
-            flash("Username already exists")
+            flash("You have entered an invalid username or password")
             return redirect(url_for("register"))
 
         # create dictionary to be inserted into the database
