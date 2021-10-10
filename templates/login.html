@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="hero hero_bg--register">
+<section class="hero hero_bg">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title is-1 has-text-centered has-text-white">Log in</h1>
+            <h1 class="title is-1 has-text-centered hero_heading">Log in</h1>
             <form class="form" method="POST" action="{{ url_for('login') }}">
                 <!-- Username -->
                 <div class="columns is-centered">
                     <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                         <div class="field">
-                            <label for="username" class="is-size-4 has-text-white has-text-weight-normal">Username
+                            <label for="username" class="is-size-4 has-text-weight-normal">Username
                                 </label>
                             <div class="control has-icons-left">
                                 <input id="username" name="username" class="input is-link" type="text" minlength="5"
@@ -29,7 +29,7 @@
                     <!-- check pattern! -->
                     <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                         <div class="field">
-                            <label for="password" class="is-size-4 has-text-white-bis has-text-weight-medium">Password
+                            <label for="password" class="is-size-4 has-text-weight-medium">Password
                                 </label>
                             <div class="control has-icons-left">
                                 <input id="password" name="password" class="input is-link" type="password" minlength="5"

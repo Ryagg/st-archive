@@ -1,9 +1,8 @@
 /*----- CUSTOM VARIABLES -----*/
 :root {
-    --color-midnight: #050b64;
-    --color-darkslateblue: #214d7e;
-    --color-lightsteelblue: #9bc6da;
-    --color-ghostwhite: #f8f8f8;
+    --color-navyblue: #000088;
+    --color-trueblue: #3366cc;
+    --color-periwinklecrayola: #ccddff;
     --padding: 2rem 1rem 2rem;
 }
 /*
@@ -39,10 +38,6 @@ h6 {
     font-family: "Millennium W03 Bd Extended", sans-serif;
 }
 
-.text--smaller-fontweight {
-    font-weight: 400;
-}
-
 /*----- WRAPPER -----*/
 .page_wrapper {
     display: flex;
@@ -55,23 +50,26 @@ h6 {
 
 /*----- NAVBAR -----*/
 .navbar_bg {
-    background-color: var(--color-ghostwhite);
+    background-color: var(--color-periwinklecrayola);
 }
 
+.navbar-item {
+    color: #0a0a0a;
+}
 /*----- FOOTER -----*/
 .footer_padding--less {
     padding: var(--padding);
 }
 
 /*----- CONTAINERS -----*/
-.hero_bg--register {
-    background-color: var(--color-midnight);
+.hero_heading {
+    color: var(--color-periwinklecrayola);
+}
+.hero_bg {
+    background-color: var(--color-navyblue);
+    color: var(--color-periwinklecrayola);
 }
 
-.hero_bg--register2 {
-    background-color: var(--color-lightsteelblue);
-}
-
-.card_bg--register {
-    background-color: var(--color-darkslateblue);
+.hero_card {
+    background-color: var(--color-trueblue);
 }
