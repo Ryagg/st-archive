@@ -16,7 +16,7 @@
 <body class="has-navbar-fixed-top">
 
     <header>
-        <nav class="navbar is-black is-fixed-top has-shadow">
+        <nav class="navbar is-size-3 is-fixed-top navbar_bg">
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{{ url_for('index') }}">
@@ -36,7 +36,7 @@
                         <a class="navbar-item" href="{{ url_for('register') }}">
                             Register
                         </a>
-                        <a class="navbar-item is-active" href="{{ url_for('login') }}">
+                        <a class="navbar-item" href="{{ url_for('login') }}">
                             Log in
                         </a>
                         <a class="navbar-item" href="{{ url_for('copyrights') }}">
@@ -54,15 +54,15 @@
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <div class="columns flashes my-5">
-            <div class="column">
-                <h3 class="title is-3 has-text-centered">{{ message }}</h3>
-            </div>
-        </div>
-        {% endfor %}
-        {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="columns flashes my-5">
+                        <div class="column">
+                            <h3 class="title is-3 has-text-centered">{{ message }}</h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
         {% endwith %}
     </section>
 
@@ -70,6 +70,29 @@
     {% block content %}
     {% endblock %}
 
+    <footer class="footer navbar_bg footer_padding--less">
+        <div class="level">
+            <div class="level-left">
+                <div class="level-item is-size-4">
+                    &copy; Copyright 2021 - Scott Boening.
+                </div>
+            </div>
+            <div class="level-right">
+                <div class="level-item">
+                    <a href="http://www.twitter.com/scottboening" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-lg fa-twitter" aria-hidden="true"></i>
+                        <span class="sr-only sr-only-focusable">Twitter</span>
+                    </a>
+                </div>
+                <div class="level-item">
+                    <a href="https://github.com/Ryagg" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-lg fa-github" aria-hidden="true"></i>
+                        <span class="sr-only sr-only-focusable">Github profile</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -79,6 +102,7 @@
     -->
     {% block scripts %}
     {% endblock %}
+
 </body>
 
 </html>

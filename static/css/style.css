@@ -3,6 +3,7 @@
     --color-midnight: #050b64;
     --color-darkslateblue: #214d7e;
     --color-lightsteelblue: #9bc6da;
+    --color-ghostwhite: #f8f8f8;
 }
 /*
 This CSS resource ("Millennium W03 Bd Extended", name added my me for clarification) incorporates links to font software which is the valuable copyrighted property of Monotype and/or its suppliers.
@@ -39,6 +40,11 @@ h6 {
 
 .text--smaller-fontweight {
     font-weight: 400;
+}
+
+/*----- NAVBAR -----*/
+.navbar_bg {
+    background-color: var(--color-ghostwhite);
 }
 
 /*----- CONTAINERS -----*/
