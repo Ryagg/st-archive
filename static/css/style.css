@@ -1,9 +1,10 @@
-/*----- CUSTOM COLORS -----*/
+/*----- CUSTOM VARIABLES -----*/
 :root {
     --color-midnight: #050b64;
     --color-darkslateblue: #214d7e;
     --color-lightsteelblue: #9bc6da;
     --color-ghostwhite: #f8f8f8;
+    --padding: 2rem 1rem 2rem;
 }
 /*
 This CSS resource ("Millennium W03 Bd Extended", name added my me for clarification) incorporates links to font software which is the valuable copyrighted property of Monotype and/or its suppliers.
@@ -42,9 +43,24 @@ h6 {
     font-weight: 400;
 }
 
+/*----- WRAPPER -----*/
+.page_wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.content_wrapper {
+    flex: 1;
+}
+
 /*----- NAVBAR -----*/
 .navbar_bg {
     background-color: var(--color-ghostwhite);
+}
+
+/*----- FOOTER -----*/
+.footer_padding--less {
+    padding: var(--padding);
 }
 
 /*----- CONTAINERS -----*/
