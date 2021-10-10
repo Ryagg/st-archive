@@ -53,6 +53,9 @@ ST-Archive provides an overview of the novels from the various series across the
 
 #### Colour Scheme
 
+To match the site's theme, the following colour scheme was created:
+![Colour palette](images/readme/colour-palette.png) It aims to replicate the colours used for LCARS in Star Trek: The Next Generation, which are familiar to every Star Trek fan. Please refer to the Credit section for more info.
+
 #### Typography
 
 To match the site's theme, the following fonts were used:
@@ -206,6 +209,8 @@ ADD HEROKU DEPLOYMENT STEPS!!!!!
 ---
 
 ---
+
+The colours for my colour palette were taken from [Steven Cote's](https://codepen.io/Mokurunner) superb [LCARS Hex Chart on codepen](https://codepen.io/Mokurunner/pen/eqtHl). The licence can be found [here](https://codepen.io/Mokurunner/details/eqtHl) at the bottom of the page.
 
 ### Media
 
