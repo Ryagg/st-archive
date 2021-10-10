@@ -56,7 +56,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash(f'Registration successful! Welcome to ST-Archive, {request.form.get("username")}')
+        flash(f'Registration successful! Welcome to ST-Archive, {request.form.get("username").capitalize()}')
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
@@ -104,6 +104,13 @@ def profile(username):
 
     return redirect(url_for("login"))
 
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 @app.route("/copyrights")
 def copyrights():

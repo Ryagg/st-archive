@@ -53,7 +53,8 @@ h6 {
     background-color: var(--color-periwinklecrayola);
 }
 
-.navbar-item {
+.navbar-item,
+.navbar-link {
     color: #0a0a0a;
 }
 /*----- FOOTER -----*/
