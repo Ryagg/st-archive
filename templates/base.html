@@ -39,6 +39,9 @@
                         <a class="navbar-item" href="{{ url_for('login') }}">
                             Log in
                         </a>
+                        <a class="navbar-item" href="{{ url_for('profile', username=session['user']) }}">
+                            Profile
+                        </a>
                         <a class="navbar-item" href="{{ url_for('copyrights') }}">
                             Copyright
                         </a>
@@ -51,24 +54,24 @@
         </nav>
     </header>
     <div class="content_wrapper">
-    <section>
-        <!-- flash messages -->
-        {% with messages = get_flashed_messages() %}
+        <section>
+            <!-- flash messages -->
+            {% with messages = get_flashed_messages() %}
             {% if messages %}
-                {% for message in messages %}
-                    <div class="columns flashes my-5">
-                        <div class="column">
-                            <h3 class="title is-3 has-text-centered">{{ message }}</h3>
-                        </div>
-                    </div>
-                {% endfor %}
+            {% for message in messages %}
+            <div class="columns flashes my-5">
+                <div class="column">
+                    <h3 class="title is-3 has-text-centered">{{ message }}</h3>
+                </div>
+            </div>
+            {% endfor %}
             {% endif %}
-        {% endwith %}
-    </section>
+            {% endwith %}
+        </section>
 
-    <!-- need to add sections with different classes and containers in each template file!!! -->
-    {% block content %}
-    {% endblock %}
+        <!-- need to add sections with different classes and containers in each template file!!! -->
+        {% block content %}
+        {% endblock %}
     </div>
     <footer class="footer has-text-black navbar_bg footer_padding--less">
         <div class="level">
