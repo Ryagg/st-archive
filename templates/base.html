@@ -41,7 +41,8 @@
                             </a>
                             <div class="navbar-dropdown">
                                 {% if session.user %}
-                                <a class="navbar-item is-size-3" href="{{ url_for('profile', username=session['user']) }}">
+                                <a class="navbar-item is-size-3"
+                                    href="{{ url_for('profile', username=session['user']) }}">
                                     Profile
                                 </a>
                                 <a class="navbar-item is-size-3" href="{{ url_for('logout') }}">
@@ -73,15 +74,15 @@
         <section>
             <!-- flash messages -->
             {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="columns flashes my-5">
-                            <div class="column">
-                                <h3 class="title is-3 has-text-centered">{{ message }}</h3>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="columns flashes my-5">
+                <div class="column">
+                    <h3 class="title is-3 has-text-centered">{{ message }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
             {% endwith %}
         </section>
 
@@ -93,20 +94,20 @@
     <footer class="footer has-text-black navbar_bg footer_padding--less">
         <div class="level">
             <div class="level-left">
-                <div class="level-item is-size-4">
+                <div class="level-item is-size-4 footer_copyright">
                     &copy; Copyright 2021 - Scott Boening.
                 </div>
             </div>
             <div class="level-right">
                 <div class="level-item">
                     <a href="http://www.twitter.com/scottboening" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-lg fa-twitter" aria-hidden="true"></i>
+                        <i class="fab fa-lg fa-twitter footer_social" aria-hidden="true"></i>
                         <span class="sr-only sr-only-focusable">Twitter</span>
                     </a>
                 </div>
                 <div class="level-item">
                     <a href="https://github.com/Ryagg" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-lg fa-github" aria-hidden="true"></i>
+                        <i class="fab fa-lg fa-github footer_social" aria-hidden="true"></i>
                         <span class="sr-only sr-only-focusable">Github profile</span>
                     </a>
                 </div>

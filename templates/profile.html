@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="hero hero_bg">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title is-1 has-text-centered hero_heading">{{ username.capitalize() }}'s Profile</h1>
-            <div>
+    <section class="hero is-fullheight-with-navbar hero_bg">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1 has-text-centered hero_heading">{{ username.capitalize() }}'s Profile</h1>
+                <div class=columns>
+                    <div class="column">
+                        <div class="card">
+                            <header class="card-header hero_card">
+                                <p class="card-header-title is-size-3 has-text-white-bis">
+                                    My favourite series
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content is-size-4">
+                                    <ul>
 
             </div>
 
