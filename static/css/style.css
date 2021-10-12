@@ -74,3 +74,8 @@ h6 {
 .hero_card {
     background-color: var(--color-trueblue);
 }
+
+/*----- CARDS -----*/
+.card_footer--kobe {
+    color: #882211;
+}
