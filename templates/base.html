@@ -30,33 +30,49 @@
                     </span>
                 </div>
                 <div id="navbarMenu" class="navbar-menu">
-                    <div class="navbar-end">
+                    <div class="navbar-start">
                         <a class="navbar-item" href="{{ url_for('index') }}">
                             Home
                         </a>
-                        <!-- Dropdown with template logic -->
+                        <!-- Dropdown with dynamic URLs -->
                         <div class="navbar-item has-dropdown is-hoverable">
                             <a class="navbar-link">
-                                Account
+                                Series
                             </a>
                             <div class="navbar-dropdown">
-                                {% if session.user %}
-                                <a class="navbar-item is-size-3"
-                                    href="{{ url_for('profile', username=session['user']) }}">
-                                    Profile
-                                </a>
-                                <a class="navbar-item is-size-3" href="{{ url_for('logout') }}">
-                                    Log Out
-                                </a>
-                                {% else %}
-                                <a class="navbar-item is-size-3" href="{{ url_for('login') }}">
-                                    Login
-                                </a>
-                                <a class="navbar-item is-size-3" href="{{ url_for('register') }}">
-                                    Register
-                                </a>
-                                {% endif %}
+                                {% for show in series %}
+                                    <a class="navbar-item is-size-3" href="{{ url_for('series', show=show) }}">
+                                        {{ show.series_name }}
+                                    </a>
+                                {% endfor %}
                             </div>
+                        </div>
+                    </div>
+                    <div class="navbar-end">
+
+                        <!-- Dropdown with template logic -->
+                        <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">
+                                    Account
+                                </a>
+                                <div class="navbar-dropdown">
+                                    {% if session.user %}
+                                    <a class="navbar-item is-size-3"
+                                        href="{{ url_for('profile', username=session['user']) }}">
+                                        Profile
+                                    </a>
+                                    <a class="navbar-item is-size-3" href="{{ url_for('logout') }}">
+                                        Log Out
+                                    </a>
+                                    {% else %}
+                                    <a class="navbar-item is-size-3" href="{{ url_for('login') }}">
+                                        Login
+                                    </a>
+                                    <a class="navbar-item is-size-3" href="{{ url_for('register') }}">
+                                        Register
+                                    </a>
+                                    {% endif %}
+                                </div>
                         </div>
                         <a class="navbar-item" href="{{ url_for('copyrights') }}">
                             Copyright

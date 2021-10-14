@@ -16,10 +16,10 @@
                     </p>
 
                 <div class="columns">
-                    {% for serie in series %}
+                    {% for show in series %}
                     <div class="column">
                         <div class="list">
-                            <a clas="list-item">{{ serie.series_name }}</a>
+                            <a id="{{ show.series_name }}" class="list-item" href="/series/{{ show.series_name }}">{{ show.series_name }}</a>
                         </div>
                     </div>
                     {% endfor %}
