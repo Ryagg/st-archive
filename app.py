@@ -21,8 +21,8 @@ mongo = PyMongo(app, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
 
 @app.route("/")
 def index():
-    series = list(mongo.db.series.find())
-    return render_template("index.html", series=series)
+    st_series = list(mongo.db.series.find())
+    return render_template("index.html", series=st_series)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -33,6 +33,7 @@ def register():
     since they will be added to the database at a later point.
     Set 'is_admin' to false by default for all users.
     """
+    st_series = list(mongo.db.series.find())
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -58,12 +59,13 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash(f'Registration successful! Welcome to ST-Archive, {request.form.get("username").capitalize()}')
         return redirect(url_for("profile", username=session["user"]))
-    return render_template("register.html")
+    return render_template("register.html", series=st_series)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """sumary_line"""
+    st_series = list(mongo.db.series.find())
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -86,7 +88,7 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("login.html")
+    return render_template("login.html", series=st_series)
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -96,17 +98,19 @@ def profile(username):
     Fetch only the username from the db and redirect user in session to the profile page.
     Return user not in session to the login page.
     """
+    st_series = list(mongo.db.series.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, series=st_series)
 
     return redirect(url_for("login"))
 
 
 @app.route("/logout")
 def logout():
+    st_series = list(mongo.db.series.find())
     # remove user from session cookies
     flash("You have been logged out")
     session.pop("user")
@@ -115,7 +119,16 @@ def logout():
 @app.route("/copyrights")
 def copyrights():
     """Render page with info about copyrights and licenses."""
-    return render_template("copyrights.html")
+    st_series = list(mongo.db.series.find())
+    return render_template("copyrights.html", series=st_series)
+
+
+@app.route("/series/<show>")
+def series(show):
+    st_series = mongo.db.series.find()
+    if show in st_series:
+        show = st_series.series_name["series_name"]
+    return render_template("series.html", show=show, series=st_series)
 
 
 if __name__ == "__main__":
