@@ -123,12 +123,18 @@ def copyrights():
     return render_template("copyrights.html", series=st_series)
 
 
-@app.route("/series/<show>")
-def series(show):
-    st_series = mongo.db.series.find()
-    if show in st_series:
-        show = st_series.series_name["series_name"]
-    return render_template("series.html", show=show, series=st_series)
+@app.route("/series/")
+def series():
+    """Display information about books in the db.
+
+    Show book cover, title, number, info about available bookformats.
+    Display blurb.
+    Let user mark book as finished, or add it to favourites or user's wish list.
+    """
+    st_series = list(mongo.db.series.find())
+    books = list(mongo.db.books.find())
+
+    return render_template("series.html/", series=st_series, books=books)
 
 
 if __name__ == "__main__":

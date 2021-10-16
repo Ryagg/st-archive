@@ -41,7 +41,7 @@
                             </a>
                             <div class="navbar-dropdown">
                                 {% for show in series %}
-                                    <a class="navbar-item is-size-3" href="{{ url_for('series', show=show) }}">
+                                    <a class="navbar-item is-size-3" href="/series/#{{ show.series_name }}">
                                         {{ show.series_name }}
                                     </a>
                                 {% endfor %}
