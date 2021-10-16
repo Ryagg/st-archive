@@ -137,6 +137,16 @@ def series():
     return render_template("series.html/", series=st_series, books=books)
 
 
+@app.route("/add_review/")
+def add_review():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    st_series = list(mongo.db.series.find())
+    review_book = request.args['title']
+
+    return render_template("review.html", username=username,
+    series=st_series, review_book=review_book)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
