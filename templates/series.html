@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section class="hero is-fullheight-with-navbar has-background-info-light">
+        <div class="hero-body">
+            <div class="container">
+                {% for show in series %}
+                    <section id="show.series_name" class="mb-5">
+                        <!-- Series title -->
+                        <div class="row columns is-centered is-multiline ">
+                            <div class="column is-12 has-text-centered hero_card">
+                                <h1 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-white my-5">{{
+                                    show.series_name }}</h1>
+                                <button class="button hero_bg" type="submit">
+                                    <span class="icon">
+                                        <i class="fal fa-star"></i>
+                                    </span>
+                                    <span>Add series to Favourites</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section> <!-- section series -->
+                        <!-- Books in series -->
+                        <div class="row columns is-multiline">
+                            {% for book in books|sort(attribute="number") if book.series_code == show.series_code %}
+                                <div class="column is-6-desktop my-3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <figure class="image is-150x270">
+                                                <img src="{{ book.cover }}" alt="Book cover for {{ book.title }}">
+                                            </figure>
+                                        </div>
+                                        <div class="card-content">
+                                            <h2 class="title is-2">{{ book.title }}</h2>
+                                                {% if not book.number == "null" %}
+                                                    <h3 class="subtitle is-3">Book number {{book.number}}</h3>
+                                                {% else %}
+                                                    <h3 class="subtitle is-3">Unnumbered book</h3>
+                                                {% endif %}
+                                            <div class="book-list__info is-size-4">
+                                                <ul>
+                                                    <li>
+                                                        ebook
+                                                        <!-- needs the "equals true" or miniseries gets checked-->
+                                                        <!-- does work as intended for PIC and DIS, but not for the other series-->
+                                                        {% if book.e_book == "true" %}
+                                                            <span class="icon ml-2">
+                                                                <i class="fal fa-border fa-check"></i>
+                                                            </span>
+                                                        {% endif %}
+                                                    </li>
+                                                    <li>
+                                                        paperbook
+                                                        {% if book.paper_book == "true" %}
+                                                            <span class="icon ml-2">
+                                                                <i class="fal fa-border fa-check"></i>
+                                                            </span>
+                                                        {% endif %}
+                                                    </li>
+                                                    <li>
+                                                    audiobook
+                                                        {% if book.audio_book == "true" %}
+                                                            <span class="icon ml-2">
+                                                                <i class="fal fa-border fa-check"></i>
+                                                            </span>
+                                                        {% endif %}
+                                                    </li>
+                                                    <li>
+                                                        part of miniseries
+                                                        {% if book.part_of_mini_series == "true" %}
+                                                            <span class="icon ml-2">
+                                                                <i class="fal fa-border fa-check"></i>
+                                                            </span>
+                                                        {% endif %}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="content is-size-4 my-3">
+                                                {{ book.blurb }}
+                                            </div>
+                                        </div>
+                                        <!-- Buttons for user actions -->
+                                        <footer class="card-footer">
+                                            <div class="buttons is-centered">
+                                                <div class="columns">
+                                                    <div class="column">
+                                                        <div class="control">
+                                                            <input class="button is-link" type="submit" value="Finished">
+                                                        </div>
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="control">
+                                                            <input class="button is-link" type="submit" value="Add to Favourites">
+                                                        </div>
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="control">
+                                                            <input class="button is-link" type="submit" value="Add to wish list">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </footer>
+                                    </div> <!-- card -->
+                                </div> <!-- column book -->
+                            {% endfor %} <!-- don't move! -->
+                        </div> <!-- columns book -->
+                {% endfor %} <!-- don't move! -->
+            </div> <!-- container -->
+        </div> <!-- hero body -->
+    </section> <!-- section hero -->
+{% endblock %}
