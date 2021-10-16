@@ -85,17 +85,22 @@
                                                 <div class="columns">
                                                     <div class="column">
                                                         <div class="control">
-                                                            <input class="button is-link" type="submit" value="Finished">
+                                                            <a class="button is-link" href="">Finished</a>
                                                         </div>
                                                     </div>
                                                     <div class="column">
                                                         <div class="control">
-                                                            <input class="button is-link" type="submit" value="Add to Favourites">
+                                                            <a class="button is-link" href="">Add to Favourites</a>
                                                         </div>
                                                     </div>
                                                     <div class="column">
                                                         <div class="control">
-                                                            <input class="button is-link" type="submit" value="Add to wish list">
+                                                            <a class="button is-link" href="">Add to wish list</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="control">
+                                                            <a class="button is-link" href="{{ url_for('add_review', title=book.title) }}">Add review</a>
                                                         </div>
                                                     </div>
                                                 </div>
