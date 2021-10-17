@@ -1,35 +1,56 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="hero is-fullheight-with-navbar">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title is-1 has-text-centered">Hello, {{ username.capitalize() }} </h1>
+    <section class="hero is-fullheight-with-navbar">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1 has-text-centered">Hello, {{ username.capitalize() }} </h1>
                 <p class="subtitle is-2 has-text-centered">
-                    Thanks for adding your review for '{{ review_book }}'!
+                    Thanks for adding your review!
                 </p>
 
-            <form class="form" method="POST" action="{{ url_for('add_review') }}">
-                <div class="control">
-                    <input class="input is-size-4" type="text" value="This review is for: {{ review_book }}" readonly>
-                </div>
-                <textarea class="textarea is-medium mb-4" placeholder="Write your review here" rows="10"></textarea>
-            <!-- Buttons -->
-                <div class="columns is-centered">
-                    <div class="column is-6-tablet is-5-desktop is-4-widescreen">
-                        <div class="field is-grouped">
-                            <div class="control">
-                                <input class="button is-link" type="submit" value="Submit">
-                            </div>
-                            <div class="control">
-                                <button class="button is-link" type="reset" value="Clear form">Clear form
+                <form class="form" method="POST" action="{{ url_for('add_review') }}">
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 has-text-weight-normal" for="book_title">Book title</label>
+                                <div class="control">
+                                    <input id="book_title" name="book_title" class="input is-size-4" type="text"
+                                        value="{{ review_book }}" readonly>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 has-text-weight-normal" for="review_text">Review</label>
+                                <div class="control">
+                                    <textarea id="review_text" name="review_text" class="textarea is-medium mb-4" type="text"
+                                        placeholder="Write your review here" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <input class="button is-link" type="submit" value="Submit">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-link" type="reset" value="Clear form">Clear form
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 {% endblock %}
