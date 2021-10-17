@@ -137,8 +137,20 @@ def series():
     return render_template("series.html/", series=st_series, books=books)
 
 
-@app.route("/add_review/")
+@app.route("/add_review/", methods=["GET", "POST"])
 def add_review():
+    """Get user review and add it to the db."""
+    if request.method == "POST":
+        review = {
+            "book_title": request.form.get("book_title"),
+            "review_text": request.form.get("review_text"),
+            "created_by": session["user"].capitalize()
+        }
+        mongo.db.reviews.insert_one(review)
+        flash("Incoming message from ST-Archive:"
+        "Your review has been successfuly transmitted! ST-Archive out.")
+        return redirect(url_for("series"))
+
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     st_series = list(mongo.db.series.find())
