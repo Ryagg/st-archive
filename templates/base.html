@@ -41,38 +41,41 @@
                             </a>
                             <div class="navbar-dropdown">
                                 {% for show in series %}
-                                    <a class="navbar-item is-size-3" href="/series/#{{ show.series_name }}">
-                                        {{ show.series_name }}
-                                    </a>
+                                <a class="navbar-item is-size-3" href="/series/#{{ show.series_name }}">
+                                    {{ show.series_name }}
+                                </a>
                                 {% endfor %}
                             </div>
                         </div>
+                        <a class="navbar-item" href="{{ url_for('reviews') }}">
+                            Reviews
+                        </a>
                     </div>
                     <div class="navbar-end">
 
                         <!-- Dropdown with template logic -->
                         <div class="navbar-item has-dropdown is-hoverable">
-                                <a class="navbar-link">
-                                    Account
+                            <a class="navbar-link">
+                                Account
+                            </a>
+                            <div class="navbar-dropdown">
+                                {% if session.user %}
+                                <a class="navbar-item is-size-3"
+                                    href="{{ url_for('profile', username=session['user']) }}">
+                                    Profile
                                 </a>
-                                <div class="navbar-dropdown">
-                                    {% if session.user %}
-                                    <a class="navbar-item is-size-3"
-                                        href="{{ url_for('profile', username=session['user']) }}">
-                                        Profile
-                                    </a>
-                                    <a class="navbar-item is-size-3" href="{{ url_for('logout') }}">
-                                        Log Out
-                                    </a>
-                                    {% else %}
-                                    <a class="navbar-item is-size-3" href="{{ url_for('login') }}">
-                                        Login
-                                    </a>
-                                    <a class="navbar-item is-size-3" href="{{ url_for('register') }}">
-                                        Register
-                                    </a>
-                                    {% endif %}
-                                </div>
+                                <a class="navbar-item is-size-3" href="{{ url_for('logout') }}">
+                                    Log Out
+                                </a>
+                                {% else %}
+                                <a class="navbar-item is-size-3" href="{{ url_for('login') }}">
+                                    Login
+                                </a>
+                                <a class="navbar-item is-size-3" href="{{ url_for('register') }}">
+                                    Register
+                                </a>
+                                {% endif %}
+                            </div>
                         </div>
                         <a class="navbar-item" href="{{ url_for('copyrights') }}">
                             Copyright

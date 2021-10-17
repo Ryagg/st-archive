@@ -166,9 +166,18 @@ def add_review():
     book_series = mongo.db.books.find_one(
         {"title": review_book})["series_code"]
 
-
     return render_template("review.html", username=username,
     series=st_series, review_book=review_book, book_series=book_series)
+
+
+@app.route("/reviews")
+def reviews():
+    """Render page with all reviews sorted by series and within a series by number."""
+
+    st_series = list(mongo.db.series.find())
+    all_reviews = list(mongo.db.reviews.find())
+    return render_template("reviews.html", series=st_series, all_reviews=all_reviews)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

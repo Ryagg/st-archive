@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section class="hero is-fullheight-with-navbar has-background-info-light">
+        <div class="hero-body">
+            <div class="container">
+                {% for show in series %}
+                    <section id="show.series_name" class="mb-5">
+                        <!-- Series title -->
+                        <div class="row columns is-centered is-multiline ">
+                            <div class="column is-12 has-text-centered hero_card">
+                                <h1 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-white my-5">{{
+                                    show.series_name }}</h1>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="columns is-multiline">
+                            {% if all_reviews|length > 0 %}
+                                {% for review in all_reviews|sort(attribute="number") if review.book_series == show.series_code %}
+                                    <div class="column">
+                                        <div class="card mb-4">
+                                            <header class="card-header">
+                                                <p class="card-header-title is-size-3">
+                                                {{ review.book_title }}
+                                                </p>
+                                            </header>
+                                            <div class="card-content">
+                                                <p class="content is-size-4">
+                                                {{ review.review_text }}
+                                                </p>
+                                                <p class="subtitle is-size-4">
+                                                    Review written by: {{ review.created_by }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            {# ADD FILTER FOR SERIES REVIEWS = 0. Code beneath and similar alterations don't work.
+                            elif all_reviews.book_series|length == 0
+                                <p class="is-size-4 mb-4">No reviews yet.</p>
+                                #}
+                            {% else %}
+                                <p class="is-size-4 mb-4">No reviews yet.</p>
+                            {% endif %}
+                        </div>
+                    </section>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
