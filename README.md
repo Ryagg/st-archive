@@ -69,6 +69,8 @@ For all other text the Okuda font, which is based on the computer lettering (the
 
 #### Icons
 
+All icons are from [Font Awesome](https://fontawesome.com). Please refer to the Bug section for info about why not all buttons have been styled with icons.
+
 #### Imagery
 
 ### Wireframes
@@ -85,13 +87,13 @@ All wireframes for this project can be found in the [wireframes sub-directory](h
 ![Database Schema](images/readme/db-scheme.png)
 The project uses 4 collections which are stored in MongoDB.
 
--   The **users** collection stores the username, password and email to enable the user to create an account with a profile page and - as a future feature - to be notified if new books are added to series from his favourites list. Books that have been added to either the favourites list or the whish list, and series that have been added to the favourites list are also stored. Furthermore, information about whether a user is also an admin are stored.
+-   The **users** collection stores the username, password and email to enable the user to create an account with a profile page and - as a future feature - to be notified if new books are added to series from his favourites list. Books that have been added to either the favourites list or the whish list, and series that have been added to the favourites list, and all reviews written by the user are also stored. Furthermore, information about whether a user is also an admin are stored.
 
--   The **series** collection stores the name and the code (e.g. 'DIS' for 'Discovery') for each series. It also stores information about whether the series has ended.
+-   The **series** collection stores the name and the code (e.g. 'DSC' for 'Discovery') for each series. It also stores information about whether the series has ended.
 
 -   The **books** collection stores the title, ISBN, blurb and number (within a series) of each book. It also holds the URL for the book cover as well as information about in which format (e-book, paper book and audiobook) the book is available and whether it is part of a mini-series. The 'timespan_start' is the 'stardate' at which the story starts and can be used - as a future feature - to sort books by 'stardate'. The status can be either 'published' or 'announced'.
 
--   The **reviews** collection stores the ObjectId and username from the user that wrote the review, and the title of the book being reviewed.
+-   The **reviews** collection stores the ObjectId, the username from the user that wrote the review, the title and series of the book being reviewed, and the review itself.
 
 ## Features
 
@@ -180,13 +182,13 @@ Please refer to the separate [TESTING.md](TESTING.md)
 
 ---
 
+Please refer to the separate [TESTING.md](TESTING.md)
+
 ## Deployment
 
 ---
 
 ---
-
-ADD HEROKU DEPLOYMENT STEPS!!!!!
 
 -   Forking
     If you wish to use this repository as a starting point or to propose changes to this project, you can fork it. Follow the steps below.
@@ -196,6 +198,7 @@ ADD HEROKU DEPLOYMENT STEPS!!!!!
 
 -   Cloning
     Cloning a repository creates a local copy on your computer. Follow the steps below.
+
     1. Navigate to the repository [Ryagg/st-archive](https://github.com/Ryagg/st-archive)
     2. Click 'Code' above the list of files.
     3. In the new window, cloning using HTTPS is the default option. Copy the provided link manually or by clicking on the clipboard symbol.
@@ -203,6 +206,21 @@ ADD HEROKU DEPLOYMENT STEPS!!!!!
     5. Navigate to your desired directory for the cloned project.
     6. Type 'git clone' followed by the URL copied in step 3.
     7. Press **Enter** to create your local clone.
+
+-   Deploy remotely
+    To deploy the site remotely on [Heroku](https://www.heroku.com/) please follow the steps below.
+    1. Create either a **requirements.txt** file or a **Pipfile**, if using pipenv, to enable Heroku to install the required dependencies for the app.
+    2. Create a **Procfile** with the content `web:python app.py`. Remove any blank lines at the end as they may cause errors.
+    3. Register a free Heroku account, if you don't have one already, sign in and create the app.
+    4. Select the **Deploy** tab and choose **Github** as **Deployment method**.
+    5. Select the **Settings** tab and click on **Reveal Config Vars** in the section **Config Vars**. Enter your key-value-pairs from your **env.py** file without the quotes. The following variables should be added:
+        - IP: `0.0.0.0`
+        - PORT: `5000` (other ports may work as well)
+        - SECRET_KEY: `<your secret key>`
+    6. Push the **Procfile** to your Github repo.
+    7. Back under the **Deploy** tab in Heroku enable **Automatic deploys**.
+    8. Select the **main branch** and click on **Deploy branch**.
+    9. Wait for the message 'Your app was successfully deployed' and then click **View** to start your app in the browser.
 
 ## Credits
 
