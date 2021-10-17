@@ -149,6 +149,10 @@ def add_review():
         mongo.db.reviews.insert_one(review)
         flash("Incoming message from ST-Archive:"
         "Your review has been successfuly transmitted! ST-Archive out.")
+        mongo.db.users.update_one(
+            {"username": session["user"]},
+            {"$push": {"user_reviews": review}}
+        )
         return redirect(url_for("series"))
 
     username = mongo.db.users.find_one(
