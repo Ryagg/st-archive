@@ -94,7 +94,14 @@
                             <div class="card-content">
                                 <div class="content is-size-4">
                                     <ul>
-
+                                        {% if user_reviews|length > 0 %}
+                                            {% for review in user_reviews|sort(attribute="book_series") %}
+                                                <li>{{ review.book_series }}:  {{ review.book_title }}</li>
+                                                <p>{{ review.review_text }}</p>
+                                            {% endfor %}
+                                        {% else %}
+                                            <p class="is-size-4">You haven't added any reviews yet. </p>
+                                        {% endif %}
                                     </ul>
                                 </div>
 

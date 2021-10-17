@@ -101,9 +101,12 @@ def profile(username):
     st_series = list(mongo.db.series.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    user_reviews = list(mongo.db.reviews.find(
+        {"created_by": session["user"].capitalize()}
+    ))
     if session["user"]:
-        return render_template("profile.html", username=username, series=st_series)
+        return render_template("profile.html", username=username,
+        user_reviews=user_reviews, series=st_series)
 
     return redirect(url_for("login"))
 
@@ -142,6 +145,7 @@ def add_review():
     """Get user review and add it to the db."""
     if request.method == "POST":
         review = {
+            "book_series": request.form.get("book_series"),
             "book_title": request.form.get("book_title"),
             "review_text": request.form.get("review_text"),
             "created_by": session["user"].capitalize()
@@ -159,9 +163,12 @@ def add_review():
         {"username": session["user"]})["username"]
     st_series = list(mongo.db.series.find())
     review_book = request.args['title']
+    book_series = mongo.db.books.find_one(
+        {"title": review_book})["series_code"]
+
 
     return render_template("review.html", username=username,
-    series=st_series, review_book=review_book)
+    series=st_series, review_book=review_book, book_series=book_series)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
