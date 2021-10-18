@@ -1,5 +1,6 @@
 import os
 import ssl
+from bson.objectid import ObjectId
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -169,6 +170,41 @@ def add_review():
     return render_template("review.html", username=username,
     series=st_series, review_book=review_book, book_series=book_series)
 
+
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
+    """Update user's own review and update it in the user profile and reviews page."""
+    if request.method == "POST":
+        updated_review = {
+            "book_series": request.form.get("book_series"),
+            "book_title": request.form.get("book_title"),
+            "review_text": request.form.get("review_text"),
+            "created_by": session["user"].capitalize()
+        }
+
+        mongo.db.reviews.update_one(
+            {"_id": ObjectId(review_id)},
+            {"$set":
+            {"review_text": updated_review["review_text"]
+            }}
+            )
+
+        flash("Incoming message from ST-Archive:"
+        "Your update to your review has been successfuly transmitted! ST-Archive out.")
+
+        mongo.db.users.update_one(
+            {"username": session["user"],"_id": ObjectId(review_id),},
+            {"$set":
+            {"review_text": updated_review["review_text"]
+            }}
+        )
+        return redirect(url_for("profile", username=session["user"]))
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    st_series = list(mongo.db.series.find())
+    return render_template("edit_review.html", series=st_series, username=username, review=review)
 
 @app.route("/reviews")
 def reviews():
