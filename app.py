@@ -193,6 +193,19 @@ def edit_review(review_id):
     st_series = list(mongo.db.series.find())
     return render_template("edit_review.html", series=st_series, username=username, review=review)
 
+
+@app.route("/delete_review/<review_id>")
+def delete_review(review_id):
+    """Allow user to delete his or her own reviews.
+
+    Show confirmation dialogue before actually deleting the review.
+    Give user the ability to cancel the process and return to the profile page.
+    """
+    mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
+    flash("Message from ST-Archive incoming: Review successfully deleted from memory banks")
+    return redirect(url_for("profile", username=session["user"]))
+
+
 @app.route("/reviews")
 def reviews():
     """Render page with all reviews sorted by series and within a series by number."""
