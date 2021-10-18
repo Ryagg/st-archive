@@ -154,10 +154,6 @@ def add_review():
         mongo.db.reviews.insert_one(review)
         flash("Incoming message from ST-Archive:"
         "Your review has been successfuly transmitted! ST-Archive out.")
-        mongo.db.users.update_one(
-            {"username": session["user"]},
-            {"$push": {"user_reviews": review}}
-        )
         return redirect(url_for("series"))
 
     username = mongo.db.users.find_one(
@@ -181,23 +177,14 @@ def edit_review(review_id):
             "review_text": request.form.get("review_text"),
             "created_by": session["user"].capitalize()
         }
-
         mongo.db.reviews.update_one(
             {"_id": ObjectId(review_id)},
             {"$set":
             {"review_text": updated_review["review_text"]
             }}
             )
-
         flash("Incoming message from ST-Archive:"
         "Your update to your review has been successfuly transmitted! ST-Archive out.")
-
-        mongo.db.users.update_one(
-            {"username": session["user"],"_id": ObjectId(review_id),},
-            {"$set":
-            {"review_text": updated_review["review_text"]
-            }}
-        )
         return redirect(url_for("profile", username=session["user"]))
 
     username = mongo.db.users.find_one(
