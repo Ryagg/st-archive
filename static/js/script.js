@@ -6,4 +6,14 @@ $(document).ready(function () {
         $(".navbar-burger").toggleClass("is-active");
         $(".navbar-menu").toggleClass("is-active");
     });
+    // code added by me
+    $(".modal-button").click(function () {
+        $(".modal").toggleClass("is-active");
+    });
+    $(".modal-header__close").click(function () {
+        $(".modal").toggleClass("is-active");
+    });
+    $(".modal-footer__cancel").click(function () {
+        $(".modal").toggleClass("is-active");
+    });
 });
