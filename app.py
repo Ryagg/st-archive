@@ -1,6 +1,7 @@
 import os
 import ssl
 from bson.objectid import ObjectId
+from functools import wraps
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -19,6 +20,18 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 # pass keyword parameter to avoid pymongo error 'SSL: CERTIFICATE_VERIFY_FAILED'
 mongo = PyMongo(app, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
+
+
+def login_required(function):
+    """Add route protection by restricting access to authenticated users only."""
+    @wraps(function)
+    def decorated_function(*args, **kwargs):
+        if "user" not in session:
+            flash("Security alert: Access restricted. Authentication required. Enter credentials.")
+            return redirect(url_for("login"))
+        return function(*args, **kwargs)
+    return decorated_function
+
 
 @app.route("/")
 def index():
@@ -93,6 +106,7 @@ def login():
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
+@login_required
 def profile(username):
     """Return user's profile page.
 
@@ -113,6 +127,7 @@ def profile(username):
 
 
 @app.route("/logout")
+@login_required
 def logout():
     st_series = list(mongo.db.series.find())
     # remove user from session cookies
@@ -142,6 +157,7 @@ def series():
 
 
 @app.route("/add_review/", methods=["GET", "POST"])
+@login_required
 def add_review():
     """Get user review and add it to the db."""
     if request.method == "POST":
@@ -168,6 +184,8 @@ def add_review():
 
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+# decorator unnecessary because functionality only available on profile page?
+@login_required
 def edit_review(review_id):
     """Update user's own review and update it in the user profile and reviews page."""
     if request.method == "POST":
@@ -195,6 +213,8 @@ def edit_review(review_id):
 
 
 @app.route("/delete_review/<review_id>")
+# decorator unnecessary because functionality only available on profile page?
+@login_required
 def delete_review(review_id):
     """Allow user to delete his or her own reviews.
 
