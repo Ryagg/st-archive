@@ -62,9 +62,9 @@ def register():
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
             "email": request.form.get("email").lower(),
-            "favourites_series": "",
-            "favourites_books": "",
-            "wishlist": "",
+            "favourites_series": [],
+            "favourites_books": [],
+            "wishlist": [],
             "is_admin": "False"
         }
         mongo.db.users.insert_one(user_register)
