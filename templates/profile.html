@@ -62,10 +62,18 @@
                             </header>
                             <div class="card-content">
                                 <div class="content is-size-4">
-                                    <ul>
-
-                                    </ul>
-
+                                    {% if wishlist|length > 0 %}
+                                        {% for series in wishlist|groupby("series_code") %}
+                                            <h3>{{ series.grouper }}</h3>
+                                                <ul>
+                                                    {% for book in series.list|sort(attribute="number") %}
+                                                        <li>{{ book.title }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p class="is-size-4">You haven't added any books to your wishlist yet. </p>
+                                    {% endif %}
                                 </div>
 
                             </div>
