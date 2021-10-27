@@ -235,6 +235,46 @@ TNG3
     "isbn": "0671735551",
     "status": "published"
 }
+
+TNG47
+{
+    "series_code": "TNG",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/a/ab/Q_Space.jpg/revision/latest?cb=20170810181119&path-prefix=en",
+    "title": "Q-Space",
+    "mini_series": "The Q Continuum",
+    "number": "47",
+    "mini_series_number": "1",
+    "blurb": "The unpredictable cosmic entity known only as Q has plagued Captain Jean-Luc Picard and the crew of the Starship Enterprise since their very first voyage together. But little is known of Q's mysterious past or that of the unearthly realm from which he hails. Now Picard must learn Q's secrets – or all of reality may perish! Ever since its discovery, the great galactic barrier has impeded humanity's exploration of the universe beyond the Milky Way. Now a brilliant Federation scientist may have found a way to breach the barrier, and the Enterprise is going to put it to the test. The last thing the crew needs is a visit from an omnipotent troublemaker so, naturally, Q appears. Q has more in mind than his usual pranks, and while the Enterprise struggles to defeat a powerful inhuman foe, Picard must embark on a fantastic odyssey into the Q Continuum itself, with the fate of the galaxy hanging in the balance.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "true",
+    "timespan_start": "2374",
+    "isbn": "0671019155",
+    "status": "published"
+}
+
+TNG48
+{
+    "series_code": "TNG",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/2/23/Q_Zone.jpg/revision/latest/scale-to-width-down/310?cb=20140911145943&path-prefix=en",
+    "title": "Q-Strike",
+    "mini_series": "The Q Continuum",
+    "number": "49",
+    "mini_series_number": "3",
+    "blurb": "The mischievous creature who calls himself Q has subjected Captain Jean-Luc Picard and the crew of the Starship Enterprise to many of their strangest experiences. But little had been known of Q's curious existence or that of the advanced dimension from which he comes. But now Picard knows more than he ever dreamed about an ancient conflict whose consequences might spell the doom of the entire galaxy. The galactic barrier has fallen and Q's oldest enemy is free once more. Captain Picard and his crew find themselves in the middle of a cosmic war between vastly powerful entities. The future of the Federation may be at stake, but how can mere mortals turn the tide in such a superhuman battle? Picard has to find a way, or neither the Q Continuum nor the galaxy will survive.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "true",
+    "timespan_start": "2374",
+    "isbn": "0671019228",
+    "status": "published"
+}
+
+The puckish super-being called Q has bedeviled Captain Jean-Luc Picard and the crew of the Starship Enterprise since their first encounter at Farpoint Station. But little was known of Q's enigmatic past or that of the transcendent plane where he sometimes dwells. Now Picard must discover Q's secrets for the sake of all that exists.
+While the Enterprise struggles to survive an alien onslaught, Captain Picard has been kidnapped by Q and taken on an astounding journey back through time to that immeasurably distant moment when the Continuum faced its greatest threat. But far more is at stake than simply the mysteries of the past, for an ancient menace is stirring once again, endangering the future of the galaxy, and neither Q nor Starfleet may be able to stop it!
+
 DS9-1
 {
     "series_code": "DS9",

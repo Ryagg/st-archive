@@ -23,7 +23,8 @@ mongo = PyMongo(app, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
 
 
 def login_required(function):
-    """Add route protection by restricting access to authenticated users only."""
+    """Add route protection by restricting access
+    to authenticated users only."""
     @wraps(function)
     def decorated_function(*args, **kwargs):
         if "user" not in session:
@@ -71,7 +72,8 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash(f'Registration successful! Welcome to ST-Archive, {request.form.get("username").capitalize()}')
+        flash(
+            f'Registration successful! Welcome to ST-Archive, {request.form.get("username").capitalize()}')
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html", series=st_series)
 
@@ -116,12 +118,20 @@ def profile(username):
     st_series = list(mongo.db.series.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
     user_reviews = list(mongo.db.reviews.find(
         {"created_by": session["user"].capitalize()}
     ))
+
+    fav_books_list = user["favourites_books"]
+    favourites_books = list(
+        mongo.db.books.find({"ObjectId()": {"$in": fav_books_list}}
+                            ))
     if session["user"]:
-        return render_template("profile.html", username=username,
-        user_reviews=user_reviews, series=st_series)
+        return render_template(
+            "profile.html", username=username, user=user, user_reviews=user_reviews,
+            series=st_series, favourites_books=favourites_books)
 
     return redirect(url_for("login"))
 
@@ -134,6 +144,7 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
 
 @app.route("/copyrights")
 def copyrights():
@@ -156,6 +167,19 @@ def series():
     return render_template("series.html/", series=st_series, books=books)
 
 
+@app.route("/add_book_to_favs/<book_id>", methods=["GET", "POST"])
+@login_required
+def add_book_to_favs(book_id):
+    """Add book to array favourites_books in users collection."""
+    mongo.db.users.find_one_and_update(
+        {"username": session["user"]},
+        {"$push": {"favourites_books": ObjectId(book_id)}}
+    )
+    flash("Incoming message from ST-Archive:"
+        "The title has been added to your favourites! ST-Archive out.")
+    return redirect(url_for("profile", username=session["user"]))
+
+
 @app.route("/add_review/", methods=["GET", "POST"])
 @login_required
 def add_review():
@@ -169,7 +193,7 @@ def add_review():
         }
         mongo.db.reviews.insert_one(review)
         flash("Incoming message from ST-Archive:"
-        "Your review has been successfuly transmitted! ST-Archive out.")
+            "Your review has been successfuly transmitted! ST-Archive out.")
         return redirect(url_for("series"))
 
     username = mongo.db.users.find_one(
@@ -180,7 +204,7 @@ def add_review():
         {"title": review_book})["series_code"]
 
     return render_template("review.html", username=username,
-    series=st_series, review_book=review_book, book_series=book_series)
+        series=st_series, review_book=review_book, book_series=book_series)
 
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
@@ -198,11 +222,11 @@ def edit_review(review_id):
         mongo.db.reviews.update_one(
             {"_id": ObjectId(review_id)},
             {"$set":
-            {"review_text": updated_review["review_text"]
-            }}
-            )
+                {"review_text": updated_review["review_text"]}
+            }
+                                    )
         flash("Incoming message from ST-Archive:"
-        "Your update to your review has been successfuly transmitted! ST-Archive out.")
+            "Your update to your review has been successfuly transmitted! ST-Archive out.")
         return redirect(url_for("profile", username=session["user"]))
 
     username = mongo.db.users.find_one(

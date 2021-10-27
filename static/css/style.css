@@ -36,6 +36,13 @@ h4,
 h5,
 h6 {
     font-family: "Millennium W03 Bd Extended", sans-serif;
+    font-weight: 200 !important;
+}
+
+.test {
+    font-family: "Millennium W03 Bd Extended", sans-serif;
+    font-weight: 200 !important;
+    font-size: 30px;
 }
 
 /*----- WRAPPER -----*/
