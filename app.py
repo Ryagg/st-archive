@@ -116,12 +116,18 @@ def profile(username):
     st_series = list(mongo.db.series.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
     user_reviews = list(mongo.db.reviews.find(
         {"created_by": session["user"].capitalize()}
     ))
+    fav_books_list = user["favourites_books"]
+    favourites_books = list(
+        mongo.db.books.find({"_id": {"$in": fav_books_list}}
+                            ))
     if session["user"]:
-        return render_template("profile.html", username=username,
-        user_reviews=user_reviews, series=st_series)
+        return render_template("profile.html", username=username, user=user,
+        user_reviews=user_reviews, series=st_series, favourites_books=favourites_books)
 
     return redirect(url_for("login"))
 
