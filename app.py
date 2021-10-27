@@ -125,9 +125,12 @@ def profile(username):
     favourites_books = list(
         mongo.db.books.find({"_id": {"$in": fav_books_list}}
                             ))
+    books_wishlist = user["wishlist"]
+    wishlist = list (mongo.db.books.find({"_id": {"$in": books_wishlist}}
+                            ))
     if session["user"]:
         return render_template("profile.html", username=username, user=user,
-        user_reviews=user_reviews, series=st_series, favourites_books=favourites_books)
+        user_reviews=user_reviews, series=st_series, favourites_books=favourites_books, wishlist=wishlist)
 
     return redirect(url_for("login"))
 
@@ -176,6 +179,29 @@ def add_book_to_favs(book_id):
     "The title has been added to your favourites! ST-Archive out.")
     return redirect(url_for("profile", username=session["user"]))
 
+
+@app.route("/add_book_to_wishlist/<book_id>",methods=["GET", "POST"])
+@login_required
+def add_book_to_wishlist(book_id):
+    """Add book to array wishlist in users collection.
+
+    Check whether the book is already in the user's favourite list.
+    Only add books to the wishlist that are not in the favourite list.
+    """
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+    if ObjectId(book_id) in user["favourites_books"]:
+        flash("This title is already in your favourites."
+            "Adding it to your wishlist is not logical. Request denied.")
+        #return redirect(url_for("series"))
+    else:
+        mongo.db.users.find_one_and_update(
+            {"username": session["user"]},
+            {"$push": {"wishlist": ObjectId(book_id)}}
+        )
+        flash("Incoming message from ST-Archive:"
+            "The title has been added to your wishlist! ST-Archive out.")
+    return redirect(url_for("profile", username=session["user"]))
 
 @app.route("/add_review/", methods=["GET", "POST"])
 @login_required
