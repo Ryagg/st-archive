@@ -162,6 +162,21 @@ def series():
     return render_template("series.html/", series=st_series, books=books)
 
 
+@app.route("/add_book_to_favs/<book_id>", methods=["GET", "POST"])
+@login_required
+def add_book_to_favs(book_id):
+    """Add book to array favourites_books in users collection."""
+    #book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    #if request.method == "POST":
+    mongo.db.users.find_one_and_update(
+        {"username": session["user"]},
+        {"$push": {"favourites_books": ObjectId(book_id)}}
+    )
+    flash("Incoming message from ST-Archive:"
+    "The title has been added to your favourites! ST-Archive out.")
+    return redirect(url_for("profile", username=session["user"]))
+
+
 @app.route("/add_review/", methods=["GET", "POST"])
 @login_required
 def add_review():
