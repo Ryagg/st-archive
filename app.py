@@ -138,12 +138,17 @@ def profile(username):
                             ))
     books_wishlist = user["wishlist"]
     wishlist = list(mongo.db.books.find({"_id": {"$in": books_wishlist}}))
+    finished_books_list = user["finished_books"]
+    finished_books = list(mongo.db.books.find(
+        {"_id": {"$in": finished_books_list}})
+        )
     if session["user"]:
         return render_template("profile.html", username=username, user=user,
                                favourites_series=favourites_series,
                                user_reviews=user_reviews, series=st_series,
                                favourites_books=favourites_books,
-                               wishlist=wishlist)
+                               wishlist=wishlist,
+                               finished_books=finished_books)
 
     return redirect(url_for("login"))
 
@@ -202,6 +207,30 @@ def add_fav_series():
         flash("Incoming message from ST-Archive: "
               f"{show_name} has been added to your favourites!"
               "ST-Archive out.")
+    return redirect(url_for("profile", username=session["user"]))
+
+
+@app.route("/mark_book_as_finished/<book_id>", methods=["GET", "POST"])
+@login_required
+def mark_book_as_finished(book_id):
+    """Add book to array finished_books in users collection.
+
+    Only add books that have not already been marked as finished.
+    """
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+    if ObjectId(book_id) in user["finished_books"]:
+        flash("Information: You have already marked this book as finished. "
+              "Request denied.")
+    else:
+        mongo.db.users.find_one_and_update(
+            {"username": session["user"]},
+            {"$push": {"finished_books": ObjectId(book_id)}}
+        )
+        flash("Incoming message from ST-Archive: "
+              "Title has been marked as finished! "
+              "ST-Archive out.")
+
     return redirect(url_for("profile", username=session["user"]))
 
 
