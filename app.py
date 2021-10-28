@@ -1,7 +1,7 @@
 import os
 import ssl
-from bson.objectid import ObjectId
 from functools import wraps
+from bson.objectid import ObjectId
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -18,16 +18,18 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-# pass keyword parameter to avoid pymongo error 'SSL: CERTIFICATE_VERIFY_FAILED'
+# pass keyword param to avoid pymongo error 'SSL: CERTIFICATE_VERIFY_FAILED'
 mongo = PyMongo(app, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
 
 
 def login_required(function):
-    """Add route protection by restricting access to authenticated users only."""
+    """Add route protection by restricting access
+        to authenticated users only."""
     @wraps(function)
     def decorated_function(*args, **kwargs):
         if "user" not in session:
-            flash("Security alert: Access restricted. Authentication required. Enter credentials.")
+            flash("Security alert: Access restricted. Authentication required."
+                  "Enter credentials.")
             return redirect(url_for("login"))
         return function(*args, **kwargs)
     return decorated_function
@@ -43,8 +45,8 @@ def index():
 def register():
     """Add newly created users to the database.
 
-    Return empty strings as values for favourites_series, favourites_books and wishlist
-    since they will be added to the database at a later point.
+    Return empty strings as values for favourites_series, favourites_books
+    and wishlist since they will be added to the database at a later point.
     Set 'is_admin' to false by default for all users.
     """
     st_series = list(mongo.db.series.find())
@@ -71,7 +73,8 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash(f'Registration successful! Welcome to ST-Archive, {request.form.get("username").capitalize()}')
+        flash('Registration successful! Welcome to ST-Archive, '
+              f'{request.form.get("username").capitalize()}')
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html", series=st_series)
 
@@ -110,7 +113,8 @@ def login():
 def profile(username):
     """Return user's profile page.
 
-    Fetch only the username from the db and redirect user in session to the profile page.
+    Fetch only the username from the db and redirect user in session
+        to the profile page.
     Return user not in session to the login page.
     """
     st_series = list(mongo.db.series.find())
@@ -121,16 +125,18 @@ def profile(username):
     user_reviews = list(mongo.db.reviews.find(
         {"created_by": session["user"].capitalize()}
     ))
+
     fav_books_list = user["favourites_books"]
     favourites_books = list(
         mongo.db.books.find({"_id": {"$in": fav_books_list}}
                             ))
     books_wishlist = user["wishlist"]
-    wishlist = list (mongo.db.books.find({"_id": {"$in": books_wishlist}}
-                            ))
+    wishlist = list(mongo.db.books.find({"_id": {"$in": books_wishlist}}))
     if session["user"]:
         return render_template("profile.html", username=username, user=user,
-        user_reviews=user_reviews, series=st_series, favourites_books=favourites_books, wishlist=wishlist)
+                               user_reviews=user_reviews, series=st_series,
+                               favourites_books=favourites_books,
+                               wishlist=wishlist)
 
     return redirect(url_for("login"))
 
@@ -143,6 +149,7 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
 
 @app.route("/copyrights")
 def copyrights():
@@ -157,7 +164,8 @@ def series():
 
     Show book cover, title, number, info about available bookformats.
     Display blurb.
-    Let user mark book as finished, or add it to favourites or user's wish list.
+    Let user mark book as finished, or add it to favourites
+    or user's wish list.
     """
     st_series = list(mongo.db.series.find())
     books = list(mongo.db.books.find())
@@ -169,18 +177,17 @@ def series():
 @login_required
 def add_book_to_favs(book_id):
     """Add book to array favourites_books in users collection."""
-    #book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    #if request.method == "POST":
     mongo.db.users.find_one_and_update(
         {"username": session["user"]},
         {"$push": {"favourites_books": ObjectId(book_id)}}
     )
     flash("Incoming message from ST-Archive:"
-    "The title has been added to your favourites! ST-Archive out.")
+          "The title has been added to your favourites!"
+          "ST-Archive out.")
     return redirect(url_for("profile", username=session["user"]))
 
 
-@app.route("/add_book_to_wishlist/<book_id>",methods=["GET", "POST"])
+@app.route("/add_book_to_wishlist/<book_id>", methods=["GET", "POST"])
 @login_required
 def add_book_to_wishlist(book_id):
     """Add book to array wishlist in users collection.
@@ -192,16 +199,16 @@ def add_book_to_wishlist(book_id):
         {"username": session["user"]})
     if ObjectId(book_id) in user["favourites_books"]:
         flash("This title is already in your favourites."
-            "Adding it to your wishlist is not logical. Request denied.")
-        #return redirect(url_for("series"))
+              "Adding it to your wishlist is not logical. Request denied.")
     else:
         mongo.db.users.find_one_and_update(
             {"username": session["user"]},
             {"$push": {"wishlist": ObjectId(book_id)}}
         )
         flash("Incoming message from ST-Archive:"
-            "The title has been added to your wishlist! ST-Archive out.")
+              "The title has been added to your wishlist! ST-Archive out.")
     return redirect(url_for("profile", username=session["user"]))
+
 
 @app.route("/add_review/", methods=["GET", "POST"])
 @login_required
@@ -216,7 +223,7 @@ def add_review():
         }
         mongo.db.reviews.insert_one(review)
         flash("Incoming message from ST-Archive:"
-        "Your review has been successfuly transmitted! ST-Archive out.")
+              "Your review has been successfuly transmitted! ST-Archive out.")
         return redirect(url_for("series"))
 
     username = mongo.db.users.find_one(
@@ -224,17 +231,21 @@ def add_review():
     st_series = list(mongo.db.series.find())
     review_book = request.args['title']
     book_series = mongo.db.books.find_one(
-        {"title": review_book})["series_code"]
+            {"title": review_book})["series_code"]
 
     return render_template("review.html", username=username,
-    series=st_series, review_book=review_book, book_series=book_series)
+                           series=st_series, review_book=review_book,
+                           book_series=book_series)
 
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 # decorator unnecessary because functionality only available on profile page?
 @login_required
 def edit_review(review_id):
-    """Update user's own review and update it in the user profile and reviews page."""
+    """Update user's own review.
+
+    Update review both in the user profile and reviews page.
+    """
     if request.method == "POST":
         updated_review = {
             "book_series": request.form.get("book_series"),
@@ -245,18 +256,20 @@ def edit_review(review_id):
         mongo.db.reviews.update_one(
             {"_id": ObjectId(review_id)},
             {"$set":
-            {"review_text": updated_review["review_text"]
-            }}
-            )
+                {"review_text": updated_review["review_text"]
+                 }}
+                                    )
         flash("Incoming message from ST-Archive:"
-        "Your update to your review has been successfuly transmitted! ST-Archive out.")
+              "Your update to your review has been successfuly transmitted!"
+              "ST-Archive out.")
         return redirect(url_for("profile", username=session["user"]))
 
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     st_series = list(mongo.db.series.find())
-    return render_template("edit_review.html", series=st_series, username=username, review=review)
+    return render_template("edit_review.html",
+                           series=st_series, username=username, review=review)
 
 
 @app.route("/delete_review/<review_id>")
@@ -269,26 +282,31 @@ def delete_review(review_id):
     Give user the ability to cancel the process and return to the profile page.
     """
     mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
-    flash("Message from ST-Archive incoming: Review successfully deleted from memory banks")
+    flash("Message from ST-Archive incoming:"
+          "Review successfully deleted from memory banks")
     return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/reviews")
 def reviews():
-    """Render page with all reviews sorted by series and within a series by number."""
+    """Render page with all reviews.
+
+    Sort by series and within a series by number.
+    """
 
     st_series = list(mongo.db.series.find())
     all_reviews = list(mongo.db.reviews.find())
-    return render_template("reviews.html", series=st_series, all_reviews=all_reviews)
+    return render_template("reviews.html", series=st_series,
+                           all_reviews=all_reviews)
 
 
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found(error):
     return render_template("404.html")
 
 
 @app.errorhandler(500)
-def server_error(e):
+def server_error(error):
     return render_template("500.html")
 
 
