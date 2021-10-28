@@ -122,10 +122,13 @@ def profile(username):
         {"username": session["user"]})["username"]
     user = mongo.db.users.find_one(
         {"username": session["user"]})
+    fav_series_list = user["favourites_series"]
+    favourites_series = list(
+        mongo.db.series.find({"series_name": {"$in": fav_series_list}})
+    )
     user_reviews = list(mongo.db.reviews.find(
         {"created_by": session["user"].capitalize()}
     ))
-
     fav_books_list = user["favourites_books"]
     favourites_books = list(
         mongo.db.books.find({"_id": {"$in": fav_books_list}}
@@ -134,6 +137,7 @@ def profile(username):
     wishlist = list(mongo.db.books.find({"_id": {"$in": books_wishlist}}))
     if session["user"]:
         return render_template("profile.html", username=username, user=user,
+                               favourites_series=favourites_series,
                                user_reviews=user_reviews, series=st_series,
                                favourites_books=favourites_books,
                                wishlist=wishlist)
@@ -171,6 +175,31 @@ def series():
     books = list(mongo.db.books.find())
 
     return render_template("series.html/", series=st_series, books=books)
+
+
+@app.route("/add_fav_series/", methods=["GET", "POST"])
+@login_required
+def add_fav_series():
+    """Add series to array favourites_series in users collection.
+
+    Only add series that are not already in the user's favourites_series array.
+    """
+    show_name = request.args["name"]
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+    if show_name in user["favourites_series"]:
+        flash(f"Information: {show_name} is already in your favourites. "
+              "Adding it multiple times to your favourites is not logical. "
+              "Request denied.")
+    else:
+        mongo.db.users.find_one_and_update(
+            {"username": session["user"]},
+            {"$push": {"favourites_series": show_name}}
+            )
+        flash("Incoming message from ST-Archive: "
+              f"{show_name} has been added to your favourites!"
+              "ST-Archive out.")
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/add_book_to_favs/<book_id>", methods=["GET", "POST"])
