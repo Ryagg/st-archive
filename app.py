@@ -45,8 +45,9 @@ def index():
 def register():
     """Add newly created users to the database.
 
-    Return empty strings as values for favourites_series, favourites_books
-    and wishlist since they will be added to the database at a later point.
+    Return empty arrays as values for favourites_series, favourites_books,
+    finished books, and wishlist since they will be added to the database
+    at a later point.
     Set 'is_admin' to false by default for all users.
     """
     st_series = list(mongo.db.series.find())
@@ -56,7 +57,8 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("You have entered an invalid username or password")
+            flash("Security alert: incorrect Username and/or Password."
+                  "Access denied.")
             return redirect(url_for("register"))
 
         # create dictionary to be inserted into the database
@@ -67,6 +69,7 @@ def register():
             "favourites_series": [],
             "favourites_books": [],
             "wishlist": [],
+            "finished_books": [],
             "is_admin": "False"
         }
         mongo.db.users.insert_one(user_register)
