@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=columns>
+                <div class="columns">
                     <div class="column">
                         <div class="card">
                             <header class="card-header hero_card">
@@ -93,12 +93,26 @@
                                 </p>
                             </header>
                             <div class="card-content">
-                                <div class="content is-size-4">
-                                    <ul>
+                                    <div class="content is-size-4">
+                                        <div class="columns is-multiline">
+                                            {% if finished_books|length > 0 %}
+                                                {% for series in finished_books|groupby("series_code") %}
 
-                                    </ul>
+                                                    <div class="column is-4-tablet is-3-desktop mb-4 has-background-link-light">
+                                                        <h3 class="title is-3 has-text-centered">{{ series.grouper }}</h3>
+                                                            <ul>
+                                                                {% for book in series.list|sort(attribute="number") %}
+                                                                    <li>{{ book.title }}</li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                    </div>
 
-                                </div>
+                                                {% endfor %}
+                                            {% else %}
+                                                <p class="is-size-4">You haven't marked any books as finished yet.</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
 
                             </div>
                         </div>
