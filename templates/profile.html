@@ -16,7 +16,11 @@
                             <div class="card-content">
                                 <div class="content is-size-4">
                                     <ul>
-
+                                        {% if favourites_series|length > 0 %}
+                                            {% for show in favourites_series|sort(attribute="series_code") %}
+                                                <li>{{ show.series_name }}</li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </ul>
                                 </div>
 

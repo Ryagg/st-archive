@@ -11,12 +11,12 @@
                     <div class="column is-12 has-text-centered hero_card">
                         <h1 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-white my-5">{{
                             show.series_name }}</h1>
-                        <button class="button hero_bg" type="submit">
+                        <a class="button hero_bg" href="{{ url_for('add_fav_series', name=show.series_name) }}">
                             <span class="icon">
                                 <i class="fal fa-star"></i>
                             </span>
-                            <span>Add series to Favourites</span>
-                        </button>
+                            <span class="is-size-4">Add series to Favourites</span>
+                        </a>
                     </div>
                 </div>
             </section> <!-- section series -->
