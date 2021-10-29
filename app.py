@@ -239,16 +239,26 @@ def mark_book_as_finished(book_id):
 @app.route("/add_book_to_favs/<book_id>", methods=["GET", "POST"])
 @login_required
 def add_book_to_favs(book_id):
-    """Add book to array favourites_books in users collection."""
+    """Add book to array favourites_books in users collection.
+
+    Check first whether to book in question is not already in the user's
+    favourites list.
+    """
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     title = book["title"]
-    mongo.db.users.find_one_and_update(
-        {"username": session["user"]},
-        {"$push": {"favourites_books": ObjectId(book_id)}}
-    )
-    flash("Incoming message from ST-Archive: "
-          f"'{title}' has been added to your favourites! "
-          "ST-Archive out.")
+    if ObjectId(book_id) in user["favourites_books"]:
+        flash(f"Information: '{title}' is already in your favourites list. "
+              "Request denied.")
+    else:
+        mongo.db.users.find_one_and_update(
+            {"username": session["user"]},
+            {"$push": {"favourites_books": ObjectId(book_id)}}
+        )
+        flash("Incoming message from ST-Archive: "
+              f"'{title}' has been added to your favourites! "
+              "ST-Archive out.")
     return redirect(url_for("profile", username=session["user"]))
 
 
