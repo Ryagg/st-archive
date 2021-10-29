@@ -253,20 +253,20 @@ def add_book_to_favs(book_id):
 def add_book_to_wishlist(book_id):
     """Add book to array wishlist in users collection.
 
-    Check whether the book is already in the user's favourite list.
-    Only add books to the wishlist that are not in the favourite list.
+    Check whether the book is already in the user's wish list.
+    Only add books to the wishlist that are not in the wish list.
     """
     user = mongo.db.users.find_one(
         {"username": session["user"]})
-    if ObjectId(book_id) in user["favourites_books"]:
-        flash("This title is already in your favourites."
+    if ObjectId(book_id) in user["wishlist"]:
+        flash("The title is already in your wish list. "
               "Adding it to your wishlist is not logical. Request denied.")
     else:
         mongo.db.users.find_one_and_update(
             {"username": session["user"]},
             {"$push": {"wishlist": ObjectId(book_id)}}
         )
-        flash("Incoming message from ST-Archive:"
+        flash("Incoming message from ST-Archive: "
               "The title has been added to your wishlist! ST-Archive out.")
     return redirect(url_for("profile", username=session["user"]))
 
