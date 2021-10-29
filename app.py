@@ -196,7 +196,7 @@ def add_fav_series():
     user = mongo.db.users.find_one(
         {"username": session["user"]})
     if show_name in user["favourites_series"]:
-        flash(f"Information: {show_name} is already in your favourites. "
+        flash(f"Information: '{show_name}' is already in your favourites. "
               "Adding it multiple times to your favourites is not logical. "
               "Request denied.")
     else:
@@ -205,7 +205,7 @@ def add_fav_series():
             {"$push": {"favourites_series": show_name}}
             )
         flash("Incoming message from ST-Archive: "
-              f"{show_name} has been added to your favourites!"
+              f"'{show_name}' has been added to your favourites! "
               "ST-Archive out.")
     return redirect(url_for("profile", username=session["user"]))
 
@@ -219,8 +219,10 @@ def mark_book_as_finished(book_id):
     """
     user = mongo.db.users.find_one(
         {"username": session["user"]})
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    title = book["title"]
     if ObjectId(book_id) in user["finished_books"]:
-        flash("Information: You have already marked this book as finished. "
+        flash(f"Information: You have already marked '{title}' as finished. "
               "Request denied.")
     else:
         mongo.db.users.find_one_and_update(
@@ -228,7 +230,7 @@ def mark_book_as_finished(book_id):
             {"$push": {"finished_books": ObjectId(book_id)}}
         )
         flash("Incoming message from ST-Archive: "
-              "Title has been marked as finished! "
+              f"'{title}' has been marked as finished! "
               "ST-Archive out.")
 
     return redirect(url_for("profile", username=session["user"]))
@@ -238,12 +240,14 @@ def mark_book_as_finished(book_id):
 @login_required
 def add_book_to_favs(book_id):
     """Add book to array favourites_books in users collection."""
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    title = book["title"]
     mongo.db.users.find_one_and_update(
         {"username": session["user"]},
         {"$push": {"favourites_books": ObjectId(book_id)}}
     )
-    flash("Incoming message from ST-Archive:"
-          "The title has been added to your favourites!"
+    flash("Incoming message from ST-Archive: "
+          f"'{title}' has been added to your favourites! "
           "ST-Archive out.")
     return redirect(url_for("profile", username=session["user"]))
 
@@ -258,8 +262,10 @@ def add_book_to_wishlist(book_id):
     """
     user = mongo.db.users.find_one(
         {"username": session["user"]})
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    title = book["title"]
     if ObjectId(book_id) in user["wishlist"]:
-        flash("The title is already in your wish list. "
+        flash(f"'{title}' is already in your wish list. "
               "Adding it to your wishlist is not logical. Request denied.")
     else:
         mongo.db.users.find_one_and_update(
@@ -267,7 +273,7 @@ def add_book_to_wishlist(book_id):
             {"$push": {"wishlist": ObjectId(book_id)}}
         )
         flash("Incoming message from ST-Archive: "
-              "The title has been added to your wishlist! ST-Archive out.")
+              f"'{title}' has been added to your wishlist! ST-Archive out.")
     return redirect(url_for("profile", username=session["user"]))
 
 
