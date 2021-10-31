@@ -4,6 +4,54 @@
 <section class="hero is-fullheight-with-navbar has-background-info-light">
     <div class="hero-body">
         <div class="container">
+            <!-- Search bar -->
+            <div class=columns>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-content">
+                            <form class="form" method="POST" action="{{ url_for('search') }}">
+                                <div class="columns is-centered">
+                                    <div class="column is-10-tablet is-8-desktop">
+                                        <div class="field">
+                                            <label for="query" class="is-size-4 has-text-weight-normal mr-2">Search titles and blurbs
+                                            </label>
+                                            <div class="control has-icons-left">
+                                                <input id="query" name="query" class="input is-link  mb-1" type="text" minlength="3"
+                                                    placeholder="Enter query" value=""
+                                                    aria-label="query" aria-described-by="user-query" required>
+                                                <span id="user-query" aria-live="assertive"></span>
+                                                <span class="icon is-left has-text-link">
+                                                    <i class="fal fa-lg fa-file-search"></i>
+                                                </span>
+                                            </div>
+                                            <button class="button is-link form__button--font-okuda is-size-5 has-text-weight-normal" type="submit">Search
+                                            </button>
+                                            <a class="button is-warning ml-3 is-size-5 has-text-weight-normal" href="{{ url_for('series') }}">Reset</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                            <!-- Search results -->
+                            <div class="column is-size-4">
+                                {% if result %}
+                                    <ul>
+                                    {% for entry in result %}
+                                        <li class="is-size-3 ul__li--no-bullets">{{ entry["series_code"] }}: {{ entry["title"] }}</li>
+                                        {{ entry["blurb"] }}
+                                        <br>
+                                    </ul>
+
+                                    {% endfor %}
+                                    <!-- Prevent text from being displayed if user hasn't searched for anything -->
+                                {% elif result|length == 0 and request.path == "/search"%}
+                                    <h3 class="has-text-centered">No Results Found</h3>
+                                {% endif %}
+                            </div>
+                    </div>
+                </div>
+            </div>
+
             {% for show in series %}
             <section id="show.series_name" class="mb-5">
                 <!-- Series title -->
