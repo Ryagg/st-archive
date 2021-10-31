@@ -38,6 +38,15 @@ h6 {
     font-family: "Millennium W03 Bd Extended", sans-serif;
 }
 
+/*----- TEXT EFFECTS -----*/
+.heading__text--shadow {
+    color: #ccddff;
+    text-shadow: 1px 0px 1px #882211, 0px 1px 1px #0a0a0a, 2px 1px 1px #882211, 1px 2px 1px #0a0a0a,
+        3px 2px 1px #882211, 2px 3px 1px #0a0a0a, 4px 3px 1px #882211, 3px 4px 1px #0a0a0a,
+        5px 4px 1px #882211, 4px 5px 1px #0a0a0a, 6px 5px 1px #882211, 5px 6px 1px #0a0a0a,
+        7px 6px 1px #882211;
+}
+
 /*----- WRAPPER -----*/
 .page_wrapper {
     display: flex;
