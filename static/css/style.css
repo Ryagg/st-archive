@@ -59,6 +59,16 @@ h6 {
 .footer_social {
     color: var(--color-navyblue);
 }
+
+/*----- BUTTONS -----*/
+.form__button--font-okuda {
+    font-family: "Okuda", sans-serif;
+}
+
+/*----- LISTS -----*/
+.ul__li--no-bullets {
+    list-style-type: none;
+}
 /*----- FOOTER -----*/
 .footer_padding--less {
     padding: var(--padding);
