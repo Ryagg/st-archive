@@ -1,30 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="hero is-fullheight-with-navbar">
-        <div class="hero-body">
+    <section class="hero is-fullheight-with-navbar hero_bg">
+        <div class="hero-head mt-5">
             <div class="container">
-                <h1 class="title is-1 has-text-centered">Welcome</h1>
-                    <p class="is-size-5">
-                        Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore
-                        strange
-                        new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before. Many say
-                        exploration
-                        is part of our destiny, but it’s actually our duty to future generations and their quest to ensure the survival of
-                        the
-                        human species.
+                <h1 class="title is-1 has-text-centered mt-5 hero_heading">Welcome to ST-Archive!</h1>
+                    <p class="is-size-4 has-text-justified has-background-info-light has-text-black px-3">
+                        Star Trek continues its worldwide success and captures new audiences around the world.
+                        Never before has there been such an abundance of Star Trek content. New TV series keep
+                        getting added. There are countless stories for the different crews in their timelines
+                        and sometimes even universes to be explored. In addition to the TV series, there are
+                        also non-canon books from these series and additional original and crossover series
+                        as well as anthologies.
                     </p>
-
-                <div class="columns">
-                    {% for show in series %}
-                    <div class="column">
-                        <div class="list">
-                            <a id="{{ show.series_name }}" class="list-item" href="/series/#{{ show.series_name }}">{{ show.series_name }}</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-
+                    <br>
+                    <p class="is-size-4 has-text-justified has-background-info-light has-text-black px-3">
+                        While this means that there will always be new stories left to explore, it also makes
+                        it easy to lose track or to even miss out on fantastic content. ST-Archive aims to
+                        present a comprehensive overview of all Star Trek series, both canon and non-canon,
+                        and the stories from these series. For each book the title, book cover, book number
+                        and blurb as well as information about the available formats are being presented.
+                    </p>
+                    <br>
+                    <p class="is-size-4 has-text-justified has-background-info-light has-text-black px-3">
+                        ST-Archive currently is work in progress. At the moment, only the TV series and a
+                        handful of books are listed. This will change in the coming weeks and months and
+                        new features are already planned.
+                    </p>
+                    <br>
+                    <p class="is-size-4 has-text-justified has-background-info-light has-text-black px-3">
+                    To make the most of the site, register a free account. Registered users can add series
+                    and books to their wish or favourites list, add reviews, edit their reviews, and mark books as finished.
+                    </p>
             </div>
         </div>
     </section>
