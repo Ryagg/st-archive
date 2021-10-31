@@ -7,6 +7,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
+import re
 # needed because the file won't be found after deployment to heroku
 if os.path.exists("env.py"):
     import env
@@ -39,6 +40,17 @@ def login_required(function):
 def index():
     st_series = list(mongo.db.series.find())
     return render_template("index.html", series=st_series)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    st_series = list(mongo.db.series.find())
+    books = list(mongo.db.books.find())
+    query = request.form.get("query")
+    result = list(mongo.db.books.find({"$text": {"$search": query}}))
+
+    return render_template("series.html", series=st_series, books=books,
+                            result=result)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -181,8 +193,11 @@ def series():
     """
     st_series = list(mongo.db.series.find())
     books = list(mongo.db.books.find())
+    # result = list(mongo.db.books.find())
 
-    return render_template("series.html/", series=st_series, books=books)
+
+    return render_template("series.html/", series=st_series, books=books
+                            )
 
 
 @app.route("/add_fav_series/", methods=["GET", "POST"])
