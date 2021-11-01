@@ -130,25 +130,25 @@
                         <!-- Buttons for user actions -->
                         <footer class="card-footer has-background-link-dark">
                             <div class="buttons is-centered ml-4">
-                                <div class="columns">
-                                    <div class="column my-4">
+                                <div class="columns is-multiline">
+                                    <div class="column is-narrow-tablet my-4">
                                         <div class="control">
                                             <a class="button card__bg--blue-dark text--color-light" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
                                         </div>
                                     </div>
-                                    <div class="column my-4">
+                                    <div class="column is-narrow-tablet my-4">
                                         <div class="control">
                                             <a class="button card__bg--blue-dark text--color-light"
                                                 href="{{ url_for('add_book_to_favs', book_id=book._id) }}">Add to
                                                 Favourites</a>
                                         </div>
                                     </div>
-                                    <div class="column my-4">
+                                    <div class="column is-narrow-tablet my-4">
                                         <div class="control">
                                             <a class="button card__bg--blue-dark text--color-light" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
                                         </div>
                                     </div>
-                                    <div class="column my-4">
+                                    <div class="column is-narrow-tablet my-4">
                                         <div class="control">
                                             <a class="button card__bg--blue-dark text--color-light"
                                                 href="{{ url_for('add_review', title=book.title) }}">Add review</a>
