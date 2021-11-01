@@ -19,14 +19,14 @@ Please contact Monotype with any questions regarding Web Fonts: http://www.fonts
 }
 
 @font-face {
-    font-family: "Federation";
+    font-family: "Okuda";
     src: url("../fonts/okuda-webfont.woff2") format("woff2"),
         url("../fonts/okuda-webfont.woff") format("woff");
 }
 
 /*----- GENERAL STYLES -----*/
 body {
-    font-family: "Okuda", sans-serif;
+    font-family: "Millennium W03 Bd Extended", sans-serif;
 }
 
 h1,
@@ -35,7 +35,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Millennium W03 Bd Extended", sans-serif;
+    font-family: "Okuda", sans-serif;
 }
 
 /*----- TEXT EFFECTS -----*/
@@ -45,6 +45,14 @@ h6 {
         3px 2px 1px #882211, 2px 3px 1px #0a0a0a, 4px 3px 1px #882211, 3px 4px 1px #0a0a0a,
         5px 4px 1px #882211, 4px 5px 1px #0a0a0a, 6px 5px 1px #882211, 5px 6px 1px #0a0a0a,
         7px 6px 1px #882211;
+}
+
+.heading__text--shadow-blue {
+    color: #ccddff;
+    text-shadow: 0 1px 0 #4169e1, 0 2px 0 #0000ff, 0 3px 0 #0000cd, 0 4px 0 #00008b, 0 5px 0 #191970,
+        0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
+        0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+        0 20px 20px rgba(0, 0, 0, 0.15);
 }
 
 .text--color-light {
