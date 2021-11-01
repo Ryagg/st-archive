@@ -47,6 +47,10 @@ h6 {
         7px 6px 1px #882211;
 }
 
+.text--color-light {
+    color: #ccddff;
+}
+
 /*----- WRAPPER -----*/
 .page_wrapper {
     display: flex;
@@ -94,4 +98,64 @@ h6 {
 
 .hero_card {
     background-color: var(--color-trueblue);
+}
+
+/*----- BACKGROUND IMAGES -----*/
+.bg__img--starry-sky {
+    background-image: url("../images/starry_sky_640px.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*----- MEDIA QUERIES -----*/
+@media screen and (min-width: 768px) {
+    .bg__img--starry-sky {
+        background-image: url("../images/starry_sky_768px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .bg__img--starry-sky {
+        background-image: url("../images/starry_sky_1024px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    .bg__img--starry-sky {
+        background-image: url("../images/starry_sky_1366px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .bg__img--starry-sky {
+        background-image: url("../images/starry_sky_1600px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .bg__img--starry-sky {
+        background-image: url("../images/starry_sky_1920px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
 }
