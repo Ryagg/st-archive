@@ -5,6 +5,7 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">{{ username.capitalize() }}'s Profile</h1>
+                <!-- Favourite series -->
                 <div class=columns>
                     <div class="column">
                         <div class="card">
@@ -13,21 +14,24 @@
                                     My favourite series
                                 </p>
                             </header>
-                            <div class="card-content">
+                            <!-- card for each series -->
+                            <div class="card-content card__bg--light">
                                 <div class="content is-size-4">
-                                    <ul>
+                                    <div class="columns is-centered is-multiline">
                                         {% if favourites_series|length > 0 %}
                                             {% for show in favourites_series|sort(attribute="series_code") %}
-                                                <li>{{ show.series_name }}</li>
+                                                <div class="column is-4-tablet is-3-desktop mx-2 my-2 has-background-link-light card__shadow">
+                                                    <p class="title is-4 has-text-centered">{{ show.series_name }}</p>
+                                                </div>
                                             {% endfor %}
                                         {% endif %}
-                                    </ul>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Favourite books -->
                 <div class=columns>
                     <div class="column">
                         <div class="card">
@@ -36,26 +40,31 @@
                                     My favourite books
                                 </p>
                             </header>
-                            <div class="card-content">
+                            <!-- card for each book -->
+                            <div class="card-content card__bg--light">
                                 <div class="content is-size-4">
-                                    {% if favourites_books|length > 0 %}
-                                        {% for series in favourites_books|groupby("series_code") %}
-                                            <h3>{{ series.grouper }}</h3>
-                                                <ul>
-                                                    {% for book in series.list|sort(attribute="number") %}
-                                                        <li>{{ book.title }}</li>
-                                                    {% endfor %}
-                                                </ul>
-                                        {% endfor %}
-                                    {% else %}
-                                        <p class="is-size-4">You haven't added any favourites yet. </p>
-                                    {% endif %}
+                                    <div class="columns is-centered is-multiline">
+                                        {% if favourites_books|length > 0 %}
+                                            {% for series in favourites_books|groupby("series_code") %}
+                                                <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
+                                                    <h3 class="title is-3 has-text-centered text__shadow--light">{{ series.grouper }}</h3>
+                                                    <ul>
+                                                        {% for book in series.list|sort(attribute="number") %}
+                                                            <li class="li__icon--book">{{ book.title }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            {% endfor %}
+                                        {% else %}
+                                            <p class="is-size-4">You haven't added any favourites yet. </p>
+                                        {% endif %}
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Wish list -->
                 <div class=columns>
                     <div class="column">
                         <div class="card">
@@ -64,26 +73,31 @@
                                     My wish list
                                 </p>
                             </header>
-                            <div class="card-content">
+                            <!-- card for each book -->
+                            <div class="card-content card__bg--light">
                                 <div class="content is-size-4">
-                                    {% if wishlist|length > 0 %}
-                                        {% for series in wishlist|groupby("series_code") %}
-                                            <h3>{{ series.grouper }}</h3>
-                                                <ul>
-                                                    {% for book in series.list|sort(attribute="number") %}
-                                                        <li>{{ book.title }}</li>
-                                                    {% endfor %}
-                                                </ul>
-                                        {% endfor %}
-                                    {% else %}
-                                        <p class="is-size-4">You haven't added any books to your wishlist yet. </p>
-                                    {% endif %}
+                                    <div class="columns is-centered is-multiline">
+                                        {% if wishlist|length > 0 %}
+                                            {% for series in wishlist|groupby("series_code") %}
+                                                <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
+                                                    <h3 class="title is-3 has-text-centered text__shadow--light">{{ series.grouper }}</h3>
+                                                    <ul>
+                                                        {% for book in series.list|sort(attribute="number") %}
+                                                            <li class="li__icon--book">{{ book.title }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            {% endfor %}
+                                        {% else %}
+                                            <p class="is-size-4">You haven't added any books to your wishlist yet. </p>
+                                        {% endif %}
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Finished books -->
                 <div class="columns">
                     <div class="column">
                         <div class="card">
@@ -92,32 +106,31 @@
                                     My finished books
                                 </p>
                             </header>
-                            <div class="card-content">
+                            <!-- card for each book -->
+                            <div class="card-content card__bg--light">
                                     <div class="content is-size-4">
-                                        <div class="columns is-multiline">
+                                        <div class="columns is-centered is-multiline">
                                             {% if finished_books|length > 0 %}
                                                 {% for series in finished_books|groupby("series_code") %}
-
-                                                    <div class="column is-4-tablet is-3-desktop mb-4 has-background-link-light">
+                                                    <div class="column is-4-tablet is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
                                                         <h3 class="title is-3 has-text-centered">{{ series.grouper }}</h3>
                                                             <ul>
                                                                 {% for book in series.list|sort(attribute="number") %}
-                                                                    <li>{{ book.title }}</li>
+                                                                    <li class="li__icon--book">{{ book.title }}</li>
                                                                 {% endfor %}
                                                             </ul>
                                                     </div>
-
                                                 {% endfor %}
                                             {% else %}
                                                 <p class="is-size-4">You haven't marked any books as finished yet.</p>
                                             {% endif %}
                                         </div>
                                     </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Reviews -->
                 <div class=columns>
                     <div class="column">
                         <div class="card">
@@ -126,54 +139,55 @@
                                     My reviews
                                 </p>
                             </header>
-                            <div class="card-content">
+                            <!-- card for each review -->
+                            <div class="card-content card__bg--light">
                                 <div class="content is-size-4">
-                                    <ul>
-                                        {% if user_reviews|length > 0 %}
-                                            {% for review in user_reviews|sort(attribute="book_series") %}
-                                                <li>{{ review.book_series }}: {{ review.book_title }}</li>
-                                                <p>{{ review.review_text }}</p>
-                                                <div class="column">
-                                                    <div class="field is-grouped">
-                                                        <div class="control">
-                                                            <a class="button is-link" href="{{ url_for('edit_review', review_id=review._id) }}">Edit review</a>
-                                                        </div>
-                                                        <span class="button is-link modal-button" data-target="modal-card">Delete review</span>
-                                                    </div>
-                                                </div>
-
-                                                <div id="modal-card" class="modal">
-                                                    <div class="modal-background"></div>
-                                                    <div class="modal-card">
-                                                        <header class="modal-card-head">
-                                                            <p class="modal-card-title">Confirmation</p>
-                                                            <button class="delete modal-header__close" aria-label="close"></button>
-                                                        </header>
-                                                        <section class="modal-card-body">
-                                                            <p class="is-size-3">
-                                                                The review will be deleted from your profile and from the database. Please click 'Delete review' to proceed or cancel to abort.
-                                                            </p>
-                                                        </section>
-                                                        <footer class="modal-card-foot">
+                                    <div class="columns is-centered is-multiline">
+                                            {% if user_reviews|length > 0 %}
+                                                {% for review in user_reviews|sort(attribute="book_series") %}
+                                                    <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
+                                                        <p class="title is-4 text__shadow--light">{{ review.book_series }}: {{ review.book_title }}</p>
+                                                        <p class="is-size-4">{{ review.review_text }}</p>
+                                                <!-- Buttons for user actions -->
+                                                        <div class="column">
                                                             <div class="field is-grouped">
                                                                 <div class="control">
-                                                                    <a class="button is-link" href="{{ url_for('delete_review', review_id=review._id) }}">Delete review</a>
+                                                                    <a class="button is-link" href="{{ url_for('edit_review', review_id=review._id) }}">Edit review</a>
                                                                 </div>
-                                                                <div class="control">
-                                                                    <button class="button modal-footer__cancel">Cancel</button>
-                                                                </div>
+                                                                    <span class="button is-danger modal-button" data-target="modal-card">Delete review</span>
                                                             </div>
-                                                        </footer>
+                                                        </div>
                                                     </div>
-                                                </div>
-
-                                            {% endfor %}
-                                        {% else %}
-                                            <p class="is-size-4">You haven't added any reviews yet. </p>
-                                        {% endif %}
-                                    </ul>
+                                                    <!-- confirmation modal for review deletion -->
+                                                    <div id="modal-card" class="modal">
+                                                        <div class="modal-card">
+                                                            <header class="modal-card-head">
+                                                                <p class="modal-card-title">Confirmation</p>
+                                                                <button class="delete modal-header__close" aria-label="close"></button>
+                                                            </header>
+                                                            <section class="modal-card-body">
+                                                                <p class="is-size-3">
+                                                                    The review will be deleted from your profile and from the database. Please click 'Delete review' to proceed or 'Cancel' to abort.
+                                                                </p>
+                                                            </section>
+                                                            <footer class="modal-card-foot">
+                                                                <div class="field is-grouped">
+                                                                    <div class="control">
+                                                                        <a class="button is-link" href="{{ url_for('delete_review', review_id=review._id) }}">Delete review</a>
+                                                                    </div>
+                                                                    <div class="control">
+                                                                        <button class="button modal-footer__cancel">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </footer>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            {% else %}
+                                                <p class="is-size-4">You haven't added any reviews yet. </p>
+                                            {% endif %}
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

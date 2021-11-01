@@ -59,6 +59,10 @@ h6 {
     text-shadow: 1px 1px 3px #292929;
 }
 
+.text__shadow--light {
+    text-shadow: 1px 1px 2px #c0c0c0;
+}
+
 .text--color-light {
     color: #ccddff;
 }
@@ -94,6 +98,14 @@ h6 {
 .ul__li--no-bullets {
     list-style-type: none;
 }
+
+.li__icon--book {
+    list-style-type: square;
+    list-style-position: outside;
+    list-style-image: none;
+    vertical-align: middle;
+}
+
 /*----- FOOTER -----*/
 .footer_padding--less {
     padding: var(--padding);
@@ -118,6 +130,11 @@ h6 {
 
 .card__bg--blue-dark {
     background-color: #000088;
+}
+
+.card__shadow {
+    -webkit-box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
+    box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
 }
 
 .card__box-shadow {
