@@ -8,7 +8,7 @@
             <div class=columns>
                 <div class="column">
                     <div class="card">
-                        <div class="card-content">
+                        <div class="card-content card__bg--light">
                             <form class="form" method="POST" action="{{ url_for('search') }}">
                                 <div class="columns is-centered">
                                     <div class="column is-10-tablet is-8-desktop">
@@ -33,7 +33,7 @@
                             </form>
                         </div>
                             <!-- Search results -->
-                            <div class="column is-size-4">
+                            <div class="column is-size-4 card__bg--light">
                                 {% if result %}
                                     <ul>
                                     {% for entry in result %}
@@ -51,15 +51,15 @@
                     </div>
                 </div>
             </div>
-            <h1 class="title is-1 has-text-centered mt-5 hero_heading heading__text--shadow">All books</h1>
+            <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">Books sorted by series</h1>
             {% for show in series %}
-            <section id="show.series_name" class="mb-5">
+            <section id="show.series_name">
                 <!-- Series title -->
-                <div class="row columns is-centered is-multiline ">
-                    <div class="column is-12 has-text-centered hero_card">
-                        <h1 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-white my-5">{{
+                <div class="columns is-centered">
+                    <div class="column has-text-centered hero_card my-5">
+                        <h1 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-white my-4 text__shadow--dark">{{
                             show.series_name }}</h1>
-                        <a class="button hero_bg" href="{{ url_for('add_fav_series', name=show.series_name) }}">
+                        <a class="mb-5 button card__bg--blue-dark text--color-light" href="{{ url_for('add_fav_series', name=show.series_name) }}">
                             <span class="icon">
                                 <i class="fal fa-star"></i>
                             </span>
@@ -69,16 +69,16 @@
                 </div>
             </section> <!-- section series -->
             <!-- Books in series -->
-            <div class="row columns is-multiline">
+            <div class="columns is-multiline">
                 {% for book in books|sort(attribute="number") if book.series_code == show.series_code %}
-                <div class="column is-6-desktop my-3">
-                    <div class="card">
+                <div class="column is-6-desktop my-2">
+                    <div class="card card__box-shadow">
                         <div class="card-image">
                             <figure class="image is-150x270">
                                 <img src="{{ book.cover }}" alt="Book cover for {{ book.title }}">
                             </figure>
                         </div>
-                        <div class="card-content">
+                        <div class="card-content card__bg--light">
                             <h2 class="title is-2">{{ book.title }}</h2>
                             {% if not book.number == "null" %}
                             <h3 class="subtitle is-3">Book number {{book.number}}</h3>
@@ -123,34 +123,34 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="content is-size-4 my-3">
+                            <div class="content is-size-4 mt-2">
                                 {{ book.blurb }}
                             </div>
                         </div>
                         <!-- Buttons for user actions -->
-                        <footer class="card-footer">
-                            <div class="buttons is-centered">
+                        <footer class="card-footer has-background-link-dark">
+                            <div class="buttons is-centered ml-4">
                                 <div class="columns">
-                                    <div class="column">
+                                    <div class="column my-4">
                                         <div class="control">
-                                            <a class="button is-link" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
+                                            <a class="button card__bg--blue-dark text--color-light" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
                                         </div>
                                     </div>
-                                    <div class="column">
+                                    <div class="column my-4">
                                         <div class="control">
-                                            <a class="button is-link"
+                                            <a class="button card__bg--blue-dark text--color-light"
                                                 href="{{ url_for('add_book_to_favs', book_id=book._id) }}">Add to
                                                 Favourites</a>
                                         </div>
                                     </div>
-                                    <div class="column">
+                                    <div class="column my-4">
                                         <div class="control">
-                                            <a class="button is-link" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
+                                            <a class="button card__bg--blue-dark text--color-light" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
                                         </div>
                                     </div>
-                                    <div class="column">
+                                    <div class="column my-4">
                                         <div class="control">
-                                            <a class="button is-link"
+                                            <a class="button card__bg--blue-dark text--color-light"
                                                 href="{{ url_for('add_review', title=book.title) }}">Add review</a>
                                         </div>
                                     </div>
