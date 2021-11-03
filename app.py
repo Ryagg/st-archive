@@ -8,6 +8,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
+import cloudinary as Cloud
 # needed because the file won't be found after deployment to heroku
 if os.path.exists("env.py"):
     import env
@@ -18,6 +19,13 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+
+# cloudinary credentials
+Cloud.config.update = ({
+    'cloud_name':os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'api_key': os.environ.get('CLOUDINARY_API_KEY'),
+    'api_secret': os.environ.get('CLOUDINARY_API_SECRET')
+})
 
 # pass keyword param to avoid pymongo error 'SSL: CERTIFICATE_VERIFY_FAILED'
 mongo = PyMongo(app, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)

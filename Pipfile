@@ -13,6 +13,7 @@ dnspython = "*"
 flask-pymongo = "*"
 pycodestyle = "*"
 pymongo = {extras = ["tls"], version = "*"}
+cloudinary = "*"
 
 [dev-packages]
 
