@@ -79,14 +79,18 @@ h6 {
 
 /*----- NAVBAR -----*/
 .navbar_bg {
-    background-color: var(--color-periwinklecrayola);
+    background-color: #000088;
 }
 
 .navbar-item,
 .navbar-link,
 .footer_copyright,
 .footer_social {
-    color: var(--color-navyblue);
+    color: #ccddff;
+}
+
+.navbar-dropdown {
+    background-color: #000088;
 }
 
 /*----- BUTTONS -----*/
@@ -139,6 +143,10 @@ h6 {
 
 .card__box-shadow {
     box-shadow: 10px 12px 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.card__box-shadow--blue {
+    box-shadow: 10px 12px 0.5rem rgba(0, 0, 136, 0.5);
 }
 
 /*----- BACKGROUND IMAGES -----*/
