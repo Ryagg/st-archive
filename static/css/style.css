@@ -71,6 +71,10 @@ h6 {
     color: #882211;
 }
 
+.text--color-royalblue {
+    color: #3366ff;
+}
+
 /*----- WRAPPER -----*/
 .page_wrapper {
     display: flex;
@@ -132,6 +136,9 @@ h6 {
     background-color: #ccddff;
 }
 
+.text__bg--transparent {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 .card__bg--blue-dark {
     background-color: #000088;
 }
@@ -162,6 +169,14 @@ h6 {
     background-size: cover;
 }
 
+.bg__img--shuttle {
+    background-image: url("../images/shuttle_640px.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 /*----- MEDIA QUERIES -----*/
 @media screen and (min-width: 768px) {
     .bg__img--starry-sky {
@@ -171,11 +186,15 @@ h6 {
         background-attachment: fixed;
         background-size: cover;
     }
-}
-
-@media screen and (min-width: 768px) {
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_768px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .bg__img--shuttle {
+        background-image: url("../images/shuttle_768px.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -191,11 +210,15 @@ h6 {
         background-attachment: fixed;
         background-size: cover;
     }
-}
-
-@media screen and (min-width: 1024px) {
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_1024px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .bg__img--shuttle {
+        background-image: url("../images/shuttle_1024px.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -211,11 +234,15 @@ h6 {
         background-attachment: fixed;
         background-size: cover;
     }
-}
-
-@media screen and (min-width: 1366px) {
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_1366px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .bg__img--shuttle {
+        background-image: url("../images/shuttle_1366px.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -231,11 +258,15 @@ h6 {
         background-attachment: fixed;
         background-size: cover;
     }
-}
-
-@media screen and (min-width: 1600px) {
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_1600px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .bg__img--shuttle {
+        background-image: url("../images/shuttle_1600px.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -251,11 +282,15 @@ h6 {
         background-attachment: fixed;
         background-size: cover;
     }
-}
-
-@media screen and (min-width: 1920px) {
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_1920px.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .bg__img--shuttle {
+        background-image: url("../images/shuttle_1920px.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;

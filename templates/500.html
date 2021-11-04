@@ -1,43 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container my-5 pt-5">
-    <h1 class="title is-1 has-text-centered mt-5 heading__text--shadow">500</h1>
-    <div class="columns">
-        <div class="column">
-            <p class="has-text-centered is-size-3">
-                Incoming message from Engineering:
-            </p>
-        </div>
-    </div>
-    <div class="columns">
-        <div class="column">
-            <p class="has-text-centered is-size-3">
-                We can't fullfill your request at this time!
-            </p>
-        </div>
-    </div>
-    <div class="columns">
-        <div class="column">
-            <p class="has-text-centered is-size-3">
-                We're givin' it all she's got, Captain!
-            </p>
-        </div>
-    </div>
-    <div class="columns">
-        <div class="column">
-            <p class="has-text-centered is-size-3">
-                If we push it any farther, the whole thing'll blow!
-            </p>
-        </div>
-    </div>
-    <div class="columns">
-        <div class="column">
-            <p class="has-text-centered is-size-3">
-                Take shuttle <a href="{{ url_for('index') }}">home</a>
-            </p>
+<div class="hero is-fullheight is-flex is-justify-content-center is-align-content-center bg__img--shuttle">
+    <div class="hero-head">
+        <div class="container">
+            <h1 class="title is-1 has-text-centered my-4 heading__text--shadow">500</h1>
+                <p class="has-text-centered has-text-white is-size-3 my-3 mx-2">
+                    <span class="text__bg--transparent">Incoming message from Engineering:</span>
+                </p>
+                <p class="has-text-centered has-text-white is-size-3 my-3 mx-2">
+                <span class="text__bg--transparent">We can't fullfill your request at this time!</span>
+                </p>
+                <p class="has-text-centered has-text-white is-size-3 my-3 mx-2">
+                    <span class="text__bg--transparent">We're givin' it all she's got, Captain!</span>
+                </p>
+                <p class="has-text-centered has-text-white is-size-3 my-3 mx-2">
+                    <span class="text__bg--transparent">If we push it any farther, the whole thing'll blow!</span>
+                </p>
+                <p class="has-text-centered has-text-white is-size-3 my-3 mx-2">
+                    <span class="text__bg--transparent">Take shuttle <a class="text--color-royalblue" href="{{ url_for('index') }}">home</a></span>
+                </p>
         </div>
     </div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/hideOnErrorPages.js') }}"></script>
 {% endblock %}
