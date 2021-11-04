@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section class="hero is-fullheight-with-navbar bg__img--starry-sky">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1 has-text-centered heading__text--shadow">Establish subspace link</h1>
+                    <p class="is-size-3 has-text-centered has-text-white">
+                        Do you have questions or feedback regarding ST-Archive? Are there features you would like to see?
+                    </p>
+                    <p class="is-size-3 has-text-centered has-text-white">
+                        Fill out the form and we will contact you as soon as possible!
+                    </p>
+                <form class="form" method="POST" action="{{ url_for('contact') }}">
+                    <!-- Name -->
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen mt-3">
+                            <div class="field">
+                                <label for="fullname" class="is-size-4 has-text-white has-text-weight-normal">Full name (required)</label>
+                                <div class="control has-icons-left">
+                                    <input id="fullname" name="fullname" class="input is-link" type="text" minlength="3"
+                                        maxlength="20" pattern="^[a-zA-Z\Ba-zA-Z]{3,20}$" placeholder="Your name" value=""
+                                        aria-label="fullname" aria-described-by="user-fullname" required>
+                                    <span id="user-fullname" aria-live="assertive"></span>
+                                    <span class="icon is-left has-text-link">
+                                        <i class="fal fa-lg fa-id-card"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                            <div class="field">
+                                <label for="email" class="is-size-4 has-text-white  has-text-weight-medium">Email (required)</label>
+                                <div class="control has-icons-left">
+                                    <input id="email" name="email" class="input is-link" type="email" minlength="12"
+                                        maxlength="30" placeholder="you@mail.com" value="" aria-label="email"
+                                        aria-described-by="user-email" required>
+                                    <span id="user-email" aria-live="assertive"></span>
+                                    <span class="icon is-left has-text-link">
+                                        <i class="fal fa-lg fa-at"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Subject -->
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 has-text-white has-text-weight-normal" for="subject">Subject (optional)</label>
+                                <div class="control">
+                                    <input id="subject" name="subject" class="input is-size-4" type="text"
+                                        value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Message -->
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 has-text-white has-text-weight-normal" for="message">Message (required)</label>
+                                <div class="control">
+                                    <textarea id="message" name="message" class="textarea is-medium mb-4" type="text"
+                                        placeholder="Write your message here" rows="10" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <input class="button is-link" type="submit" value="Send message">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-danger" type="reset" value="Clear form">Clear form
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
