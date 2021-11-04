@@ -1,36 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container my-5 pt-5">
-        <h1 class="title is-1 has-text-centered mt-5 heading__text--shadow">404</h1>
-        <div class="columns">
-            <div class="column">
-                <p class="has-text-centered is-size-3">
-                    Oh no, another visitor who got lost!
-                </p>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                <p class="has-text-centered is-size-3">
-                    We're sorry!
-                </p>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                <p class="has-text-centered is-size-3">
-                    Q keeps transporting our visitors to non-existing pages!
-                </p>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                <p class="has-text-centered is-size-3">
+    <div class="hero is-fullheight is-flex is-justify-content-center is-align-content-center bg__img--eclipse">
+        <div class="hero-head mt-4">
+            <div class="container bg__text--center-align">
+                <h1 class="title is-1 has-text-centered my-4 heading__text--shadow">404</h1>
+                    <p class="has-text-centered is-size-3 my-4 mx-2 text--color-orange">
+                        Oh no, another visitor who got lost!
+                    </p>
+                    <p class="has-text-centered is-size-3 my-4 mx-2 text--color-orange">
+                        We're sorry!
+                    </p>
+                    <p class="has-text-centered is-size-3 my-4 mx-2 text--color-orange" >
+                        Q keeps transporting our visitors to non-existing pages!
+                    </p>
+                    <p class="has-text-centered is-size-3 my-4 mx-2 text--color-orange">
                     Let's beam you back <a href="{{ url_for('index') }}">home</a>
                 </p>
             </div>
         </div>
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/hideOnErrorPages.js') }}"></script>
 {% endblock %}

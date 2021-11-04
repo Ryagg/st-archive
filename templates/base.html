@@ -17,7 +17,7 @@
 
     <header>
         <!-- Navbar -->
-        <nav class="navbar is-size-3 is-fixed-top navbar_bg">
+        <nav id="navbar" class="navbar is-size-3 is-fixed-top navbar_bg">
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{{ url_for('index') }}">
@@ -110,7 +110,7 @@
         {% endblock %}
     </div>
     <!-- footer -->
-    <footer class="footer has-text-black navbar_bg footer_padding--less">
+    <footer id="footer" class="footer has-text-black navbar_bg footer_padding--less">
         <div class="level">
             <div class="level-left">
                 <div class="level-item is-size-4 footer_copyright">
