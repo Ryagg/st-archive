@@ -6,6 +6,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from flask_mail import Mail, Message
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 import cloudinary as Cloud
@@ -16,13 +17,24 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+# mailtrap credentials
+app.config['MAIL_SERVER'] = 'smtp.mailtrap.io'
+app.config['MAIL_PORT'] = 2525
+app.config['MAIL_USERNAME'] = os.environ.get("MAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")
+app.config['MAIL_AUTH'] = ['PLAIN', 'LOGIN', 'CRAM-MD5']
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+
+mail = Mail(app)
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 # cloudinary credentials
 Cloud.config.update = ({
-    'cloud_name':os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),
     'api_key': os.environ.get('CLOUDINARY_API_KEY'),
     'api_secret': os.environ.get('CLOUDINARY_API_SECRET')
 })
@@ -58,7 +70,7 @@ def search():
     result = list(mongo.db.books.find({"$text": {"$search": query}}))
 
     return render_template("series.html", series=st_series, books=books,
-                            result=result)
+                           result=result)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -201,11 +213,9 @@ def series():
     """
     st_series = list(mongo.db.series.find())
     books = list(mongo.db.books.find())
-    # result = list(mongo.db.books.find())
-
 
     return render_template("series.html/", series=st_series, books=books
-                            )
+                           )
 
 
 @app.route("/add_fav_series/", methods=["GET", "POST"])
@@ -398,6 +408,31 @@ def reviews():
     all_reviews = list(mongo.db.reviews.find())
     return render_template("reviews.html", series=st_series,
                            all_reviews=all_reviews)
+
+
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    """Collect data from the contact form and forward to admin as email."""
+    if request.method == "POST":
+        try:
+            msg = Message("Message from user",
+                          sender=request.form.get("email"),
+                          recipients=['sev2275@gmx.com'])
+            msg.body = request.form.get("message")
+            mail.send(msg)
+            flash(
+                "Subspace message received. Thank you. "
+                "We will answer as soon as possible. Closing subspace link."
+                  )
+        except Exception as ex:
+            print(ex)
+            flash("Information: Your message could not be sent. "
+                  "Please try again later. Thank you.")
+        # remove before submitting?
+        else:
+            print("message sent")
+
+    return render_template("contact.html")
 
 
 @app.errorhandler(404)

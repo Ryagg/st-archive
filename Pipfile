@@ -14,6 +14,7 @@ flask-pymongo = "*"
 pycodestyle = "*"
 pymongo = {extras = ["tls"], version = "*"}
 cloudinary = "*"
+flask-mail = "*"
 
 [dev-packages]
 
