@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section class="hero is-fullheight-with-navbar bg__img--starry-sky">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1 has-text-centered heading__text--shadow">Hello, {{ username.capitalize() }} </h1>
+
+                <form class="form" method="POST" action="{{ url_for('add_series') }}">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="series_name">Name of series</label>
+                                <div class="control">
+                                    <input id="new_series_name" name="new_series_name" class="input is-size-4" type="text" placeholder="Enter name of series"
+                                        value="" aria-label="new_series_name" aria-described-by="name_of_new_seriese" required>
+                                        <span id="name_of_new_series" aria-live="assertive"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_series_code">Series code</label>
+                                <div class="control">
+                                    <input id="new_series_code" name="new_series_code" class="input is-size-4" type="text" placeholder="Enter series code"
+                                        value="" aria-label="new_series_code" aria-described-by="ncode_for_new_series" required>
+                                        <span id="code_for_new_series" aria-live="assertive"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <input class="button is-link" type="submit" value="Submit">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-link" type="reset" value="Clear form">Clear form
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

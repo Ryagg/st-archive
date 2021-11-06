@@ -64,6 +64,11 @@
                                     href="{{ url_for('profile', username=session['user']) }}">
                                     Profile
                                 </a>
+                                {% if session.admin %}
+                                <a class="navbar-item is-size-3" href="{{ url_for('add_series') }}">
+                                    Add series as admin
+                                </a>
+                                {% endif %}
                                 <a class="navbar-item is-size-3" href="{{ url_for('logout') }}">
                                     Log Out
                                 </a>
