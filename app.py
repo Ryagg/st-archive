@@ -134,7 +134,7 @@ def register():
             "favourites_books": [],
             "wishlist": [],
             "finished_books": [],
-            "is_admin": "False"
+            "is_admin": False
         }
         mongo.db.users.insert_one(user_register)
 
