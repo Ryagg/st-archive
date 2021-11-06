@@ -95,34 +95,50 @@
                                         ebook
                                         <!-- needs the "equals true" or miniseries gets checked-->
                                         <!-- does work as intended for PIC and DIS, but not for the other series-->
-                                        {% if book.e_book == "true" %}
-                                        <span class="icon ml-2">
-                                            <i class="fal fa-border fa-check"></i>
-                                        </span>
+                                        {% if book.e_book %}
+                                            <span class="icon ml-2">
+                                                <i class="fal fa-border fa-check"></i>
+                                            </span>
+                                        {% else %}
+                                            <span class="icon ml-2">
+                                                <i class="fal fa-border fa-times"></i>
+                                            </span>
                                         {% endif %}
                                     </li>
                                     <li>
                                         paperbook
-                                        {% if book.paper_book == "true" %}
-                                        <span class="icon ml-2">
-                                            <i class="fal fa-border fa-check"></i>
-                                        </span>
+                                        {% if book.paper_book %}
+                                            <span class="icon ml-2">
+                                                <i class="fal fa-border fa-check"></i>
+                                            </span>
+                                        {% else %}
+                                            <span class="icon ml-2">
+                                                <i class="fal fa-border fa-times"></i>
+                                            </span>
                                         {% endif %}
                                     </li>
                                     <li>
                                         audiobook
-                                        {% if book.audio_book == "true" %}
-                                        <span class="icon ml-2">
-                                            <i class="fal fa-border fa-check"></i>
-                                        </span>
+                                        {% if book.audio_book %}
+                                            <span class="icon ml-2">
+                                                <i class="fal fa-border fa-check"></i>
+                                            </span>
+                                        {% else %}
+                                            <span class="icon ml-2">
+                                                <i class="fal fa-border fa-times"></i>
+                                            </span>
                                         {% endif %}
                                     </li>
                                     <li>
                                         part of miniseries
-                                        {% if book.part_of_mini_series == "true" %}
-                                        <span class="icon ml-2">
-                                            <i class="fal fa-border fa-check"></i>
-                                        </span>
+                                        {% if book.part_of_mini_series %}
+                                            <span class="icon ml-2">
+                                                <i class="fal fa-border fa-check"></i>
+                                            </span>
+                                        {% else %}
+                                            <span class="icon ml-2">
+                                                <i class="fal fa-border fa-times"></i>
+                                            </span>
                                         {% endif %}
                                     </li>
                                 </ul>
