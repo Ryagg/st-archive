@@ -24,7 +24,7 @@ csrf = SeaSurf(app)
 # whitelist domains for content security policy
 csp = {
     'default-src': [
-        ' \'self\'',
+        '\'unsafe-inline\' \'self\'',
         '*.fontawesome.com',
         '*.herokuapp.com',
         '*.jsdelivr.net'
@@ -38,7 +38,7 @@ csp = {
         '*.jsdelivr.net'
         ],
     'script-src-elem': [
-            '\'self\'',
+            '\'unsafe-inline\' \'self\'',
             '*.fontawesome.com',
             '*.herokuapp.com',
             '*.jquery.com',
