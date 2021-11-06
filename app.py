@@ -469,6 +469,26 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/add_series", methods=["GET", "POST"])
+@login_required
+def add_series():
+    """Add new series to the database."""
+    if request.method == "POST":
+        new_series = {
+            "series_name": request.form.get("new_series_name"),
+            "series_code": request.form.get("new_series_code"),
+            "series_ended": False
+        }
+        mongo.db.series.insert_one(new_series)
+        flash("Incoming message from ST-Archive: "
+              "New entry added to database. Thank you. ST-Archive out.")
+        return redirect(url_for("profile", username=session["user"]))
+
+    st_series = list(mongo.db.series.find())
+    return render_template("add_series.html", series=st_series,
+                           username=session["user"])
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template("404.html")
