@@ -82,11 +82,23 @@ def login_required(function):
     def decorated_function(*args, **kwargs):
         if "user" not in session:
             flash("Security alert: Access restricted. Authentication required."
-                  "Enter credentials.")
+                  " Enter credentials.")
             return redirect(url_for("login"))
         return function(*args, **kwargs)
     return decorated_function
 
+
+def admin_required(function):
+    """Add route protection by restricting access
+        to authenticated users only."""
+    @wraps(function)
+    def decorated_function(*args, **kwargs):
+        if not session["admin"]:
+            flash("Security alert: Authorisation Alpha-Edison required. "
+                  "Access denied.")
+            return redirect(url_for("profile", username=session["user"]))
+        return function(*args, **kwargs)
+    return decorated_function
 
 @app.route("/")
 def index():
@@ -173,7 +185,6 @@ def login():
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-
     return render_template("login.html", series=st_series)
 
 
@@ -225,7 +236,8 @@ def logout():
     st_series = list(mongo.db.series.find())
     # remove user from session cookies
     flash("You have been logged out")
-    session.pop("user")
+    session.clear()
+
     return redirect(url_for("login"))
 
 
@@ -471,6 +483,7 @@ def contact():
 
 @app.route("/add_series", methods=["GET", "POST"])
 @login_required
+@admin_required
 def add_series():
     """Add new series to the database."""
     if request.method == "POST":
