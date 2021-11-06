@@ -8,6 +8,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from flask_mail import Mail, Message
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_talisman import Talisman
 import re
 import cloudinary as Cloud
 # needed because the file won't be found after deployment to heroku
@@ -16,6 +17,34 @@ if os.path.exists("env.py"):
 
 
 app = Flask(__name__)
+
+# whitelist domains for content security policy
+csp = {
+    'default-src': [
+        ' \'self\'',
+        '*.fontawesome.com',
+        '*.herokuapp.com',
+        '*.jsdelivr.net'
+    ],
+    'img-src': '*',
+    'script-src': [
+        ' \'self\'',
+        '*.fontawesome.com',
+        '*.herokuapp.com',
+        '*.jquery.com',
+        '*.jsdelivr.net'
+        ],
+    'script-src-elem': [
+            '\'self\'',
+            '*.fontawesome.com',
+            '*.herokuapp.com',
+            '*.jquery.com',
+            '*.jsdelivr.net'
+        ]
+}
+
+# add HTTP security headers
+Talisman(app, content_security_policy=csp)
 
 # mailtrap credentials
 app.config['MAIL_SERVER'] = 'smtp.mailtrap.io'
