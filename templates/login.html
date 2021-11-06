@@ -6,6 +6,7 @@
         <div class="container">
             <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">Log in</h1>
             <form class="form" method="POST" action="{{ url_for('login') }}">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                 <!-- Username -->
                 <div class="columns is-centered">
                     <div class="column is-6-tablet is-5-desktop is-4-widescreen">

@@ -12,6 +12,7 @@
                         Fill out the form and we will contact you as soon as possible!
                     </p>
                 <form class="form" method="POST" action="{{ url_for('contact') }}">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                     <!-- Name -->
                     <div class="columns is-centered">
                         <div class="column is-6-tablet is-5-desktop is-4-widescreen mt-3">

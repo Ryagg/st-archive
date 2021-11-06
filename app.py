@@ -9,6 +9,7 @@ from flask_pymongo import PyMongo
 from flask_mail import Mail, Message
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_talisman import Talisman
+from flask_seasurf import SeaSurf
 import re
 import cloudinary as Cloud
 # needed because the file won't be found after deployment to heroku
@@ -17,6 +18,8 @@ if os.path.exists("env.py"):
 
 
 app = Flask(__name__)
+# prevent cross-site request forgery
+csrf = SeaSurf(app)
 
 # whitelist domains for content security policy
 csp = {
