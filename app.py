@@ -4,7 +4,7 @@ from functools import wraps
 from bson.objectid import ObjectId
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, Markup)
 from flask_pymongo import PyMongo
 from flask_mail import Mail, Message
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -81,8 +81,11 @@ def login_required(function):
     @wraps(function)
     def decorated_function(*args, **kwargs):
         if "user" not in session:
-            flash("Security alert: Access restricted. Authentication required."
-                  " Enter credentials.")
+            flash(Markup("<i class='fas fa-siren-on has-text-danger pr-2'></i>"
+                         "Security alert: Access restricted. "
+                         "Authentication required. "
+                         "Enter credentials. "
+                         "<i class='fas fa-siren-on has-text-danger'></i>"))
             return redirect(url_for("login"))
         return function(*args, **kwargs)
     return decorated_function
@@ -94,11 +97,15 @@ def admin_required(function):
     @wraps(function)
     def decorated_function(*args, **kwargs):
         if not session["admin"]:
-            flash("Security alert: Authorisation Alpha-Edison required. "
-                  "Access denied.")
+            flash(Markup(
+                "<i class='fas fa-do-not-enter has-text-danger'></i>"
+                " Security alert: Authorisation Alpha-Theta required."
+                " Access denied. "
+                "<i class='fas fa-do-not-enter has-text-danger'></i>"))
             return redirect(url_for("profile", username=session["user"]))
         return function(*args, **kwargs)
     return decorated_function
+
 
 @app.route("/")
 def index():
@@ -133,8 +140,11 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Security alert: incorrect Username and/or Password."
-                  "Access denied.")
+            flash(Markup(
+                "<i class='fas fa-do-not-enter has-text-danger'></i>"
+                " Security alert: incorrect Username and/or Password."
+                "Access denied. "
+                "<i class='fas fa-do-not-enter has-text-danger'></i>"))
             return redirect(url_for("register"))
 
         # create dictionary to be inserted into the database
@@ -152,8 +162,9 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash('Registration successful! Welcome to ST-Archive, '
-              f'{request.form.get("username").capitalize()}')
+        flash(Markup('Registration successful! Welcome to ST-Archive, '
+              f'{request.form.get("username").capitalize()} '
+              '<i class="far fa-handshake"></i>'))
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html", series=st_series)
 
@@ -178,12 +189,17 @@ def login():
                 return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid password match
-                flash("Incorrect Username and/or Password")
+                flash(Markup(
+                    "<i class='fal fa-exclamation-circle has-text-danger'></i>"
+                    " Incorrect Username and/or Password "))
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash(Markup(
+                "<i class='fal fa-exclamation-circle has-text-danger'></i>"
+                " Incorrect Username and/or Password "
+                "<i class='fal fa-exclamation-circle has-text-danger'></i>"))
             return redirect(url_for("login"))
     return render_template("login.html", series=st_series)
 
@@ -235,7 +251,8 @@ def profile(username):
 def logout():
     st_series = list(mongo.db.series.find())
     # remove user from session cookies
-    flash("You have been logged out")
+    flash(Markup("You have been logged out. "
+                 "<i class='fal fa-sign-out-alt'></i>"))
     session.clear()
 
     return redirect(url_for("login"))
@@ -275,17 +292,19 @@ def add_fav_series():
     user = mongo.db.users.find_one(
         {"username": session["user"]})
     if show_name in user["favourites_series"]:
-        flash(f"Information: '{show_name}' is already in your favourites. "
-              "Adding it multiple times to your favourites is not logical. "
-              "Request denied.")
+        flash(Markup("<i class='fal fa-exclamation-circle'></i> "
+                     f"Information: '{show_name}' is already in your "
+                     "favourites. Adding it multiple times to your favourites "
+                     "is not logical. Request denied."))
     else:
         mongo.db.users.find_one_and_update(
             {"username": session["user"]},
             {"$push": {"favourites_series": show_name}}
             )
-        flash("Incoming message from ST-Archive: "
-              f"'{show_name}' has been added to your favourites! "
-              "ST-Archive out.")
+        flash(Markup("<i class='fal fa-info-square'></i> "
+                     "Incoming message from ST-Archive: "
+                     f"'{show_name}' has been added to your favourites! "
+                     "ST-Archive out."))
     return redirect(url_for("profile", username=session["user"]))
 
 
@@ -301,16 +320,18 @@ def mark_book_as_finished(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     title = book["title"]
     if ObjectId(book_id) in user["finished_books"]:
-        flash(f"Information: You have already marked '{title}' as finished. "
-              "Request denied.")
+        flash(Markup("<i class='fal fa-exclamation-circle'></i> "
+                     f"Information: You have already marked '{title}' "
+                     "as finished. Request denied."))
     else:
         mongo.db.users.find_one_and_update(
             {"username": session["user"]},
             {"$push": {"finished_books": ObjectId(book_id)}}
         )
-        flash("Incoming message from ST-Archive: "
-              f"'{title}' has been marked as finished! "
-              "ST-Archive out.")
+        flash(Markup("<i class='fal fa-info-square'></i> "
+                     "Incoming message from ST-Archive: "
+                     f"'{title}' has been marked as finished! "
+                     "ST-Archive out."))
 
     return redirect(url_for("profile", username=session["user"]))
 
@@ -328,16 +349,18 @@ def add_book_to_favs(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     title = book["title"]
     if ObjectId(book_id) in user["favourites_books"]:
-        flash(f"Information: '{title}' is already in your favourites list. "
-              "Request denied.")
+        flash(Markup("<i class='fal fa-exclamation-circle'></i> "
+                     f"Information: '{title}' is already in your favourites "
+                     "list. Request denied."))
     else:
         mongo.db.users.find_one_and_update(
             {"username": session["user"]},
             {"$push": {"favourites_books": ObjectId(book_id)}}
         )
-        flash("Incoming message from ST-Archive: "
-              f"'{title}' has been added to your favourites! "
-              "ST-Archive out.")
+        flash(Markup("<i class='fal fa-info-square'></i> "
+                     "Incoming message from ST-Archive: "
+                     f"'{title}' has been added to your favourites! "
+                     "ST-Archive out."))
     return redirect(url_for("profile", username=session["user"]))
 
 
@@ -354,15 +377,19 @@ def add_book_to_wishlist(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     title = book["title"]
     if ObjectId(book_id) in user["wishlist"]:
-        flash(f"'{title}' is already in your wish list. "
-              "Adding it to your wishlist is not logical. Request denied.")
+        flash(Markup("<i class='fal fa-exclamation-circle'></i> "
+                     f"'{title}' is already in your wish list. "
+                     "Adding it to your wishlist is not logical. "
+                     "Request denied."))
     else:
         mongo.db.users.find_one_and_update(
             {"username": session["user"]},
             {"$push": {"wishlist": ObjectId(book_id)}}
         )
-        flash("Incoming message from ST-Archive: "
-              f"'{title}' has been added to your wishlist! ST-Archive out.")
+        flash(Markup("<i class='fal fa-info-square'></i> "
+                     "Incoming message from ST-Archive: "
+                     f"'{title}' has been added to your wishlist!"
+                     "ST-Archive out."))
     return redirect(url_for("profile", username=session["user"]))
 
 
@@ -378,8 +405,10 @@ def add_review():
             "created_by": session["user"].capitalize()
         }
         mongo.db.reviews.insert_one(review)
-        flash("Incoming message from ST-Archive:"
-              "Your review has been successfuly transmitted! ST-Archive out.")
+        flash(Markup("<i class='fal fa-check-circle has-text-success'></i> "
+                     "Incoming message from ST-Archive:"
+                     "Your review has been successfuly transmitted!"
+                     "ST-Archive out."))
         return redirect(url_for("series"))
 
     username = mongo.db.users.find_one(
@@ -415,9 +444,10 @@ def edit_review(review_id):
                 {"review_text": updated_review["review_text"]
                  }}
                                     )
-        flash("Incoming message from ST-Archive:"
-              "Your update to your review has been successfuly transmitted!"
-              "ST-Archive out.")
+        flash(Markup("<i class='fal fa-check-circle has-text-success'></i> "
+                     "Incoming message from ST-Archive: "
+                     "Your update to your review has been successfuly "
+                     "transmitted! ST-Archive out."))
         return redirect(url_for("profile", username=session["user"]))
 
     username = mongo.db.users.find_one(
@@ -438,8 +468,9 @@ def delete_review(review_id):
     Give user the ability to cancel the process and return to the profile page.
     """
     mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
-    flash("Message from ST-Archive incoming:"
-          "Review successfully deleted from memory banks")
+    flash(Markup("<i class='fal fa-info-square'></i>"
+                 "Message from ST-Archive incoming:"
+                 "Review successfully deleted from memory banks"))
     return redirect(url_for("profile", username=session["user"]))
 
 
@@ -466,14 +497,17 @@ def contact():
                           recipients=['sev2275@gmx.com'])
             msg.body = request.form.get("message")
             mail.send(msg)
-            flash(
-                "Subspace message received. Thank you. "
-                "We will answer as soon as possible. Closing subspace link."
-                  )
+            flash(Markup("<i class='fal fa-satellite-dish'></i> "
+                         "Subspace message received. Thank you. "
+                         "We will answer as soon as possible."
+                         "Closing subspace link."
+                         ))
         except Exception as ex:
-            print(ex)
-            flash("Information: Your message could not be sent. "
-                  "Please try again later. Thank you.")
+            flash(Markup(
+                "<i class='fal fa-exclamation-circle has-text-danger'></i> "
+                "Information: Your message could not be sent. "
+                "Please try again later. Thank you. "
+                "<i class='fal fa-exclamation-circle has-text-danger'></i>"))
         # remove before submitting?
         else:
             print("message sent")
@@ -493,8 +527,10 @@ def add_series():
             "series_ended": False
         }
         mongo.db.series.insert_one(new_series)
-        flash("Incoming message from ST-Archive: "
-              "New entry added to database. Thank you. ST-Archive out.")
+        flash(Markup("<i class='fal fa-database'></i> "
+                     "Incoming message from ST-Archive: "
+                     "New entry added to database. Thank you. "
+                     "ST-Archive out."))
         return redirect(url_for("profile", username=session["user"]))
 
     st_series = list(mongo.db.series.find())
@@ -523,8 +559,10 @@ def add_book():
             "status": request.form.get("new_book_status")
         }
         mongo.db.books.insert_one(new_book)
-        flash("Incoming message from ST-Archive: "
-              "New entry added to database. Thank you. ST-Archive out.")
+        flash(Markup("<i class='fal fa-database'></i> "
+                     "Incoming message from ST-Archive: "
+                     "New entry added to database. Thank you. "
+                     "ST-Archive out."))
         return redirect(url_for("profile", username=session["user"]))
 
     st_series = list(mongo.db.series.find())
