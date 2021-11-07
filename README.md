@@ -175,6 +175,10 @@ The profile page greets users with a personalised flash message and heading. It 
 
 After logging out a confirmation flash gets displayed. The session status is cleared.
 
+#### **Contact page**
+
+The contact page features a contact form. The form uses form-validation and all input fields except the subject have to be filled out for the user to be able to submit the form. Users have the option to clear the form content. When the user submits the form a flash message informs the user about the successful submission and the form is cleared. Flask-Mail is used to inform the site owner about user messages including the message text and the user's email address.
+
 #### **404 page**
 
 Users who enter an incorrect URL for the site are being directed to the 404 page. The page features the numerical error code, a space-related image and a Star Trek related short explanation that there is no page to be displayed. Beneath, they can click on the link to be "beamed" back to the homepage.
@@ -186,6 +190,10 @@ In case of internal server errors, a 500 page is displayed. The page features th
 #### **Admin features**
 
 Admins can add both series and books to the database. They can also check user reviews before adding them to the reviews collection.
+
+#### **Security features**
+
+Flask-Talisman and Flask-SeaSurf are used to improve the application's security. Login and admin decorators are used to prevent unauthorized access.
 
 ### **Features to be implemented**
 
@@ -236,6 +244,7 @@ For users who forgot their password, a password reset function is planned.
 -   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 -   [JSHint](https://jshint.com)
 -   [TinyJPG](https://tinyjpg.com/)
+-   [Mailtrap](https://mailtrap.io/)
 
 ## **Testing**
 
@@ -325,6 +334,34 @@ The colours for my colour palette were taken from [Steven Cote's](https://codepe
 
 ---
 
+Photos used as background for the all pages were obtained from [Unsplash](https://unsplash.com).
+
+#### all pages except error pages
+
+Starry sky: Photo by [Aperture Vintage](https://unsplash.com/@aperturevintage) on [Unsplash](https://unsplash.com/collections/kTCNECqjMRM/ms3-space/d1868ea4c622efa83b6e01d20cb1dea3?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+
+#### 404.html
+
+Solar eclipse: Photo by [Mathew Schwartz](https://unsplash.com/@cadop) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+
+#### 500.html
+
+Earth viewed from a space capsule: Photo by [NASA](https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/collections/kTCNECqjMRM/ms3-space/d1868ea4c622efa83b6e01d20cb1dea3?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+
+All book cover images were obtained from [Memory Alpha](https://memory-alpha.fandom.com/wiki/Portal:Main) and are published here under the following terms:
+
+-   **License**
+
+    Fair Use - the material is copyrighted, but used here under [Fair Use](http://en.wikipedia.org/wiki/Fair_Use) guidelines.
+
+-   **Owner/Creator**
+
+    Pocket Books and its corporate heir, Gallery Books, which is a subsidiary of Simon & Schuster.
+
+-   **Source**
+
+    Please refer to the separate [SOURCES.md](SOURCES.md) for sources for each book cover image.
+
 ### **Content**
 
 ---
@@ -345,6 +382,8 @@ ST-Archive also uses content from [Memory Beta](http://memory-beta.wikia.com/), 
 -   [MongoDB docs](https://docs.mongodb.com/)
 -   [Stackoverflow](https://stackoverflow.com/)
 -   [CSS-tricks](https://css-tricks.com/)
+-   [Flask-Talisman](https://github.com/GoogleCloudPlatform/flask-talisman)
+-   [Flask-SeaSurf](https://flask-seasurf.readthedocs.io/en/latest/)
 
 ### **Acknowledgements**
 
