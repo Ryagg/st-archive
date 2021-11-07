@@ -477,8 +477,8 @@ def contact():
         # remove before submitting?
         else:
             print("message sent")
-
-    return render_template("contact.html")
+    st_series = list(mongo.db.series.find())
+    return render_template("contact.html", series=st_series)
 
 
 @app.route("/add_series", methods=["GET", "POST"])
