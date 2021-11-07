@@ -75,6 +75,13 @@ h6 {
     color: #3366ff;
 }
 
+/* found at https://www.proglobalbusinesssolutions.com/css-hover-effects/ under entry 10) Glowing Icon Hover Effect */
+a.button:hover {
+    color: #ffef0a;
+    box-shadow: 0 0 5px #ffef0a;
+    text-shadow: 0 0 5px #ffef0a;
+}
+
 /*----- WRAPPER -----*/
 .page_wrapper {
     display: flex;
