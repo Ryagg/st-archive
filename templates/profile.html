@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <!-- Reviews -->
-                <div class=columns>
+                <div class="columns">
                     <div class="column">
                         <div class="card">
                             <header class="card-header hero_card">
@@ -143,49 +143,54 @@
                             <div class="card-content card__bg--light">
                                 <div class="content is-size-4">
                                     <div class="columns is-centered is-multiline">
-                                            {% if user_reviews|length > 0 %}
-                                                {% for review in user_reviews|sort(attribute="book_series") %}
-                                                    <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
-                                                        <p class="title is-4 text__shadow--light">{{ review.book_series }}: {{ review.book_title }}</p>
-                                                        <p class="is-size-4">{{ review.review_text }}</p>
-                                                <!-- Buttons for user actions -->
-                                                        <div class="column">
+                                        {% if user_reviews|length > 0 %}
+                                            {% for review in user_reviews|sort(attribute="book_series") %}
+                                                <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
+                                                    <p class="title is-4 text__shadow--light">{{ review.book_series }}: {{ review.book_title }}</p>
+                                                    <p class="is-size-4">{{ review.review_text }}</p>
+                                                    <!-- Buttons for user actions -->
+                                                    <div class="column">
+                                                        <div class="field is-grouped">
+                                                            <div class="control">
+                                                                <a class="button is-link"
+                                                                    href="{{ url_for('edit_review', review_id=review._id) }}">Edit review</a>
+                                                            </div>
+                                                            <span class="button is-danger modal-button"
+                                                                data-target="modal-card">Delete review</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- confirmation modal for review deletion -->
+                                                <div id="modal-card" class="modal">
+                                                    <div class="modal-card">
+                                                        <header class="modal-card-head has-text-centered card__bg--blue-dark">
+                                                            <p class="modal-card-title is-size-3 text--color-light text__shadow--dark">Confirmation</p>
+                                                                <button class="delete is-large has-background-grey modal-header__close" aria-label="close"></button>
+                                                        </header>
+                                                        <section class="modal-card-body">
+                                                            <p class="is-size-3">
+                                                                The review will be deleted from your profile and from the database.
+                                                                Please click 'Delete review' to proceed or 'Cancel' to abort.
+                                                            </p>
+                                                        </section>
+                                                        <footer class="modal-card-foot">
                                                             <div class="field is-grouped">
                                                                 <div class="control">
-                                                                    <a class="button is-link" href="{{ url_for('edit_review', review_id=review._id) }}">Edit review</a>
+                                                                    <a class="button is-danger"
+                                                                        href="{{ url_for('delete_review', review_id=review._id) }}">Delete
+                                                                        review</a>
                                                                 </div>
-                                                                    <span class="button is-danger modal-button" data-target="modal-card">Delete review</span>
+                                                                <div class="control">
+                                                                    <button class="button is-link modal-footer__cancel">Cancel</button>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </footer>
                                                     </div>
-                                                    <!-- confirmation modal for review deletion -->
-                                                    <div id="modal-card" class="modal">
-                                                        <div class="modal-card">
-                                                            <header class="modal-card-head">
-                                                                <p class="modal-card-title">Confirmation</p>
-                                                                <button class="delete modal-header__close" aria-label="close"></button>
-                                                            </header>
-                                                            <section class="modal-card-body">
-                                                                <p class="is-size-3">
-                                                                    The review will be deleted from your profile and from the database. Please click 'Delete review' to proceed or 'Cancel' to abort.
-                                                                </p>
-                                                            </section>
-                                                            <footer class="modal-card-foot">
-                                                                <div class="field is-grouped">
-                                                                    <div class="control">
-                                                                        <a class="button is-link" href="{{ url_for('delete_review', review_id=review._id) }}">Delete review</a>
-                                                                    </div>
-                                                                    <div class="control">
-                                                                        <button class="button modal-footer__cancel">Cancel</button>
-                                                                    </div>
-                                                                </div>
-                                                            </footer>
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-                                            {% else %}
-                                                <p class="is-size-4">You haven't added any reviews yet. </p>
-                                            {% endif %}
+                                                </div>
+                                            {% endfor %}
+                                        {% else %}
+                                            <p class="is-size-4">You haven't added any reviews yet. </p>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
