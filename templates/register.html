@@ -5,7 +5,8 @@
     <div class="hero-body">
         <div class="container">
             <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">Register</h1>
-            <ul class="has text-centered is-size-4">
+            <p class="is-size-4 has-text-justified has-background-info-light has-text-black px-3 mb-4 card__border--groove">Register a free account to add series and/or books to your favourites, mark books as finished, add books to your wish list, and write reviews!</p>
+            <ul class="is-size-4 has-text-justified has-background-info-light has-text-black px-3 mb-4 card__border--groove">
                 <li>All fields marked "required" must be completed.</li>
                 <li>You can't enter anything into the "Favourite series", "Favourite books", "Books in wish list", and
                     "Finished books"
@@ -18,7 +19,7 @@
                 <div class="columns is-centered">
                     <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                         <div class="field">
-                            <label for="username" class="is-size-4 has-text-weight-normal">Username (required)</label>
+                            <label for="username" class="is-size-4 has-text-weight-normal has-text-white">Username (required)</label>
                             <div class="control has-icons-left">
                                 <input id="username" name="username" class="input is-link" type="text" minlength="5"
                                     maxlength="20" pattern="^[a-zA-Z0-9]{5,15}$" placeholder="Enter username" value=""
@@ -36,7 +37,7 @@
                     <!-- check pattern! -->
                     <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                         <div class="field">
-                            <label for="password" class="is-size-4 has-text-weight-medium">Password (required)</label>
+                            <label for="password" class="is-size-4 has-text-weight-medium has-text-white">Password (required)</label>
                             <div class="control has-icons-left">
                                 <input id="password" name="password" class="input is-link" type="password" minlength="5"
                                     maxlength="20" pattern="^[a-zA-Z0-9!+-_.*]{5,15}$" placeholder="******" value=""
@@ -53,7 +54,7 @@
                 <div class="columns is-centered">
                     <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                         <div class="field">
-                            <label for="email" class="is-size-4 has-text-weight-medium">Email (required)</label>
+                            <label for="email" class="is-size-4 has-text-weight-medium has-text-white">Email (required)</label>
                             <div class="control has-icons-left">
                                 <input id="email" name="email" class="input is-link" type="email" minlength="12"
                                     maxlength="30" placeholder="you@mail.com" value="" aria-label="email"
@@ -135,7 +136,7 @@
                                 <input class="button is-link" type="submit" value="Submit">
                             </div>
                             <div class="control">
-                                <button class="button is-link" type="reset" value="Clear form">Clear form
+                                <button class="button is-danger" type="reset" value="Clear form">Clear form
                             </div>
                         </div>
                     </div>
