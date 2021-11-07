@@ -10,6 +10,7 @@
                     <div class="card">
                         <div class="card-content card__bg--light">
                             <form class="form" method="POST" action="{{ url_for('search') }}">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                                 <div class="columns is-centered">
                                     <div class="column is-10-tablet is-8-desktop">
                                         <div class="field">
