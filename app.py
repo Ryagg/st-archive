@@ -502,6 +502,36 @@ def add_series():
                            username=session["user"])
 
 
+@app.route("/add_book", methods=["GET", "POST"])
+@login_required
+@admin_required
+def add_book():
+    """Add new book to the database."""
+    if request.method == "POST":
+        new_book = {
+            "title": request.form.get("new_book_title"),
+            "series_code": request.form.get("new_book_series_code"),
+            "number": request.form.get("new_book_number"),
+            "e_book": request.form.get("new_book_e_book"),
+            "paper_book": request.form.get("new_book_paper_book"),
+            "audio_book": request.form.get("new_book_audio_book"),
+            "part_of_mini_series": request.form.get("new_book_mini_series"),
+            "blurb": request.form.get("new_book_blurb"),
+            "cover": request.form.get("new_book_cover"),
+            "isbn": request.form.get("new_book_isbn"),
+            "timespan_start": request.form.get("new_book_timespan_start"),
+            "status": request.form.get("new_book_status")
+        }
+        mongo.db.books.insert_one(new_book)
+        flash("Incoming message from ST-Archive: "
+              "New entry added to database. Thank you. ST-Archive out.")
+        return redirect(url_for("profile", username=session["user"]))
+
+    st_series = list(mongo.db.series.find())
+    return render_template("add_book.html", series=st_series,
+                           username=session["user"])
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template("404.html")
