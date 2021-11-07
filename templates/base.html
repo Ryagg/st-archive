@@ -41,10 +41,10 @@
                                 Series
                             </a>
                             <div class="navbar-dropdown">
-                                {% for show in series %}
-                                <a class="navbar-item is-size-3" href="/series/#{{ show.series_name }}">
-                                    {{ show.series_name }}
-                                </a>
+                                {% for show in series|sort(attribute="series_name") %}
+                                    <a class="navbar-item is-size-3" href="/series/#{{ show.series_name }}">
+                                        {{ show.series_name }}
+                                    </a>
                                 {% endfor %}
                             </div>
                         </div>
@@ -61,28 +61,28 @@
                             </a>
                             <div class="navbar-dropdown">
                                 {% if session.user %}
-                                <a class="navbar-item is-size-3"
-                                    href="{{ url_for('profile', username=session['user']) }}">
-                                    Profile
-                                </a>
+                                    <a class="navbar-item is-size-3"
+                                        href="{{ url_for('profile', username=session['user']) }}">
+                                        Profile
+                                    </a>
                                 {% if session.admin == True %}
-                                <a class="navbar-item is-size-3" href="{{ url_for('add_series') }}">
-                                    Add series as admin
-                                </a>
-                                <a class="navbar-item is-size-3" href="{{ url_for('add_book') }}">
-                                    Add book as admin
-                                </a>
+                                    <a class="navbar-item is-size-3" href="{{ url_for('add_series') }}">
+                                        Add series as admin
+                                    </a>
+                                    <a class="navbar-item is-size-3" href="{{ url_for('add_book') }}">
+                                        Add book as admin
+                                    </a>
                                 {% endif %}
-                                <a class="navbar-item is-size-3" href="{{ url_for('logout') }}">
-                                    Log Out
-                                </a>
+                                    <a class="navbar-item is-size-3" href="{{ url_for('logout') }}">
+                                        Log Out
+                                    </a>
                                 {% else %}
-                                <a class="navbar-item is-size-3" href="{{ url_for('login') }}">
-                                    Login
-                                </a>
-                                <a class="navbar-item is-size-3" href="{{ url_for('register') }}">
-                                    Register
-                                </a>
+                                    <a class="navbar-item is-size-3" href="{{ url_for('login') }}">
+                                        Login
+                                    </a>
+                                    <a class="navbar-item is-size-3" href="{{ url_for('register') }}">
+                                        Register
+                                    </a>
                                 {% endif %}
                             </div>
                         </div>
@@ -102,15 +102,15 @@
         <section>
             <!-- flash messages -->
             {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for message in messages %}
-            <div class="columns flashes my-5">
-                <div class="column">
-                    <h3 class="title is-3 has-text-centered">{{ message }}</h3>
-                </div>
-            </div>
-            {% endfor %}
-            {% endif %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="columns flashes my-5">
+                            <div class="column">
+                                <h3 class="title is-3 has-text-centered">{{ message }}</h3>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             {% endwith %}
         </section>
 
