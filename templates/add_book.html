@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section class="hero is-fullheight-with-navbar bg__img--starry-sky">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1 has-text-centered heading__text--shadow">Hello, {{ username.capitalize() }} </h1>
+
+                <form class="form" method="POST" action="{{ url_for('add_book') }}">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_title">Book title</label>
+                                <div class="control">
+                                    <input id="new_book_title" name="new_book_title" class="input is-size-4" type="text" placeholder="Enter book title"
+                                        value="" aria-label="new_book_title" aria-described-by="title_of_new_book" autofocus required>
+                                        <span id="title_of_new_book" aria-live="assertive"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_series_code">Series code</label>
+                                <div class="control">
+                                    <input id="new_book_series_code" name="new_book_series_code" class="input is-size-4" type="text" placeholder="Enter series code"
+                                        value="" aria-label="new_book_series_code" aria-described-by="code_for_new_book" required>
+                                        <span id="code_for_new_book" aria-live="assertive"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_number">Number</label>
+                                <div class="control">
+                                    <input id="new_book_number" name="new_book_number" class="input is-size-4" type="text" placeholder="Enter book number, leave empty for unnumbered books"
+                                        value="" aria-label="new_book_number" aria-described-by="number_of_new_book">
+                                        <span id="number_of_new_book" aria-live="assertive"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <div class="control">
+                                    <p class="is-size-3 text--color-light has-text-weight-normal">Available as ebook?</p>
+                                        <label class="radio is-size-4 text--color-light has-text-weight-normal">
+                                            <input type="radio" id="new_book_e_book" name="new_book_e_book" aria-label="new_book_e_book" aria-described-by="new_book_e_book_availability" required>
+                                                <span id="new_book_e_book_availability" aria-live="assertive"></span>
+                                            Yes
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="field">
+                                <div class="control">
+                                    <p class="is-size-3 text--color-light has-text-weight-normal">Available as paperback?</p>
+                                        <label class="radio is-size-4 text--color-light has-text-weight-normal">
+                                            <input type="radio" id="new_book_paper_book" name="new_book_paper_book" aria-label="new_book_paper_book" aria-described-by="new_book_paper_book_availability">
+                                                <span id="new_book_paper_book_availability" aria-live="assertive"></span>
+                                            Yes
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="field">
+                                <div class="control">
+                                    <p class="is-size-3 text--color-light has-text-weight-normal">Available as audiobook?</p>
+                                        <label class="radio is-size-4 text--color-light has-text-weight-normal">
+                                            <input type="radio" id="new_book_audio_book" name="new_book_audio_book" aria-label="new_book_audio_book" aria-described-by="new_book_audio_book_availability">
+                                                <span id="new_book_audio_book_availability" aria-live="assertive"></span>
+                                            Yes
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <div class="control">
+                                    <p class="is-size-3 text--color-light has-text-weight-normal">Part of mini-series?</p>
+                                        <label class="radio is-size-4 text--color-light has-text-weight-normal">
+                                            <input type="radio" id="new_book_mini_series" name="new_book_mini_series" aria-label="new_book_mini_series" aria-described-by="new_book_part_of_mini_series">
+                                                <span id="new_book_part_of_mini_series" aria-live="assertive"></span>
+                                            Yes
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_mini_series_number">Number in mini-series</label>
+                                <div class="control">
+                                    <input id="new_book_mini_series_number" name="new_book_mini_series_number" class="input is-size-4" type="tel" placeholder="Enter number in series as digit"
+                                        value="" aria-label="new_book_mini_series_number" aria-described-by="number_in_mini_series">
+                                        <span id="number_in_mini_series" aria-live="assertive"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_blurb">Description / blurb (required)</label>
+                                <div class="control">
+                                    <textarea id="new_book_blurb" name="new_book_blurb" class="textarea is-medium mb-4" type="text"
+                                        placeholder="Add blurb here" rows="10" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_timespan_start">Timespan start</label>
+                                <div class="control">
+                                    <input id="new_book_timespan_start" name="new_book_timespan_start" class="input is-size-4" type="text" placeholder="Enter 4-digit date for start of story, leave empty if information not available"
+                                        value="" aria-label="new_book_timespan_start" aria-described-by="new_book_story_start_year">
+                                        <span id="new_book_story_start_year" aria-live="assertive"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_cover">Book cover</label>
+                                <div class="control">
+                                    <input id="new_book_cover" name="new_book_cover" class="input is-size-4" type="text" placeholder="Enter URL for book cover"
+                                        value="" aria-label="new_book_cover" aria-described-by="new_book_cover_url" required>
+                                        <span id="new_book_cover_url" aria-live="assertive"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <div class="control">
+                                    <p class="is-size-3 text--color-light has-text-weight-normal">Status</p>
+                                        <div class="select is-size-4 text--color-light has-text-weight-normal">
+                                            <select name="new_book_status" id="new_book_status">
+                                                <option value="Published" aria-label="new_book_status" aria-described-by="new_book_status_published">Published</option>
+                                                <option value="Announced">Announced</option>
+                                            </select>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <input class="button is-link" type="submit" value="Submit">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-link" type="reset" value="Clear form">Clear form
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
