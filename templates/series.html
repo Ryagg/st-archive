@@ -84,11 +84,14 @@
                         </div>
                         <div class="card-content card__bg--light">
                             <h2 class="title is-2">{{ book.title }}</h2>
-                            {% if not book.number == "null" %}
-                            <h3 class="subtitle is-3">Book number {{book.number}}</h3>
-                            {% else %}
-                            <h3 class="subtitle is-3">Unnumbered book</h3>
-                            {% endif %}
+                                {% if book.number == "" %}
+                                    <h3 class="subtitle is-3">Unnumbered book</h3>
+                                {% elif not book.number == "null" %}
+                                    <h3 class="subtitle is-3">Book number {{book.number}}</h3>
+                                <!-- remove? -->
+                                {% else %}
+                                    <h3 class="subtitle is-3">Unnumbered book</h3>
+                                {% endif %}
                             <div class="book-list__info is-size-4">
                                 <ul>
                                     <li>
