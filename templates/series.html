@@ -55,8 +55,8 @@
             {% for show in series|sort(attribute="series_name") %}
             <section id="show.series_name">
                 <!-- Series title -->
-                <div class="columns is-centered">
-                    <div class="column has-text-centered hero_card my-5">
+                <div class="columns ">
+                    <div class="column is-three-fifths is-offset-one-fifth has-text-centered hero_card my-5 card__box-shadow--blue">
                         <h1 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-white my-4 text__shadow--dark">{{
                             show.series_name }}</h1>
                         <a class="mb-5 button card__bg--blue-dark text--color-light" href="{{ url_for('add_fav_series', name=show.series_name) }}">
