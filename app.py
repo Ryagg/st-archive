@@ -163,6 +163,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
+        session["admin"] = False
         flash(Markup('Registration successful! Welcome to ST-Archive, '
               f'{request.form.get("username").capitalize()} '
               '<i class="far fa-handshake"></i>'))
