@@ -13,8 +13,9 @@
                             <div class="field">
                                 <label class="is-size-3 text--color-light has-text-weight-normal" for="series_name">Name of series</label>
                                 <div class="control">
-                                    <input id="new_series_name" name="new_series_name" class="input is-size-4" type="text" placeholder="Enter name of series"
-                                        value="" aria-label="new_series_name" aria-described-by="name_of_new_seriese" autofocus required>
+                                    <input id="new_series_name" name="new_series_name" class="input is-size-4" type="text" minlength="5"
+                                    maxlength="30" pattern="^[a-zA-Z]{5,30}$" placeholder="Enter name of series"
+                                        value="" aria-label="new_series_name" aria-described-by="name_of_new_series" autofocus required>
                                         <span id="name_of_new_series" aria-live="assertive"></span>
                                 </div>
                             </div>
@@ -23,11 +24,15 @@
                     <div class="columns">
                         <div class="column">
                             <div class="field">
-                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_series_code">Series code</label>
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_series_code">Series code
+                                    <span id="series_code-help" class="tooltip has-background-white-bis" aria-live="assertive" data-text="3 - 5 alphabetical characters">
+                                        <i class="far fa-info-circle has-text-link "></i>
+                                    </span>
+                                </label>
                                 <div class="control">
-                                    <input id="new_series_code" name="new_series_code" class="input is-size-4" type="text" placeholder="Enter series code"
-                                        value="" aria-label="new_series_code" aria-described-by="ncode_for_new_series" required>
-                                        <span id="code_for_new_series" aria-live="assertive"></span>
+                                    <input id="new_series_code" name="new_series_code" class="input is-size-4" type="text" minlength="3"
+                                    maxlength="5" pattern="^[a-zA-Z]{3,5}$" placeholder="Enter series code"
+                                        value="" aria-label="new_series_code" aria-described-by="series_code-help" required>
                                 </div>
                             </div>
                         </div>

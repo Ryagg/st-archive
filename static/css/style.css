@@ -76,10 +76,44 @@ h6 {
 }
 
 /* found at https://www.proglobalbusinesssolutions.com/css-hover-effects/ under entry 10) Glowing Icon Hover Effect */
-a.button:hover {
+a.button:hover,
+.form__select--hover:hover {
     color: #ffef0a;
     box-shadow: 0 0 5px #ffef0a;
     text-shadow: 0 0 5px #ffef0a;
+}
+
+/*----- TOOLTIP -----*/
+.tooltip {
+    position: relative;
+}
+
+.tooltip:before {
+    content: attr(data-text);
+    position: absolute;
+
+    /* vertically center */
+    top: 50%;
+    transform: translateY(-50%);
+
+    /* move to right */
+    left: 100%;
+    margin-left: 15px;
+
+    /* basic styles */
+    width: 300px;
+    padding: 5px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    color: #000088;
+    text-align: center;
+    z-index: 5;
+
+    display: none; /* hide by default */
+}
+
+.tooltip:hover:before {
+    display: block;
 }
 
 /*----- WRAPPER -----*/

@@ -546,7 +546,7 @@ def add_book():
     if request.method == "POST":
         new_book = {
             "title": request.form.get("new_book_title"),
-            "series_code": request.form.get("new_book_series_code"),
+            "series_code": request.form.get("new_book_series_code").upper(),
             "number": request.form.get("new_book_number"),
             "e_book": request.form.get("new_book_e_book"),
             "paper_book": request.form.get("new_book_paper_book"),
