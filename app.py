@@ -282,6 +282,19 @@ def all_books():
                            )
 
 
+@app.route("/series/<series_code>", methods=["GET", "POST"])
+def series(series_code):
+    """Displays all books for the selected series."""
+    st_series = list(mongo.db.series.find())
+    shows = list(mongo.db.series.find())
+    show = mongo.db.series.find_one({"_id": ObjectId(series_code)})
+    books = mongo.db.books.find(
+        {"series_code": show["series_code"]}
+    )
+
+    return render_template("series.html/", show=show, shows=shows, books=books,
+                           series=st_series
+                           )
 
 
 @app.route("/add_fav_series/", methods=["GET", "POST"])

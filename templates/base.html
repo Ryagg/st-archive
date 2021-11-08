@@ -43,7 +43,7 @@
 
                             <div class="navbar-dropdown">
                                 {% for show in series|sort(attribute="series_name") %}
-                                    <a class="navbar-item is-size-3" href="/series/{{ show.series_name }}">
+                                    <a class="navbar-item is-size-3" href="{{ url_for('series', series_code=show._id) }}">
                                         {{ show.series_name }}
                                     </a>
                                 {% endfor %}
