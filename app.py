@@ -116,12 +116,13 @@ def index():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     st_series = list(mongo.db.series.find())
-    books = list(mongo.db.books.find())
+    # books = list(mongo.db.books.find())
     query = request.form.get("query")
-    result = list(mongo.db.books.find({"$text": {"$search": query}}))
+    books = list(mongo.db.books.find({"$text": {"$search": query}}))
 
-    return render_template("series.html", series=st_series, books=books,
-                           result=result)
+    return render_template("all_books.html", series=st_series, books=books
+
+                           )
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -265,8 +266,8 @@ def copyrights():
     return render_template("copyrights.html", series=st_series)
 
 
-@app.route("/series/")
-def series():
+@app.route("/all_books/")
+def all_books():
     """Display information about books in the db.
 
     Show book cover, title, number, info about available bookformats.
@@ -277,8 +278,10 @@ def series():
     st_series = list(mongo.db.series.find())
     books = list(mongo.db.books.find())
 
-    return render_template("series.html/", series=st_series, books=books
+    return render_template("all_books.html/", books=books, series=st_series
                            )
+
+
 
 
 @app.route("/add_fav_series/", methods=["GET", "POST"])

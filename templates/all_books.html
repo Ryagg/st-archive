@@ -27,37 +27,20 @@
                                             </div>
                                             <button class="button is-link form__button--font-okuda is-size-5 has-text-weight-normal" type="submit">Search
                                             </button>
-                                            <a class="button is-warning ml-3 is-size-5 has-text-weight-normal" href="{{ url_for('series') }}">Reset</a>
+                                            <a class="button is-warning ml-3 is-size-5 has-text-weight-normal" href="{{ url_for('all_books') }}">Reset</a>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                            <!-- Search results -->
-
                     </div>
                 </div>
             </div>
-            <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">Books sorted by series</h1>
-            {% for show in series|sort(attribute="series_name") %}
-            <section id="show.series_name">
-                <!-- Series title -->
-                <div class="columns ">
-                    <div class="column is-three-fifths is-offset-one-fifth has-text-centered hero_card my-5 card__box-shadow--blue">
-                        <h1 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-white my-4 text__shadow--dark">{{
-                            show.series_name }}</h1>
-                        <a class="mb-5 button card__bg--blue-dark text--color-light" href="{{ url_for('add_fav_series', name=show.series_name) }}">
-                            <span class="icon">
-                                <i class="fal fa-star"></i>
-                            </span>
-                            <span class="is-size-4">Add series to Favourites</span>
-                        </a>
-                    </div>
-                </div>
-            </section> <!-- section series -->
-            <!-- Books in series -->
+            <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">Books sorted by title</h1>
+
+            <!-- All books sorted by title or search result -->
             <div class="columns is-centered is-multiline">
-                {% for book in books|sort(attribute="number") if book.series_code == show.series_code %}
+                {% for book in books|sort(attribute="title") %}
                 <div class="column is-6-tablet is-6-desktop my-2">
                     <div class="card card__box-shadow">
                         <div class="columns is-mobile">
@@ -70,7 +53,7 @@
                         </div>
                         </div>
                         <div class="card-content card__bg--light">
-                            <h2 class="title is-2">{{ book.title }}</h2>
+                            <h2 class="title is-2">{{ book.series_code }} : {{ book.title }}</h2>
                                 {% if book.number == "" %}
                                     <h3 class="subtitle is-3">Unnumbered book</h3>
                                 {% elif not book.number == "null" %}
@@ -170,8 +153,6 @@
                 {% endfor %}
                 <!-- don't move! -->
             </div> <!-- columns book -->
-            {% endfor %}
-            <!-- don't move! -->
         </div> <!-- container -->
     </div> <!-- hero body -->
 </section> <!-- section hero -->
