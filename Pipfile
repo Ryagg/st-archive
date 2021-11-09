@@ -17,6 +17,7 @@ cloudinary = "*"
 flask-mail = "*"
 flask-talisman = "*"
 flask-seasurf = "*"
+flask-paginate = "*"
 
 [dev-packages]
 

@@ -116,6 +116,27 @@ a.button:hover,
     display: block;
 }
 
+/*----- PAGINATION -----*/
+
+a.page-link,
+span.page-link,
+div.pagination-page-info {
+    color: #000088;
+}
+
+.pagination li a {
+    font-size: 1.3rem;
+}
+
+.pagination li.active {
+    background-color: #bbaa55;
+}
+
+.pagination li a:hover {
+    color: #882211;
+    box-shadow: 0 0 5px #882211;
+}
+
 /*----- WRAPPER -----*/
 .page_wrapper {
     display: flex;

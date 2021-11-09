@@ -153,6 +153,19 @@
                 {% endfor %}
                 <!-- don't move! -->
             </div> <!-- columns book -->
+            <!-- pagination  -->
+            <div class="pagination-container is-size-4 has-text-centered ">
+                {% if books|length > 0 %}
+                    <div class=columns is-centered>
+                        <div class="column has-background-white">
+                            <p>
+                                {{ pagination.links }}
+                                {{ pagination.info }}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
         </div> <!-- container -->
     </div> <!-- hero body -->
 </section> <!-- section hero -->

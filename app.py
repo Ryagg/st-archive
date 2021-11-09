@@ -10,6 +10,7 @@ from flask_mail import Mail, Message
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_talisman import Talisman
 from flask_seasurf import SeaSurf
+from flask_paginate import Pagination, get_page_args
 import re
 import cloudinary as Cloud
 # needed because the file won't be found after deployment to heroku
@@ -75,6 +76,36 @@ Cloud.config.update = ({
 mongo = PyMongo(app, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
 
 
+# Books pagination limit
+PER_PAGE = 6
+
+# Pagination
+"""Credit: Ed Bradley
+@ https://github.com/Edb83/self-isolution/blob/master/app.py
+"""
+def paginate(books):
+    # pylint: disable=unbalanced-tuple-unpacking
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    offset = page * PER_PAGE - PER_PAGE
+    return books[offset: offset + PER_PAGE]
+
+def pagination_args(books):
+    """Credit for pylint comment:
+    Amy OShea
+    @ https://github.com/AmyOShea/MS3-Cocktail-Hour/blob/master/app.py
+    """
+    # pylint: disable=unbalanced-tuple-unpacking
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    total = len(books)
+    return Pagination(page=page, per_page=PER_PAGE, total=total)
+
+"""
+End Credit
+"""
+
+
 def login_required(function):
     """Add route protection by restricting access
         to authenticated users only."""
@@ -119,9 +150,11 @@ def search():
     # books = list(mongo.db.books.find())
     query = request.form.get("query")
     books = list(mongo.db.books.find({"$text": {"$search": query}}))
+    books_paginate = paginate(books)
+    pagination = pagination_args(books)
 
-    return render_template("all_books.html", series=st_series, books=books
-
+    return render_template("all_books.html", series=st_series,
+                           books=books_paginate, pagination=pagination
                            )
 
 
@@ -277,9 +310,13 @@ def all_books():
     or user's wish list.
     """
     st_series = list(mongo.db.series.find())
-    books = list(mongo.db.books.find())
+    books = list(mongo.db.books.find().sort("title", 1))
+    books_paginate = paginate(books)
+    pagination = pagination_args(books)
 
-    return render_template("all_books.html/", books=books, series=st_series
+
+    return render_template("all_books.html/", books=books_paginate,
+                           pagination=pagination, series=st_series,
                            )
 
 
