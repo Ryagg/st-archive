@@ -78,7 +78,7 @@ All icons are from [Font Awesome](https://fontawesome.com). Please refer to the 
 
 #### **Imagery**
 
-All images were taken from [Unsplash](https://unsplash.com). Credit for the individual pictures is given below in the media section.
+All background images were taken from [Unsplash](https://unsplash.com). Credit for the individual pictures is given below in the media section. All book covers were obtained from [Memory Alpha](https://memory-alpha.fandom.com/wiki/Portal:Main). For information about the license, please refer to the media section. For sources for each book cover, please refer to the separate [SOURCES.md](SOURCES.md).
 
 ### **Wireframes**
 
@@ -94,7 +94,7 @@ All wireframes for this project can be found in the [wireframes sub-directory](h
 ![Database Schema](images/readme/db-scheme.png)
 The project uses 4 collections which are stored in MongoDB.
 
--   The **users** collection stores the username, password and email to enable the user to create an account with a profile page and - as a future feature - to be notified when new books are added to a series from his favourites list. Books that have been added to either the favourites list or the wish list, and series that have been added to the favourites list, and all reviews written by the user are also stored. Furthermore, information about whether a user is also an admin are stored.
+-   The **users** collection stores the username, password and email to enable the user to create an account with a profile page and - as a future feature - to be notified when new books are added to a series from his favourites list. Books that have been added to either the favourites list or the wish list and series that have been added to the favourites list, books that have been marked as finished and all reviews by the user are also stored. Furthermore, information about whether a user is also an admin are stored.
 
 -   The **series** collection stores the name and the code (e.g. 'DSC' for 'Discovery') for each series. It also stores information about whether the series has ended.
 
@@ -120,6 +120,7 @@ The available navigation menu items depend on whether a user is logged in and fo
 | Nav Link           | Not logged in | Logged in as user | Logged in as admin |
 | :----------------- | :------------ | :---------------- | :----------------- |
 | Logo(back to home) | &#9989;       | &#9989;           | &#9989;            |
+| All books          | &#9989;       | &#9989;           | &#9989;            |
 | Series             | &#9989;       | &#9989;           | &#9989;            |
 | Reviews            | &#9989;       | &#9989;           | &#9989;            |
 | Account            | &#9989;       | &#9989;           | &#9989;            |
@@ -140,8 +141,9 @@ The footer is located at the bottom of each page and includes links to reach the
 
 The welcome section consists of several short paragraphs informing the user about the site's aim, features and current status as a work in progress.
 
-#### **Series page features**
+#### **All books and Series page features**
 
+The All books page lists all Star Trek novels from the database sorted by title.
 The series page lists Star Trek novels sorted by series, e.g. "The Next Generation" or "Discovery". Currently, only a handful of books are included in the database, but the aim is to eventually list all books for all series. At the top of the page, a search bar is included where users can search both within book titles and blurbs. Results will be displayed beneath the search bar and can be cleared using the 'Reset' button.
 
 At the start of the section for each series, users can add the whole series to their favourites.
@@ -177,7 +179,7 @@ After logging out a confirmation flash gets displayed. The session status is cle
 
 #### **Contact page**
 
-The contact page features a contact form. The form uses form-validation and all input fields except the subject have to be filled out for the user to be able to submit the form. Users have the option to clear the form content. When the user submits the form a flash message informs the user about the successful submission and the form is cleared. Flask-Mail is used to inform the site owner about user messages including the message text and the user's email address.
+The contact page features a contact form. The form uses form validation and all input fields except the subject have to be filled out for the user to be able to submit the form. Users have the option to clear the form content. When the user submits the form a flash message informs the user about the successful submission and the form is cleared. Flask-Mail is used to inform the site owner about user messages including the message text and the user's email address.
 
 #### **404 page**
 
@@ -198,6 +200,10 @@ Flask-Talisman and Flask-SeaSurf are used to improve the application's security.
 ### **Features to be implemented**
 
 ---
+
+#### **Review-check by admin before publishing**
+
+Currently, all reviews are viewable on the site immediately after they have been added by users. To prevent spam or any form of unacceptable content, e.g. hate speech, in a future update reviews will be added to a separate collection for review before being added to the site by admin.
 
 #### **E-Mail notifications**
 
@@ -317,6 +323,20 @@ Please refer to the separate [TESTING.md](TESTING.md)
         - IP: `0.0.0.0`
         - PORT: `5000` (other ports may work as well)
         - SECRET_KEY: `<your secret key>`
+        - MONGO_URI
+            - Follow these steps to obtain your MONGO_URI:
+            - Log in to your MongoDB account
+            - Click on `Collections` and select the appropriate database
+            - Click on `Command Line Tools`
+            - Under the Heading 'Connect To Your Cluster' click on `Connect Instructions`
+            - In the newly opened modal, select `Connect your application`
+            - Select `Python` as the driver and your Python version
+            - Copy the connection string and follow the instructions to replace `<password>` with your MongoDB password and then replace `<myFirstDatabase>` with the name of your database.
+        - MONGO_DBNAME: `<your database name>`
+            - Please refer to the Database schema section for information on how to set up the database
+        - CLOUDINARY_CLOUD_NAME: after creating a free [Coudinary](https://cloudinary.com/) account to host the book covers downloaded from [Memory Alpha](https://memory-alpha.fandom.com/wiki/Portal:Main) either use the automatically assigned Cloudinary cloud name or change it in your account settings
+        - CLOUDINARY_API_KEY: you can generate and access your API key in the security settings
+        - CLOUDINARY_API_SECRET: you can generate and access your API secret in the security settings
     6. Push the **Procfile** to your Github repo.
     7. Back under the **Deploy** tab in Heroku enable **Automatic deploys**.
     8. Select the **main branch** and click on **Deploy branch**.
@@ -334,7 +354,7 @@ The colours for my colour palette were taken from [Steven Cote's](https://codepe
 
 ---
 
-Photos used as background for the all pages were obtained from [Unsplash](https://unsplash.com).
+Photos used as background for all pages were obtained from [Unsplash](https://unsplash.com).
 
 #### all pages except error pages
 
@@ -352,11 +372,11 @@ All book cover images were obtained from [Memory Alpha](https://memory-alpha.fan
 
 -   **License**
 
-    Fair Use - the material is copyrighted, but used here under [Fair Use](http://en.wikipedia.org/wiki/Fair_Use) guidelines.
+    Fair Use - the material is copyrighted but used here under [Fair Use](http://en.wikipedia.org/wiki/Fair_Use) guidelines.
 
 -   **Owner/Creator**
 
-    Pocket Books and its corporate heir, Gallery Books, which is a subsidiary of Simon & Schuster.
+    Pocket Books and its corporate heir, Gallery Books, a subsidiary of Simon & Schuster.
 
 -   **Source**
 
@@ -396,3 +416,4 @@ Many thanks to:
 -   The tutors from Code Institute for their guidance.
 -   Erik P. for his suggestions regarding the site's styling.
 -   The always helpful and supportive CI slack community.
+-   My boss, who once again allowed me to leave work early quite often to work on my project instead.
