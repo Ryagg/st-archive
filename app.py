@@ -24,6 +24,9 @@ csrf = SeaSurf(app)
 
 # whitelist domains for content security policy
 csp = {
+   'base-uri': [
+       '\'unsafe-inline\' \'self\'',
+       ],
     'default-src': [
         '\'unsafe-inline\' \'self\'',
         '*.fontawesome.com',
@@ -32,7 +35,7 @@ csp = {
     ],
     'img-src': '*',
     'script-src': [
-        ' \'self\'',
+        '\'unsafe-inline\' \'self\'',
         '*.fontawesome.com',
         '*.herokuapp.com',
         '*.jquery.com',
@@ -48,7 +51,8 @@ csp = {
 }
 
 # add HTTP security headers
-Talisman(app, content_security_policy=csp)
+Talisman(app, content_security_policy=csp,
+         content_security_policy_nonce_in=['script-src', 'script-src-elem'])
 
 # mailtrap credentials
 app.config['MAIL_SERVER'] = 'smtp.mailtrap.io'

@@ -16,12 +16,14 @@ Please contact Monotype with any questions regarding Web Fonts: http://www.fonts
     src: url("../fonts/1296494/b9ecfdb8-e52f-40fc-9c62-29b79ab8ccdb.woff2") format("woff2"),
         url("../fonts/1296494/6b3c20d0-bd12-4384-aa3c-94ed1b253998.woff") format("woff");
     font-weight: 200;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Okuda";
     src: url("../fonts/okuda-webfont.woff2") format("woff2"),
         url("../fonts/okuda-webfont.woff") format("woff");
+    font-display: swap;
 }
 
 /*----- GENERAL STYLES -----*/
