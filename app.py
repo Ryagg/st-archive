@@ -463,7 +463,7 @@ def add_review():
                      "Incoming message from ST-Archive:"
                      "Your review has been successfuly transmitted!"
                      "ST-Archive out."))
-        return redirect(url_for("series"))
+        return redirect(url_for("all_books"))
 
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
