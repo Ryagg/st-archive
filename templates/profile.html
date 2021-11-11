@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="hero is-fullheight-with-navbar bg__img--starry-sky">
+    <section class="hero is-fullheight-with-navbar bg__img--starry-sky text__bg--transparent-dark">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">{{ username.capitalize() }}'s Profile</h1>
@@ -10,9 +10,9 @@
                     <div class="column">
                         <div class="card">
                             <header class="card-header hero_card">
-                                <p class="card-header-title is-size-3 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
                                     My favourite series
-                                </p>
+                                </h2>
                             </header>
                             <!-- card for each series -->
                             <div class="card-content card__bg--light">
@@ -21,7 +21,7 @@
                                         {% if favourites_series|length > 0 %}
                                             {% for show in favourites_series|sort(attribute="series_code") %}
                                                 <div class="column is-4-tablet is-3-desktop mx-2 my-2 has-background-link-light card__shadow">
-                                                    <p class="title is-4 has-text-centered">{{ show.series_name }}</p>
+                                                    <h3 class="title is-3 has-text-centered">{{ show.series_name }}</h3>
                                                 </div>
                                             {% endfor %}
                                         {% endif %}
@@ -36,9 +36,9 @@
                     <div class="column">
                         <div class="card">
                             <header class="card-header hero_card">
-                                <p class="card-header-title is-size-3 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
                                     My favourite books
-                                </p>
+                                </h2>
                             </header>
                             <!-- card for each book -->
                             <div class="card-content card__bg--light">
@@ -69,9 +69,9 @@
                     <div class="column">
                         <div class="card">
                             <header class="card-header hero_card">
-                                <p class="card-header-title is-size-3 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
                                     My wish list
-                                </p>
+                                </h2>
                             </header>
                             <!-- card for each book -->
                             <div class="card-content card__bg--light">
@@ -102,9 +102,9 @@
                     <div class="column">
                         <div class="card">
                             <header class="card-header hero_card">
-                                <p class="card-header-title is-size-3 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
                                     My finished books
-                                </p>
+                                </h2>
                             </header>
                             <!-- card for each book -->
                             <div class="card-content card__bg--light">
@@ -135,9 +135,9 @@
                     <div class="column">
                         <div class="card">
                             <header class="card-header hero_card">
-                                <p class="card-header-title is-size-3 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
                                     My reviews
-                                </p>
+                                </h2>
                             </header>
                             <!-- card for each review -->
                             <div class="card-content card__bg--light">
@@ -146,7 +146,7 @@
                                         {% if user_reviews|length > 0 %}
                                             {% for review in user_reviews|sort(attribute="book_series") %}
                                                 <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
-                                                    <p class="title is-4 text__shadow--light">{{ review.book_series }}: {{ review.book_title }}</p>
+                                                    <h3 class="title is-4 text__shadow--light">{{ review.book_series }}: {{ review.book_title }}</h3>
                                                     <p class="is-size-4">{{ review.review_text }}</p>
                                                     <!-- Buttons for user actions -->
                                                     <div class="column">
@@ -155,16 +155,16 @@
                                                                 <a class="button is-link"
                                                                     href="{{ url_for('edit_review', review_id=review._id) }}">Edit review</a>
                                                             </div>
-                                                            <span class="button is-danger modal-button"
+                                                            <span class="button form__button--bg-orange has-text-white modal-button"
                                                                 data-target="modal-card">Delete review</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <!-- confirmation modal for review deletion -->
-                                                <div id="modal-card" class="modal">
+                                                <div id="modal-card" class="modal text__bg--transparent-dark">
                                                     <div class="modal-card">
                                                         <header class="modal-card-head has-text-centered card__bg--blue-dark">
-                                                            <p class="modal-card-title is-size-3 text--color-light text__shadow--dark">Confirmation</p>
+                                                            <h3 class="modal-card-title is-size-3 has-text-white text__shadow--dark">Confirmation</h3>
                                                                 <button class="delete is-large has-background-grey modal-header__close" aria-label="close"></button>
                                                         </header>
                                                         <section class="modal-card-body">
@@ -176,7 +176,7 @@
                                                         <footer class="modal-card-foot">
                                                             <div class="field is-grouped">
                                                                 <div class="control">
-                                                                    <a class="button is-danger"
+                                                                    <a class="button form__button--bg-orange has-text-white"
                                                                         href="{{ url_for('delete_review', review_id=review._id) }}">Delete
                                                                         review</a>
                                                                 </div>

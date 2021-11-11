@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky">
+<section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky text__bg--transparent-dark">
     <div class="hero-body">
         <div class="container">
             <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">Register</h1>
-            <p class="is-size-4 has-text-justified has-background-info-light has-text-black px-3 mb-4 card__border--groove">Register a free account to add series and/or books to your favourites, mark books as finished, add books to your wish list, and write reviews!</p>
-            <ul class="is-size-4 has-text-justified has-background-info-light has-text-black px-3 mb-4 card__border--groove">
+            <p class="is-size-4 has-background-info-light has-text-black px-3 mb-4 card__border--groove">Register a free account to add series and/or books to your favourites, mark books as finished, add books to your wish list, and write reviews!</p>
+            <ul class="is-size-4 has-background-info-light has-text-black px-3 mb-4 card__border--groove">
                 <li>All fields marked "required" must be completed.</li>
                 <li>You can't enter anything into the "Favourite series", "Favourite books", "Books in wish list", and
                     "Finished books"
@@ -78,7 +78,7 @@
                     <div class="column">
                         <article class="message">
                             <div class="message-header hero_card">
-                                <p class="subtitle is-4 has-text-white">Favourite series</p>
+                                <h2 class="subtitle is-4 has-text-white">Favourite series</h2>
                             </div>
                             <div class="message-body">
                                 <ul>
@@ -93,7 +93,7 @@
                     <div class="column">
                         <article class="message">
                             <div class="message-header hero_card">
-                                <p class="subtitle is-4 has-text-white">Favourite books</p>
+                                <h2 class="subtitle is-4 has-text-white">Favourite books</h2>
                             </div>
                             <div class="message-body">
                                 <ul>
@@ -108,7 +108,7 @@
                     <div class="column">
                         <article class="message">
                             <div class="message-header hero_card">
-                                <p class="subtitle is-4 has-text-white">Books in wish list</p>
+                                <h2 class="subtitle is-4 has-text-white">Books in wish list</h2>
                             </div>
                             <div class="message-body">
                                 <ul>
@@ -123,7 +123,7 @@
                     <div class="column">
                         <article class="message">
                             <div class="message-header hero_card">
-                                <p class="subtitle is-4 has-text-white">Finished books</p>
+                                <h2 class="subtitle is-4 has-text-white">Finished books</h2>
                             </div>
                             <div class="message-body">
                                 <ul>
@@ -142,7 +142,7 @@
                                 <input class="button is-link" type="submit" value="Submit">
                             </div>
                             <div class="control">
-                                <button class="button is-danger" type="reset" value="Clear form">Clear form
+                                <button class="button form__button--bg-orange has-text-white" type="reset" value="Clear form">Clear form
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="hero is-fullheight-with-navbar bg__img--starry-sky">
+    <section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky text__bg--transparent-dark">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title is-1 has-text-centered heading__text--shadow">Hello, {{ username.capitalize() }} </h1>
@@ -11,10 +11,12 @@
                     <div class="columns">
                         <div class="column">
                             <div class="field">
-                                <label class="is-size-3 text--color-light has-text-weight-normal" for="series_name">Name of series</label>
+                                <label class="is-size-3 text--color-light has-text-weight-normal" for="new_series_name">Name of series
+
+                                </label>
                                 <div class="control">
                                     <input id="new_series_name" name="new_series_name" class="input is-size-4" type="text" minlength="5"
-                                    maxlength="30" pattern="^[a-zA-Z]{5,30}$" placeholder="Enter name of series"
+                                    maxlength="30" pattern="^[a-zA-Z ]{5,30}$" placeholder="Enter name of series"
                                         value="" aria-label="new_series_name" aria-described-by="name_of_new_series" autofocus required>
                                         <span id="name_of_new_series" aria-live="assertive"></span>
                                 </div>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="hero is-fullheight-with-navbar bg__img--starry-sky">
+    <section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky text__bg--transparent-dark">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title is-1 has-text-centered heading__text--shadow">Hello, {{ username.capitalize() }} </h1>
@@ -166,11 +166,11 @@
                         <div class="column">
                             <div class="field">
                                 <div class="control">
-                                    <p class="is-size-3 text--color-light has-text-weight-normal">Status</p>
+                                    <label class="is-size-3 text--color-light has-text-weight-normal">Status</label>
                                         <div class="select is-size-4 text--color-light has-text-weight-normal">
-                                            <select name="new_book_status" id="new_book_status">
-                                                <option value="Published" aria-label="new_book_status" aria-described-by="new_book_status_published">Published</option>
-                                                <option value="Announced">Announced</option>
+                                            <select label ="Status" name="new_book_status" id="new_book_status">
+                                                <option label="Published" value="1">Published</option>
+                                                <option label="Announced" value="2">Announced</option>
                                             </select>
                                         </div>
                                 </div>
