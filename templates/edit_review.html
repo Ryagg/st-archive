@@ -51,15 +51,11 @@
                         <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <a class="button is-link is-size-5" href="{{ url_for('profile', username=session['user']) }}">Cancel<i class="fal fa-times-circle right ml-3"></i>
-                                    </a>
+                                    <input class="button shadow-dark form__button--bg-blue has-text-white is-size-5" type="submit" value="Submit">
                                 </div>
-                                <div class="control has-icons-right">
-                                    <input class="button is-link is-size-5" type="submit" value="Submit">
-                                        {# Icon can neither be modified nor targeted. Is too close to the text. #}
-                                        <span class="icon is-right ml-3">
-                                            <i class="fal fa-satellite-dish ml-3"></i>
-                                        </span>
+                                <div class="control">
+                                    <a class="button shadow-dark form__button--bg-orange has-text-white is-size-5" href="{{ url_for('profile', username=session['user']) }}">Cancel
+                                    </a>
                                 </div>
                             </div>
                         </div>

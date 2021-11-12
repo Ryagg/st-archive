@@ -78,10 +78,8 @@ h6 {
 }
 
 /* found at https://www.proglobalbusinesssolutions.com/css-hover-effects/ under entry 10) Glowing Icon Hover Effect */
-a.button:hover,
 .form__select--hover:hover {
     color: #ffef0a;
-    box-shadow: 0 0 5px #ffef0a;
     text-shadow: 0 0 5px #ffef0a;
 }
 
@@ -166,12 +164,33 @@ div.pagination-page-info {
 }
 
 /*----- BUTTONS -----*/
-.form__button--font-okuda {
-    font-family: "Okuda", sans-serif;
-}
 
 .form__button--bg-orange {
     background-color: #882211;
+}
+
+.form__button--bg-blue {
+    background-color: #3366ff;
+}
+
+.button:active,
+a.button:active {
+    box-shadow: 0 5px #636363;
+    transform: translateY(4px);
+}
+
+/* created at https://neumorphism.io/#ffef0a */
+a.button.shadow:hover {
+    color: #ffef0a;
+    border-radius: 0px;
+    background: linear-gradient(315deg, #00007a, #000092);
+    box-shadow: -7px -7px 14px #00003f, 7px 7px 14px #0000d1;
+}
+
+.button.shadow-dark:hover {
+    border-radius: 0px;
+    box-shadow: -7px -7px 14px #212020, 7px 7px 14px #3b3a3a;
+    font-weight: bold;
 }
 
 /*----- LISTS -----*/

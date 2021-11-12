@@ -17,7 +17,7 @@
                                             <label for="query" class="is-size-4 has-text-weight-normal mr-2">Search titles and blurbs
                                             </label>
                                             <div class="control has-icons-left">
-                                                <input id="query" name="query" class="input is-link  mb-1" type="text" minlength="3"
+                                                <input id="query" name="query" class="input is-link  mb-2" type="text" minlength="3"
                                                     placeholder="Enter query" value=""
                                                     aria-label="query" aria-described-by="user-query" required>
                                                 <span id="user-query" aria-live="assertive"></span>
@@ -25,9 +25,9 @@
                                                     <i class="fal fa-lg fa-file-search"></i>
                                                 </span>
                                             </div>
-                                            <button class="button is-link form__button--font-okuda is-size-5 has-text-weight-normal" type="submit">Search
+                                            <button class="button shadow-dark form__button--bg-blue has-text-white is-size-5 has-text-weight-normal" type="submit">Search
                                             </button>
-                                            <a class="button is-warning ml-3 is-size-5 has-text-weight-normal" href="{{ url_for('all_books') }}">Reset</a>
+                                            <a class="button shadow-dark form__button--bg-orange has-text-white ml-3 is-size-5 has-text-weight-normal" href="{{ url_for('all_books') }}">Reset</a>
                                         </div>
                                     </div>
                                 </div>
@@ -124,24 +124,24 @@
                                 <div class="columns is-multiline">
                                     <div class="column is-narrow-tablet my-4">
                                         <div class="control">
-                                            <a class="button card__bg--blue-dark text--color-light" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
+                                            <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
                                         </div>
                                     </div>
                                     <div class="column is-narrow-tablet my-4">
                                         <div class="control">
-                                            <a class="button card__bg--blue-dark text--color-light"
+                                            <a class="button shadow card__bg--blue-dark text--color-light"
                                                 href="{{ url_for('add_book_to_favs', book_id=book._id) }}">Add to
                                                 Favourites</a>
                                         </div>
                                     </div>
                                     <div class="column is-narrow-tablet my-4">
                                         <div class="control">
-                                            <a class="button card__bg--blue-dark text--color-light" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
+                                            <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
                                         </div>
                                     </div>
                                     <div class="column is-narrow-tablet my-4">
                                         <div class="control">
-                                            <a class="button card__bg--blue-dark text--color-light"
+                                            <a class="button shadow card__bg--blue-dark text--color-light"
                                                 href="{{ url_for('add_review', title=book.title) }}">Add review</a>
                                         </div>
                                     </div>
