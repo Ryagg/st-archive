@@ -154,9 +154,14 @@ div.pagination-page-info {
 
 .navbar-item,
 .navbar-link,
+.navbar-burger,
 .footer_copyright,
 .footer_social {
     color: #ccddff;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+    border-color: #ccddff;
 }
 
 .navbar-dropdown {
