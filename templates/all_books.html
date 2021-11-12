@@ -115,7 +115,10 @@
                                 </ul>
                             </div>
                             <div class="content is-size-4 mt-2">
-                                {{ book.blurb }}
+                                <details>
+                                    <summary>Blurb for {{ book.title }}</summary>
+                                    <p>{{ book.blurb }}</p>
+                                </details>
                             </div>
                         </div>
                         <!-- Buttons for user actions -->
