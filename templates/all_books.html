@@ -8,7 +8,7 @@
             <div class=columns>
                 <div class="column">
                     <div class="card">
-                        <div class="card-content card__bg--light">
+                        <div class="card-content card__bg--light card__box-shadow">
                             <form class="form" method="POST" action="{{ url_for('search') }}">
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                                 <div class="columns is-centered">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="card-content card__bg--light">
-                            <h2 class="title is-2 has-text-centered">{{ book.series_code }} : {{ book.title }}</h2>
+                            <h2 class="title is-2 has-text-centered text__shadow--light">{{ book.series_code }} : {{ book.title }}</h2>
                                 {% if book.number == "" %}
                                     <h3 class="subtitle is-3 has-text-centered">Unnumbered book</h3>
                                 {% elif not book.number == "null" %}
