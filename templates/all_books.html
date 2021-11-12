@@ -45,22 +45,22 @@
                     <div class="card card__box-shadow">
                         <div class="columns is-mobile">
                             <div class="column is-6 is-offset-3">
-                            <div class="card-image card__box-shadow--blue">
-                                <figure class="image is-2by3 has-background-primary-dark mt-3">
-                                    <img src="{{ book.cover }}" alt="Book cover for {{ book.title }}">
-                                </figure>
+                                <div class="card-image card__box-shadow--blue">
+                                    <figure class="image is-2by3 has-background-primary-dark mt-3">
+                                        <img src="{{ book.cover }}" alt="Book cover for {{ book.title }}">
+                                    </figure>
+                                </div>
                             </div>
                         </div>
-                        </div>
                         <div class="card-content card__bg--light">
-                            <h2 class="title is-2">{{ book.series_code }} : {{ book.title }}</h2>
+                            <h2 class="title is-2 has-text-centered">{{ book.series_code }} : {{ book.title }}</h2>
                                 {% if book.number == "" %}
-                                    <h3 class="subtitle is-3">Unnumbered book</h3>
+                                    <h3 class="subtitle is-3 has-text-centered">Unnumbered book</h3>
                                 {% elif not book.number == "null" %}
-                                    <h3 class="subtitle is-3">Book number {{book.number}}</h3>
+                                    <h3 class="subtitle is-3 has-text-centered">Book number {{book.number}}</h3>
                                 <!-- remove? -->
                                 {% else %}
-                                    <h3 class="subtitle is-3">Unnumbered book</h3>
+                                    <h3 class="subtitle is-3 has-text-centered">Unnumbered book</h3>
                                 {% endif %}
                             <div class="book-list__info is-size-4">
                                 <ul>
@@ -122,27 +122,27 @@
                             </div>
                         </div>
                         <!-- Buttons for user actions -->
-                        <footer class="card-footer has-background-link-dark">
+                        <footer class="card-footer has-background-link-dark py-4">
                             <div class="buttons is-centered ml-4">
                                 <div class="columns is-multiline">
-                                    <div class="column is-narrow-tablet my-4">
+                                    <div class="column is-narrow-tablet">
                                         <div class="control">
                                             <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
                                         </div>
                                     </div>
-                                    <div class="column is-narrow-tablet my-4">
+                                    <div class="column is-narrow-tablet">
                                         <div class="control">
                                             <a class="button shadow card__bg--blue-dark text--color-light"
                                                 href="{{ url_for('add_book_to_favs', book_id=book._id) }}">Add to
                                                 Favourites</a>
                                         </div>
                                     </div>
-                                    <div class="column is-narrow-tablet my-4">
+                                    <div class="column is-narrow-tablet">
                                         <div class="control">
                                             <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
                                         </div>
                                     </div>
-                                    <div class="column is-narrow-tablet my-4">
+                                    <div class="column is-narrow-tablet">
                                         <div class="control">
                                             <a class="button shadow card__bg--blue-dark text--color-light"
                                                 href="{{ url_for('add_review', title=book.title) }}">Add review</a>
