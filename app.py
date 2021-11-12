@@ -339,14 +339,15 @@ def series(series_code):
                            )
 
 
-@app.route("/add_fav_series/", methods=["GET", "POST"])
+@app.route("/add_fav_series/<series_id>", methods=["GET", "POST"])
 @login_required
-def add_fav_series():
+def add_fav_series(series_id):
     """Add series to array favourites_series in users collection.
 
     Only add series that are not already in the user's favourites_series array.
     """
-    show_name = request.args["name"]
+    show = mongo.db.series.find_one({"_id": ObjectId(series_id)})
+    show_name = show["series_name"]
     user = mongo.db.users.find_one(
         {"username": session["user"]})
     if show_name in user["favourites_series"]:

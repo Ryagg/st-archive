@@ -36,8 +36,16 @@
                     </div>
                 </div>
             </div>
-            <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
-
+            <div class="columns is-centered is-multiline">
+                <div class="column">
+                    <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
+                        <div class="control has-text-centered">
+                            <a class="button shadow card__bg--blue-dark text--color-light"
+                                href="{{ url_for('add_fav_series', series_id=show._id) }}">
+                                    Add {{ show.series_name }} to favourites</a>
+                        </div>
+                </div>
+            </div>
             <!-- All books in series -->
             <div class="columns is-centered is-multiline">
                 {% for book in books|sort(attribute="number") if book.series_code == show.series_code %}
