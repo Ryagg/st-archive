@@ -106,13 +106,39 @@ The following user requirements and expectations were developed based on the use
 
 ### **W3C Markup Validator**
 
+For validating my HTML code the source code from each page of the generated live site was copied and pasted into the validator on [W3C Markup Validation Service](https://validator.w3.org/). At first several errors due to aria-described-by labels and missing closing button tags were reported. This errors have been fixed and the tests repeated. The results are presented below:
+
+-   all pages: 1 warning about a lacking section heading. The section is used for flash messages.
+-   https://ms3-st-archive.herokuapp.com/: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/all_books/: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/series/61587a31dcc215bfa1c93151 was checked as an example for all series-pages. No errors reported.
+-   https://ms3-st-archive.herokuapp.com/reviews: two kinds of errors are repeatedly shown due to the for-loop in the code:
+    -   "Bad value 'series name' for attribute id on element h1: An ID must not contain whitespace." The code can be seen [here](images/readme/w3c-markup-error.jpg). The template-variable does not contain whitespace, but three of the Star Trek shows (Next Generation, Deep Space Nine and Original Series) have whitespace in their names.
+    -   "Duplicate ID show.series_name". This is inside a for-loop and being replaced by the name of each series in the rendered page.
+-   https://ms3-st-archive.herokuapp.com/register: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/login: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/add_review/?title=Caretaker: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/edit_review/618fb8b5a27730238f72e6ba: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/add_series: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/add_book: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/copyrights: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/contact: no errors reported.
+
 ### **W3CSS Validator**
+
+The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) reported no errors. 20 warnings were reported due to vendor extensions.
+
+### **WAVE Validator**
 
 ### **Lighthouse**
 
 ### **JShint**
 
+No errors were reported for script.js or hideOnErrorPages.js using [JSHint](https://jshint.com/). No tests were done for mtiFontTrackingCode.js because that code was not written by me but I had to add it in accordance with the license for the Millennium font. It also causes an uncaught TypeError in the console.
+
 ### **Python**
+
+[PEP8 online](http://pep8online.com/) reported 1 error E202 ("expected 2 blank lines, found 1") in line 117. However, both in the copy-pasted code in the validator and in the app.py file neither [line 117 nor lines 116 and 118](images/readme/pep8-error.jpg) are blank. No errors were reported from the pylint-extension.
 
 ## **Route Handlers**
 
