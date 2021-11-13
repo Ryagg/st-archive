@@ -14,8 +14,7 @@
                                 <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_title">Book title</label>
                                 <div class="control">
                                     <input id="new_book_title" name="new_book_title" class="input is-size-4" type="text" placeholder="Enter book title"
-                                        value="" aria-label="new_book_title" aria-described-by="title_of_new_book" autofocus required>
-                                        <span id="title_of_new_book" aria-live="assertive"></span>
+                                        value="" aria-label="new_book_title" autofocus required>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +30,7 @@
                                 <div class="control">
                                     <input id="new_book_series_code" name="new_book_series_code" class="input is-size-4" type="text" minlength="3"
                                     maxlength="5" pattern="^[a-zA-Z]{3,5}$" placeholder="Enter series code"
-                                        value="" aria-label="new_book_series_code" aria-described-by="series_code-help" required>
+                                        value="" aria-label="new_book_series_code" required>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +46,7 @@
                                 <div class="control">
                                     <input id="new_book_number" name="new_book_number" class="input is-size-4" type="tel"  minlength="0"
                                     maxlength="3" pattern="^[0-9]{0,3}$" placeholder="Enter book number"
-                                        value="" aria-label="new_book_number" aria-described-by="book-number-help">
+                                        value="" aria-label="new_book_number">
                                 </div>
                             </div>
                         </div>
@@ -58,8 +57,7 @@
                                 <div class="control">
                                     <p class="is-size-3 text--color-light has-text-weight-normal">Available as ebook?</p>
                                         <label class="radio is-size-4 text--color-light has-text-weight-normal form__select--hover">
-                                            <input type="radio" id="new_book_e_book" name="new_book_e_book" aria-label="new_book_e_book" aria-described-by="new_book_e_book_availability" required>
-                                                <span id="new_book_e_book_availability" class="form__select--hover" aria-live="assertive"></span>
+                                            <input type="radio" id="new_book_e_book" name="new_book_e_book" aria-label="new_book_e_book" required>
                                             Yes
                                         </label>
                                 </div>
@@ -71,8 +69,7 @@
                                 <div class="control">
                                     <p class="is-size-3 text--color-light has-text-weight-normal">Available as paperback?</p>
                                         <label class="radio is-size-4 text--color-light has-text-weight-normal form__select--hover">
-                                            <input type="radio" id="new_book_paper_book" name="new_book_paper_book" aria-label="new_book_paper_book" aria-described-by="new_book_paper_book_availability">
-                                                <span id="new_book_paper_book_availability" aria-live="assertive"></span>
+                                            <input type="radio" id="new_book_paper_book" name="new_book_paper_book" aria-label="new_book_paper_book">
                                             Yes
                                         </label>
                                 </div>
@@ -84,8 +81,7 @@
                                 <div class="control">
                                     <p class="is-size-3 text--color-light has-text-weight-normal">Available as audiobook?</p>
                                         <label class="radio is-size-4 text--color-light has-text-weight-normal form__select--hover">
-                                            <input type="radio" id="new_book_audio_book" name="new_book_audio_book" aria-label="new_book_audio_book" aria-described-by="new_book_audio_book_availability">
-                                                <span id="new_book_audio_book_availability" aria-live="assertive"></span>
+                                            <input type="radio" id="new_book_audio_book" name="new_book_audio_book" aria-label="new_book_audio_book">
                                             Yes
                                         </label>
                                 </div>
@@ -98,8 +94,7 @@
                                 <div class="control">
                                     <p class="is-size-3 text--color-light has-text-weight-normal">Part of mini-series?</p>
                                         <label class="radio is-size-4 text--color-light has-text-weight-normal form__select--hover">
-                                            <input type="radio" id="new_book_mini_series" name="new_book_mini_series" aria-label="new_book_mini_series" aria-described-by="new_book_part_of_mini_series">
-                                                <span id="new_book_part_of_mini_series" aria-live="assertive"></span>
+                                            <input type="radio" id="new_book_mini_series" name="new_book_mini_series" aria-label="new_book_mini_series">
                                             Yes
                                         </label>
                                 </div>
@@ -108,16 +103,14 @@
                         <div class="column">
                             <div class="field">
                                 <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_mini_series_number">Number in mini-series
-                                    <span id="book-number-help" class="tooltip has-background-white-bis" aria-live="assertive" data-text="0 - 2 digits, leave empty if not part of mini-series">
+                                    <span id="miniseries-number-help" class="tooltip has-background-white-bis" aria-live="assertive" data-text="0 - 2 digits, leave empty if not part of mini-series">
                                         <i class="far fa-info-circle has-text-link "></i>
                                     </span>
-                                </label>
                                 </label>
                                 <div class="control">
                                     <input id="new_book_mini_series_number" name="new_book_mini_series_number" class="input is-size-4" type="tel"  minlength="0"
                                     maxlength="2" pattern="^[0-9]{0,2}$" placeholder="Enter number in series as digit"
-                                        value="" aria-label="new_book_mini_series_number" aria-described-by="number_in_mini_series">
-                                        <span id="number_in_mini_series" aria-live="assertive"></span>
+                                        value="" aria-label="new_book_mini_series_number">
                                 </div>
                             </div>
                         </div>
@@ -127,7 +120,7 @@
                             <div class="field">
                                 <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_blurb">Description / blurb (required)</label>
                                 <div class="control">
-                                    <textarea id="new_book_blurb" name="new_book_blurb" class="textarea is-medium mb-4" type="text"
+                                    <textarea id="new_book_blurb" name="new_book_blurb" class="textarea is-medium mb-4"
                                         placeholder="Add blurb here" rows="10" required></textarea>
                                 </div>
                             </div>
@@ -144,7 +137,7 @@
                                 <div class="control">
                                     <input id="new_book_timespan_start" name="new_book_timespan_start" class="input is-size-4" type="tel"  minlength="4"
                                     maxlength="4" pattern="^[0-9]{4,4}$" placeholder="Enter 4-digit date for start of story, leave empty if information not available"
-                                        value="" aria-label="new_book_timespan_start" aria-described-by="timespan-help">
+                                        value="" aria-label="new_book_timespan_start">
                                 </div>
                             </div>
                         </div>
@@ -156,8 +149,7 @@
                                 <label class="is-size-3 text--color-light has-text-weight-normal" for="new_book_cover">Book cover</label>
                                 <div class="control">
                                     <input id="new_book_cover" name="new_book_cover" class="input is-size-4" type="text" placeholder="Enter URL for book cover"
-                                        value="" aria-label="new_book_cover" aria-described-by="new_book_cover_url" required>
-                                        <span id="new_book_cover_url" aria-live="assertive"></span>
+                                        value="" aria-label="new_book_cover" required>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +160,7 @@
                                 <div class="control">
                                     <label class="is-size-3 text--color-light has-text-weight-normal">Status</label>
                                         <div class="select is-size-4 text--color-light has-text-weight-normal">
-                                            <select label ="Status" name="new_book_status" id="new_book_status">
+                                            <select name="new_book_status" id="new_book_status">
                                                 <option label="Published" value="1">Published</option>
                                                 <option label="Announced" value="2">Announced</option>
                                             </select>
@@ -185,7 +177,7 @@
                                     <input class="button shadow-dark form__button--bg-blue has-text-white" type="submit" value="Submit">
                                 </div>
                                 <div class="control">
-                                    <button class="button shadow-dark form__button--bg-orange has-text-white" type="reset" value="Clear form">Clear form
+                                    <button class="button shadow-dark form__button--bg-orange has-text-white" type="reset" value="Clear form">Clear form</button>
                                 </div>
                             </div>
                         </div>
