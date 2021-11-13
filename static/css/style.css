@@ -40,6 +40,18 @@ h6 {
     font-family: "Okuda", sans-serif;
 }
 
+:focus,
+button:focus,
+a.button:focus,
+.button.form__button--bg-blue:focus,
+.input:focus {
+    outline: 3px solid #bbaa55;
+}
+
+.button.form__button--bg-orange:focus {
+    outline: 3px solid #006699;
+}
+
 /*----- TEXT EFFECTS -----*/
 .heading__text--shadow {
     color: #ccddff;
@@ -182,6 +194,10 @@ div.pagination-page-info {
 a.button:active {
     box-shadow: 0 5px #636363;
     transform: translateY(4px);
+}
+
+a.button.shadow:focus {
+    color: #bbaa55;
 }
 
 /* created at https://neumorphism.io/#ffef0a */
