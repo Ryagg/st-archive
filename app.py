@@ -11,7 +11,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_talisman import Talisman
 from flask_seasurf import SeaSurf
 from flask_paginate import Pagination, get_page_args
-import re
 import cloudinary as Cloud
 # needed because the file won't be found after deployment to heroku
 if os.path.exists("env.py"):
@@ -24,7 +23,7 @@ csrf = SeaSurf(app)
 
 # whitelist domains for content security policy
 csp = {
-   'base-uri': [
+    'base-uri': [
        '\'unsafe-inline\' \'self\'',
        ],
     'default-src': [
@@ -35,7 +34,8 @@ csp = {
     ],
     'img-src': '*',
     'script-src': [
-        '\'unsafe-inline\' \'self\'',
+        # unsafe-eval needed for FontTracking
+        '\'unsafe-inline\' \'unsafe-eval\' \'self\'',
         '*.fontawesome.com',
         '*.herokuapp.com',
         '*.jquery.com',
@@ -50,7 +50,7 @@ csp = {
         ]
 }
 
-# add HTTP security headers
+# add HTTP security headers and nonce
 Talisman(app, content_security_policy=csp,
          content_security_policy_nonce_in=['script-src', 'script-src-elem'])
 
@@ -87,12 +87,15 @@ PER_PAGE = 6
 """Credit: Ed Bradley
 @ https://github.com/Edb83/self-isolution/blob/master/app.py
 """
+
+
 def paginate(books):
     # pylint: disable=unbalanced-tuple-unpacking
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
     offset = page * PER_PAGE - PER_PAGE
     return books[offset: offset + PER_PAGE]
+
 
 def pagination_args(books):
     """Credit for pylint comment:
@@ -109,7 +112,123 @@ def pagination_args(books):
 End Credit
 """
 
+# NO REGISTRATION REQUIRED
 
+# homepage
+@app.route("/")
+def index():
+    """Render the index page."""
+    st_series = list(mongo.db.series.find())
+    return render_template("index.html", series=st_series)
+
+
+# search function
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    """Text search within titles and blurbs."""
+    st_series = list(mongo.db.series.find())
+    # books = list(mongo.db.books.find())
+    query = request.form.get("query")
+    books = list(mongo.db.books.find({"$text": {"$search": query}}))
+    books_paginate = paginate(books)
+    pagination = pagination_args(books)
+
+    return render_template("all_books.html", series=st_series,
+                           books=books_paginate, pagination=pagination
+                           )
+
+
+# all books sorted by title
+@app.route("/all_books/")
+def all_books():
+    """Display information about books in the db.
+
+    Show book cover, title, number, info about available bookformats.
+    Display blurb.
+    Let user mark book as finished, or add it to favourites
+    or user's wish list.
+    """
+    st_series = list(mongo.db.series.find())
+    books = list(mongo.db.books.find().sort("title", 1))
+    books_paginate = paginate(books)
+    pagination = pagination_args(books)
+
+    return render_template("all_books.html/", books=books_paginate,
+                           pagination=pagination, series=st_series,
+                           )
+
+
+# all books in the selected series sorted by number
+@app.route("/series/<series_code>", methods=["GET", "POST"])
+def series(series_code):
+    """Displays all books for the selected series."""
+    st_series = list(mongo.db.series.find())
+    shows = list(mongo.db.series.find())
+    show = mongo.db.series.find_one({"_id": ObjectId(series_code)})
+    books = mongo.db.books.find(
+        {"series_code": show["series_code"]}
+    )
+
+    return render_template("series.html/", show=show, shows=shows, books=books,
+                           series=st_series
+                           )
+
+
+# all reviews
+@app.route("/reviews")
+def reviews():
+    """Render page with all reviews.
+
+    Sort by series and within a series by number.
+    """
+
+    st_series = list(mongo.db.series.find())
+    all_reviews = list(mongo.db.reviews.find())
+    return render_template("reviews.html", series=st_series,
+                           all_reviews=all_reviews)
+
+
+# contact form
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    """Collect data from the contact form and forward to admin as email."""
+    if request.method == "POST":
+        try:
+            msg = Message("Message from user",
+                          sender=request.form.get("email"),
+                          recipients=['sev2275@gmx.com'])
+            msg.body = request.form.get("message")
+            mail.send(msg)
+            flash(Markup("<i class='fal fa-satellite-dish'></i> "
+                         "Subspace message received. Thank you. "
+                         "We will answer as soon as possible. "
+                         "Closing subspace link."
+                         ))
+        except Exception as ex:
+            flash(Markup(
+                "<i class='fal fa-exclamation-circle has-text-danger'></i> "
+                "Information: Your message could not be sent. "
+                "Please try again later. Thank you. "
+                "<i class='fal fa-exclamation-circle has-text-danger'></i>"))
+        # remove before submitting?
+        else:
+            print("message sent")
+    st_series = list(mongo.db.series.find())
+    return render_template("contact.html", series=st_series)
+
+
+# copyrights
+@app.route("/copyrights")
+def copyrights():
+    """Render page with info about copyrights and licenses."""
+    st_series = list(mongo.db.series.find())
+
+    return render_template("copyrights.html", series=st_series)
+
+
+# USER ACCOUNT
+
+# login decorator
 def login_required(function):
     """Add route protection by restricting access
         to authenticated users only."""
@@ -126,42 +245,7 @@ def login_required(function):
     return decorated_function
 
 
-def admin_required(function):
-    """Add route protection by restricting access
-        to authenticated users only."""
-    @wraps(function)
-    def decorated_function(*args, **kwargs):
-        if not session["admin"]:
-            flash(Markup(
-                "<i class='fas fa-do-not-enter has-text-danger'></i>"
-                " Security alert: Authorisation Alpha-Theta required."
-                " Access denied. "
-                "<i class='fas fa-do-not-enter has-text-danger'></i>"))
-            return redirect(url_for("profile", username=session["user"]))
-        return function(*args, **kwargs)
-    return decorated_function
-
-
-@app.route("/")
-def index():
-    st_series = list(mongo.db.series.find())
-    return render_template("index.html", series=st_series)
-
-
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    st_series = list(mongo.db.series.find())
-    # books = list(mongo.db.books.find())
-    query = request.form.get("query")
-    books = list(mongo.db.books.find({"$text": {"$search": query}}))
-    books_paginate = paginate(books)
-    pagination = pagination_args(books)
-
-    return render_template("all_books.html", series=st_series,
-                           books=books_paginate, pagination=pagination
-                           )
-
-
+# register
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Add newly created users to the database.
@@ -208,9 +292,14 @@ def register():
     return render_template("register.html", series=st_series)
 
 
+# login
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """sumary_line"""
+    """Let existing users log in if they enter the correct password.
+
+    Display a generic error message for users who are either not in the
+    database or who entered an incorrect password.
+    """
     st_series = list(mongo.db.series.find())
     if request.method == "POST":
         # check if username exists in db
@@ -243,6 +332,7 @@ def login():
     return render_template("login.html", series=st_series)
 
 
+# profile
 @app.route("/profile/<username>", methods=["GET", "POST"])
 @login_required
 def profile(username):
@@ -285,10 +375,11 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# logout
 @app.route("/logout")
 @login_required
 def logout():
-    st_series = list(mongo.db.series.find())
+    """Logs users out and clears session cookies."""
     # remove user from session cookies
     flash(Markup("You have been logged out. "
                  "<i class='fal fa-sign-out-alt'></i>"))
@@ -297,48 +388,9 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/copyrights")
-def copyrights():
-    """Render page with info about copyrights and licenses."""
-    st_series = list(mongo.db.series.find())
-    return render_template("copyrights.html", series=st_series)
+# USER ACTIONS REGARDING BOOKS OR SERIES
 
-
-@app.route("/all_books/")
-def all_books():
-    """Display information about books in the db.
-
-    Show book cover, title, number, info about available bookformats.
-    Display blurb.
-    Let user mark book as finished, or add it to favourites
-    or user's wish list.
-    """
-    st_series = list(mongo.db.series.find())
-    books = list(mongo.db.books.find().sort("title", 1))
-    books_paginate = paginate(books)
-    pagination = pagination_args(books)
-
-
-    return render_template("all_books.html/", books=books_paginate,
-                           pagination=pagination, series=st_series,
-                           )
-
-
-@app.route("/series/<series_code>", methods=["GET", "POST"])
-def series(series_code):
-    """Displays all books for the selected series."""
-    st_series = list(mongo.db.series.find())
-    shows = list(mongo.db.series.find())
-    show = mongo.db.series.find_one({"_id": ObjectId(series_code)})
-    books = mongo.db.books.find(
-        {"series_code": show["series_code"]}
-    )
-
-    return render_template("series.html/", show=show, shows=shows, books=books,
-                           series=st_series
-                           )
-
-
+# add selected series to favourites
 @app.route("/add_fav_series/<series_id>", methods=["GET", "POST"])
 @login_required
 def add_fav_series(series_id):
@@ -367,6 +419,7 @@ def add_fav_series(series_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
+# mark selected book as finished
 @app.route("/mark_book_as_finished/<book_id>", methods=["GET", "POST"])
 @login_required
 def mark_book_as_finished(book_id):
@@ -395,6 +448,7 @@ def mark_book_as_finished(book_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
+# add selected book to favourites
 @app.route("/add_book_to_favs/<book_id>", methods=["GET", "POST"])
 @login_required
 def add_book_to_favs(book_id):
@@ -423,6 +477,7 @@ def add_book_to_favs(book_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
+# add selected book to wish list
 @app.route("/add_book_to_wishlist/<book_id>", methods=["GET", "POST"])
 @login_required
 def add_book_to_wishlist(book_id):
@@ -452,6 +507,7 @@ def add_book_to_wishlist(book_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
+# write a review for a selected book
 @app.route("/add_review/", methods=["GET", "POST"])
 @login_required
 def add_review():
@@ -482,8 +538,8 @@ def add_review():
                            book_series=book_series)
 
 
+# edit selected review
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
-# decorator unnecessary because functionality only available on profile page?
 @login_required
 def edit_review(review_id):
     """Update user's own review.
@@ -513,10 +569,12 @@ def edit_review(review_id):
         {"username": session["user"]})["username"]
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     st_series = list(mongo.db.series.find())
+
     return render_template("edit_review.html",
                            series=st_series, username=username, review=review)
 
 
+# delete selected review
 @app.route("/delete_review/<review_id>")
 # decorator unnecessary because functionality only available on profile page?
 @login_required
@@ -533,47 +591,26 @@ def delete_review(review_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
-@app.route("/reviews")
-def reviews():
-    """Render page with all reviews.
+# ADMIN SECTION
 
-    Sort by series and within a series by number.
-    """
-
-    st_series = list(mongo.db.series.find())
-    all_reviews = list(mongo.db.reviews.find())
-    return render_template("reviews.html", series=st_series,
-                           all_reviews=all_reviews)
-
-
-@app.route("/contact", methods=["GET", "POST"])
-def contact():
-    """Collect data from the contact form and forward to admin as email."""
-    if request.method == "POST":
-        try:
-            msg = Message("Message from user",
-                          sender=request.form.get("email"),
-                          recipients=['sev2275@gmx.com'])
-            msg.body = request.form.get("message")
-            mail.send(msg)
-            flash(Markup("<i class='fal fa-satellite-dish'></i> "
-                         "Subspace message received. Thank you. "
-                         "We will answer as soon as possible."
-                         "Closing subspace link."
-                         ))
-        except Exception as ex:
+# admin decorator
+def admin_required(function):
+    """Add route protection by restricting access
+        to authenticated users with admin privileges only."""
+    @wraps(function)
+    def decorated_function(*args, **kwargs):
+        if not session["admin"]:
             flash(Markup(
-                "<i class='fal fa-exclamation-circle has-text-danger'></i> "
-                "Information: Your message could not be sent. "
-                "Please try again later. Thank you. "
-                "<i class='fal fa-exclamation-circle has-text-danger'></i>"))
-        # remove before submitting?
-        else:
-            print("message sent")
-    st_series = list(mongo.db.series.find())
-    return render_template("contact.html", series=st_series)
+                "<i class='fas fa-do-not-enter has-text-danger'></i>"
+                " Security alert: Authorisation Alpha-Theta required."
+                " Access denied. "
+                "<i class='fas fa-do-not-enter has-text-danger'></i>"))
+            return redirect(url_for("profile", username=session["user"]))
+        return function(*args, **kwargs)
+    return decorated_function
 
 
+# add series to collection
 @app.route("/add_series", methods=["GET", "POST"])
 @login_required
 @admin_required
@@ -597,6 +634,7 @@ def add_series():
                            username=session["user"])
 
 
+# add book to collection
 @app.route("/add_book", methods=["GET", "POST"])
 @login_required
 @admin_required
@@ -629,13 +667,19 @@ def add_book():
                            username=session["user"])
 
 
+# ERROR PAGES
+
+# 404 page
 @app.errorhandler(404)
 def page_not_found(error):
+    """Display 404 page with link to homepage."""
     return render_template("404.html")
 
 
+# 500 page
 @app.errorhandler(500)
 def server_error(error):
+    """Display 500 page with link to homepage."""
     return render_template("500.html")
 
 
