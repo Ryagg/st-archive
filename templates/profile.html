@@ -145,7 +145,7 @@
                                     <div class="columns is-centered is-multiline">
                                         {% if user_reviews|length > 0 %}
                                             {% for review in user_reviews|sort(attribute="book_series") %}
-                                                <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
+                                                <div class="column is-6-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
                                                     <h3 class="title is-4 text__shadow--light">{{ review.book_series }}: {{ review.book_title }}</h3>
                                                     <p class="is-size-4">{{ review.review_text }}</p>
                                                     <!-- Buttons for user actions -->
