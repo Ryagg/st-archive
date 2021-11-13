@@ -155,17 +155,17 @@
                                                                 <a class="button shadow-dark form__button--bg-blue has-text-white"
                                                                     href="{{ url_for('edit_review', review_id=review._id) }}">Edit review</a>
                                                             </div>
-                                                            <span class="button shadow-dark form__button--bg-orange has-text-white modal-button"
-                                                                data-target="modal-card">Delete review</span>
+                                                            <span id="delete-review" class="button shadow-dark form__button--bg-orange has-text-white modal-button"
+                                                                data-target="modal-card" tabindex="0">Delete review</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <!-- confirmation modal for review deletion -->
-                                                <div id="modal-card" class="modal text__bg--transparent-dark">
+                                                <div id="modal-card" class="modal text__bg--transparent-dark" tabindex="0">
                                                     <div class="modal-card">
                                                         <header class="modal-card-head has-text-centered card__bg--blue-dark">
                                                             <h3 class="modal-card-title is-size-3 has-text-white text__shadow--dark">Confirmation</h3>
-                                                                <button class="delete is-large has-background-grey modal-header__close" aria-label="close"></button>
+                                                                <button id="close-modal" class="delete is-large has-background-grey modal-header__close" aria-label="close"></button>
                                                         </header>
                                                         <section class="modal-card-body">
                                                             <p class="is-size-3">
@@ -181,7 +181,7 @@
                                                                         review</a>
                                                                 </div>
                                                                 <div class="control">
-                                                                    <button class="button shadow-dark form__button--bg-blue has-text-white modal-footer__cancel">Cancel</button>
+                                                                    <button id="cancel" class="button shadow-dark form__button--bg-blue has-text-white modal-footer__cancel">Cancel</button>
                                                                 </div>
                                                             </div>
                                                         </footer>

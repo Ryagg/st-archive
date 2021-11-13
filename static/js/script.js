@@ -16,4 +16,17 @@ $(document).ready(function () {
     $(".modal-footer__cancel").click(function () {
         $(".modal").toggleClass("is-active");
     });
+    $("#delete-review").keydown(function () {
+        $("#modal-card").show();
+    });
+    $("#close-modal").keydown(function (e) {
+        if (e.which == 13) {
+            $("#modal-card").hide();
+        }
+    });
+    $("#cancel").keydown(function (e) {
+        if (e.which == 13) {
+            $("#modal-card").hide();
+        }
+    });
 });
