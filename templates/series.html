@@ -37,7 +37,7 @@
             </div>
             <div class="columns is-centered is-multiline">
                 <div class="column">
-                    <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
+                    <h1 class="title is-1 has-text-centered has-text-weight-light hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
                         <div class="control has-text-centered">
                             <a class="button shadow card__bg--blue-dark text--color-light"
                                 href="{{ url_for('add_fav_series', series_id=show._id) }}">
@@ -60,14 +60,14 @@
                             </div>
                         </div>
                         <div class="card-content card__bg--light">
-                            <h2 class="title is-2 has-text-centered text__shadow--light">{{ book.title }}</h2>
+                            <h2 class="title is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.title }}</h2>
                                 {% if book.number == "" %}
-                                    <h3 class="subtitle is-3 has-text-centered">Unnumbered book</h3>
+                                    <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
                                 {% elif not book.number == "null" %}
-                                    <h3 class="subtitle is-3 has-text-centered">Book number {{book.number}}</h3>
+                                    <h3 class="subtitle is-4 has-text-centered">Book number {{book.number}}</h3>
                                 <!-- remove? -->
                                 {% else %}
-                                    <h3 class="subtitle is-3 has-text-centered">Unnumbered book</h3>
+                                    <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
                                 {% endif %}
                             <div class="book-list__info is-size-4">
                                 <ul>

@@ -4,14 +4,14 @@
     <section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky text__bg--transparent-dark">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title is-1 has-text-centered mt-5 hero_heading heading__text--shadow">All reviews</h1>
+                <h1 class="title is-1 has-text-centered has-text-weight-light mt-5 hero_heading heading__text--shadow">All reviews</h1>
                 {% for show in series|sort(attribute="series_name") %}
                     <section id="show.series_name" class="mb-5">
                         <!-- Series title -->
                         <div class="columns">
                             <div class="column is-three-fifths is-offset-one-fifth has-text-centered hero_card my-5 card__box-shadow--blue">
-                                <h1 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-white my-4 text__shadow--dark">
-                                    {{ show.series_name }}</h1>
+                                <h2 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-weight-light has-text-white my-4 text__shadow--dark">
+                                    {{ show.series_name }}</h2>
                             </div>
                         </div>
                     </section>
@@ -22,9 +22,9 @@
                                     <div class="column">
                                         <div class="card mb-4 card__box-shadow">
                                             <header class="card-header">
-                                                <p class="card-header-title is-size-3">
+                                                <h3 class="card-header-title is-size-3 has-text-weight-light">
                                                     {{ review.book_title }}
-                                                </p>
+                                                </h3>
                                             </header>
                                             <div class="card-content card__bg--light">
                                                 <p class="content is-size-4">

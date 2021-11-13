@@ -107,7 +107,7 @@
                     {% for message in messages %}
                         <div class="columns flashes my-5">
                             <div class="column">
-                                <h3 class="title is-3 has-text-centered">{{ message }}</h3>
+                                <h3 class="title is-3 has-text-weight-light has-text-centered">{{ message }}</h3>
                             </div>
                         </div>
                     {% endfor %}
@@ -147,9 +147,7 @@
     <script nonce="{{ csp_nonce() }}" src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
     <script nonce="{{ csp_nonce() }}" src="{{ url_for('static', filename='js/script.js') }}" defer></script>
-    <!--
-    <script src="{{ url_for('static', filename='js/mtiFontTrackingCode.js') }}"></script>
-    -->
+    <script nonce="{{ csp_nonce() }}" src="{{ url_for('static', filename='js/mtiFontTrackingCode.js') }}"></script>
     {% block scripts %}
     {% endblock %}
 

@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">Books sorted by title</h1>
+            <h1 class="title is-1 has-text-centered has-text-weight-light hero_heading heading__text--shadow">Books sorted by title</h1>
 
             <!-- All books sorted by title or search result -->
             <div class="columns is-centered is-multiline">
@@ -52,16 +52,16 @@
                             </div>
                         </div>
                         <div class="card-content card__bg--light">
-                            <h2 class="title is-2 has-text-centered text__shadow--light">{{ book.series_code }} : {{ book.title }}</h2>
+                            <h2 class="title is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.series_code }}: {{ book.title }}</h2>
                                 {% if book.number == "" %}
-                                    <h3 class="subtitle is-3 has-text-centered">Unnumbered book</h3>
+                                    <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
                                 {% elif not book.number == "null" %}
-                                    <h3 class="subtitle is-3 has-text-centered">Book number {{book.number}}</h3>
+                                    <h3 class="subtitle is-4 has-text-centered">Book number {{book.number}}</h3>
                                 <!-- remove? -->
                                 {% else %}
-                                    <h3 class="subtitle is-3 has-text-centered">Unnumbered book</h3>
+                                    <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
                                 {% endif %}
-                            <div class="book-list__info is-size-4">
+                            <div class="book-list__info is-size-5">
                                 <ul>
                                     <li>
                                         ebook

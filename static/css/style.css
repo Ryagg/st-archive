@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 /*----- CUSTOM VARIABLES -----*/
 :root {
     --color-navyblue: #000088;
@@ -12,32 +19,22 @@ Please contact Monotype with any questions regarding Web Fonts: http://www.fonts
 */
 
 @font-face {
-    font-family: "Millennium W03 Bd Extended", sans-serif;
+    font-family: "Millennium W03 Bd Extended";
     src: url("../fonts/1296494/b9ecfdb8-e52f-40fc-9c62-29b79ab8ccdb.woff2") format("woff2"),
         url("../fonts/1296494/6b3c20d0-bd12-4384-aa3c-94ed1b253998.woff") format("woff");
     font-weight: 200;
     font-display: swap;
 }
 
-@font-face {
-    font-family: "Okuda";
-    src: url("../fonts/okuda-webfont.woff2") format("woff2"),
-        url("../fonts/okuda-webfont.woff") format("woff");
-    font-display: swap;
-}
-
 /*----- GENERAL STYLES -----*/
-body {
-    font-family: "Millennium W03 Bd Extended", sans-serif;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: "Okuda", sans-serif;
+    font-family: "Millennium W03 Bd Extended", sans-serif;
+    font-weight: 200;
 }
 
 :focus,
@@ -106,6 +103,8 @@ a.button:focus,
 
     /* vertically center */
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 
     /* move to right */
@@ -146,16 +145,24 @@ div.pagination-page-info {
 
 .pagination li a:hover {
     color: #882211;
+    -webkit-box-shadow: 0 0 5px #882211;
     box-shadow: 0 0 5px #882211;
 }
 
 /*----- WRAPPER -----*/
 .page_wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 .content_wrapper {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 
@@ -192,7 +199,10 @@ div.pagination-page-info {
 
 .button:active,
 a.button:active {
+    -webkit-box-shadow: 0 5px #636363;
     box-shadow: 0 5px #636363;
+    -webkit-transform: translateY(4px);
+    -ms-transform: translateY(4px);
     transform: translateY(4px);
 }
 
@@ -204,12 +214,15 @@ a.button.shadow:focus {
 a.button.shadow:hover {
     color: #ffef0a;
     border-radius: 0px;
+    background: -o-linear-gradient(135deg, #00007a, #000092);
     background: linear-gradient(315deg, #00007a, #000092);
+    -webkit-box-shadow: -7px -7px 14px #00003f, 7px 7px 14px #0000d1;
     box-shadow: -7px -7px 14px #00003f, 7px 7px 14px #0000d1;
 }
 
 .button.shadow-dark:hover {
     border-radius: 0px;
+    -webkit-box-shadow: -7px -7px 14px #212020, 7px 7px 14px #3b3a3a;
     box-shadow: -7px -7px 14px #212020, 7px 7px 14px #3b3a3a;
     font-weight: bold;
 }
@@ -270,10 +283,12 @@ a.button.shadow:hover {
 }
 
 .card__box-shadow {
+    -webkit-box-shadow: 10px 12px 0.5rem rgba(0, 0, 0, 0.5);
     box-shadow: 10px 12px 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 .card__box-shadow--blue {
+    -webkit-box-shadow: 10px 12px 0.5rem rgba(0, 0, 136, 0.5);
     box-shadow: 10px 12px 0.5rem rgba(0, 0, 136, 0.5);
 }
 

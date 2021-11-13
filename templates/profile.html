@@ -4,13 +4,13 @@
     <section class="hero is-fullheight-with-navbar bg__img--starry-sky text__bg--transparent-dark">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title is-1 has-text-centered hero_heading heading__text--shadow">{{ username.capitalize() }}'s Profile</h1>
+                <h1 class="title is-1 has-text-centered has-text-weight-light hero_heading heading__text--shadow">{{ username.capitalize() }}'s Profile</h1>
                 <!-- Favourite series -->
                 <div class=columns>
                     <div class="column">
                         <div class="card card__box-shadow">
                             <header class="card-header hero_card">
-                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-weight-light has-text-white-bis heading__text--shadow-blue">
                                     My favourite series
                                 </h2>
                             </header>
@@ -21,7 +21,7 @@
                                         {% if favourites_series|length > 0 %}
                                             {% for show in favourites_series|sort(attribute="series_code") %}
                                                 <div class="column is-4-tablet is-3-desktop mx-2 my-2 has-background-link-light card__shadow">
-                                                    <h3 class="title is-3 has-text-centered">{{ show.series_name }}</h3>
+                                                    <h3 class="title is-3 has-text-centered has-text-weight-light">{{ show.series_name }}</h3>
                                                 </div>
                                             {% endfor %}
                                         {% endif %}
@@ -36,7 +36,7 @@
                     <div class="column">
                         <div class="card card__box-shadow">
                             <header class="card-header hero_card">
-                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-weight-light has-text-white-bis heading__text--shadow-blue">
                                     My favourite books
                                 </h2>
                             </header>
@@ -47,7 +47,7 @@
                                         {% if favourites_books|length > 0 %}
                                             {% for series in favourites_books|groupby("series_code") %}
                                                 <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
-                                                    <h3 class="title is-3 has-text-centered text__shadow--light">{{ series.grouper }}</h3>
+                                                    <h3 class="title is-3 has-text-centered has-text-weight-light text__shadow--light">{{ series.grouper }}</h3>
                                                     <ul>
                                                         {% for book in series.list|sort(attribute="number") %}
                                                             <li class="li__icon--book">{{ book.title }}</li>
@@ -69,7 +69,7 @@
                     <div class="column">
                         <div class="card card__box-shadow">
                             <header class="card-header hero_card">
-                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-weight-light has-text-weight-light has-text-white-bis heading__text--shadow-blue">
                                     My wish list
                                 </h2>
                             </header>
@@ -80,7 +80,7 @@
                                         {% if wishlist|length > 0 %}
                                             {% for series in wishlist|groupby("series_code") %}
                                                 <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
-                                                    <h3 class="title is-3 has-text-centered text__shadow--light">{{ series.grouper }}</h3>
+                                                    <h3 class="title is-3 has-text-centered has-text-weight-light text__shadow--light">{{ series.grouper }}</h3>
                                                     <ul>
                                                         {% for book in series.list|sort(attribute="number") %}
                                                             <li class="li__icon--book">{{ book.title }}</li>
@@ -102,7 +102,7 @@
                     <div class="column">
                         <div class="card card__box-shadow">
                             <header class="card-header hero_card">
-                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-weight-light has-text-white-bis heading__text--shadow-blue">
                                     My finished books
                                 </h2>
                             </header>
@@ -113,7 +113,7 @@
                                             {% if finished_books|length > 0 %}
                                                 {% for series in finished_books|groupby("series_code") %}
                                                     <div class="column is-4-tablet is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
-                                                        <h3 class="title is-3 has-text-centered">{{ series.grouper }}</h3>
+                                                        <h3 class="title is-3 has-text-centered has-text-weight-light">{{ series.grouper }}</h3>
                                                             <ul>
                                                                 {% for book in series.list|sort(attribute="number") %}
                                                                     <li class="li__icon--book">{{ book.title }}</li>
@@ -135,7 +135,7 @@
                     <div class="column">
                         <div class="card card__box-shadow">
                             <header class="card-header hero_card">
-                                <h2 class="card-header-title is-size-2 has-text-white-bis heading__text--shadow-blue">
+                                <h2 class="card-header-title is-size-2 has-text-weight-light has-text-white-bis heading__text--shadow-blue">
                                     My reviews
                                 </h2>
                             </header>
@@ -146,7 +146,7 @@
                                         {% if user_reviews|length > 0 %}
                                             {% for review in user_reviews|sort(attribute="book_series") %}
                                                 <div class="column is-6-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
-                                                    <h3 class="title is-4 text__shadow--light">{{ review.book_series }}: {{ review.book_title }}</h3>
+                                                    <h3 class="title is-3 has-text-weight-light text__shadow--light">{{ review.book_series }}: {{ review.book_title }}</h3>
                                                     <p class="is-size-4">{{ review.review_text }}</p>
                                                     <!-- Buttons for user actions -->
                                                     <div class="column">
@@ -164,7 +164,7 @@
                                                 <div id="modal-card" class="modal text__bg--transparent-dark" tabindex="0">
                                                     <div class="modal-card">
                                                         <header class="modal-card-head has-text-centered card__bg--blue-dark">
-                                                            <h3 class="modal-card-title is-size-3 has-text-white text__shadow--dark">Confirmation</h3>
+                                                            <h3 class="modal-card-title is-size-3 has-text-weight-light has-text-white text__shadow--dark">Confirmation</h3>
                                                                 <button id="close-modal" class="delete is-large has-background-grey modal-header__close" aria-label="close"></button>
                                                         </header>
                                                         <section class="modal-card-body">
