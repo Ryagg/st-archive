@@ -212,6 +212,9 @@ a.button:active {
 }
 
 /*----- BUTTONS -----*/
+#register-btn {
+    border: 0.5rem ridge #ccddff;
+}
 
 .form__button--bg-orange {
     background-color: #882211;
@@ -265,7 +268,7 @@ div.pagination-page-info {
 
 /*----- BACKGROUND IMAGES -----*/
 .bg__img--starry-sky {
-    background-image: url("../images/starry_sky_640px.jpg");
+    background-image: url("https://res.cloudinary.com/psbgbp/image/upload/t_bg-image/v1636894433/ms3/bg/starry_sky.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -291,7 +294,7 @@ div.pagination-page-info {
 /*----- MEDIA QUERIES -----*/
 @media screen and (min-width: 768px) {
     .bg__img--starry-sky {
-        background-image: url("../images/starry_sky_768px.jpg");
+        background-image: url("https://res.cloudinary.com/psbgbp/image/upload/t_bg-image/v1636894434/ms3/bg/starry_sky-2.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -315,7 +318,7 @@ div.pagination-page-info {
 
 @media screen and (min-width: 1024px) {
     .bg__img--starry-sky {
-        background-image: url("../images/starry_sky_1024px.jpg");
+        background-image: url("https://res.cloudinary.com/psbgbp/image/upload/t_bg-image/v1636894434/ms3/bg/starry_sky-3.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -339,7 +342,7 @@ div.pagination-page-info {
 
 @media screen and (min-width: 1366px) {
     .bg__img--starry-sky {
-        background-image: url("../images/starry_sky_1366px.jpg");
+        background-image: url("https://res.cloudinary.com/psbgbp/image/upload/t_bg-image/v1636894435/ms3/bg/starry_sky-4.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -363,7 +366,7 @@ div.pagination-page-info {
 
 @media screen and (min-width: 1600px) {
     .bg__img--starry-sky {
-        background-image: url("../images/starry_sky_1600px.jpg");
+        background-image: url("https://res.cloudinary.com/psbgbp/image/upload/t_bg-image/v1636894434/ms3/bg/starry_sky-5.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -387,7 +390,7 @@ div.pagination-page-info {
 
 @media screen and (min-width: 1920px) {
     .bg__img--starry-sky {
-        background-image: url("../images/starry_sky_1920px.jpg");
+        background-image: url("https://res.cloudinary.com/psbgbp/image/upload/t_bg-image/v1636894436/ms3/bg/starry_sky-6.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
