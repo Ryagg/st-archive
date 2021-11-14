@@ -21,12 +21,12 @@ The following user requirements and expectations were developed based on the use
 #### **Expectation: being able to see in what order the books have been published and/or should be read**
 
 -   Requirement: Retrieve and display information helping users discern the order of publication.
--   Implementation: Where available, the book number within a series is being displayed. For the pages displaying all books of a selected series, the titles are sorted by number. For series without numbering, the titles have been added to the database in their correct order and are displayed in this order. See the screenshots [here](images/readme/usertests/user-expectation-3.jpg) and [here](images/readme/usertests/user-expecation-3-example-2.jpg). The year in which the story of each book starts (timespan) has been added to the database where available. Currently, there is no option to sort books by timespan. This is both due to this information not being available for all books and Star Trek stories often having multiple story lines taking place in different timespans. And of course, there are stories featuring time travel.
+-   Implementation: Where available, the book number within a series is being displayed. For the pages displaying all books of a selected series, the titles are sorted by number. For series without numbering, the titles have been added to the database in their correct order and are displayed in this order. See the screenshots [here](images/readme/usertests/user-expectation-3.jpg) and [here](images/readme/usertests/user-expectation-3-example-2.jpg). The year in which the story of each book starts (timespan) has been added to the database where available. Currently, there is no option to sort books by timespan. This is both due to this information not being available for all books and Star Trek stories often having multiple storylines taking place in different timespans. And of course, there are stories featuring time travel.
 
 #### **Expectation: being able to read reviews or some form of rating from other users**
 
 -   Requirement: allow users to write reviews and let users see all available reviews. Let users rate books.
--   Implementation: Users who are logged in can [write reviews](images/readme/usertests/user-expectation-4.jpg). The correspondent button at the bottom of the card displaying the information for the selected book redirects the user the review page. The series code and the book title are already entered into the form and are read-only. This is both to make it easier for the user and to prevent multiple entries for one book due to spelling errors or differences in capitalization. [All reviews](images/readme/usertests/user-expectation-4-example-2.jpg) are accessible through the navbar. The option to rate books has not been implemented. There are no immediate plans to implement this feature, but this decision might be reconsidered at a later time.
+-   Implementation: Users who are logged in can [write reviews](images/readme/usertests/user-expectation-4.jpg). The correspondent button at the bottom of the card displaying the information for the selected book redirects the user to the review page. The series code and the book title are already entered into the form and are read-only. This is both to make it easier for the user and to prevent multiple entries for one book due to spelling errors or differences in capitalization. [All reviews](images/readme/usertests/user-expectation-4-example-2.jpg) are accessible through the navbar. The option to rate books has not been implemented. There are no immediate plans to implement this feature, but this decision might be reconsidered at a later time.
 
 #### **Expectation: being able to write a review for a book and post it to the site**
 
@@ -40,7 +40,7 @@ The following user requirements and expectations were developed based on the use
 #### **Expectation: being able to distinguish between books that have already been read and those that have not been read by the user**
 
 -   Requirement: allow users to add books to separate lists ('finished books' and 'wish list').
--   Implementation: like the above expectation this is implemented via [button](images/readme/usertests/user-expectation-6.jpg) and the [lists](images/readme/usertests/user-expectation-6-example-2.jpg) are displayed on the profile page. In contrast to the expectation above, there are no checks whether a book is already in 'the other list'. This is intentional because a trekkie might e.g. have finished the audiobook version of a title and still want the paperbook or e-book version of the same title or the same format but in another language.
+-   Implementation: like the above expectation this is implemented via [button](images/readme/usertests/user-expectation-6.jpg) and the [lists](images/readme/usertests/user-expectation-6-example-2.jpg) are displayed on the profile page. In contrast to the expectation above, there are no checks whether a book is already in 'the other list'. This is intentional because a Trekkie might e.g. have finished the audiobook version of a title and still want the paperback or e-book version of the same title or the same format but in another language.
 
 #### **Expectation: being able to see which books of a series are needed to either complete it or be up to date**
 
@@ -53,12 +53,12 @@ The following user requirements and expectations were developed based on the use
 
 #### **Expectation: being able to add books to the site**
 
--   This feature has not been implemented and there are no plans to implement it in the future. For the time being new books are being added manually by me to the database. For later updates to the site I plan to add books by web scraping.
+-   This feature has not been implemented and there are no plans to implement it in the future. For the time being, new books are being added manually by me to the database. For later updates to the site, I plan to add books by web scraping.
 
 #### **Expectation: being able to edit and delete reviews, lists and reading progress**
 
 -   Requirement: allow users to modify their reviews, lists and reading progress and update the correspondent database documents.
--   Implementation: Each review on the profile page features [buttons](images/readme/usertests/user-expectation-7.jpg) that let users [edit](images/readme/usertests/user-expectation-7-example-1.jpg) and delete their reviews. In case of editing the series code and the book title are already entered into the form and read-only. In case of deletion a [confirmation modal](images/readme/usertests/user-expectation-7-example-2.jpg) lets users either confirm the deletion or cancel the process. This functionality has not been implemented for list and reading progress yet.
+-   Implementation: Each review on the profile page features [buttons](images/readme/usertests/user-expectation-7.jpg) that let users [edit](images/readme/usertests/user-expectation-7-example-1.jpg) and delete their reviews. In case of editing, the series code and the book title are already entered into the form and read-only. In case of deletion, a [confirmation modal](images/readme/usertests/user-expectation-7-example-2.jpg) lets users either confirm the deletion or cancel the process. This functionality has not been implemented for list and reading progress yet.
 
 #### **Expectation: being able to contact the site owner**
 
@@ -96,9 +96,9 @@ The following user requirements and expectations were developed based on the use
 
 -   See comment above.
 
-#### **Expectation: as an admin I want to be able to delete reviews from users if they contain any form of unacceptable content**
+#### **Expectation: as an admin, I want to be able to delete reviews from users if they contain any form of unacceptable content**
 
--   This feature is not implemented yet. In a future update to the site I want to go one step further and check the reviews before adding them to the site.
+-   This feature is not implemented yet. In a future update to the site, I want to go one step further and check the reviews before adding them to the site.
 
 ## **Functionality Testing**
 
@@ -106,23 +106,23 @@ The following user requirements and expectations were developed based on the use
 
 ### **W3C Markup Validator**
 
-For validating my HTML code the source code from each page of the generated live site was copied and pasted into the validator on [W3C Markup Validation Service](https://validator.w3.org/). At first several errors due to aria-described-by labels and missing closing button tags were reported. This errors have been fixed and the tests repeated. The results are presented below:
+For validating my HTML code the source code from each page of the generated live site was copied and pasted into the validator on [W3C Markup Validation Service](https://validator.w3.org/). At first, several errors due to aria-described-by labels and missing closing button tags were reported. These errors have been fixed and the tests repeated. The results are presented below:
 
 -   all pages: 1 warning about a lacking section heading. The section is used for flash messages.
--   https://ms3-st-archive.herokuapp.com/: no errors reported.
+-   https://ms3-st-archive.herokuapp.com/: no errors were reported.
 -   https://ms3-st-archive.herokuapp.com/all_books/: no errors reported.
--   https://ms3-st-archive.herokuapp.com/series/61587a31dcc215bfa1c93151 was checked as an example for all series-pages. No errors reported.
+-   https://ms3-st-archive.herokuapp.com/series/61587a31dcc215bfa1c93151 was checked as an example for all series-pages. No errors were reported.
 -   https://ms3-st-archive.herokuapp.com/reviews: two kinds of errors are repeatedly shown due to the for-loop in the code:
     -   "Bad value 'series name' for attribute id on element h1: An ID must not contain whitespace." The code can be seen [here](images/readme/w3c-markup-error.jpg). The template-variable does not contain whitespace, but three of the Star Trek shows (Next Generation, Deep Space Nine and Original Series) have whitespace in their names.
-    -   "Duplicate ID show.series_name". This is inside a for-loop and being replaced by the name of each series in the rendered page.
--   https://ms3-st-archive.herokuapp.com/register: no errors reported.
--   https://ms3-st-archive.herokuapp.com/login: no errors reported.
--   https://ms3-st-archive.herokuapp.com/add_review/?title=Caretaker: no errors reported.
--   https://ms3-st-archive.herokuapp.com/edit_review/618fb8b5a27730238f72e6ba: no errors reported.
--   https://ms3-st-archive.herokuapp.com/add_series: no errors reported.
--   https://ms3-st-archive.herokuapp.com/add_book: no errors reported.
--   https://ms3-st-archive.herokuapp.com/copyrights: no errors reported.
--   https://ms3-st-archive.herokuapp.com/contact: no errors reported.
+    -   "Duplicate ID show.series_name". This is inside a for-loop and being replaced by the name of each series on the rendered page.
+-   https://ms3-st-archive.herokuapp.com/register: no errors were reported.
+-   https://ms3-st-archive.herokuapp.com/login: no errors were reported.
+-   https://ms3-st-archive.herokuapp.com/add_review/?title=Caretaker: no errors were reported.
+-   https://ms3-st-archive.herokuapp.com/edit_review/618fb8b5a27730238f72e6ba: no errors were reported.
+-   https://ms3-st-archive.herokuapp.com/add_series: no errors were reported.
+-   https://ms3-st-archive.herokuapp.com/add_book: no errors were reported.
+-   https://ms3-st-archive.herokuapp.com/copyrights: no errors were reported.
+-   https://ms3-st-archive.herokuapp.com/contact: no errors were reported.
 
 ### **W3CSS Validator**
 
@@ -130,15 +130,34 @@ The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) reported 
 
 ### **WAVE Validator**
 
+The [web accessibility evaluation tool](https://wave.webaim.org/) was used to check the site's accessibility features.
+
+An exemplary image of the summary for the homepage is shown below. For all other pages, a summary in text form will be given. The images for all pages can be found in the [wave-results sub-directory](https://github.com/Ryagg/st-archive/tree/main/images/readme/wave-results).
+![homepage](images/readme/wave-results/homepage.jpg)
+
+-   **all_books page**: 0 errors, 0 contrast errors, 0 alerts, 14 features, 24 structural elements, 34 x ARIA
+-   **series_page** (Discovery, exemplary for all series_pages): 0 errors, 0 contrast errors, 0 alerts, 18 features, 28 structural elements, 39 x ARIA
+-   **reviews page**: 0 errors, 0 contrast errors, 0 alerts, 1 feature, 17 structural elements, 5 x ARIA
+-   **copyright page**: 0 errors, 0 contrast errors, 0 alerts, 1 feature, 5 structural elements, 5 x ARIA
+-   **contact page**: 0 errors, 0 contrast errors, 0 alerts, 5 features, 4 structural elements, 9 x ARIA
+-   **register page**: 0 errors, 0 contrast errors, 0 alerts, 4 features, 13 structural elements, 16 x ARIA
+-   **login page**: 0 errors, 0 contrast errors, 0 alerts, 3 features, 4 structural elements, 10 x ARIA
+-   **add_review page**: 0 errors, 0 contrast errors, 0 alerts, 4 features, 4 structural elements, 5 x ARIA
+-   **profile page**: 0 errors, 0 contrast errors, 1 alerts, 1 features, 30 structural elements, 11 x ARIA. The alert resulted from one of my test reviews consisting only of two words ("Test review") and it therefore appeared to be a heading instead of a paragraph.
+-   **edit_review page**: 0 errors, 0 contrast errors, 0 alerts, 4 features, 4 structural elements, 5 x ARIA
+-   **profile page with modal-dialogue for review-deletion**: 0 errors, 0 contrast errors, 1 alerts, 1 features, 30 structural elements, 11 x ARIA. The alert resulted again from the short paragraph for the test review.
+-   **add_series page**: 0 errors, 0 contrast errors, 0 alerts, 3 features, 4 structural elements, 9 x ARIA
+-   **add_book page**: 0 errors, 0 contrast errors, 5 alerts, 12 features, 4 structural elements, 23 x ARIA. 4 of the alerts resulted from short paragraphs ("Available as ebook?", "Available as paperback?", "Available as audiobook?" and "Part of mini-series?") that appeared to be headings. The 5th alerts results from a missing label for the select element. Adding an additional label tag did not fix the alert and even led to an error in the W3C Markup validator. I don't know else to fix it.
+
 ### **Lighthouse**
 
 ### **JShint**
 
-No errors were reported for script.js or hideOnErrorPages.js using [JSHint](https://jshint.com/). No tests were done for mtiFontTrackingCode.js because that code was not written by me but I had to add it in accordance with the license for the Millennium font. It also causes an uncaught TypeError in the console.
+No errors were reported for script.js or hideOnErrorPages.js using [JSHint](https://jshint.com/). No tests were done for mtiFontTrackingCode.js because that code was not written by me but I had to add it per the license for the Millennium font. It also causes an uncaught TypeError in the console.
 
 ### **Python**
 
-[PEP8 online](http://pep8online.com/) reported 1 error E202 ("expected 2 blank lines, found 1") in line 117. However, both in the copy-pasted code in the validator and in the app.py file neither [line 117 nor lines 116 and 118](images/readme/pep8-error.jpg) are blank. No errors were reported from the pylint-extension.
+[PEP8 online](http://pep8online.com/) reported 1 error E202 ("expected 2 blank lines, found 1") in line 117. However, both in the copy-pasted code in the validator and the app.py file neither [line 117 nor lines 116 and 118](images/readme/pep8-error.jpg) are blank. No errors were reported from the pylint-extension.
 
 ## **Route Handlers**
 

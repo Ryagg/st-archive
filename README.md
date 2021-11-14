@@ -62,15 +62,15 @@ To match the site's theme, the following colour scheme was created:
 
 To match the site's theme, the following fonts were used:
 
-For headings, the Okuda font, which is based on the computer lettering (the LCARS system) created by Mike Okuda for Star Trek: The Next Generation, is used. A licence for personal, non-commercial purposes without limitations to the number of prints, pages, or other media to be produced using them, was obtained from the author at [pixelsagas.com](https://www.pixelsagas.com/).
-
-![Okuda](images/readme/okuda-20px.png)
-
-For all other text the Millennium font, which is used on the hull of Starfleet vessels in the Star Trek movies and TV series, is used. A web fonts licence for 250000 pageviews was purchased at [fontshop.com](https://www.fontshop.com/).
+For headings, the Millennium font, which is used on the hull of Starfleet vessels in the Star Trek movies and TV series, is used. A web fonts licence for 250000 pageviews was purchased at [fontshop.com](https://www.fontshop.com/).
 
 ![Millennium](images/readme/millenium-20px.png)
 
-Initially, the Millennium font was intended as the font for the headings and the Okuda font as the standard font. But due to user feedback about bad readability and the Millennium font not being displayed correctly, the fonts were swapped.
+For all other text, the BlinkMacSystemFont is used.
+
+![BlinkMacSystemFont](images/readme/blink-mac-system-font-20px.png)
+
+Initially, the Okuda font was intended as the standard font. But due to user feedback about bad readability, the font was replaced with the BlinkMacSystemFont.
 
 #### **Icons**
 
