@@ -16,11 +16,14 @@ $(document).ready(function () {
     $(".modal-footer__cancel").click(function () {
         $(".modal").toggleClass("is-active");
     });
-    $("#delete-review").keydown(function () {
-        $("#modal-card").show();
-    });
-    $("#close-modal").keydown(function (e) {
+    $("#delete-review").keydown(function (e) {
         if (e.which == 13) {
+            $("#modal-card").show();
+        }
+    });
+    $("#close-modal").keyup(function (e) {
+        if (e.which == 27) {
+            console.log("clicked 'delete review'");
             $("#modal-card").hide();
         }
     });
