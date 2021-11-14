@@ -264,7 +264,7 @@ def register():
         if existing_user:
             flash(Markup(
                 "<i class='fas fa-do-not-enter has-text-danger'></i>"
-                " Security alert: incorrect Username and/or Password."
+                " Security alert: incorrect Username and/or Password. "
                 "Access denied. "
                 "<i class='fas fa-do-not-enter has-text-danger'></i>"))
             return redirect(url_for("register"))
@@ -318,16 +318,17 @@ def login():
             else:
                 # invalid password match
                 flash(Markup(
-                    "<i class='fal fa-exclamation-circle has-text-danger'></i>"
-                    " Incorrect Username and/or Password "))
+                    "<i class='fal fa-info-circle has-text-danger'></i>"
+                    " Incorrect Username and/or Password "
+                    "<i class='fal fa-info-circle has-text-danger'></i>"))
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exist
             flash(Markup(
-                "<i class='fal fa-exclamation-circle has-text-danger'></i>"
+                "<i class='fal fa-info-circle has-text-danger'></i>"
                 " Incorrect Username and/or Password "
-                "<i class='fal fa-exclamation-circle has-text-danger'></i>"))
+                "<i class='fal fa-info-circle has-text-danger'></i>"))
             return redirect(url_for("login"))
     return render_template("login.html", series=st_series)
 
@@ -502,7 +503,7 @@ def add_book_to_wishlist(book_id):
         )
         flash(Markup("<i class='fal fa-info-square'></i> "
                      "Incoming message from ST-Archive: "
-                     f"'{title}' has been added to your wishlist!"
+                     f"'{title}' has been added to your wishlist! "
                      "ST-Archive out."))
     return redirect(url_for("profile", username=session["user"]))
 
@@ -521,8 +522,8 @@ def add_review():
         }
         mongo.db.reviews.insert_one(review)
         flash(Markup("<i class='fal fa-check-circle has-text-success'></i> "
-                     "Incoming message from ST-Archive:"
-                     "Your review has been successfuly transmitted!"
+                     "Incoming message from ST-Archive: "
+                     "Your review has been successfuly transmitted! "
                      "ST-Archive out."))
         return redirect(url_for("all_books"))
 
@@ -586,8 +587,8 @@ def delete_review(review_id):
     """
     mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
     flash(Markup("<i class='fal fa-info-square'></i>"
-                 "Message from ST-Archive incoming:"
-                 "Review successfully deleted from memory banks"))
+                 "Message from ST-Archive incoming: "
+                 "Review successfully deleted from memory banks."))
     return redirect(url_for("profile", username=session["user"]))
 
 
