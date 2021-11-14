@@ -29,4 +29,9 @@ $(document).ready(function () {
             $("#modal-card").hide();
         }
     });
+    $("#navbar-burger").keydown(function (e) {
+        if (e.which == 13) {
+            $(".navbar-menu").toggleClass("is-active");
+        }
+    });
 });
