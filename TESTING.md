@@ -78,10 +78,10 @@ The following user requirements and expectations were developed based on the use
 
     To assist users in identifying the focused element, distinct :focus styles were added. Please refer to commit: 4268e7c1d6c1d161450e2618b17f548d04f32dc0.
 
-#### **Expectation: being able to access the site by using a screen reader**
+#### **Expectation: being able to access the site by using a screen-reader**
 
--   Requirement: allow content and structure to be recognized by screen readers.
--   Implementation: no additional measures were taken. When using the Windows 10 screen reader all content could be heard and.
+-   Requirement: allow content and structure to be recognized by screen-readers.
+-   Implementation: no additional measures were taken. When using the Windows 10 screen-reader all content could be heard and.
 
 #### **Expectation: being able as an admin to add new collections to the site**
 
@@ -100,7 +100,347 @@ The following user requirements and expectations were developed based on the use
 
 -   This feature is not implemented yet. In a future update to the site, I want to go one step further and check the reviews before adding them to the site.
 
+---
+
+---
+
 ## **Functionality Testing**
+
+### **navbar**
+
+**Plan**
+
+Make the site easy to navigate by providing a fixed-top navbar and dropdown-menus for grouped content. A newly added series should automatically be added to the series dropdown menu.
+
+**Test**
+
+While logged in as an administrator, I jumped back and forth between all pages and added a new series.
+
+**Result**
+
+The navbar is visible on all pages except the error pages. This is intentional. Dropdown menus appear when hovered over or activated through the Tab key. All links redirect to the expected page. The new series appeared in the dropdown menu and was later deleted.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **footer**
+
+**Plan**
+
+Display copyright for the page and social media links.
+
+**Test**
+
+Again I jumped back and forth between all pages. I also clicked on the social media links.
+
+**Result**
+
+Like the navbar, the footer is visible on all pages except the error pages. The social media links open the correspondent pages in a new tab.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **Home page: welcome section**
+
+**Plan**
+
+The welcome section greets the user and gives a short description of the aim and features of the site. It also features a prominent link to the registration page.
+
+**Test**
+
+I felt compelled by the text to click on the link and register an account.
+
+**Result**
+
+The text informs users about the aim, features and current status of the site. The link redirects users to the registration page.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **All books: pagination**
+
+**Plan**
+
+Prevent the user from having to scroll through too many books on a single page and reduce page loading times.
+
+**Test**
+
+Load the page on different devices and scroll to the end of the page.
+
+**Result**
+
+No more than 6 titles (the current per-page setting) are being displayed. A 'pagination bar' allows access to the following and/or the previous page either by clicking on the page number or by clicking on left- or right arrows. If there is no previous or next page the correspondent arrow is inactive and smaller.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **All books and series page: search bar**
+
+**Plan**
+
+Allow the user to search both for book titles as well as within the blurbs and display the results. For convenience, the search can be found both on the all_books page and the series page.
+
+**Test**
+
+I started searches for words from titles and blurbs from both pages. I also searched for words that wouldn't be found in either the titles or the blurbs.
+
+**Result**
+
+If books are found they are being displayed correctly. If there are no books found, a message informs the user and also states how the user can go back to the previous page.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **All books and series page: information about books**
+
+**Plan**
+
+Provide the user with the most important information about the title at a glance.
+
+**Test**
+
+Load the pages multiple times and compare the entries for several books.
+
+**Result**
+
+All data are picked up from the database and shown to the user.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **All books and series page: user actions**
+
+**Plan**
+
+Provide users with a "one-click solution" to add books to various lists in their user profile. The available options are: add a book to favourites, add a book to wish list, mark a book as finished and add a review for a book. On the series page, the selected series can be added to favourites.
+
+**Test**
+
+Performing these actions multiple times both for different books and also the same book.
+
+**Result**
+
+Books are added to the correspondent list and a flash message informs the user about this. If a user tries to add a book (or series) to a list multiple times a flash message informs the user that the request has been denied.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **Review page**
+
+**Plan**
+
+Provide the user with easy access to all available reviews sorted by series and within a series by number.
+
+**Test**
+
+Write several reviews and check the results.
+
+**Result**
+
+All reviews are sorted by series. Within a series, the reviews are sorted by book number. Reviews for unnumbered books are sorted by title. Reviews for the same title appear in the order they have been published.
+
+**Verdict**
+
+Working as intended.
+
+### **Register page**
+
+**Plan**
+
+Allow users to create an account to use all available features. Prevent multiple accounts with the same username.
+
+**Test**
+
+Create several user accounts and register them. Use both unique usernames and also try to register with an already existing username.
+
+**Result**
+
+Accounts with unique usernames get created and the user is redirected to the profile page. Trying to register an account with an already existing username leads to an error message and the registration form is cleared.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **Login page**
+
+**Plan**
+
+Allow users to access their profile and be able to distinguish between guests and logged in users. Prevent users who are not logged in from accessing features that are only available for registered and logged in users.
+
+**Test**
+
+Enter username and password to log into my accounts. Try to access features without being logged in.
+
+**Result**
+
+After logging into the site, users are redirected to their profile page. Trying to e.g. add a book to my favourites without being logged in leads to an error message and redirection to the login page.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **Profile page: overview**
+
+**Plan**
+
+Provide the user with an overview of the generated lists and allow access to user actions. Currently, users can edit and delete their reviews.
+
+**Test**
+
+Log in to my account and check the content of my lists.
+
+**Result**
+
+All lists and their contents are being displayed correctly.
+
+**Verdict**
+
+Working as intended.
+
+### **Profile page: user actions**
+
+**Plan**
+
+Allow users to update or delete items on their lists. Currently, this feature is only available for reviews. In case of deleting reviews, a safeguard should be in place to prevent accidental deletion.
+
+**Test**
+
+Click on the 'Edit review' or 'Delete review' button and either continue with the process or cancel it.
+
+**Result**
+
+Clicking on 'Edit review' redirects to a form where the series code and book title are read-only. The text of the review is being displayed and can be modified. 'Submit' updates the review in the database and the profile. Users get redirected to their profile and see a confirmation message about the update. 'Cancel' redirects users back to their profile page. Clicking on 'Delete review' displays a confirmation dialogue informing the user that the review will be deleted from their profile and the database. 'Delete review' will delete the review. Users get redirected to their profile page and see a confirmation message about the deletion. 'Cancel' or 'x' redirect users to their profile page.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **Profile page: admin actions**
+
+**Plan**
+
+Allow admins to perform actions on the collections. Currently, admins can add series and books to the correspondent collections.
+
+**Test**
+
+While logged in as admin, use the links that are only being displayed for admins to perform the actions. Please refer also to the security test further below.
+
+**Result**
+
+Both links lead to forms. Client-side form validation is used on most, but not all fields. E.g. the measures necessary to check for a valid URL for the book cover were deemed too time-consuming and therefore any text will be accepted. Submitting the forms adds the book or series to their corresponding collections and the book or series will be displayed on the site.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **Logout**
+
+**Plan**
+
+Log out the user, clear the session cookie and allow other users to log in from the same machine.
+
+**Test**
+
+Log out.
+
+**Result**
+
+Logging out and then trying to access e.g. the profile page leads to an error message and the user is redirected to the login page.
+
+**Verdict**
+
+Working as intended.
+
+---
+
+### **Error pages**
+
+**Plan**
+
+In case of a page not being available due to either an invalid URL or a server error, provide users with a short explanation and an easy way back to the homepage.
+
+**Test**
+
+For the 404 page, I added several letters to the URL of a correctly displayed page. I could not (and did not want to) cause a server error. To test the page, I temporarily replaced the URL for the '404' page with the one for the '500' page in the app route.
+
+**Result**
+
+Entering an invalid URL leads to the 404 page and provides a link back to the homepage. The header and footer are not being displayed.
+
+**Verdict**
+
+Working as intended for the 404 page. Since the code for the '500' page is practically identical, I have no reason to doubt that it works as well.
+
+---
+
+### **Security**
+
+**Plan**
+
+Provide as much security for my users and their data as well as the site itself as possible. Measures taken include the use of an admin decorator, template logic to decide which links a user should see in the navbar and the use of Talisman and SeaSurf.
+
+**Test**
+
+Enter a wrong password or username. Try to log in while being logged in with another account. Try to add books to one of the various lists, write a review, or manually enter the URLs for adding series or books while not being logged in. Manually enter the URLs for adding series or books while being logged in as a user, but not as an admin. Try to run scripts without nonce.
+
+**Result**
+
+Both entering a wrong password or a wrong username lead to the same generic error message ("Incorrect Username and/or Password."). Logging in while another user is currently logged in is possible, but the session cookie for the previous user gets cleared and the new user can only access his profile and perform actions that are allowed for his account status as a user or admin. Trying to access any of the features that require the user to be logged in without being logged in leads to the same error message in all cases ("Security alert: Access restricted. Authentication required. Enter credentials.") and redirect the user to the login page. Trying to access admin features without being an admin leads to another error message ("Security alert: Authorisation Alpha-Theta required. Access denied."). The user stays on the current page. Trying to run a script without nonce leads to the script not being loaded and a console error. Logging in does not lead to a warning from the browser that the data are being sent unencrypted.
+
+**Verdict**
+
+Totally working as intended!
+
+### **Accessibility**
+
+**Plan**
+
+Make the site as accessible as possible. Let all elements and interactions be accessible for keyboard-only users. Make focused items easily distinguishable. Use good contrast. Don't convey meaning through colours alone. Use ARIA-labels where appropriate. Give clear instructions. Use tooltips.
+
+**Test**
+
+Use all aspects of the site with a keyboard only. Use the [web accessibility evaluation tool](https://wave.webaim.org/). For WAVE results please refer to the Validators section further below. Use the Windows 10 screen-reader.
+
+**Result**
+
+JS had to be added to make all elements and interactions accessible for keyboard-only users. Now all relevant elements can be focused through the Tab key and chosen/activated through the Enter key or the Spacebar and closed with Escape.
+
+**Verdict**
+
+Working as intended. However, I have no experience in using a screen-reader and can't judge how easy my site is to use for users relying on a screen-reader. The same restriction applies to most forms of disabilities. While I have taken great care to make my site accessible for as many users with different forms of disabilities as my current skills and knowledge allow, I can't be sure of the results.
+
+---
+
+---
 
 ## **Validators**
 

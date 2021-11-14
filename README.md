@@ -40,7 +40,7 @@ The deployed project can be found [here](https://ms3-st-archive.herokuapp.com/).
 -   I want to be able to edit or delete my reviews, lists and reading progress.
 -   I want to be able to contact the site owner with queries.
 -   I want to be able to navigate the site by using a keyboard only.
--   I want to be able to hear the content by using a screen reader.
+-   I want to be able to hear the content by using a screen-reader.
 
 #### **As the site owner/admin:**
 
@@ -137,9 +137,9 @@ The available navigation menu items depend on whether a user is logged in and fo
 
 The footer is located at the bottom of each page and includes links to reach the website author on social media. The links open in a new browser tab.
 
-#### **Home page: welcome section**
+#### **Home page: welcome section with CTA**
 
-The welcome section consists of several short paragraphs informing the user about the site's aim, features and current status as a work in progress.
+The welcome section consists of several short paragraphs informing the user about the site's aim, features and current status as a work in progress. It also includes a CTA in form of a prominent link to the registration page.
 
 #### **All books and Series page features**
 
@@ -157,6 +157,10 @@ The entry for each book includes the following information/data:
 -   the blurb from the book cover
 -   buttons for the user to add the book to his favourites, his wish list, to mark it as finished and to write a review
 
+#### **All books page: pagination**
+
+To improve both the user experience and loading times, pagination has been added.
+
 #### **Reviews page features**
 
 The reviews page contains all reviews sorted by series. The card for each review displays the book title, the review text and the review author. The page is read-only for all users and admins.
@@ -171,7 +175,7 @@ The login page contains fields for users to enter their username and password an
 
 #### **Profile page features**
 
-The profile page greets users with a personalised flash message and heading. It contains the user's list for favourite series, favourite books, wish list and reviews. From here users can both edit and delete their reviews. In the case of deleting reviews, a modal with a confirmation dialogue gets displayed. At this point, users can either abort the process by clicking on "Cancel" or closing the modal by clicking on the "x" button in the top right corner of the modal. Only by clicking on "Delete review" inside the modal can users delete their reviews.
+The profile page greets users with a personalised flash message and heading. It contains the user's list for favourite series, favourite books, wish list and reviews. From here users can both edit and delete their reviews. In the case of deleting reviews, a modal with a confirmation dialogue gets displayed. At this point, users can either abort the process by clicking on "Cancel" or closing the modal by clicking on the "x" button in the top right corner of the modal. Only by clicking on "Delete review" inside the modal ca users delete their reviews.
 
 #### **Logout features**
 
@@ -196,6 +200,10 @@ Admins can add both series and books to the database. They can also check user r
 #### **Security features**
 
 Flask-Talisman and Flask-SeaSurf are used to improve the application's security. Login and admin decorators are used to prevent unauthorized access.
+
+#### **Accessibility features**
+
+All elements and interactions on the site are accessible for keyboard-only users. Color alone is never used to transport meaning. The color scheme focuses heavily on blue colours because fewer users are negatively impacted by blue colours than by other colours. Clear instructions, ARIA-labels and tooltips are used to facilitate the usage of the site by users with different forms of disabilities.
 
 ### **Features to be implemented**
 
