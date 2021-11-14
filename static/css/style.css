@@ -5,15 +5,9 @@
 * Browsers: last 4 version
 */
 
-/*----- CUSTOM VARIABLES -----*/
-:root {
-    --color-navyblue: #000088;
-    --color-trueblue: #3366cc;
-    --color-periwinklecrayola: #ccddff;
-    --padding: 2rem 1rem 2rem;
-}
+/*----- WEB FONT -----*/
 /*
-This CSS resource ("Millennium W03 Bd Extended", name added my me for clarification) incorporates links to font software which is the valuable copyrighted property of Monotype and/or its suppliers.
+This CSS resource ("Millennium W03 Bd Extended", name added by me for clarification) incorporates links to font software which is the valuable copyrighted property of Monotype and/or its suppliers.
 You may not attempt to copy, install, redistribute, convert, modify or reverse engineer this font software.
 Please contact Monotype with any questions regarding Web Fonts: http://www.fontshop.com
 */
@@ -34,9 +28,9 @@ h4,
 h5,
 h6 {
     font-family: "Millennium W03 Bd Extended", sans-serif;
-    font-weight: 200;
 }
 
+/*----- FOCUS, ACTIVE & HOVER EFFECTS -----*/
 :focus,
 button:focus,
 a.button:focus,
@@ -47,6 +41,35 @@ a.button:focus,
 
 .button.form__button--bg-orange:focus {
     outline: 3px solid #006699;
+}
+
+a.button.shadow:focus {
+    color: #bbaa55;
+}
+
+.button:active,
+a.button:active {
+    -webkit-box-shadow: 0 5px #636363;
+    box-shadow: 0 5px #636363;
+    -webkit-transform: translateY(4px);
+    -ms-transform: translateY(4px);
+    transform: translateY(4px);
+}
+
+.pagination li.active {
+    background-color: #bbaa55;
+}
+
+/* found at https://www.proglobalbusinesssolutions.com/css-hover-effects/ under entry 10) Glowing Icon Hover Effect */
+.form__select--hover:hover {
+    color: #ffef0a;
+    text-shadow: 0 0 5px #ffef0a;
+}
+
+.pagination li a:hover {
+    color: #882211;
+    -webkit-box-shadow: 0 0 5px #882211;
+    box-shadow: 0 0 5px #882211;
 }
 
 /*----- TEXT EFFECTS -----*/
@@ -86,13 +109,69 @@ a.button:focus,
     color: #3366ff;
 }
 
-/* found at https://www.proglobalbusinesssolutions.com/css-hover-effects/ under entry 10) Glowing Icon Hover Effect */
-.form__select--hover:hover {
-    color: #ffef0a;
-    text-shadow: 0 0 5px #ffef0a;
+/*----- CONTAINERS -----*/
+.hero_heading {
+    color: #ccddff;
+}
+
+.hero_card {
+    background-color: #3366cc;
+}
+
+.card__bg--light {
+    background-color: #ccddff;
+}
+
+.text__bg--transparent-dark {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card__bg--blue-dark {
+    background-color: #000088;
+}
+
+.card__shadow {
+    -webkit-box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
+    box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
+}
+
+.card__border--groove {
+    border: 4px groove #bbaa55;
+}
+
+.card__box-shadow {
+    -webkit-box-shadow: 10px 12px 0.5rem rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 12px 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.card__box-shadow--blue {
+    -webkit-box-shadow: 10px 12px 0.5rem rgba(0, 0, 136, 0.5);
+    box-shadow: 10px 12px 0.5rem rgba(0, 0, 136, 0.5);
+}
+
+/*----- NAVBAR -----*/
+.navbar_bg {
+    background-color: #000088;
+}
+
+.navbar-item,
+.navbar-link,
+.navbar-burger,
+.footer_copyright,
+.footer_social {
+    color: #ccddff;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+    border-color: #ccddff;
+}
+
+.navbar-dropdown {
+    background-color: #000088;
 }
 
 /*----- TOOLTIP -----*/
+/* code copied from https://blog.logrocket.com/creating-beautiful-tooltips-with-only-css/ */
 .tooltip {
     position: relative;
 }
@@ -120,71 +199,16 @@ a.button:focus,
     text-align: center;
     z-index: 5;
 
-    display: none; /* hide by default */
+    /* hide by default */
+    display: none;
 }
 
 .tooltip:hover:before {
     display: block;
 }
 
-/*----- PAGINATION -----*/
-
-a.page-link,
-span.page-link,
-div.pagination-page-info {
-    color: #000088;
-}
-
 .pagination li a {
     font-size: 1.3rem;
-}
-
-.pagination li.active {
-    background-color: #bbaa55;
-}
-
-.pagination li a:hover {
-    color: #882211;
-    -webkit-box-shadow: 0 0 5px #882211;
-    box-shadow: 0 0 5px #882211;
-}
-
-/*----- WRAPPER -----*/
-.page_wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    min-height: 100vh;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-.content_wrapper {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-}
-
-/*----- NAVBAR -----*/
-.navbar_bg {
-    background-color: #000088;
-}
-
-.navbar-item,
-.navbar-link,
-.navbar-burger,
-.footer_copyright,
-.footer_social {
-    color: #ccddff;
-}
-
-.navbar-link:not(.is-arrowless)::after {
-    border-color: #ccddff;
-}
-
-.navbar-dropdown {
-    background-color: #000088;
 }
 
 /*----- BUTTONS -----*/
@@ -195,19 +219,6 @@ div.pagination-page-info {
 
 .form__button--bg-blue {
     background-color: #3366ff;
-}
-
-.button:active,
-a.button:active {
-    -webkit-box-shadow: 0 5px #636363;
-    box-shadow: 0 5px #636363;
-    -webkit-transform: translateY(4px);
-    -ms-transform: translateY(4px);
-    transform: translateY(4px);
-}
-
-a.button.shadow:focus {
-    color: #bbaa55;
 }
 
 /* created at https://neumorphism.io/#ffef0a */
@@ -241,55 +252,15 @@ a.button.shadow:hover {
 
 /*----- FOOTER -----*/
 .footer_padding--less {
-    padding: var(--padding);
+    padding: 2rem 1rem 2rem;
 }
 
-/*----- CONTAINERS -----*/
-.hero_heading {
-    color: var(--color-periwinklecrayola);
-}
-.hero_bg {
-    background-color: var(--color-navyblue);
-    color: var(--color-periwinklecrayola);
-}
+/*----- PAGINATION -----*/
 
-.hero_card {
-    background-color: var(--color-trueblue);
-}
-
-.card__bg--light {
-    background-color: #ccddff;
-}
-
-.text__bg--transparent {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.text__bg--transparent-dark {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.card__bg--blue-dark {
-    background-color: #000088;
-}
-
-.card__shadow {
-    -webkit-box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
-    box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
-}
-
-.card__border--groove {
-    border: 4px groove #bbaa55;
-}
-
-.card__box-shadow {
-    -webkit-box-shadow: 10px 12px 0.5rem rgba(0, 0, 0, 0.5);
-    box-shadow: 10px 12px 0.5rem rgba(0, 0, 0, 0.5);
-}
-
-.card__box-shadow--blue {
-    -webkit-box-shadow: 10px 12px 0.5rem rgba(0, 0, 136, 0.5);
-    box-shadow: 10px 12px 0.5rem rgba(0, 0, 136, 0.5);
+a.page-link,
+span.page-link,
+div.pagination-page-info {
+    color: #000088;
 }
 
 /*----- BACKGROUND IMAGES -----*/

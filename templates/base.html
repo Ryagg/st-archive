@@ -14,7 +14,7 @@
     <title>ST-Archive</title>
 </head>
 
-<body class="has-navbar-fixed-top page_wrapper">
+<body class="has-navbar-fixed-top">
 
     <header>
         <!-- Navbar -->
@@ -99,7 +99,6 @@
         </nav>
     </header>
 
-    <div class="content_wrapper">
         <section>
             <!-- flash messages -->
             {% with messages = get_flashed_messages() %}
@@ -122,7 +121,7 @@
         <!-- need to add sections with different classes and containers in each template file!!! -->
         {% block content %}
         {% endblock %}
-    </div>
+
     <!-- footer -->
     <footer id="footer" class="footer has-text-black navbar_bg footer_padding--less">
         <div class="level">
