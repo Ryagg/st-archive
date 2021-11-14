@@ -35,132 +35,144 @@
                     </div>
                 </div>
             </div>
-            <div class="columns is-centered is-multiline">
-                <div class="column">
-                    <h1 class="title is-1 has-text-centered has-text-weight-light hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
-                        <div class="control has-text-centered">
-                            <a class="button shadow card__bg--blue-dark text--color-light"
-                                href="{{ url_for('add_fav_series', series_id=show._id) }}">
-                                    Add {{ show.series_name }} to favourites</a>
+                {% if books.count() > 0 %}
+                    <div class="columns is-centered is-multiline">
+                        <div class="column">
+                            <h1 class="title is-1 has-text-centered has-text-weight-light hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
+                                <div class="control has-text-centered">
+                                    <a class="button shadow card__bg--blue-dark text--color-light"
+                                        href="{{ url_for('add_fav_series', series_id=show._id) }}">
+                                            Add {{ show.series_name }} to favourites</a>
+                                </div>
                         </div>
-                </div>
-            </div>
+                    </div>
             <!-- All books in series -->
-            <div class="columns is-centered is-multiline">
-                {% for book in books|sort(attribute="number") if book.series_code == show.series_code %}
-                <div class="column is-6-tablet is-6-desktop my-2">
-                    <div class="card card__box-shadow">
-                        <div class="columns is-mobile">
-                            <div class="column is-6 is-offset-3">
-                                <div class="card-image card__box-shadow--blue">
-                                    <figure class="image is-2by3 has-background-primary-dark mt-3">
-                                        <img src="{{ book.cover }}" alt="Book cover for {{ book.title }}">
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-content card__bg--light">
-                            <h2 class="title is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.title }}</h2>
-                                {% if book.number == "" %}
-                                    <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
-                                {% elif not book.number == "null" %}
-                                    <h3 class="subtitle is-4 has-text-centered">Book number {{book.number}}</h3>
-                                <!-- remove? -->
-                                {% else %}
-                                    <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
-                                {% endif %}
-                            <div class="book-list__info is-size-4">
-                                <ul>
-                                    <li>
-                                        ebook
-                                        {% if book.e_book %}
-                                            <span class="icon has-text-success ml-2">
-                                                <i class="fal fa-fw fa-check-square"></i>
-                                            </span>
-                                        {% else %}
-                                            <span class="icon has-text-danger ml-2">
-                                                <i class="fal fa-fw fa-times-square"></i>
-                                            </span>
-                                        {% endif %}
-                                    </li>
-                                    <li>
-                                        paperbook
-                                        {% if book.paper_book %}
-                                            <span class="icon has-text-success ml-2">
-                                                <i class="fal fa-fw fa-check-square"></i>
-                                            </span>
-                                        {% else %}
-                                            <span class="icon has-text-danger ml-2">
-                                                <i class="fal fa-fw fa-times-square"></i>
-                                            </span>
-                                        {% endif %}
-                                    </li>
-                                    <li>
-                                        audiobook
-                                        {% if book.audio_book %}
-                                            <span class="icon has-text-success ml-2">
-                                                <i class="fal fa-fw fa-check-square"></i>
-                                            </span>
-                                        {% else %}
-                                            <span class="icon has-text-danger ml-2">
-                                                <i class="fal fa-fw fa-times-square"></i>
-                                            </span>
-                                        {% endif %}
-                                    </li>
-                                    <li>
-                                        part of miniseries
-                                        {% if book.part_of_mini_series %}
-                                            <span class="icon has-text-success ml-2">
-                                                <i class="fal fa-fw fa-check-square"></i>
-                                            </span>
-                                        {% else %}
-                                            <span class="icon has-text-danger ml-2">
-                                                <i class="fal fa-fw fa-times-square"></i>
-                                            </span>
-                                        {% endif %}
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="content is-size-4 mt-2">
-                                <details>
-                                    <summary>Blurb for {{ book.title }}</summary>
-                                    <p>{{ book.blurb }}</p>
-                                </details>
-                            </div>
-                        </div>
-                        <!-- Buttons for user actions -->
-                        <footer class="card-footer has-background-link-dark py-4">
-                            <div class="buttons mx-auto">
-                                <div class="columns is-multiline is-mobile mx-auto">
-                                    <div class="column is-narrow-tablet">
-                                        <div class="control">
-                                            <a class="button shadow card__bg--blue-dark text--color-light"
-                                                href="{{ url_for('add_book_to_favs', book_id=book._id) }}">Add to
-                                                Favourites</a>
-                                        </div>
-                                    </div>
-                                    <div class="column is-narrow-tablet">
-                                        <div class="control">
-                                            <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
-                                        </div>
-                                    </div>
-                                    <div class="column is-narrow-tablet">
-                                        <div class="control">
-                                            <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
-                                        </div>
-                                    </div>
-                                    <div class="column is-narrow-tablet">
-                                        <div class="control">
-                                            <a class="button shadow card__bg--blue-dark text--color-light"
-                                                href="{{ url_for('add_review', title=book.title) }}">Add review</a>
-                                        </div>
+                <div class="columns is-centered is-multiline">
+                    {% for book in books|sort(attribute="number") if book.series_code == show.series_code %}
+                    <div class="column is-6-tablet is-6-desktop my-2">
+                        <div class="card card__box-shadow">
+                            <div class="columns is-mobile">
+                                <div class="column is-6 is-offset-3">
+                                    <div class="card-image card__box-shadow--blue">
+                                        <figure class="image is-2by3 has-background-primary-dark mt-3">
+                                            <img src="{{ book.cover }}" alt="Book cover for {{ book.title }}">
+                                        </figure>
                                     </div>
                                 </div>
                             </div>
-                        </footer>
-                    </div> <!-- card -->
-                </div> <!-- column book -->
-                {% endfor %}
+                            <div class="card-content card__bg--light">
+                                <h2 class="title is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.title }}</h2>
+                                    {% if book.number == "" %}
+                                        <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
+                                    {% elif not book.number == "null" %}
+                                        <h3 class="subtitle is-4 has-text-centered">Book number {{book.number}}</h3>
+                                    <!-- remove? -->
+                                    {% else %}
+                                        <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
+                                    {% endif %}
+                                <div class="book-list__info is-size-4">
+                                    <ul>
+                                        <li>
+                                            ebook
+                                            {% if book.e_book %}
+                                                <span class="icon has-text-success ml-2">
+                                                    <i class="fal fa-fw fa-check-square"></i>
+                                                </span>
+                                            {% else %}
+                                                <span class="icon has-text-danger ml-2">
+                                                    <i class="fal fa-fw fa-times-square"></i>
+                                                </span>
+                                            {% endif %}
+                                        </li>
+                                        <li>
+                                            paperbook
+                                            {% if book.paper_book %}
+                                                <span class="icon has-text-success ml-2">
+                                                    <i class="fal fa-fw fa-check-square"></i>
+                                                </span>
+                                            {% else %}
+                                                <span class="icon has-text-danger ml-2">
+                                                    <i class="fal fa-fw fa-times-square"></i>
+                                                </span>
+                                            {% endif %}
+                                        </li>
+                                        <li>
+                                            audiobook
+                                            {% if book.audio_book %}
+                                                <span class="icon has-text-success ml-2">
+                                                    <i class="fal fa-fw fa-check-square"></i>
+                                                </span>
+                                            {% else %}
+                                                <span class="icon has-text-danger ml-2">
+                                                    <i class="fal fa-fw fa-times-square"></i>
+                                                </span>
+                                            {% endif %}
+                                        </li>
+                                        <li>
+                                            part of miniseries
+                                            {% if book.part_of_mini_series %}
+                                                <span class="icon has-text-success ml-2">
+                                                    <i class="fal fa-fw fa-check-square"></i>
+                                                </span>
+                                            {% else %}
+                                                <span class="icon has-text-danger ml-2">
+                                                    <i class="fal fa-fw fa-times-square"></i>
+                                                </span>
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="content is-size-4 mt-2">
+                                    <details>
+                                        <summary>Blurb for {{ book.title }}</summary>
+                                        <p>{{ book.blurb }}</p>
+                                    </details>
+                                </div>
+                            </div>
+                            <!-- Buttons for user actions -->
+                            <footer class="card-footer has-background-link-dark py-4">
+                                <div class="buttons mx-auto">
+                                    <div class="columns is-multiline is-mobile mx-auto">
+                                        <div class="column is-narrow-tablet">
+                                            <div class="control">
+                                                <a class="button shadow card__bg--blue-dark text--color-light"
+                                                    href="{{ url_for('add_book_to_favs', book_id=book._id) }}">Add to
+                                                    Favourites</a>
+                                            </div>
+                                        </div>
+                                        <div class="column is-narrow-tablet">
+                                            <div class="control">
+                                                <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
+                                            </div>
+                                        </div>
+                                        <div class="column is-narrow-tablet">
+                                            <div class="control">
+                                                <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
+                                            </div>
+                                        </div>
+                                        <div class="column is-narrow-tablet">
+                                            <div class="control">
+                                                <a class="button shadow card__bg--blue-dark text--color-light"
+                                                    href="{{ url_for('add_review', title=book.title) }}">Add review</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div> <!-- card -->
+                    </div> <!-- column book -->
+                    {% endfor %}
+                {% else %}
+                    <article id="no-result-message" class="message is-link">
+                        <div class="message-header">
+                            <p>LCARS return:</p>
+                            <button id="no-result" class="delete" aria-label="delete"></button>
+                        </div>
+                        <div class="message-body has-text-weight-medium">
+                            No results found in our memory banks! Click 'Reset' to return to the previous page.
+                        </div>
+                    </article>
+                {% endif %}
                 <!-- don't move! -->
             </div> <!-- columns book -->
         </div> <!-- container -->
