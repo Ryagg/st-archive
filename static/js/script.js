@@ -34,4 +34,10 @@ $(document).ready(function () {
             $(".navbar-menu").toggleClass("is-active");
         }
     });
+    $("#no-result").keydown(function (e) {
+        if (e.which == 13) {
+            console.log("click");
+            $("#no-result-message").hide();
+        }
+    });
 });
