@@ -58,6 +58,7 @@ a.button:active {
 
 .pagination li.active {
     background-color: #bbaa55;
+    padding: 3px;
 }
 
 /* found at https://www.proglobalbusinesssolutions.com/css-hover-effects/ under entry 10) Glowing Icon Hover Effect */
@@ -70,6 +71,7 @@ a.button:active {
     color: #882211;
     -webkit-box-shadow: 0 0 5px #882211;
     box-shadow: 0 0 5px #882211;
+    padding: 3px;
 }
 
 /*----- TEXT EFFECTS -----*/
@@ -208,7 +210,7 @@ a.button:active {
 }
 
 .pagination li a {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 /*----- BUTTONS -----*/
@@ -264,6 +266,13 @@ a.page-link,
 span.page-link,
 div.pagination-page-info {
     color: #000088;
+}
+
+.page-link.prev-page,
+/* selector needs to be so specific or otherwise either the next-page arrow won't be affected or all pagination items will be affected */
+li.page-item.next-page a.page-link {
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 /*----- BACKGROUND IMAGES -----*/
