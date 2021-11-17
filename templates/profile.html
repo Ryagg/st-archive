@@ -20,8 +20,8 @@
                                     <div class="columns is-centered is-multiline">
                                         {% if favourites_series|length > 0 %}
                                             {% for show in favourites_series|sort(attribute="series_code") %}
-                                                <div class="column is-4-tablet is-3-desktop mx-2 my-2 has-background-link-light card__shadow">
-                                                    <h3 class="title is-3 has-text-centered has-text-weight-light">{{ show.series_name }}</h3>
+                                                <div class="column is-5-tablet is-3-desktop mx-2 my-2 has-background-link-light card__shadow">
+                                                    <h3 class="title is-3 has-text-centered has-text-weight-light">{{ show.series_code }}</h3>
                                                 </div>
                                             {% endfor %}
                                         {% endif %}
@@ -46,7 +46,7 @@
                                     <div class="columns is-centered is-multiline">
                                         {% if favourites_books|length > 0 %}
                                             {% for series in favourites_books|groupby("series_code") %}
-                                                <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
+                                                <div class="column is-5-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
                                                     <h3 class="title is-3 has-text-centered has-text-weight-light text__shadow--light">{{ series.grouper }}</h3>
                                                     <ul>
                                                         {% for book in series.list|sort(attribute="number") %}
@@ -79,7 +79,7 @@
                                     <div class="columns is-centered is-multiline">
                                         {% if wishlist|length > 0 %}
                                             {% for series in wishlist|groupby("series_code") %}
-                                                <div class="column is-4-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
+                                                <div class="column is-5-tablet  is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
                                                     <h3 class="title is-3 has-text-centered has-text-weight-light text__shadow--light">{{ series.grouper }}</h3>
                                                     <ul>
                                                         {% for book in series.list|sort(attribute="number") %}
@@ -112,7 +112,7 @@
                                         <div class="columns is-centered is-multiline">
                                             {% if finished_books|length > 0 %}
                                                 {% for series in finished_books|groupby("series_code") %}
-                                                    <div class="column is-4-tablet is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
+                                                    <div class="column is-5-tablet is-3-desktop my-2 mx-2 has-background-link-light card__shadow">
                                                         <h3 class="title is-3 has-text-centered has-text-weight-light">{{ series.grouper }}</h3>
                                                             <ul>
                                                                 {% for book in series.list|sort(attribute="number") %}
