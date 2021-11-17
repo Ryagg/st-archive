@@ -114,6 +114,7 @@ End Credit
 
 # NO REGISTRATION REQUIRED
 
+
 # homepage
 @app.route("/")
 def index():
@@ -547,29 +548,36 @@ def edit_review(review_id):
 
     Update review both in the user profile and reviews page.
     """
-    if request.method == "POST":
-        updated_review = {
-            "book_series": request.form.get("book_series"),
-            "book_title": request.form.get("book_title"),
-            "review_text": request.form.get("review_text"),
-            "created_by": session["user"].capitalize()
-        }
-        mongo.db.reviews.update_one(
-            {"_id": ObjectId(review_id)},
-            {"$set":
-                {"review_text": updated_review["review_text"]
-                 }}
-                                    )
-        flash(Markup("<i class='fal fa-check-circle has-text-success'></i> "
-                     "Incoming message from ST-Archive: "
-                     "Your update to your review has been successfuly "
-                     "transmitted! ST-Archive out."))
-        return redirect(url_for("profile", username=session["user"]))
-
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     st_series = list(mongo.db.series.find())
+    # prevent users from editing reviews from other users
+    if session["user"].capitalize() == review["created_by"]:
+        if request.method == "POST":
+            updated_review = {
+                "book_series": request.form.get("book_series"),
+                "book_title": request.form.get("book_title"),
+                "review_text": request.form.get("review_text"),
+                "created_by": session["user"].capitalize()
+            }
+            mongo.db.reviews.update_one(
+                {"_id": ObjectId(review_id)},
+                {"$set":
+                    {"review_text": updated_review["review_text"]
+                     }}
+                                        )
+            flash(Markup("<i class='fal fa-check-circle has-text-success'></i>"
+                         " Incoming message from ST-Archive: "
+                         "Your update to your review has been successfuly "
+                         "transmitted! ST-Archive out."))
+            return redirect(url_for("profile", username=session["user"]))
+    else:
+        flash(Markup(
+                "<i class='fas fa-do-not-enter has-text-danger'></i>"
+                " Security alert: Insufficient privileges. Access denied. "
+                "<i class='fas fa-do-not-enter has-text-danger'></i>"))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("edit_review.html",
                            series=st_series, username=username, review=review)
