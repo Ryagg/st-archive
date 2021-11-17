@@ -146,36 +146,38 @@
                                     </details>
                                 </div>
                             </div>
-                            <!-- Buttons for user actions -->
-                            <footer class="card-footer has-background-link-dark py-4">
-                                <div class="buttons mx-auto">
-                                    <div class="columns is-multiline is-mobile mx-auto">
-                                        <div class="column is-narrow-tablet">
-                                            <div class="control">
-                                                <a class="button shadow card__bg--blue-dark text--color-light"
-                                                    href="{{ url_for('add_book_to_favs', book_id=book._id) }}">Add to
-                                                    Favourites</a>
+                            <!-- Buttons for user actions, display only for logged in users -->
+                            {% if session.user %}
+                                <footer class="card-footer has-background-link-dark py-4">
+                                    <div class="buttons mx-auto">
+                                        <div class="columns is-multiline is-mobile mx-auto">
+                                            <div class="column is-narrow-tablet">
+                                                <div class="control">
+                                                    <a class="button shadow card__bg--blue-dark text--color-light"
+                                                        href="{{ url_for('add_book_to_favs', book_id=book._id) }}">Add to
+                                                        Favourites</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="column is-narrow-tablet">
-                                            <div class="control">
-                                                <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
+                                            <div class="column is-narrow-tablet">
+                                                <div class="control">
+                                                    <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('mark_book_as_finished', book_id=book._id) }}">Finished</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="column is-narrow-tablet">
-                                            <div class="control">
-                                                <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
+                                            <div class="column is-narrow-tablet">
+                                                <div class="control">
+                                                    <a class="button shadow card__bg--blue-dark text--color-light" href="{{ url_for('add_book_to_wishlist', book_id=book._id) }}">Add to wish list</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="column is-narrow-tablet">
-                                            <div class="control">
-                                                <a class="button shadow card__bg--blue-dark text--color-light"
-                                                    href="{{ url_for('add_review', title=book.title) }}">Add review</a>
+                                            <div class="column is-narrow-tablet">
+                                                <div class="control">
+                                                    <a class="button shadow card__bg--blue-dark text--color-light"
+                                                        href="{{ url_for('add_review', title=book.title) }}">Add review</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </footer>
+                                </footer>
+                            {% endif %}
                         </div> <!-- card -->
                     </div> <!-- column book -->
                     {% endfor %}
