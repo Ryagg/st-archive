@@ -35,7 +35,24 @@
                     </div>
                 </div>
             </div>
-                {% if books.count() > 0 %}
+
+            <!-- pagination  -->
+            <div class="columns">
+                <div class="column is-10 is-offset-1">
+                    <div class="pagination-container my-5 is-size-4 has-text-centered ">
+                        {% if books|length > 0 %}
+                            <div class="columns is-centered">
+                                <div class="column has-background-white">
+                                        {{ pagination.links }}
+                                        {{ pagination.info }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+                {% if books|length > 0 %}
                     <div class="columns is-centered is-multiline">
                         <div class="column">
                             <h1 class="title is-1 has-text-centered has-text-weight-light hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
@@ -175,6 +192,21 @@
                 {% endif %}
                 <!-- don't move! -->
             </div> <!-- columns book -->
+            <!-- pagination  -->
+            <div class="columns">
+                <div class="column is-10 is-offset-1">
+                    <div class="pagination-container my-5 is-size-4 has-text-centered ">
+                        {% if books|length > 0 %}
+                            <div class="columns is-centered">
+                                <div class="column has-background-white">
+                                        {{ pagination.links }}
+                                        {{ pagination.info }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div> <!-- container -->
     </div> <!-- hero body -->
 </section> <!-- section hero -->

@@ -165,11 +165,14 @@ def series(series_code):
     st_series = list(mongo.db.series.find())
     shows = list(mongo.db.series.find())
     show = mongo.db.series.find_one({"_id": ObjectId(series_code)})
-    books = mongo.db.books.find(
-        {"series_code": show["series_code"]}
+    books = list(mongo.db.books.find(
+        {"series_code": show["series_code"]})
     )
+    books_paginate = paginate(books)
+    pagination = pagination_args(books)
 
-    return render_template("series.html/", show=show, shows=shows, books=books,
+    return render_template("series.html/", show=show, shows=shows,
+                           books=books_paginate, pagination=pagination,
                            series=st_series
                            )
 
