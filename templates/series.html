@@ -90,58 +90,59 @@
                                 <div class="book-list__info is-size-4">
                                     <ul>
                                         <li>
-                                            ebook
                                             {% if book.e_book %}
                                                 <span class="icon has-text-success ml-2">
-                                                    <i class="fal fa-fw fa-check-square"></i>
+                                                    <i class="fas fa-fw fa-check-square"></i>
                                                 </span>
                                             {% else %}
                                                 <span class="icon has-text-danger ml-2">
-                                                    <i class="fal fa-fw fa-times-square"></i>
+                                                    <i class="fas fa-fw fa-times-square"></i>
                                                 </span>
                                             {% endif %}
+                                            ebook
                                         </li>
                                         <li>
-                                            paperbook
                                             {% if book.paper_book %}
                                                 <span class="icon has-text-success ml-2">
-                                                    <i class="fal fa-fw fa-check-square"></i>
+                                                    <i class="fas fa-fw fa-check-square"></i>
                                                 </span>
                                             {% else %}
                                                 <span class="icon has-text-danger ml-2">
-                                                    <i class="fal fa-fw fa-times-square"></i>
+                                                    <i class="fas fa-fw fa-times-square"></i>
                                                 </span>
                                             {% endif %}
+                                            paperback
                                         </li>
                                         <li>
-                                            audiobook
                                             {% if book.audio_book %}
                                                 <span class="icon has-text-success ml-2">
-                                                    <i class="fal fa-fw fa-check-square"></i>
+                                                    <i class="fas fa-fw fa-check-square"></i>
                                                 </span>
                                             {% else %}
                                                 <span class="icon has-text-danger ml-2">
-                                                    <i class="fal fa-fw fa-times-square"></i>
+                                                    <i class="fas fa-fw fa-times-square"></i>
                                                 </span>
                                             {% endif %}
+                                            audiobook
                                         </li>
                                         <li>
-                                            part of miniseries
                                             {% if book.part_of_mini_series %}
                                                 <span class="icon has-text-success ml-2">
-                                                    <i class="fal fa-fw fa-check-square"></i>
+                                                    <i class="fas fa-fw fa-check-square"></i>
                                                 </span>
                                             {% else %}
                                                 <span class="icon has-text-danger ml-2">
-                                                    <i class="fal fa-fw fa-times-square"></i>
+                                                    <i class="fas fa-fw fa-times-square"></i>
                                                 </span>
                                             {% endif %}
+                                            part of miniseries
                                         </li>
                                     </ul>
                                 </div>
+                                <hr>
                                 <div class="content is-size-4 mt-2">
                                     <details>
-                                        <summary>Blurb for {{ book.title }}</summary>
+                                        <summary>Blurb for <span class="has-text-weight-medium">{{ book.title }}</span></summary>
                                         <p>{{ book.blurb }}</p>
                                     </details>
                                 </div>
