@@ -347,10 +347,9 @@ def profile(username):
     Return user not in session to the login page.
     """
     st_series = list(mongo.db.series.find())
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
     user = mongo.db.users.find_one(
         {"username": session["user"]})
+    username = user["username"]
     fav_series_list = user["favourites_series"]
     favourites_series = list(
         mongo.db.series.find({"series_name": {"$in": fav_series_list}})
@@ -368,15 +367,13 @@ def profile(username):
     finished_books = list(mongo.db.books.find(
         {"_id": {"$in": finished_books_list}})
         )
-    if session["user"]:
-        return render_template("profile.html", username=username, user=user,
-                               favourites_series=favourites_series,
-                               user_reviews=user_reviews, series=st_series,
-                               favourites_books=favourites_books,
-                               wishlist=wishlist,
-                               finished_books=finished_books)
 
-    return redirect(url_for("login"))
+    return render_template("profile.html", username=username, user=user,
+                           favourites_series=favourites_series,
+                           user_reviews=user_reviews, series=st_series,
+                           favourites_books=favourites_books,
+                           wishlist=wishlist,
+                           finished_books=finished_books)
 
 
 # logout
