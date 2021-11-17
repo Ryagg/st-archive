@@ -8,10 +8,6 @@
             <p class="is-size-4 has-background-info-light has-text-black px-3 mb-4 card__border--groove">Register a free account to add series and/or books to your favourites, mark books as finished, add books to your wish list, and write reviews!</p>
             <ul class="is-size-4 has-background-info-light has-text-black px-3 mb-4 card__border--groove">
                 <li>All fields marked "required" must be completed.</li>
-                <li>You can't enter anything into the "Favourite series", "Favourite books", "Books in wish list", and
-                    "Finished books"
-                    fields. This is intentional. Data from your profile will be added there automatically later.</li>
-
             </ul>
             <form class="form" method="POST" action="{{ url_for('register') }}">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
@@ -72,67 +68,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Collections -->
-                <div class="columns is-centered cards-container mt-3" id="sectioncontainer">
-                    <div class="column">
-                        <article class="message">
-                            <div class="message-header hero_card">
-                                <h2 class="subtitle is-3 has-text-weight-light has-text-white">Favourite series</h2>
-                            </div>
-                            <div class="message-body">
-                                <ul>
-                                    <li class="is-size-5">leave empty</li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="columns is-centered cards-container mt-3">
-                    <div class="column">
-                        <article class="message">
-                            <div class="message-header hero_card">
-                                <h2 class="subtitle is-3 has-text-white">Favourite books</h2>
-                            </div>
-                            <div class="message-body">
-                                <ul>
-                                    <li class="is-size-5">leave empty</li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="columns is-centered cards-container mt-3">
-                    <div class="column">
-                        <article class="message">
-                            <div class="message-header hero_card">
-                                <h2 class="subtitle is-3 has-text-white">Books in wish list</h2>
-                            </div>
-                            <div class="message-body">
-                                <ul>
-                                    <li class="is-size-5">leave empty</li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="columns is-centered cards-container mt-3">
-                    <div class="column">
-                        <article class="message">
-                            <div class="message-header hero_card">
-                                <h2 class="subtitle is-3 has-text-white">Finished books</h2>
-                            </div>
-                            <div class="message-body">
-                                <ul>
-                                    <li class="is-size-5">leave empty</li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
                 <!-- Buttons -->
                 <div class="columns is-centered">
                     <div class="column is-6-tablet is-5-desktop is-4-widescreen">
