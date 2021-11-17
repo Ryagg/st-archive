@@ -9,6 +9,10 @@ The following user requirements and expectations were developed based on the use
 -   Requirement: allow users to easily access the main content of the site without having to register or log in
 -   Implementation: both the page for all books (sorted by title) and the page for all books of the selected series can be accessed through the navbar. The sticky navbar at the top of the page furthermore facilitates easy navigation. See the screenshots [here](images/readme/usertests/user-expectation-1.jpg) and [here](images/readme/usertests/user-expectation-1-example-2.jpg).
 
+![user-expectation-1](images/readme/usertests/user-expectation-1.jpg)
+
+![user-expectation-1-example-2](images/readme/usertests/user-expectation-1-example-2.jpg)
+
 #### **Expectation: being able to search for books by title**
 
 -   Requirement: allow users to search the database for book titles and display the result.
@@ -18,15 +22,25 @@ The following user requirements and expectations were developed based on the use
 
     A search bar has been placed at the top of the all_books and series pages. Search results are displayed beneath the search bar and by clicking on 'Reset' the user is redirected to the originating page. See a screenshot for a search result [here](images/readme/usertests/user-expectation-2.jpg).
 
+![user-expectation-2](images/readme/usertests/user-expectation-2.jpg)
+
 #### **Expectation: being able to see in what order the books have been published and/or should be read**
 
 -   Requirement: Retrieve and display information helping users discern the order of publication.
 -   Implementation: Where available, the book number within a series is being displayed. For the pages displaying all books of a selected series, the titles are sorted by number. For series without numbering, the titles have been added to the database in their correct order and are displayed in this order. See the screenshots [here](images/readme/usertests/user-expectation-3.jpg) and [here](images/readme/usertests/user-expectation-3-example-2.jpg). The year in which the story of each book starts (timespan) has been added to the database where available. Currently, there is no option to sort books by timespan. This is both due to this information not being available for all books and Star Trek stories often having multiple storylines taking place in different timespans. And of course, there are stories featuring time travel.
 
+![user-expectation-3](images/readme/usertests/user-expectation-3.jpg)
+
+![user-expectation-3-example-2](images/readme/usertests/user-expectation-3-example-2.jpg)
+
 #### **Expectation: being able to read reviews or some form of rating from other users**
 
 -   Requirement: allow users to write reviews and let users see all available reviews. Let users rate books.
 -   Implementation: Users who are logged in can [write reviews](images/readme/usertests/user-expectation-4.jpg). The correspondent button at the bottom of the card displaying the information for the selected book redirects the user to the review page. The series code and the book title are already entered into the form and are read-only. This is both to make it easier for the user and to prevent multiple entries for one book due to spelling errors or differences in capitalization. [All reviews](images/readme/usertests/user-expectation-4-example-2.jpg) are accessible through the navbar. The option to rate books has not been implemented. There are no immediate plans to implement this feature, but this decision might be reconsidered at a later time.
+
+![user-expectation-4](images/readme/usertests/user-expectation-4.jpg)
+
+![user-expectation-4-example-2](images/readme/usertests/user-expectation-4-example-2.jpg)
 
 #### **Expectation: being able to write a review for a book and post it to the site**
 
@@ -37,10 +51,22 @@ The following user requirements and expectations were developed based on the use
 -   Requirement: allow users to mark selected books and series and display them as their favourites.
 -   Implementation: each book and each series features an ['Add to favourites' button](images/readme/usertests/user-expectation-5.jpg) that adds the book or series to the favourites_books or favourites_series array of the currently logged in user. The items from those arrays are [displayed](images/readme/usertests/user-expectation-5-example-2.jpg) on the profile page. A flash message either confirms that the book or series has been added to the favourites or informs the user that the [book](images/readme/usertests/user-expectation-5-example-3.jpg) or [series](images/readme/usertests/user-expectation-5-example-4.jpg) couldn't be added because it already was in that list.
 
+![user-expectation-5](images/readme/usertests/user-expectation-5.jpg)
+
+![user-expectation-5-example-2](images/readme/usertests/user-expectation-5-example-2.jpg)
+
+![user-expectation-5-example-3](images/readme/usertests/user-expectation-5-example-3.jpg)
+
+![user-expectation-5-example-4](images/readme/usertests/user-expectation-5-example-4.jpg)
+
 #### **Expectation: being able to distinguish between books that have already been read and those that have not been read by the user**
 
 -   Requirement: allow users to add books to separate lists ('finished books' and 'wish list').
 -   Implementation: like the above expectation this is implemented via [button](images/readme/usertests/user-expectation-6.jpg) and the [lists](images/readme/usertests/user-expectation-6-example-2.jpg) are displayed on the profile page. In contrast to the expectation above, there are no checks whether a book is already in 'the other list'. This is intentional because a Trekkie might e.g. have finished the audiobook version of a title and still want the paperback or e-book version of the same title or the same format but in another language.
+
+![user-expectation-6](images/readme/usertests/user-expectation-6.jpg)
+
+![user-expectation-6-example-2](images/readme/usertests/user-expectation-6-example-2.jpg)
 
 #### **Expectation: being able to see which books of a series are needed to either complete it or be up to date**
 
@@ -60,10 +86,20 @@ The following user requirements and expectations were developed based on the use
 -   Requirement: allow users to modify their reviews, lists and reading progress and update the correspondent database documents.
 -   Implementation: Each review on the profile page features [buttons](images/readme/usertests/user-expectation-7.jpg) that let users [edit](images/readme/usertests/user-expectation-7-example-1.jpg) and delete their reviews. In case of editing, the series code and the book title are already entered into the form and read-only. In case of deletion, a [confirmation modal](images/readme/usertests/user-expectation-7-example-2.jpg) lets users either confirm the deletion or cancel the process. This functionality has not been implemented for list and reading progress yet.
 
+![user-expectation-7](images/readme/usertests/user-expectation-7.jpg)
+
+![user-expectation-7-example-2](images/readme/usertests/user-expectation-7-example-2.jpg)
+
 #### **Expectation: being able to contact the site owner**
 
 -   Requirement: allow users to easily get in touch with the site owner.
 -   Implementation: the site features a [contact page](images/readme/usertests/user-expectation-8.jpg) where users can send an email. A [flash message](images/readme/usertests/user-expectation-8-example-2.jpg) informs the user that the message has been received. In case of technical difficulties, [another flash message](images/readme/usertests/user-expectation-8-example-3.png) informs the user that the message could not be sent.
+
+![user-expectation-8](images/readme/usertests/user-expectation-8.jpg)
+
+![user-expectation-8-example-2](images/readme/usertests/user-expectation-8-example-2.jpg)
+
+![user-expectation-8-example-3](images/readme/usertests/user-expectation-8-example-3.png)
 
 #### **Expectation: being able to navigate the site by using a keyboard only**
 
@@ -72,21 +108,27 @@ The following user requirements and expectations were developed based on the use
 
         tabindex="0"
 
-    was added to the HTML code. Please refer to commit ef9d1b16760f7315503dbd964822e05e4a9e005e.
+    was added to the HTML code. Please refer to commit [ef9d1b16760f7315503dbd964822e05e4a9e005e](https://github.com/Ryagg/st-archive/commit/ef9d1b16760f7315503dbd964822e05e4a9e005e).
 
-    To enable keyboard interaction with the modal dialogue that appears when users want to delete their reviews, additional JS code was added. Please refer to commit cb55e3a3494df281d1dc168d6bc0ce1da595e255.
+    To enable keyboard interaction with the modal dialogue that appears when users want to delete their reviews, additional JS code was added. Please refer to commit [cb55e3a3494df281d1dc168d6bc0ce1da595e255](https://github.com/Ryagg/st-archive/commit/cb55e3a3494df281d1dc168d6bc0ce1da595e255).
 
-    To assist users in identifying the focused element, distinct :focus styles were added. Please refer to commit: 4268e7c1d6c1d161450e2618b17f548d04f32dc0.
+    To assist users in identifying the focused element, distinct :focus styles were added. Please refer to commit: [4268e7c1d6c1d161450e2618b17f548d04f32dc0](https://github.com/Ryagg/st-archive/commit/4268e7c1d6c1d161450e2618b17f548d04f32dc0).
 
 #### **Expectation: being able to access the site by using a screen-reader**
 
 -   Requirement: allow content and structure to be recognized by screen-readers.
--   Implementation: no additional measures were taken. When using the Windows 10 screen-reader all content could be heard and.
+-   Implementation: no additional measures were taken. When using the Windows 10 screen-reader all content could be heard.
 
 #### **Expectation: being able as an admin to add new collections to the site**
 
 -   Requirement: allow users with admin privileges to add new series and books to the site
 -   Implementation: for users with admin privileges [additional links](images/readme/usertests/user-expectation-9.jpg) are available in the navbar that redirect to the correspondent forms. See screenshots [here](images/readme/usertests/user-expectation-9-example-2.jpg) and [here](images/readme/usertests/user-expectation-9-example-3.jpg).
+
+![user-expectation-9](images/readme/usertests/user-expectation-9.jpg)
+
+![user-expectation-9-example-2](images/readme/usertests/user-expectation-9-example-2.jpg)
+
+![user-expectation-9-example-3](images/readme/usertests/user-expectation-9-example-3.jpg)
 
 #### **Expectation: being able as an admin to edit collections**
 
@@ -446,27 +488,80 @@ Working as intended. However, I have no experience in using a screen-reader and 
 
 ### **W3C Markup Validator**
 
-For validating my HTML code the source code from each page of the generated live site was copied and pasted into the validator on [W3C Markup Validation Service](https://validator.w3.org/). At first, several errors due to aria-described-by labels and missing closing button tags were reported. These errors have been fixed and the tests repeated. The results are presented below:
+For validating my HTML code at first the source code from each page of the generated live site was copied and pasted into the validator on [W3C Markup Validation Service](https://validator.w3.org/). At first, several errors due to aria-described-by labels and missing closing button tags were reported. These errors have been fixed and the tests repeated. The last test runs were done using 'Check by address'. The results are presented below:
 
 -   all pages: 1 warning about a lacking section heading. The section is used for flash messages.
--   https://ms3-st-archive.herokuapp.com/: no errors were reported.
--   https://ms3-st-archive.herokuapp.com/all_books/: no errors reported.
--   https://ms3-st-archive.herokuapp.com/series/61587a31dcc215bfa1c93151 was checked as an example for all series-pages. No errors were reported.
--   https://ms3-st-archive.herokuapp.com/reviews: two kinds of errors are repeatedly shown due to the for-loop in the code:
-    -   "Bad value 'series name' for attribute id on element h1: An ID must not contain whitespace." The code can be seen [here](images/readme/w3c-markup-error.jpg). The template-variable does not contain whitespace, but three of the Star Trek shows (Next Generation, Deep Space Nine and Original Series) have whitespace in their names.
-    -   "Duplicate ID show.series_name". This is inside a for-loop and being replaced by the name of each series on the rendered page.
--   https://ms3-st-archive.herokuapp.com/register: no errors were reported.
--   https://ms3-st-archive.herokuapp.com/login: no errors were reported.
--   https://ms3-st-archive.herokuapp.com/add_review/?title=Caretaker: no errors were reported.
--   https://ms3-st-archive.herokuapp.com/edit_review/618fb8b5a27730238f72e6ba: no errors were reported.
--   https://ms3-st-archive.herokuapp.com/add_series: no errors were reported.
--   https://ms3-st-archive.herokuapp.com/add_book: no errors were reported.
--   https://ms3-st-archive.herokuapp.com/copyrights: no errors were reported.
--   https://ms3-st-archive.herokuapp.com/contact: no errors were reported.
+-   all pages: 1 warning about CSP HTTP header: nonce-value should be at least 128 bits long.
+-   homepage: no errors were reported.
+-   all books page: no errors were reported.
+-   series page(Discovery) was checked as an example for all series-pages. No errors were reported.
+-   reviews page: no errors were reported.
+-   register page: no errors were reported.
+-   login page: no errors were reported.
+-   add review page: no errors were reported.
+-   edit review page: no errors were reported.
+-   add series page: no errors were reported.
+-   add book page: no errors were reported.
+-   copyrights page: no errors were reported.
+-   contact page: no errors were reported.
 
-### **W3CSS Validator**
+Result for homepage:
 
-The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) reported no errors. 20 warnings were reported due to vendor extensions.
+![homepage](images/readme/w3c-results/w3c-markup_homepage.png)
+
+Result for all books page:
+
+![all_books](images/readme/w3c-results/w3c-markup_all-books.png)
+
+Result for series page with Discovery selected:
+
+![series_page-discovery](images/readme/w3c-results/w3c-markup_series-discovery.png)
+
+Result for reviews page:
+
+![reviews](images/readme/w3c-results/w3c-markup_reviews.png)
+
+Result for register page:
+
+![register](images/readme/w3c-results/w3c-markup_register.png)
+
+Result for login page:
+
+![login](images\readme\w3c-results\w3c-markup_login.png)
+
+Result for add_review page:
+
+![add-review](images/readme/w3c-results/w3c-markup_add-review.png)
+
+Result for edit_review page:
+
+![edit_review](images\readme\w3c-results\w3c-markup_edit-review.png)
+
+Result for add_series page:
+
+![add_series](images/readme/w3c-results/w3c-markup_add-series.png)
+
+Result for add_book page:
+
+![add_book](images/readme/w3c-results/w3c-markup_add-book.png)
+
+Result for copyrights page:
+
+![copyrights](images/readme/w3c-results/w3c-markup_copyrights.png)
+
+Results for contact page:
+
+![contact](images/readme/w3c-results/w3c-markup_contact.png)
+
+---
+
+### **W3C CSS Validator**
+
+The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) reported no errors when using 'Validate by direct input'. 12 warnings were reported due to vendor extensions. Using 'Validate by URI' leads to 9 errors. All of those errors are from the bulma.min.css file. 259 warnings are reported. 12 warnings for vendor extensions from my css-file and the rest for vendor extensions from the bulma.min.css-file.
+
+![w3c-css](images/readme/w3c-results/w3c-css.png)
+
+---
 
 ### **WAVE Validator**
 
@@ -495,11 +590,23 @@ An exemplary image of the summary for the homepage is shown below. For all other
 
 No errors were reported for script.js or hideOnErrorPages.js using [JSHint](https://jshint.com/). No tests were done for mtiFontTrackingCode.js because that code was not written by me but I had to add it per the license for the Millennium font. It also causes an uncaught TypeError in the console.
 
+Result for script.js:
+
+![jshint-script](images/readme/jshint-script.png)
+
+Result for hideOnErrorPages.js:
+
+![jshint-hideOnErrorPages](images/readme/jshint-hideOnErrorPages.png)
+
+---
+
 ### **Python**
 
-[PEP8 online](http://pep8online.com/) reported 1 error E202 ("expected 2 blank lines, found 1") in line 117. However, both in the copy-pasted code in the validator and the app.py file neither [line 117 nor lines 116 and 118](images/readme/pep8-error.jpg) are blank. No errors were reported from the pylint-extension.
+[PEP8 online](http://pep8online.com/) reported no errors. No errors were reported from the pylint-extension.
 
-## **Route Handlers**
+Result for app.py:
+
+![pep8-result](images/readme/pep8-result.png)
 
 ## **Usability Testing**
 
