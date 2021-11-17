@@ -36,6 +36,22 @@
                 </div>
             </div>
 
+            <!-- pagination  -->
+            <div class="columns">
+                <div class="column is-10 is-offset-1">
+                    <div class="pagination-container my-5 is-size-4 has-text-centered ">
+                        {% if books|length > 0 %}
+                            <div class="columns is-centered">
+                                <div class="column has-background-white">
+                                        {{ pagination.links }}
+                                        {{ pagination.info }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
             <!-- All books sorted by title or search result -->
             <div class="columns is-centered is-multiline">
                 {% if books|length > 0 %}
@@ -168,15 +184,19 @@
                 <!-- don't move! -->
             </div> <!-- columns book -->
             <!-- pagination  -->
-            <div class="pagination-container is-size-4 has-text-centered ">
-                {% if books|length > 0 %}
-                    <div class="columns is-centered">
-                        <div class="column has-background-white">
-                                {{ pagination.links }}
-                                {{ pagination.info }}
-                        </div>
+            <div class="columns">
+                <div class="column is-10 is-offset-1">
+                    <div class="pagination-container my-5 is-size-4 has-text-centered ">
+                        {% if books|length > 0 %}
+                            <div class="columns is-centered">
+                                <div class="column has-background-white">
+                                        {{ pagination.links }}
+                                        {{ pagination.info }}
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
-                {% endif %}
+                </div>
             </div>
         </div> <!-- container -->
     </div> <!-- hero body -->
