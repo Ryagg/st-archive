@@ -6,11 +6,11 @@
             <div class="container">
                 <h1 class="title is-1 has-text-centered has-text-weight-light mt-5 hero_heading heading__text--shadow">All reviews</h1>
                 {% for show in series|sort(attribute="series_name") %}
-                    <section id="show.series_name" class="mb-5">
+                    <section id={{ show.series_code }} class="mb-5">
                         <!-- Series title -->
                         <div class="columns">
                             <div class="column is-three-fifths is-offset-one-fifth has-text-centered hero_card my-5 card__box-shadow--blue">
-                                <h2 id="{{ show.series_name }}" class="title is-1 has-text-centered has-text-weight-light has-text-white my-4 text__shadow--dark">
+                                <h2 id="{{ show.series_name|replace(' ', '_') }}" class="title is-1 has-text-centered has-text-weight-light has-text-white my-4 text__shadow--dark">
                                     {{ show.series_name }}</h2>
                             </div>
                         </div>
