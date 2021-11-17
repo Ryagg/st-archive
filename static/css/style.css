@@ -196,7 +196,7 @@ a.button:active {
     width: 300px;
     padding: 5px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.9);
     color: #000088;
     text-align: center;
     z-index: 5;
