@@ -148,6 +148,82 @@ The following user requirements and expectations were developed based on the use
 
 ## **Functionality Testing**
 
+### **Security**
+
+**Plan**
+
+Provide as much security for my users and their data as well as the site itself as possible. Measures taken include:
+
+-   #### **the use of Talisman**
+
+    Talisman provides HTTP security headers for Flask. It helps to protect against multiple web application security issues, e.g. clickjacking, and it enables HTTP Strict Transport Security. A Content Security Policy has been created to ensure that only resources from whitelisted domains can be loaded. Additionally, all scripts need to have a nonce to be allowed to run. Scripts without a nonce will not be executed and a console error will be logged. For more information about Talisman, please refer to https://github.com/GoogleCloudPlatform/flask-talisman
+
+-   #### **the use of Flask-SeaSurf**
+
+    SeaSurf protects against cross-site request forgery. Please refer to https://flask-seasurf.readthedocs.io/en/latest/ for more information about SeaSurf.
+
+-   #### **the use of an admin decorator**
+
+    To prevent logged in users from accessing restricted functions an admin decorator was created and added to the correspondent views.
+
+-   #### **template logic to decide which links a user should see in the navbar**
+
+    Depending on the session-status users see a varying number of links in the navbar under 'Account'. Logged in users can visit their profile page and logout. Admins have the additional options to add series and books to the database. Guests can register an account and login.
+
+**Test**
+
+Enter a wrong password or username. Try to log in while being logged in with another account. Try to add books to one of the various lists, write a review, or manually enter the URLs for adding series or books while not being logged in by manually entering the URL. Manually enter the URLs for adding series or books while being logged in as a user, but not as an admin. Try to edit the review of another user. Try to run scripts without nonce.
+
+**Result**
+
+Both entering a wrong password or a wrong username lead to the same generic error message ("Incorrect Username and/or Password."). Logging in while another user is currently logged in is possible, but the session cookie for the previous user gets cleared and the new user can only access his profile and perform actions that are allowed for his account status as a user or admin. Trying to access any of the features that require the user to be logged in without currently being logged in leads to the same error message in all cases ("Security alert: Access restricted. Authentication required. Enter credentials.") and redirect the user to the login page. Trying to access admin features without being an admin leads to another error message ("Security alert: Authorisation Alpha-Theta required. Access denied."). The user stays on the current page. Trying to edit another user's review by manually entering the URL leads to an error message ("Security alert: Insufficient privileges. Access denied."). Trying to run a script without nonce leads to the script not being loaded and a console error. Logging in does not lead to a warning from the browser that the data are being sent unencrypted.
+
+**Verdict**
+
+&#9989; &#9989; Totally working as intended!
+
+![talisman](images/readme/functionality-tests/talisman.jpg)
+
+![nonce](images/readme/functionality-tests/nonce.jpg)
+
+![nonce-2](images/readme/functionality-tests/nonce-2.jpg)
+
+![seasurf](images/readme/functionality-tests/seasurf.jpg)
+
+![csrf-token](images/readme/functionality-tests/csrf-token.jpg)
+
+![admin_decorator](images/readme/functionality-tests/admin_decorator.jpg)
+
+![admin_error](images/readme/functionality-tests/admin_error.jpg)
+
+![edit_review-error](images/readme/functionality-tests/edit_review-error.jpg)
+
+---
+
+### **Accessibility**
+
+**Plan**
+
+Make the site as accessible as possible. Let all elements and interactions be accessible for keyboard-only users. Make focused items easily distinguishable. Use good contrast. Don't convey meaning through colours alone. Use ARIA-labels where appropriate. Give clear instructions. Use tooltips.
+
+**Test**
+
+Use all aspects of the site with a keyboard only. Use the [web accessibility evaluation tool](https://wave.webaim.org/). For WAVE results please refer to the Validators section further below. Use the Windows 10 screen-reader.
+
+**Result**
+
+JS had to be added to make all elements and interactions accessible for keyboard-only users. Now all relevant elements can be focused through the Tab key and chosen/activated through the Enter key or the Spacebar and closed with Escape.
+
+**Verdict**
+
+&#9989; Working as intended. However, I have no experience in using a screen-reader and can't judge how easy my site is to use for users relying on a screen-reader. The same restriction applies to most forms of disabilities. While I have taken great care to make my site accessible for as many users with different forms of disabilities as my current skills and knowledge allow, I can't be sure of the results.
+
+![a11y_css](images/readme/functionality-tests/a11y_css.jpg)
+
+![a11y_js](images\readme\functionality-tests\a11y_js.jpg)
+
+---
+
 ### **navbar**
 
 **Plan**
@@ -164,7 +240,11 @@ The navbar is visible on all pages except the error pages. This is intentional. 
 
 **Verdict**
 
-Working as intended.
+&#9989; &#9989; Working as intended.
+
+![navbar-1](images/readme/functionality-tests/navbar-1.jpg)
+
+![navbar-2](images/readme/functionality-tests/navbar-2.jpg)
 
 ---
 
@@ -184,7 +264,7 @@ Like the navbar, the footer is visible on all pages except the error pages. The 
 
 **Verdict**
 
-Working as intended.
+&#9989; &#9989; Working as intended.
 
 ---
 
@@ -204,7 +284,9 @@ The text informs users about the aim, features and current status of the site. T
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![welcome](images/readme/functionality-tests/welcome.jpg)
 
 ---
 
@@ -224,7 +306,9 @@ No more than 6 titles (the current per-page setting) are being displayed. A 'pag
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![pagination](images/readme/functionality-tests/pagination.jpg)
 
 ---
 
@@ -244,7 +328,11 @@ If books are found they are being displayed correctly. If there are no books fou
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![search-result](images/readme/usertests/user-expectation-2.jpg)
+
+![search-result-2](images/readme/functionality-tests/search.jpg)
 
 ---
 
@@ -264,7 +352,9 @@ All data are picked up from the database and shown to the user.
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![information](images/readme/functionality-tests/information.jpg)
 
 ---
 
@@ -284,7 +374,15 @@ Books are added to the correspondent list and a flash message informs the user a
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![buttons](images/readme/usertests/user-expectation-5.jpg)
+
+![added-to-favourites](images/readme/usertests/user-expectation-5-example-2.jpg)
+
+![already-in-favourites](images/readme/usertests/user-expectation-5-example-3.jpg)
+
+![already-in-favourites-2](images/readme/usertests/user-expectation-5-example-4.jpg)
 
 ---
 
@@ -304,7 +402,9 @@ All reviews are sorted by series. Within a series, the reviews are sorted by boo
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![reviews](images/readme/usertests/user-expectation-4-example-2.jpg)
 
 ### **Register page**
 
@@ -322,9 +422,11 @@ Accounts with unique usernames get created and the user is redirected to the pro
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
 
----
+![new_user](images/readme/functionality-tests/new_user.jpg)
+
+## ![registration_error](images/readme/functionality-tests/registration_error.jpg)
 
 ### **Login page**
 
@@ -334,15 +436,17 @@ Allow users to access their profile and be able to distinguish between guests an
 
 **Test**
 
-Enter username and password to log into my accounts. Try to access features without being logged in.
+Enter username and password to log into my accounts.
 
 **Result**
 
-After logging into the site, users are redirected to their profile page. Trying to e.g. add a book to my favourites without being logged in leads to an error message and redirection to the login page.
+After logging into the site, users are redirected to their profile page. Entering incorrect data leads to a generic error message and the user is redirected to the login page.
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![login_error](images\readme\functionality-tests\login_error.jpg)
 
 ---
 
@@ -362,7 +466,9 @@ All lists and their contents are being displayed correctly.
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![profile](images/readme/functionality-tests/profile.jpg)
 
 ### **Profile page: user actions**
 
@@ -380,7 +486,11 @@ Clicking on 'Edit review' redirects to a form where the series code and book tit
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![edit_review](images/readme/usertests/user-expectation-7-example-1.jpg)
+
+![delete_review](images/readme/usertests/user-expectation-7-example-2.jpg)
 
 ---
 
@@ -392,15 +502,17 @@ Allow admins to perform actions on the collections. Currently, admins can add se
 
 **Test**
 
-While logged in as admin, use the links that are only being displayed for admins to perform the actions. Please refer also to the security test further below.
+While logged in as admin, use the links that are only being displayed for admins to perform the actions. Please refer also to the security test further above.
 
 **Result**
 
-Both links lead to forms. Client-side form validation is used on most, but not all fields. E.g. the measures necessary to check for a valid URL for the book cover were deemed too time-consuming and therefore any text will be accepted. Submitting the forms adds the book or series to their corresponding collections and the book or series will be displayed on the site.
+Both links lead to forms. Client-side form validation is used on all required fields. Submitting the forms adds the book or series to their corresponding collections and the book or series will be displayed on the site.
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
+
+![new_book](images/readme/functionality-tests/new_book.jpg)
 
 ---
 
@@ -420,7 +532,7 @@ Logging out and then trying to access e.g. the profile page leads to an error me
 
 **Verdict**
 
-Working as intended.
+&#9989; Working as intended.
 
 ---
 
@@ -440,45 +552,9 @@ Entering an invalid URL leads to the 404 page and provides a link back to the ho
 
 **Verdict**
 
-Working as intended for the 404 page. Since the code for the '500' page is practically identical, I have no reason to doubt that it works as well.
+&#9989; Working as intended for the 404 page. Since the code for the '500' page is practically identical, I have no reason to doubt that it works as well.
 
----
-
-### **Security**
-
-**Plan**
-
-Provide as much security for my users and their data as well as the site itself as possible. Measures taken include the use of an admin decorator, template logic to decide which links a user should see in the navbar and the use of Talisman and SeaSurf.
-
-**Test**
-
-Enter a wrong password or username. Try to log in while being logged in with another account. Try to add books to one of the various lists, write a review, or manually enter the URLs for adding series or books while not being logged in. Manually enter the URLs for adding series or books while being logged in as a user, but not as an admin. Try to run scripts without nonce.
-
-**Result**
-
-Both entering a wrong password or a wrong username lead to the same generic error message ("Incorrect Username and/or Password."). Logging in while another user is currently logged in is possible, but the session cookie for the previous user gets cleared and the new user can only access his profile and perform actions that are allowed for his account status as a user or admin. Trying to access any of the features that require the user to be logged in without being logged in leads to the same error message in all cases ("Security alert: Access restricted. Authentication required. Enter credentials.") and redirect the user to the login page. Trying to access admin features without being an admin leads to another error message ("Security alert: Authorisation Alpha-Theta required. Access denied."). The user stays on the current page. Trying to run a script without nonce leads to the script not being loaded and a console error. Logging in does not lead to a warning from the browser that the data are being sent unencrypted.
-
-**Verdict**
-
-Totally working as intended!
-
-### **Accessibility**
-
-**Plan**
-
-Make the site as accessible as possible. Let all elements and interactions be accessible for keyboard-only users. Make focused items easily distinguishable. Use good contrast. Don't convey meaning through colours alone. Use ARIA-labels where appropriate. Give clear instructions. Use tooltips.
-
-**Test**
-
-Use all aspects of the site with a keyboard only. Use the [web accessibility evaluation tool](https://wave.webaim.org/). For WAVE results please refer to the Validators section further below. Use the Windows 10 screen-reader.
-
-**Result**
-
-JS had to be added to make all elements and interactions accessible for keyboard-only users. Now all relevant elements can be focused through the Tab key and chosen/activated through the Enter key or the Spacebar and closed with Escape.
-
-**Verdict**
-
-Working as intended. However, I have no experience in using a screen-reader and can't judge how easy my site is to use for users relying on a screen-reader. The same restriction applies to most forms of disabilities. While I have taken great care to make my site accessible for as many users with different forms of disabilities as my current skills and knowledge allow, I can't be sure of the results.
+![404](images/readme/functionality-tests/navbar-2.jpg)
 
 ---
 
@@ -608,6 +684,24 @@ Result for app.py:
 
 ![pep8-result](images/readme/pep8-result.png)
 
+---
+
+---
+
 ## **Usability Testing**
 
+Family, friends and colleagues were asked to test the site on their computers and/or mobile devices and their preferred browsers. The first page load can sometimes take very long. This happens when the app is 'asleep'. This is a limitation of the free heroku account. No issues regarding the navigation of the site were reported. Feedback regarding the readability of the Okuda font has been taken into account and that font has been replaced. Feedback regarding the readability due to poor contrast has been taken into account as well and the text color has been adjusted. No issues regarding the buttons, modals or contact form were reported.
+
+---
+
+---
+
 ## **Compatibility Testing**
+
+No issues were reported viewing the site in Chrome, Firefox, Edge or Opera.
+
+---
+
+---
+
+## **Responsiveness**
