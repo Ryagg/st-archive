@@ -585,45 +585,67 @@ Result for homepage:
 
 ![homepage](images/readme/w3c-results/w3c-markup_homepage.png)
 
+---
+
 Result for all books page:
 
 ![all_books](images/readme/w3c-results/w3c-markup_all-books.png)
+
+---
 
 Result for series page with Discovery selected:
 
 ![series_page-discovery](images/readme/w3c-results/w3c-markup_series-discovery.png)
 
+---
+
 Result for reviews page:
 
 ![reviews](images/readme/w3c-results/w3c-markup_reviews.png)
+
+---
 
 Result for register page:
 
 ![register](images/readme/w3c-results/w3c-markup_register.png)
 
+---
+
 Result for login page:
 
 ![login](images\readme\w3c-results\w3c-markup_login.png)
+
+---
 
 Result for add_review page:
 
 ![add-review](images/readme/w3c-results/w3c-markup_add-review.png)
 
+---
+
 Result for edit_review page:
 
 ![edit_review](images\readme\w3c-results\w3c-markup_edit-review.png)
+
+---
 
 Result for add_series page:
 
 ![add_series](images/readme/w3c-results/w3c-markup_add-series.png)
 
+---
+
 Result for add_book page:
 
 ![add_book](images/readme/w3c-results/w3c-markup_add-book.png)
 
+---
+
 Result for copyrights page:
 
 ![copyrights](images/readme/w3c-results/w3c-markup_copyrights.png)
+
+---
 
 Results for contact page:
 
@@ -647,54 +669,80 @@ The [web accessibility evaluation tool](https://wave.webaim.org/) was used to ch
 
 ![homepage](images/readme/wave-results/homepage.jpg)
 
+---
+
 -   **all_books page**:
 
 ![all_books](images\readme\wave-results\all_books.jpg)
+
+---
 
 -   **series_page** (Discovery, exemplary for all series_pages):
     Two alerts are reported due to redundant links in the navbar. With only two pages of results, both the link for page two of the results as well as the arrow for the next page point to the same URL. The same error gets reported for the 'pagination-bar' at the bottom of the page.
 
 ![series_discovery](images/readme/wave-results/series_discovery.jpg)
 
+---
+
 -   **reviews page**:
 
 ![reviews](images/readme/wave-results/reviews.jpg)
+
+---
 
 -   **copyright page**:
 
 ![copyrights](images\readme\wave-results\copyrights.jpg)
 
+---
+
 -   **contact page**:
 
 ![contact](images/readme/wave-results/contact.jpg)
+
+---
 
 -   **register page**:
 
 ![register](images/readme/wave-results/register.jpg)
 
+---
+
 -   **login page**:
 
 ![login](images\readme\wave-results\login.jpg)
+
+---
 
 -   **add_review page**:
 
 ![add_review](images\readme\wave-results\add_review.jpg)
 
+---
+
 -   **profile page**:
 
 ![profile](images\readme\wave-results\profile.jpg)
+
+---
 
 -   **edit_review page**:
 
 ![edit_review](images\readme\wave-results\edit_review.jpg)
 
+---
+
 -   **delete_review page**:
 
 ![delete_review](images\readme\wave-results\delete_review.jpg)
 
+---
+
 -   **add_series page**:
 
 ![add_series](images\readme\wave-results\add_series.jpg)
+
+---
 
 -   **add_book page**: 4 of the alerts resulted from short paragraphs ("Available as ebook?", "Available as paperback?", "Available as audiobook?" and "Part of mini-series?") that appeared to be headings. The 5th alerts results from a missing label for the select element. Adding an additional label tag did not fix the alert and even led to an error in the W3C Markup validator. I don't know else to fix it.
 
@@ -707,6 +755,165 @@ The [web accessibility evaluation tool](https://wave.webaim.org/) was used to ch
 ---
 
 ### **Lighthouse**
+
+The results for both the mobile version and the desktop version are displayed. The low SEO ratings are due to two errors:
+
+![seo-errors](images/readme/lighthouse-results/seo-errors.png)
+
+The two mentioned links are navbar-links ('Series' and 'Account') with a dropdown menu. 'Series' and 'Account' are not acting as links and therefore don't have an href attribute.
+I'm not aware that I created a robots.txt.
+
+-   **Homepage:**
+
+homepage-mobile:
+
+![homepage-mobile](images/readme/lighthouse-results/homepage-mobile.png)
+
+homepage-desktop:
+
+![homepage-desktop](images/readme/lighthouse-results/homepage-desktop.png)
+
+---
+
+-   **all_books page**:
+
+all_books-mobile:
+
+![all-_books-mobile](images/readme/lighthouse-results/all_books-mobile.png)
+
+all_books-desktop:
+
+![all_books-desktop](images/readme/lighthouse-results/all_books-desktop.png)
+
+---
+
+-   **series_page** (Discovery, exemplary for all series_pages):
+
+series_discovery-mobile:
+
+![series_discovery-mobile](images/readme/lighthouse-results/series_discovery-mobile.png)
+
+series_discover-desktop:
+
+![series_discovery-desktop](images/readme/lighthouse-results/series_discovery-desktop.png)
+
+---
+
+-   **reviews page**:
+
+reviews-mobile:
+
+![reviews-mobile](images/readme/lighthouse-results/reviews-mobile.png)
+
+reviews-desktop:
+
+![reviews-desktop](images/readme/lighthouse-results/reviews-desktop.png)
+
+---
+
+-   **copyrights page**:
+
+copyrights-mobile:
+
+![copyrights-mobile](images/readme/lighthouse-results/copyrights-mobile.png)
+
+copyrights-desktop:
+
+![copyrights-desktop](images/readme/lighthouse-results/copyrights-desktop.png)
+
+---
+
+-   **contact page**:
+
+contact-mobile:
+
+![contact-mobile](images/readme/lighthouse-results/contact-mobile.png)
+
+contact-desktop:
+
+![contact-desktop](images/readme/lighthouse-results/contact-desktop.png)
+
+---
+
+-   **register page**:
+
+register-mobile:
+
+![register-mobile](images/readme/lighthouse-results/register-mobile.png)
+
+register-desktop:
+
+![register-desktop](images/readme/lighthouse-results/register-desktop.png)
+
+---
+
+-   **login page**:
+
+login-mobile:
+
+![login-mobile](images/readme/lighthouse-results/login-mobile.png)
+
+login-desktop:
+
+![login-desktop](images/readme/lighthouse-results/login-desktop.png)
+
+---
+
+-   **add_review page**:
+
+add_review-mobile:
+
+![add_review-mobile](images/readme/lighthouse-results/add_review-mobile.png)
+
+add_review-desktop:
+
+![add_review-desktop](images/readme/lighthouse-results/add_review-desktop.png)
+
+---
+
+-   **profile page**:
+
+profile-mobile:
+
+![profile-mobile](images/readme/lighthouse-results/profile-mobile.png)
+
+profile-desktop:
+
+![profile-desktop](images/readme/lighthouse-results/profile-desktop.png)
+
+-   **edit_review page**:
+
+edit_review-mobile:
+
+![edit_review-mobile](images/readme/lighthouse-results/edit_review-mobile.png)
+
+edit_review-desktop:
+
+![edit_review-desktop](images/readme/lighthouse-results/edit_review-desktop.png)
+
+-   **add_series page**:
+
+add_series-mobile:
+
+![add_series-mobile](images/readme/lighthouse-results/add_series-mobile.png)
+
+add_series-desktop:
+
+![add_series-desktop](images/readme/lighthouse-results/add_series-desktop.png)
+
+-   **add_book page**:
+
+add_book-mobile:
+
+![add_book-mobile](images/readme/lighthouse-results/add_book-mobile.png)
+
+add_book-desktop:
+
+![add_book-desktop](images/readme/lighthouse-results/add_book-desktop.png)
+
+---
+
+---
 
 ### **JShint**
 

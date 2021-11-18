@@ -266,37 +266,7 @@ For users who forgot their password, a password reset function is planned.
 
 ---
 
-### **Testing User Stories**
-
----
-
-Please refer to the separate [TESTING.md](TESTING.md)
-
-### **Functionality Testing**
-
----
-
-Please refer to the separate [TESTING.md](TESTING.md)
-
-### **Usability Testing**
-
----
-
-Please refer to the separate [TESTING.md](TESTING.md)
-
-### **Compatibility Testing**
-
----
-
-Please refer to the separate [TESTING.md](TESTING.md)
-
-## **Bugs**
-
----
-
----
-
-Please refer to the separate [TESTING.md](TESTING.md)
+Please refer to the separate [TESTING.md](TESTING.md) for all forms of testing and the documentation of bugs.
 
 ## **Deployment**
 
@@ -375,15 +345,15 @@ The colours for my colour palette were taken from [Steven Cote's](https://codepe
 
 Photos used as background for all pages were obtained from [Unsplash](https://unsplash.com).
 
-#### all pages except error pages
+#### **all pages except error pages**
 
 Starry sky: Photo by [Aperture Vintage](https://unsplash.com/@aperturevintage) on [Unsplash](https://unsplash.com/collections/kTCNECqjMRM/ms3-space/d1868ea4c622efa83b6e01d20cb1dea3?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
-#### 404.html
+#### **404.html**
 
 Solar eclipse: Photo by [Mathew Schwartz](https://unsplash.com/@cadop) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
-#### 500.html
+#### **500.html**
 
 Earth viewed from a space capsule: Photo by [NASA](https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/collections/kTCNECqjMRM/ms3-space/d1868ea4c622efa83b6e01d20cb1dea3?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
