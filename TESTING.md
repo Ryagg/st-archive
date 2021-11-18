@@ -643,22 +643,68 @@ The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) reported 
 
 The [web accessibility evaluation tool](https://wave.webaim.org/) was used to check the site's accessibility features.
 
-An exemplary image of the summary for the homepage is shown below. For all other pages, a summary in text form will be given. The images for all pages can be found in the [wave-results sub-directory](https://github.com/Ryagg/st-archive/tree/main/images/readme/wave-results).
+-   **Homepage:**
+
 ![homepage](images/readme/wave-results/homepage.jpg)
 
--   **all_books page**: 0 errors, 0 contrast errors, 0 alerts, 14 features, 24 structural elements, 34 x ARIA
--   **series_page** (Discovery, exemplary for all series_pages): 0 errors, 0 contrast errors, 0 alerts, 18 features, 28 structural elements, 39 x ARIA
--   **reviews page**: 0 errors, 0 contrast errors, 0 alerts, 1 feature, 17 structural elements, 5 x ARIA
--   **copyright page**: 0 errors, 0 contrast errors, 0 alerts, 1 feature, 5 structural elements, 5 x ARIA
--   **contact page**: 0 errors, 0 contrast errors, 0 alerts, 5 features, 4 structural elements, 9 x ARIA
--   **register page**: 0 errors, 0 contrast errors, 0 alerts, 4 features, 13 structural elements, 16 x ARIA
--   **login page**: 0 errors, 0 contrast errors, 0 alerts, 3 features, 4 structural elements, 10 x ARIA
--   **add_review page**: 0 errors, 0 contrast errors, 0 alerts, 4 features, 4 structural elements, 5 x ARIA
--   **profile page**: 0 errors, 0 contrast errors, 1 alerts, 1 features, 30 structural elements, 11 x ARIA. The alert resulted from one of my test reviews consisting only of two words ("Test review") and it therefore appeared to be a heading instead of a paragraph.
--   **edit_review page**: 0 errors, 0 contrast errors, 0 alerts, 4 features, 4 structural elements, 5 x ARIA
--   **profile page with modal-dialogue for review-deletion**: 0 errors, 0 contrast errors, 1 alerts, 1 features, 30 structural elements, 11 x ARIA. The alert resulted again from the short paragraph for the test review.
--   **add_series page**: 0 errors, 0 contrast errors, 0 alerts, 3 features, 4 structural elements, 9 x ARIA
--   **add_book page**: 0 errors, 0 contrast errors, 5 alerts, 12 features, 4 structural elements, 23 x ARIA. 4 of the alerts resulted from short paragraphs ("Available as ebook?", "Available as paperback?", "Available as audiobook?" and "Part of mini-series?") that appeared to be headings. The 5th alerts results from a missing label for the select element. Adding an additional label tag did not fix the alert and even led to an error in the W3C Markup validator. I don't know else to fix it.
+-   **all_books page**:
+
+![all_books](images\readme\wave-results\all_books.jpg)
+
+-   **series_page** (Discovery, exemplary for all series_pages):
+    Two alerts are reported due to redundant links in the navbar. With only two pages of results, both the link for page two of the results as well as the arrow for the next page point to the same URL. The same error gets reported for the 'pagination-bar' at the bottom of the page.
+
+![series_discovery](images/readme/wave-results/series_discovery.jpg)
+
+-   **reviews page**:
+
+![reviews](images/readme/wave-results/reviews.jpg)
+
+-   **copyright page**:
+
+![copyrights](images\readme\wave-results\copyrights.jpg)
+
+-   **contact page**:
+
+![contact](images/readme/wave-results/contact.jpg)
+
+-   **register page**:
+
+![register](images/readme/wave-results/register.jpg)
+
+-   **login page**:
+
+![login](images\readme\wave-results\login.jpg)
+
+-   **add_review page**:
+
+![add_review](images\readme\wave-results\add_review.jpg)
+
+-   **profile page**:
+
+![profile](images\readme\wave-results\profile.jpg)
+
+-   **edit_review page**:
+
+![edit_review](images\readme\wave-results\edit_review.jpg)
+
+-   **delete_review page**:
+
+![delete_review](images\readme\wave-results\delete_review.jpg)
+
+-   **add_series page**:
+
+![add_series](images\readme\wave-results\add_series.jpg)
+
+-   **add_book page**: 4 of the alerts resulted from short paragraphs ("Available as ebook?", "Available as paperback?", "Available as audiobook?" and "Part of mini-series?") that appeared to be headings. The 5th alerts results from a missing label for the select element. Adding an additional label tag did not fix the alert and even led to an error in the W3C Markup validator. I don't know else to fix it.
+
+![add_book](images/readme/wave-results/add_book.jpg)
+
+![add_book-2](images\readme\wave-results\add_book-2.jpg)
+
+---
+
+---
 
 ### **Lighthouse**
 
@@ -690,7 +736,7 @@ Result for app.py:
 
 ## **Usability Testing**
 
-Family, friends and colleagues were asked to test the site on their computers and/or mobile devices and their preferred browsers. The first page load can sometimes take very long. This happens when the app is 'asleep'. This is a limitation of the free heroku account. No issues regarding the navigation of the site were reported. Feedback regarding the readability of the Okuda font has been taken into account and that font has been replaced. Feedback regarding the readability due to poor contrast has been taken into account as well and the text color has been adjusted. No issues regarding the buttons, modals or contact form were reported.
+Family, friends and colleagues were asked to test the site on their computers and/or mobile devices and their preferred browsers. The first page load can sometimes take very long. This happens when the app is 'asleep'. This is a limitation of the free Heroku account. No issues regarding the navigation of the site were reported. Feedback regarding the readability of the Okuda font has been taken into account and that font has been replaced. Feedback regarding the readability due to poor contrast has been taken into account as well and the text color has been adjusted. No issues regarding the buttons, modals or contact form were reported.
 
 ---
 
@@ -705,3 +751,5 @@ No issues were reported viewing the site in Chrome, Firefox, Edge or Opera.
 ---
 
 ## **Responsiveness**
+
+Bulma is '100% Responsive' and 'Designed for mobile first'. Columns will resize themselves. Therefore, unlike with Bootstrap, no additional measures had to be taken to change the number of columns (equivalent of rows in Bootstrap) depending on the viewport. To test the results, I used [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) and [Sizzy](https://sizzy.co/). On the iPhone 5 several headings are not being displayed correctly, e.g. 'Caretaker' can't be displayed in one line. For long book titles, e.g. 'Bloodletter', this also happens on other devices/viewports. Apart from that, the site content is displayed correctly on all viewports.
