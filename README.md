@@ -304,51 +304,62 @@ Please refer to the separate [TESTING.md](TESTING.md)
 
 ---
 
--   Forking
-    If you wish to use this repository as a starting point or to propose changes to this project, you can fork it. Follow the steps below.
+### **Forking**
 
-    1. Navigate to the repository [Ryagg/st-archive](https://github.com/Ryagg/st-archive)
-    2. Click 'Fork' in the top-right corner.
+If you wish to use this repository as a starting point or to propose changes to this project, you can fork it. Follow the steps below.
 
--   Cloning
-    Cloning a repository creates a local copy on your computer. Follow the steps below.
+1. Navigate to the repository [Ryagg/st-archive](https://github.com/Ryagg/st-archive)
+2. Click 'Fork' in the top-right corner.
 
-    1. Navigate to the repository [Ryagg/st-archive](https://github.com/Ryagg/st-archive)
-    2. Click 'Code' above the list of files.
-    3. In the new window, cloning using HTTPS is the default option. Copy the provided link manually or by clicking on the clipboard symbol.
-    4. Open Git Bash.
-    5. Navigate to your desired directory for the cloned project.
-    6. Type 'git clone' followed by the URL copied in step 3.
-    7. Press **Enter** to create your local clone.
+---
 
--   Deploy remotely
-    To deploy the site remotely on [Heroku](https://www.heroku.com/) please follow the steps below.
-    1. Create either a **requirements.txt** file or a **Pipfile**, if using pipenv, to enable Heroku to install the required dependencies for the app.
-    2. Create a **Procfile** with the content `web:python app.py`. Remove any blank lines at the end as they may cause errors.
-    3. Register a free Heroku account, if you don't have one already, sign in and create the app.
-    4. Select the **Deploy** tab and choose **Github** as **Deployment method**.
-    5. Select the **Settings** tab and click on **Reveal Config Vars** in the section **Config Vars**. Enter your key-value-pairs from your **env.py** file without the quotes. The following variables should be added:
-        - IP: `0.0.0.0`
-        - PORT: `5000` (other ports may work as well)
+### **Cloning**
+
+Cloning a repository creates a local copy on your computer. Follow the steps below.
+
+1. Navigate to the repository [Ryagg/st-archive](https://github.com/Ryagg/st-archive)
+2. Click 'Code' above the list of files.
+3. In the new window, cloning using HTTPS is the default option. Copy the provided link manually or by clicking on the clipboard symbol.
+4. Open Git Bash.
+5. Navigate to your desired directory for the cloned project.
+6. Type 'git clone' followed by the URL copied in step 3.
+7. Press **Enter** to create your local clone.
+
+---
+
+### **Deploy remotely**
+
+To deploy the site remotely on [Heroku](https://www.heroku.com/) please follow the steps below.
+
+1. Create either a **requirements.txt** file with `pip install -r requirements.txt` or a **Pipfile** with `pipenv sync` , if using pipenv, to enable Heroku to install the required dependencies for the app.
+2. Create a **Procfile** with the content `web:python app.py`. Remove any blank lines at the end as they may cause errors.
+3. Register a free Heroku account, if you don't have one already, sign in and create the app.
+4. Select the **Deploy** tab and choose **Github** as **Deployment method**.
+5. Select the **Settings** tab and click on **Reveal Config Vars** in the section **Config Vars**. Enter your key-value-pairs from your **env.py** file without the quotes. The following variables should be added:
+    - IP: `0.0.0.0`
+    - PORT: `5000` (other ports may work as well)
         - SECRET_KEY: `<your secret key>`
         - MONGO_URI
-            - Follow these steps to obtain your MONGO_URI:
-            - Log in to your MongoDB account
-            - Click on `Collections` and select the appropriate database
-            - Click on `Command Line Tools`
-            - Under the Heading 'Connect To Your Cluster' click on `Connect Instructions`
-            - In the newly opened modal, select `Connect your application`
-            - Select `Python` as the driver and your Python version
-            - Copy the connection string and follow the instructions to replace `<password>` with your MongoDB password and then replace `<myFirstDatabase>` with the name of your database.
-        - MONGO_DBNAME: `<your database name>`
-            - Please refer to the Database schema section for information on how to set up the database
-        - CLOUDINARY_CLOUD_NAME: after creating a free [Coudinary](https://cloudinary.com/) account to host the book covers downloaded from [Memory Alpha](https://memory-alpha.fandom.com/wiki/Portal:Main) either use the automatically assigned Cloudinary cloud name or change it in your account settings
-        - CLOUDINARY_API_KEY: you can generate and access your API key in the security settings
-        - CLOUDINARY_API_SECRET: you can generate and access your API secret in the security settings
-    6. Push the **Procfile** to your Github repo.
-    7. Back under the **Deploy** tab in Heroku enable **Automatic deploys**.
-    8. Select the **main branch** and click on **Deploy branch**.
-    9. Wait for the message 'Your app was successfully deployed' and then click **View** to start your app in the browser.
+        - Follow these steps to obtain your MONGO_URI:
+        - Log in to your MongoDB account
+        - Click on `Collections` and select the appropriate database
+        - Click on `Command Line Tools`
+        - Under the Heading 'Connect To Your Cluster' click on `Connect Instructions`
+        - In the newly opened modal, select `Connect your application`
+        - Select `Python` as the driver and your Python version
+        - Copy the connection string and follow the instructions to replace `<password>` with your MongoDB password and then replace `<myFirstDatabase>` with the name of your database.
+    - MONGO_DBNAME: `<your database name>`
+        - Please refer to the Database schema section for information on how to set up the database
+    - CLOUDINARY_CLOUD_NAME: after creating a free [Coudinary](https://cloudinary.com/) account to host the book covers downloaded from [Memory Alpha](https://memory-alpha.fandom.com/wiki/Portal:Main) either use the automatically assigned Cloudinary cloud name or change it in your account settings
+    - CLOUDINARY_API_KEY: you can generate and access your API key in the security settings
+    - CLOUDINARY_API_SECRET: you can generate and access your API secret in the security settings
+    - DEBUG: False
+        - Set this value to 'True' when updating the code.
+        - **In any other case set it to 'False' to avoid remote code execution!**
+6. Push the **Procfile** to your Github repo.
+7. Back under the **Deploy** tab in Heroku enable **Automatic deploys**.
+8. Select the **main branch** and click on **Deploy branch**.
+9. Wait for the message 'Your app was successfully deployed' and then click **View** to start your app in the browser.
 
 ## **Credits**
 
