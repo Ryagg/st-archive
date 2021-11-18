@@ -76,6 +76,7 @@ a.button:active {
 
 /*----- TEXT EFFECTS -----*/
 .heading__text--shadow {
+    /* code from https://css-tricks.com/almanac/properties/t/text-shadow/ */
     color: #ccddff;
     text-shadow: 1px 0px 1px #882211, 0px 1px 1px #0a0a0a, 2px 1px 1px #882211, 1px 2px 1px #0a0a0a,
         3px 2px 1px #882211, 2px 3px 1px #0a0a0a, 4px 3px 1px #882211, 3px 4px 1px #0a0a0a,
@@ -84,6 +85,7 @@ a.button:active {
 }
 
 .heading__text--shadow-blue {
+    /* code from https://css-tricks.com/almanac/properties/t/text-shadow/ */
     color: #ccddff;
     text-shadow: 0 1px 0 #4169e1, 0 2px 0 #0000ff, 0 3px 0 #0000cd, 0 4px 0 #00008b, 0 5px 0 #191970,
         0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
@@ -282,6 +284,7 @@ li.page-item.next-page a.page-link {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    overflow: hidden;
 }
 
 .bg__img--eclipse {
@@ -290,6 +293,7 @@ li.page-item.next-page a.page-link {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    overflow: hidden;
 }
 
 .bg__img--shuttle {
@@ -298,6 +302,7 @@ li.page-item.next-page a.page-link {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    overflow: hidden;
 }
 
 /*----- MEDIA QUERIES -----*/
@@ -308,6 +313,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_768px.jpg");
@@ -315,6 +321,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--shuttle {
         background-image: url("../images/shuttle_768px.jpg");
@@ -322,6 +329,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
 }
 
@@ -332,6 +340,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_1024px.jpg");
@@ -339,6 +348,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--shuttle {
         background-image: url("../images/shuttle_1024px.jpg");
@@ -346,6 +356,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
 }
 
@@ -356,6 +367,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_1366px.jpg");
@@ -363,6 +375,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--shuttle {
         background-image: url("../images/shuttle_1366px.jpg");
@@ -370,6 +383,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
 }
 
@@ -380,6 +394,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_1600px.jpg");
@@ -387,6 +402,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--shuttle {
         background-image: url("../images/shuttle_1600px.jpg");
@@ -394,6 +410,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
 }
 
@@ -404,6 +421,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--eclipse {
         background-image: url("../images/solar_eclipse_1920px.jpg");
@@ -411,6 +429,7 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
     .bg__img--shuttle {
         background-image: url("../images/shuttle_1920px.jpg");
@@ -418,5 +437,6 @@ li.page-item.next-page a.page-link {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        overflow: hidden;
     }
 }
