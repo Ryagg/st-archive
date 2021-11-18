@@ -31,6 +31,14 @@ h6 {
 }
 
 /*----- FOCUS, ACTIVE & HOVER EFFECTS -----*/
+.navbar-item:hover,
+.navbar-link:hover,
+.navbar-burger:hover,
+.footer_copyright:hover,
+.footer:hover {
+    font-weight: bold;
+}
+
 :focus,
 button:focus,
 a.button:focus,
@@ -162,16 +170,16 @@ a.button:active {
 .navbar-link,
 .navbar-burger,
 .footer_copyright,
-.footer_social {
-    color: #ccddff;
+.footer {
+    color: #000088;
 }
 
 .navbar-link:not(.is-arrowless)::after {
-    border-color: #ccddff;
+    border-color: #000088;
 }
 
 .navbar-dropdown {
-    background-color: #000088;
+    background-color: #fff;
 }
 
 /*----- TOOLTIP -----*/
@@ -284,7 +292,7 @@ li.page-item.next-page a.page-link {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .bg__img--eclipse {
