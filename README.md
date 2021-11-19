@@ -243,26 +243,88 @@ For users who forgot their password, a password reset function is planned.
 ---
 
 -   [Bulma](https://bulma.io/)
+
+    CSS framework to build responsive web sites
+
 -   [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+
+    Python framework for the project
+
 -   [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+
+    Templating engine for the project
+
 -   [Font Awesome](https://fontawesome.com/)
+
+    All icons are from Font Awesome
 
 ### **Tools**
 
 ---
 
 -   [VSCode](https://code.visualstudio.com/)
+
+    IDE used for coding
+
 -   [GitHub](https://github.com/)
+
+    Used to store the source code for this project
+
 -   [Heroku](https://www.heroku.com/)
+
+    Used to deploy and host the live website
+
+-   [Talisman](https://github.com/GoogleCloudPlatform/flask-talisman)
+
+    Used to enable HTTP Strict Transport Security and use HTTP security headers for Flask
+
+-   [Seasurf](https://flask-seasurf.readthedocs.io/en/latest/)
+
+    used for protection against cross-site request forgery
+
+-   [flask-paginate](https://github.com/lixxu/flask-paginate)
+
+    used to add pagination to the all_books and series pages
+
+-   [Cloudinary](https://cloudinary.com/)
+
+    used to host book covers and add transformations, e.g. credit for the book covers
+
 -   [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/)
+
+    Used to check the styling, colour contrast and responsiveness of the site
+
 -   [Sizzy](https://sizzy.co/)
+
+    Used to check the responsiveness of the site by comparing various viewports next to each other
+
 -   [Balsamiq](https://balsamiq.com/)
+
+    Used to create the wireframes
+
 -   [Coolors colour palette generator](https://coolors.co/)
+
+    Used to create the colour palette
+
 -   [W3C HTML Validation Service](https://validator.w3.org/)
+
+    HTML Validator
+
 -   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+    CSS Validator
+
 -   [JSHint](https://jshint.com)
+
+    JS validator
+
 -   [TinyJPG](https://tinyjpg.com/)
+
+    Used to optimize images
+
 -   [Mailtrap](https://mailtrap.io/)
+
+    Used to receive emails when users send an email through the contact form
 
 ## **Testing**
 

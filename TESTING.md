@@ -1007,7 +1007,7 @@ No issues were reported viewing the site in Chrome, Firefox, Edge or Opera.
 
 -   Firefox: profile page:
 
-![firefox-profile](documentation\testing\compatibility-tests\firefox-profile.jpg)
+![firefox-profile](documentation/testing/compatibility-tests/firefox-profile.jpg)
 
 -   Firefox: series page (Voyager):
 
@@ -1019,7 +1019,7 @@ No issues were reported viewing the site in Chrome, Firefox, Edge or Opera.
 
 -   Opera: search result:
 
-![opera-search_result](documentation\testing\compatibility-tests\opera-search_result.jpg)
+![opera-search_result](documentation/testing/compatibility-tests/opera-search_result.jpg)
 
 ---
 
@@ -1038,5 +1038,24 @@ Bulma is '100% Responsive' and 'Designed for mobile first'. Columns will resize 
 -   The subject line for most of my commit messages is too long. Starting with [commit 78ae3d029ad4dc7d26fffa6d74847d3cf14a1c2d](https://github.com/Ryagg/st-archive/commit/78ae3d029ad4dc7d26fffa6d74847d3cf14a1c2d) I limited the subject line to 50 characters and added a body where necessary.
 
 -   For viewports < 425px long book titles ('Bloodletter', 'The Enterprise War', 'The Peacekeepers' and 'Wonderlands') don't fit into one line and are being displayed in two lines instead. Further reducing the text size while still using the title or subtitle class reduces the readability for all viewports. Keeping the h2-class but using the Bulma-Class for normal text breaks the responsiveness. Replacing the h2-class with the p-class is not an option because the content is a heading and the correct semantic structure is important, especially for screen readers.
+
+![long-titles](documentation/testing/bugs/long-titles.jpg)
+
 -   If there are no reviews for a series there is no information ('No reviews yet') being displayed. Attempts to copy the code from the favourites books section on the profile page failed.
 -   The 'Edit review' and 'Delete review' buttons on the profile page are neither centred nor vertically aligned with the text above them.
+
+![review-buttons](documentation/testing/bugs/review-buttons.jpg)
+
+-   Some wireframes in my repo start with upper cases instead of lower cases although the same wireframes are shown starting with lower cases both in VS Code and my File explorer. Even using TinyJPG to optimize those images and commit them in [commit 22d7b3fcf5594d658bb2278c017c465db14599c8](https://github.com/Ryagg/st-archive/commit/22d7b3fcf5594d658bb2278c017c465db14599c8) didn't change this.
+
+Wireframes in repo:
+
+![wireframes-repo](documentation/testing/bugs/wireframes-repo.jpg)
+
+Wireframes in VS Code:
+
+![wireframes-vs_code](documentation/testing/bugs/wireframes-vs_code.jpg)
+
+Wireframes in Q-Dir:
+
+![wireframes-q_dir](documentation/testing/bugs/wireframes-q_dir.jpg)
