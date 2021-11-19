@@ -373,7 +373,7 @@ All book cover images were obtained from [Memory Alpha](https://memory-alpha.fan
 
 -   **Source**
 
-    Please refer to the separate [SOURCES.md](SOURCES.md) for sources for each book cover image.
+    Please refer to the separate [SOURCES.md](https://docs.google.com/spreadsheets/d/1WIVuwc7z_7EODd8w8-m4ykPebElq2aatHh4y49E0bAU/edit?usp=sharing) for sources for each book cover image. Please note that this links to a Google docs spreadsheet with read-only access to enable me to add more books and sources for those books after project submission without affecting the git commit history.
 
 ### **Content**
 
