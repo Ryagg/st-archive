@@ -33,9 +33,7 @@ h6 {
 /*----- FOCUS, ACTIVE & HOVER EFFECTS -----*/
 .navbar-item:hover,
 .navbar-link:hover,
-.navbar-burger:hover,
-.footer_copyright:hover,
-.footer:hover {
+.navbar-burger:hover {
     font-weight: bold;
 }
 
