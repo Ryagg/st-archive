@@ -676,6 +676,20 @@ def add_book():
                            username=session["user"])
 
 
+# GENERAL DATA PROTECTION REGULATION
+
+@app.route("/site_notice")
+def site_notice():
+    """Render site notice in compliance with GDPR."""
+    return render_template("site_notice.html")
+
+
+@app.route("/privacy_policy")
+def privacy_policy():
+    """Render privacy policy in compliance with GDPR."""
+    return render_template("privacy_policy.html")
+
+
 # ERROR PAGES
 
 # 404 page
