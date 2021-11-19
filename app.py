@@ -681,13 +681,15 @@ def add_book():
 @app.route("/site_notice")
 def site_notice():
     """Render site notice in compliance with GDPR."""
-    return render_template("site_notice.html")
+    st_series = list(mongo.db.series.find())
+    return render_template("site_notice.html", series=st_series)
 
 
 @app.route("/privacy_policy")
 def privacy_policy():
     """Render privacy policy in compliance with GDPR."""
-    return render_template("privacy_policy.html")
+    st_series = list(mongo.db.series.find())
+    return render_template("privacy_policy.html", series=st_series)
 
 
 # ERROR PAGES
