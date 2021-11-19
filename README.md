@@ -453,6 +453,18 @@ ST-Archive also uses content from [Memory Beta](http://memory-beta.wikia.com/), 
 
 ---
 
+All code not written by me has the source for the code added as comment above the relevant code. For longer pieces of code the credit is repeated beneath.
+
+-   Text shadow effect for h1 and h2: https://css-tricks.com/almanac/properties/t/text-shadow/
+
+-   CSS tooltips: https://blog.logrocket.com/creating-beautiful-tooltips-with-only-css/
+
+-   Shadow effects for buttons: https://neumorphism.io/
+
+-   Pagination: Ed Bradley @ https://github.com/Edb83/self-isolution/blob/master/app.py
+
+-   Disable unbalanced tuple unpacking in Pylint: Amy OShea @ https://github.com/AmyOShea/MS3-Cocktail-Hour/blob/master/app.py
+
 ### **Websites and Documentation**
 
 -   [Bulma docs](https://bulma.io/documentation/)
@@ -470,7 +482,7 @@ ST-Archive also uses content from [Memory Beta](http://memory-beta.wikia.com/), 
 
 Many thanks to:
 
--   My mentor, Tim Nelson, for his great support and advice.
+-   My mentor, Tim Nelson, for his outstanding support and advice.
 -   Amy O'Shea for her webinar 'Preparing for your MS3' and for allowing me to use and adapt her raw code for the table showing the status of the navigation buttons depending on the user status in my readme.
 -   The tutors from Code Institute for their guidance.
 -   Erik P. for his suggestions regarding the site's styling.
