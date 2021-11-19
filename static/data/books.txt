@@ -1,0 +1,372 @@
+DSC 1
+{
+    "series_code": "DSC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/8/87/Desperate_Hours_cover.jpg",
+    "title": "Desperate Hours",
+    "number": "1",
+    "blurb": "Aboard the Starship Shenzhou, Lieutenant Michael Burnham, a human woman raised and educated among Vulcans, is promoted to acting first officer. But if she wants to keep the job, she must prove to Captain Philippa Georgiou that she deserves to have it. She gets her chance when the Shenzhou must protect a Federation colony that is under attack by an ancient alien vessel that has surfaced from the deepest fathoms of the planet's dark, uncharted sea. As the menace from this mysterious vessel grows stronger, Starfleet declares the colony expendable in the name of halting the threat. To save thousands of innocent lives, Burnham must infiltrate the alien ship. But to do so she needs to face the truth of her troubled past, and seek the aid of a man she has tried to avoid her entire life – until now.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2255",
+    "isbn": "1501164570",
+    "status": "published"
+}
+DSC2
+{
+    "series_code": "DSC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/b/bc/Drastic_Measures_cover.jpg/revision/latest/scale-to-width-down/644?cb=20171117170112&path-prefix=en",
+    "title": "Drastic Measures",
+    "number": "2",
+    "blurb": "It is 2246, ten years prior to the Battle at the Binary Stars, and an aggressive contagion is ravaging the food supplies of the remote Federation colony Tarsus IV and the eight thousand people who call it home. Distress signals have been sent, but any meaningful assistance is weeks away. Lieutenant Commander Gabriel Lorca and a small team assigned to a Starfleet monitoring outpost are caught up in the escalating crisis, and bear witness as the colony's governor, Adrian Kodos, employs an unimaginable solution in order to prevent mass starvation. While awaiting transfer to her next assignment, Commander Philippa Georgiou is tasked with leading to Tarsus IV a small, hastily assembled group of first responders. It's hoped this advance party can help stabilize the situation until more aid arrives, but Georgiou and her team discover that they're too late – Governor Kodos has already implemented his heinous strategy for extending the colony's besieged food stores and safeguarding the community’s long-term survival. In the midst of their rescue mission, Georgiou and Lorca must now hunt for the architect of this horrific tragedy and the man whom history will one day brand "Kodos the Executioner"…",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2246",
+    "isbn": "1501171747",
+    "status": "published"
+}
+DSC3
+{
+    "series_code": "DSC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/4/4d/Fear_Itself_cover.jpg/revision/latest/scale-to-width-down/644?cb=20180407170247&path-prefix=en",
+    "title": "Fear Itself",
+    "number": "3",
+    "blurb": "Lieutenant Saru is a Kelpien, a member of a prey species born on a world overrun by monstrous predators… and a being who very intimately understands the nature of fear. Challenged on all sides, he is determined to surpass his origins and succeed as a Starfleet officer aboard the USS Shenzhou. But when Saru breaks protocol in order to prove himself to his crewmates, what begins as a vital rescue mission to save a vessel in distress soon escalates out of control. Forced into a command role he may not be ready for, Saru is caught between his duty and the conflicting agendas of two antagonistic alien races. To survive, he will need to seek a path of peace against all odds, and risk compromising the very ideals he has sworn to uphold…",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2252",
+    "isbn": "150116659X",
+    "status": "published"
+}
+DSC4
+{
+    "series_code": "DSC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/a/ae/The_Way_to_the_Stars_cover.jpg/revision/latest/scale-to-width-down/645?cb=20180801205435&path-prefix=en",
+    "title": "The Way to the Stars",
+    "number": "4",
+    "blurb": "Despite being an inexperienced Starfleet cadet, Sylvia Tilly became essential to the USS Discovery finding its way back home from the Mirror Universe. But how did she find that courage? From where did she get that steel? Who nurtured that spark of brilliance? The Way to the Stars recounts for fans everywhere the untold story of Tilly's past. It's not easy being sixteen, especially when everyone expects great things from Tilly. It's even harder when her mother and father are Federation luminaries, not to mention pressing her to attend one of the best schools that the Federation has to offer. Tilly wants to achieve great things – even though she hasn't quite worked out how to do that or what it is she wants to do. But this year, everything will change for Tilly, as she is about to embark upon the adventure of a lifetime – an adventure that will take her ever closer to the stars…",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2252",
+    "isbn": "150116659X",
+    "status": "published"
+}
+DSC5
+{
+    "series_code": "DSC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/1/13/The_Enterprise_War_cover.jpg/revision/latest/scale-to-width-down/512?cb=20190603102851&path-prefix=en",
+    "title": "The Enterprise War",
+    "number": "5",
+    "blurb": "A shattered ship, a divided crew – trapped in the infernal nightmare of conflict! Hearing of the outbreak of hostilities between the United Federation of Planets and the Klingon Empire, Captain Christopher Pike attempts to bring the USS Enterprise home to join in the fight. But in the hellish nebula known as the Pergamum (β), the stalwart commander instead finds an epic battle of his own, pitting ancient enemies against one another – with not just the Enterprise, but her crew as the spoils of war. Lost and out of contact with Earth for an entire year, Pike and his trusted first officer, Number One, struggle to find and reunite the ship's crew – all while Science Officer Spock confronts a mystery that puts even his exceptional skills to the test… with more than their own survival possibly riding on the outcome…",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2236",
+    "isbn": "1982113316",
+    "status": "published"
+}
+DSC6
+{
+    "series_code": "DSC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/c/cd/Dead_Endless_cover.jpg",
+    "title": "Dead Endless",
+    "number": "6",
+    "blurb": "The U.S.S. Discovery's specialty is using its spore-based hub drive to jump great distances faster than any warp-faring vessel in Starfleet. To do this, Lieutenant Paul Stamets navigates the ship through the recently revealed mycelial network, a subspace domain Discovery can briefly transit but in which it cannot remain. After responding to a startling distress call originating from within the network, the Discovery crew find themselves trapped in an inescapable realm where they will surely perish unless their missing mycelial fuel is found or restored. Is the seemingly human man found alone and alive inside the network the Starfleet officer he claims to be, or an impostor created by alien intruders who hope to extract themselves from the mycelial plane at the expense of all lives aboard Discovery?",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2257",
+    "isbn": "1982123842",
+    "status": "published"
+}
+DSC7
+{
+    "series_code": "DSC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/9/9e/Die_Standing_cover.jpg/revision/latest/scale-to-width-down/643?cb=20200312173308&path-prefix=en",
+    "title": "Die Standing",
+    "number": "7",
+    "blurb": "No one in the history of histories has lost more than Philippa Georgiou, ruler of the Terran Empire. Forced to take refuge in the Federation's universe, she bides her time until Section 31, a rogue spy force within Starfleet, offers her a chance to work as their agent. She has no intention of serving under anyone else, of course; her only interest is escape. But when a young Trill, Emony Dax, discovers a powerful interstellar menace, Georgiou recognizes it as a superweapon that escaped her grasp in her own universe. Escorted by a team sent by an untrusting Federation to watch over her, the emperor journeys to a region forbidden to travelers. But will what she finds there end the threat – or give "Agent Georgiou" the means to create her old empire anew?",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "null",
+    "isbn": "1982136294",
+    "status": "published"
+}
+DSC8
+{
+    "series_code": "DSC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/7/7a/Wonderlands_cover.jpg/revision/latest/scale-to-width-down/644?cb=20210214062549&path-prefix=en",
+    "title": "Wonderlands",
+    "number": "8",
+    "blurb": "In a desperate attempt to prevent the artificial intelligence known as Control from seizing crucial information that could destroy all sentient life, Commander Michael Burnham donned the "Red Angel" time-travel suit and guided the USS Discovery into the future and out of harm's way. But something has gone terribly wrong, and Burnham has somehow arrived in a place far different from anything she could have imagined – more than nine hundred years out of her time, with Discovery nowhere to be found, and where the mysterious and cataclysmic event known as "the Burn" has utterly decimated Starfleet and, with it, the United Federation of Planets. How then can she possibly exist day-to-day in this strange place? What worlds are out there waiting to be discovered? Do any remnants of Starfleet and the Federation possibly endure? With more questions than answers, Burnham must nevertheless forge new friendships and new alliances if she hopes to survive this future long enough for the Discovery crew to find her...",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "3188",
+    "isbn": "1797121871 ",
+    "status": "published"
+}
+PIC2
+{
+    "series_code": "PIC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/2/20/Dark_Veil_cover.jpg/revision/latest/scale-to-width-down/330?cb=20201024204601&path-prefix=en",
+    "title": "The Dark Veil",
+    "number": "null",
+    "blurb": "The Alpha Quadrant is mired in crisis... Within the United Federation of Planets, a terrorist strike on the shipyards of Mars has led to the shutdown of all relief efforts for millions of Romulans facing certain doom from an impending super­nova. But when the USS Titan is drawn into a catastrophic incident on the Romulan-Federation border, Captain William Riker, his family, and his crew find themselves caught between the shocking secrets of an enigmatic alien species and the deadly agenda of a ruthless Tal Shiar operative. Forced into a wary alliance with a Romulan starship commander, Riker and the Titan crew must uncover the truth to stop a dev­astating attack – but one wrong move could plunge the entire sector into open conflict!",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2386",
+    "isbn": "1982154063",
+    "status": "published"
+}
+PIC3
+{
+    "series_code": "PIC",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/b/b0/Rogue_Elements_cover.jpg/revision/latest/scale-to-width-down/331?cb=20210221125309&path-prefix=en",
+    "title": "Rogue Elements",
+    "number": "null",
+    "blurb": "Starfleet was everything for Cristóbal Rios – until one horrible, inexplicable day when it all went wrong. Aimless and adrift, he grasps at a chance for a future as an independent freighter captain in an area betrayed by the Federation, the border region with the former Romulan Empire. His greatest desire: to be left alone. But solitude isn’t in the cards for the captain of La Sirena, who falls into debt to a roving gang of hoodlums from a planet whose society is based on Prohibition-era Earth. Teamed against his will with Ledger, his conniving overseer, Rios begins an odyssey that brings him into conflict with outlaws and fortune seekers, with power brokers and relic hunters across the stars. Exotic loves and locales await – as well as dangers galore – and Rios learns the hard way that good crewmembers are hard to find, even when you can create your own. And while his meeting with Jean-Luc Picard is years away, Rios finds himself drawing on the Starfleet legend's experiences when he discovers a mystery that began on one of the galaxy’s most important days...",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "null",
+    "isbn": "1982175192",
+    "status": "published"
+}
+TOS1
+{
+    "series_code": "TOS",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/5/58/The_Motion_Picture_novelization.jpg/revision/latest/scale-to-width-down/590?cb=20090602144757&path-prefix=en",
+    "title": "Star Trek: The Motion Picture",
+    "number": "1",
+    "blurb": "The writer-producer who created Mr. Spock and all the other Star Trek characters – who invented the starship Enterprise, who gave the show its look, its ideals – puts it all together again here in his first Star Trek novel! Their first five-year mission is over. Kirk, Spock, McCoy, Scotty, all the crew have scattered to other jobs or other lives. Now they are together again on a fabulously refitted USS Enterprise as an incredibly destructive power threatens Earth and the Human race.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2272",
+    "isbn": "1982139196",
+    "status": "published"
+}
+TOS2
+{
+    "series_code": "TOS",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/8/8a/The_Entropy_Effect.jpg/revision/latest/scale-to-width-down/290?cb=20180902180433&path-prefix=en",
+    "title": "The Entropy Effect",
+    "number": "2",
+    "blurb": "THE UNIVERSE HAS LESS THAN A CENTURY LEFT… UNLESS SPOCK CAN CHANGE HISTORY! The Enterprise is summoned to transport a dangerous criminal from starbase prison to a rehabilitation center: brilliant physicist, Dr. Georges Mordreaux, accused of promising to send people back in time – then killing them instead. But when Mordreaux escapes, bursts onto the bridge and kills Captain Kirk, Spock must journey back in time to avert disaster – before it occurs! Now there's more at stake than just Kirk's life. Mordreaux's experiments have thrown the entire universe into a deadly time warp. Spock is fighting time … and the universe is closing in on itself with the relentless squeeze of … THE ENTROPY EFFECT",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2270",
+    "isbn": "1416524649",
+    "status": "published"
+}
+TOS3
+{
+    "series_code": "TOS",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/8/83/The_Klingon_Gambit.jpg/revision/latest/scale-to-width-down/294?cb=20180902180720&path-prefix=en",
+    "title": "The Klingon Gambit",
+    "number": "3",
+    "blurb": "When Captain Kirk and his crew are ordered to challenge the deadliest Klingon starship Terror, they think they're ready for anything. The defenseless Vulcan crew of a Federation science ship has been wiped out, and the Klingon battle cruiser has the USS Enterprise in its sights, ready to destroy it… But Captain Kirk can't seem to make decisions, Spock has started to throw temper tantrums. And Chekov has disobeyed vital orders. The crew of the Enterprise are losing their minds… one by one… all victims of… THE KLINGON GAMBIT…",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2268",
+    "isbn": "1416524649",
+    "status": "published"
+}
+TNG1
+{
+    "series_code": "TNG",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/0/0a/Ghost_Ship.jpg/revision/latest/scale-to-width-down/306?cb=20170801155328&path-prefix=en",
+    "title": "Ghost Ship",
+    "number": "1",
+    "blurb": "In 1995, a Soviet aircraft carrier is destroyed by a mysterious creature that just as mysteriously disappears thereafter. Over three hundred years later, Counselor Deanna Troi awakens in her quarters from a nightmare in which she senses the voices of the crew of that Russian ship, whose life-essences were somehow absorbed by the creature that destroyed them. And the nightmare heralds a danger to the USS Enterprise-D itself, for if Picard can't discover a way to communicate with the creature, it could absorb his crew just as it did the Russians.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2364",
+    "isbn": "0671665790",
+    "status": "published"
+}
+TNG2
+{
+    "series_code": "TNG",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/4/43/The_Peacekeepers.jpg/revision/latest/scale-to-width-down/291?cb=20120507203103&path-prefix=en",
+    "title": "The Peacekeepers",
+    "number": "2",
+    "blurb": "Exploring a deserted alien spaceship, Lt. Commander Data and Lt. Geordi La Forge suddenly find themselves transported light years away – into the middle of a deadly conflict! While Captain Picard and the crew of the USS Enterprise™ search feverishly for the missing crewmen, Data and La Forge discover they are in a station almost identical to the one they were exploring, high in orbit around an Earth-type world. Years before, the occupants of that planet accidentally stumbled onto the ship and its advanced technology – and since then have used its weapons to keep the nations on the planet below disarmed, and at peace. Now their own arrival has precipitated a crisis on the station. Somehow Data and La Forge must find a way to restore trust between the planet below and the station's guardians up above – before a final, destructive war breaks out!",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2364",
+    "isbn": "0671736531",
+    "status": "published"
+}
+TNG3
+{
+    "series_code": "TNG",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/4/43/The_Peacekeepers.jpg/revision/latest/scale-to-width-down/291?cb=20120507203103&path-prefix=en",
+    "title": "The Children of Hamlin",
+    "number": "3",
+    "blurb": "The Hamlin Massacre – every Starfleet officer knows the tale. The tiny Federation outpost of Hamlin was destroyed, its entire adult population ruthlessly slaughtered, before the first defense shields could be raised. Even worse, the colony's children disappeared without a trace, abducted by the aliens who attacked with a ferocity and speed that outmatched their Starfleet pursuers. Now, fifty years later, the Choraii ships have appeared again. But this time the Federation is ready; this time the Choraii must pay for what they need. The precious metals can only be bought with the Hamlin children still living with their captors. This time the Choraii must face Captain Jean-Luc Picard – and the crew of the starship USS Enterprise-D…",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2364",
+    "isbn": "0671735551",
+    "status": "published"
+}
+DS9-1
+{
+    "series_code": "DS9",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/c/c3/Emissary_novelization_cover.jpg/revision/latest/scale-to-width-down/304?cb=20050425175915&path-prefix=en",
+    "title": "Emissary",
+    "number": "1",
+    "blurb": "Commander Benjamin Sisko is just recovering from the death of his wife when he is assigned command over the former Cardassian, but new Federation space station, Deep Space 9. This space station is strategically located not only because of its orbit about Bajor, but also because of its proximity to the only known stable wormhole in the galaxy. After meeting the other Bajoran and Starfleet personnel assigned to the station, including a former Bajoran freedom fighter and a shapeshifter, Sisko finds himself in that very wormhole and in the midst of a metaphysical experience as the alien inhabitants of the wormhole question the concepts of time and love. Sisko, filled with humanistic hubris, begins to explain these experiences, and resolve his painful past.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2366",
+    "isbn": "0671798588",
+    "status": "published"
+}
+DS9-2
+{
+    "series_code": "DS9",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/c/cc/The_Siege_%28novel_cover%29.jpg/revision/latest/scale-to-width-down/307?cb=20050425175943&path-prefix=en",
+    "title": "The Siege",
+    "number": "2",
+    "blurb": "When Deep Space 9™ is forced to curtail entry to the wormhole due to increased graviton emissions, an air of biting tension settles over the station. But when this anxiety leads to the murder of an Edeman religious leader, Commander Benjamin Sisko and Security Chief Odo realize they face a larger problem. The missionary is only the first to die, soon Sisko and Odo have more lifeless bodies on their hands and a killer who strikes without motive. Then, both the Edemans and Cardassians arrive threatening to destroy the station unless the murderer is given to them for retribution. Now in order to save Deep Space Nine and stop the killing, Odo must try to destroy a powerful assassin who is the only link to his mysterious past.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2369",
+    "isbn": "0671870831",
+    "status": "published"
+}
+DS9-3
+{
+    "series_code": "DS9",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/2/23/Bloodletter.jpg/revision/latest/scale-to-width-down/307?cb=20051113202218&path-prefix=en",
+    "title": "Bloodletter",
+    "number": "3",
+    "blurb": "Starfleet Command has learned that the Cardassians are planning to construct a base on the other side of the wormhole to establish a presence and claim the rich unexplored territory. Now, it falls to Commander Sisko, Major Kira, and the crew of Deep Space 9 to set up a Federation station there immediately. Before Major Kira can deliver the new base, a fanatic from her violent past appears. Kira must engage in a life and death struggle with an enemy who will stop at nothing to destroy her, as the fate of Bajor, the wormhole, and possibly the entire Federation hangs in the balance.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2369",
+    "isbn": "0671872753",
+    "status": "published"
+}
+VOY1
+{
+    "series_code": "VOY",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/1/1c/Caretaker_novelization.jpg/revision/latest/scale-to-width-down/305?cb=20121212142335&path-prefix=en",
+    "title": "Caretaker",
+    "number": "1",
+    "blurb": "Pocket Books is proud to present the novelization of "Caretaker", the premiere episode of Star Trek: Voyager. This is the story of Kathryn Janeway and the crew of the Starship USS Voyager. Transported by the alien technology to the other side of the galaxy, years away from the Federation and everything they call home, their voyage back will be a fantastic odyssey that will take them through uncharted space, into dangers as they travel where no one has gone before.",
+    "ebook": "false",
+    "paperbook": "true",
+    "audiobook": "true",
+    "part_of_miniseries": "false",
+    "timespan_start": "2371",
+    "isbn": "067151914X",
+    "status": "published"
+}
+VOY2
+{
+    "series_code": "VOY",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/3/3e/The_Escape.jpg/revision/latest/scale-to-width-down/303?cb=20170819113756&path-prefix=en",
+    "title": "The Escape",
+    "number": "2",
+    "blurb": "The USS Voyager is in desperate trouble, her systems damaged, her warp engines failing. Without immediate repairs the starship and her crew will be trapped forever between the stars. Captain Kathryn Janeway must guide her ship to an ancient, deserted planet that could hold the key to their survival – a planet that is holding more than one deadly secret…",
+    "ebook": "false",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2371",
+    "isbn": "0671520962",
+    "status": "published"
+}
+VOY3
+{
+    "series_code": "VOY",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/6/66/Ragnarok.jpg/revision/latest/scale-to-width-down/243?cb=20140710044516&path-prefix=en",
+    "title": "Ragnarok",
+    "number": "3",
+    "blurb": "Hope flares for Captain Kathryn Janeway and the crew of the USS Voyager when their sensors detect a signal that could lead them to a way home. But as the Starship Voyager races to the source of the signal, the crew find themselves in the middle of a raging battle between two warring races, a battle that has lasted for hundreds, if not thousands, of years. Now, to find a way home, Captain Janeway and her crew must make their way through the most violent space-born conflict ever known – with both sides determined to destroy them!",
+    "ebook": "false",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2371",
+    "isbn": "067152044X",
+    "status": "published"
+}
+ENT1
+{
+    "series_code": "ENT",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/f/fe/By_the_Book_cover.jpg/revision/latest/scale-to-width-down/312?cb=20170823111645&path-prefix=en",
+    "title": "By the Book",
+    "number": "null",
+    "blurb": "The Fazi, whose ultraregulated culture ranges from strict conversation protocols to unvarying building designs, inhabit half of a planet discovered by Enterprise. But after a disastrous first contact with the ruler of the Fazi, Archer must depend on Vulcan science officer T'Pol and communication specialist Hoshi Sato to help mend relations with the people of this planet, and unravel the mystery of the other creatures living on the world.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2151",
+    "isbn": "0743448715",
+    "status": "published"
+}
+ENT2
+{
+    "series_code": "ENT",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/3/3f/What_Price_Honor_cover.jpg/revision/latest/scale-to-width-down/310?cb=20170823114439&path-prefix=en",
+    "title": "What Price Honor?",
+    "number": "null",
+    "blurb": "The Starship Enterprise NX-01 is humanity's flagship – the first starship to begin a systematic exploration of what lies beyond the fringes of known space. Led by Captain Jonathan Archer, eighty of Starfleet's best and brightest set forth to pave humanity's way among the stars. Tempered by a year's worth of exploration, they are a disciplined, cohesive unit. But now one of their number has fallen. Bad enough that Ensign Alana Hart is dead. Worse still that she died while trying to sabotage the Enterprise – and at the hands of Lieutenant Malcolm Reed, the ship's armory officer and her nominal superior. Even as questions swirl around Hart's death, Archer, Reed, and the rest of the Enterprise crew find themselves caught squarely in the middle of another tense situation – a brutal war of terror between two civilizations. But in the Eris Alpha system, nothing – and no one – are what they seem. And before the secret behind Ensign Hart's demise is exposed, Reed will be forced to confront death one more time.",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2150",
+    "isbn": "0743462785",
+    "status": "published"
+}
+ENT3
+{
+    "series_code": "ENT",
+    "cover": "https://static.wikia.nocookie.net/memoryalpha/images/9/9f/Surak%27s_Soul_cover.jpg/revision/latest/scale-to-width-down/309?cb=20170823120251&path-prefix=en",
+    "title": "Surak's Soul",
+    "number": "null",
+    "blurb": "You are alone, in the dark reaches of space, surrounded by aliens who do not understand who you are and what you are, and who will not accept your beliefs. Under such circumstances, an emotional Human would feel lost, cut off, adrift, but Sub-Commander T'Pol is a Vulcan, and Vulcans control their emotions. However, no other Vulcan has served for longer that a few weeks aboard a Human ship. Has she, as others imply, simply lost her way? Pulled, once again, into one of Captain Archer's dangerously impulsive attempts to make first contact, the sub-commander finds her life threatened. T'Pol reacts, draws her phase-pistol and kills. It was a simple act of self-defense. But is killing ever simple? Has she forsaken the teachings of Surak? Determined to be true to her heritage, T'Pol forswears violence. She tells Captain Archer that never again will she kill – even if ordered. Is she, as Archer suggests, endangering the entire ship?",
+    "ebook": "true",
+    "paperbook": "true",
+    "audiobook": "false",
+    "part_of_miniseries": "false",
+    "timespan_start": "2151",
+    "isbn": "0743462807",
+    "status": "published"
+}
