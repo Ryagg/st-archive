@@ -136,6 +136,10 @@ a.button:active {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.text_bg--transparent-darker {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 .card__bg--blue-dark {
     background-color: #000088;
 }
@@ -222,6 +226,11 @@ a.button:active {
 }
 
 /*----- BUTTONS -----*/
+button,
+.button {
+    transition: all 0.3s ease-in-out;
+}
+
 #register-btn {
     border: 0.5rem ridge #ccddff;
 }

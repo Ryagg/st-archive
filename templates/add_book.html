@@ -3,10 +3,10 @@
 
     <section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky text__bg--transparent-dark">
         <div class="hero-body">
-            <div class="container">
+            <div class="container  text_bg--transparent-darker">
                 <h1 class="title is-1 has-text-centered has-text-weight-light heading__text--shadow">Hello, {{ username.capitalize() }} </h1>
 
-                <form class="form" method="POST" action="{{ url_for('add_book') }}">
+                <form class="form p-4" method="POST" action="{{ url_for('add_book') }}">
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                     <div class="columns">
                         <div class="column">

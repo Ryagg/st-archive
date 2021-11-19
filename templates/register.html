@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky text__bg--transparent-dark">
+<section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky">
     <div class="hero-body">
-        <div class="container">
+        <div class="container text_bg--transparent-darker">
             <h1 class="title is-1 has-text-weight-light has-text-centered hero_heading heading__text--shadow">Register</h1>
-            <p class="is-size-4 has-background-info-light has-text-black px-3 mb-4 card__border--groove">Register a free account to add series and/or books to your favourites, mark books as finished, add books to your wish list, and write reviews!</p>
-            <ul class="is-size-4 has-background-info-light has-text-black px-3 mb-4 card__border--groove">
+            <p class="is-size-4 has-background-info-light has-text-black px-3 mx-3 mb-4 card__border--groove">Register a free account to add series and/or books to your favourites, mark books as finished, add books to your wish list, and write reviews!</p>
+            <ul class="is-size-4 has-background-info-light has-text-black px-3 mx-3 mb-4 card__border--groove">
                 <li>All fields marked "required" must be completed.</li>
             </ul>
-            <form class="form" method="POST" action="{{ url_for('register') }}">
+            <form class="form p-4" method="POST" action="{{ url_for('register') }}">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                 <!-- Username -->
                 <div class="columns is-centered">

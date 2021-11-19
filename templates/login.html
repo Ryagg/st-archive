@@ -3,9 +3,9 @@
 
 <section class="hero is-fullheight-with-navbar bg__img--starry-sky text--color-light text__bg--transparent-dark">
     <div class="hero-body">
-        <div class="container">
+        <div class="container text_bg--transparent-darker">
             <h1 class="title is-1 has-text-weight-light has-text-centered hero_heading heading__text--shadow">Log in</h1>
-            <form class="form" method="POST" action="{{ url_for('login') }}">
+            <form class="form p-4" method="POST" action="{{ url_for('login') }}">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                 <!-- Username -->
                 <div class="columns is-centered">
