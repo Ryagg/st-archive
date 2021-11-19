@@ -5,7 +5,7 @@
     <div class="hero-body">
         <div class="container">
             <!-- Search bar -->
-            <div class=columns>
+            <div class="columns">
                 <div class="column">
                     <div class="card">
                         <div class="card-content card__bg--light card__box-shadow">
@@ -37,12 +37,12 @@
             </div>
 
             <!-- pagination  -->
-            <div class="columns">
-                <div class="column is-10 is-offset-1">
+            <div class="columns is-centered is-multiline is-mobile">
+                <div class="column is-10">
                     <div class="pagination-container my-5 is-size-4 has-text-centered ">
                         {% if books|length > 0 %}
-                            <div class="columns is-centered">
-                                <div class="column has-background-white">
+                            <div class="columns is-centered is-multiline">
+                                <div class="column is-10 has-text-centered has-background-white">
                                         {{ pagination.links }}
                                         {{ pagination.info }}
                                 </div>
@@ -55,7 +55,7 @@
                 {% if books|length > 0 %}
                     <div class="columns is-centered is-multiline">
                         <div class="column">
-                            <h1 class="title is-1 has-text-centered has-text-weight-light hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
+                            <h1 class="title is-3 has-text-centered has-text-weight-light hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
                                 <div class="control has-text-centered">
                                     <a class="button shadow card__bg--blue-dark text--color-light"
                                         href="{{ url_for('add_fav_series', series_id=show._id) }}">
@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                             <div class="card-content card__bg--light">
-                                <h2 class="title is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.title }}</h2>
+                                <h2 class="subtitle is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.title }}</h2>
                                     {% if book.number == "" %}
                                         <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
                                     {% elif not book.number == "null" %}
@@ -196,12 +196,12 @@
                 <!-- don't move! -->
             </div> <!-- columns book -->
             <!-- pagination  -->
-            <div class="columns">
-                <div class="column is-10 is-offset-1">
+            <div class="columns is-centered is-multiline is-mobile">
+                <div class="column is-10">
                     <div class="pagination-container my-5 is-size-4 has-text-centered ">
                         {% if books|length > 0 %}
-                            <div class="columns is-centered">
-                                <div class="column has-background-white">
+                            <div class="columns is-centered is-multiline">
+                                <div class="column is-10 has-text-centered has-background-white">
                                         {{ pagination.links }}
                                         {{ pagination.info }}
                                 </div>

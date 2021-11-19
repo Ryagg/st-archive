@@ -5,14 +5,14 @@
     <div class="hero-body">
         <div class="container">
             <!-- Search bar -->
-            <div class="columns is-centered is-multiline ">
-                <div class="column is-10">
+            <div class="columns">
+                <div class="column">
                     <div class="card">
                         <div class="card-content card__bg--light card__box-shadow">
                             <form class="form" method="POST" action="{{ url_for('search') }}">
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                                 <div class="columns is-centered">
-                                    <div class="column is-10">
+                                    <div class="column is-10-tablet is-8-desktop">
                                         <div class="field">
                                             <label for="query" class="is-size-4 has-text-weight-normal mr-2">Search titles and blurbs
                                             </label>
@@ -38,11 +38,11 @@
 
             <!-- pagination  -->
             <div class="columns is-centered is-multiline is-mobile">
-                <div class="column is-8">
+                <div class="column is-10">
                     <div class="pagination-container my-5 is-size-4 has-text-centered ">
                         {% if books|length > 0 %}
                             <div class="columns is-centered is-multiline">
-                                <div class="column is-8 has-text-centered has-background-white">
+                                <div class="column is-10 has-text-centered has-background-white">
                                         {{ pagination.links }}
                                         {{ pagination.info }}
                                 </div>
@@ -53,18 +53,18 @@
             </div>
 
             <!-- All books sorted by title or search result -->
-            <div class="columns is-centered is-multiline">
-                {% if books|length > 0 %}
-                    <div class="column is-narrow-mobile">
-                        <h1 class="is-size-3-mobile is-size-1 has-text-centered has-text-weight-light hero_heading heading__text--shadow">Books sorted by title</h1>
+            {% if books|length > 0 %}
+                <div class="columns is-centered is-multiline">
+                    <div class="column">
+                        <h1 class="title is-2 has-text-centered has-text-weight-light hero_heading heading__text--shadow">Books sorted by title</h1>
                     </div>
-            </div>
+                </div>
             <div class="columns is-centered is-multiline">
                     {% for book in books|sort(attribute="title") %}
-                    <div class="column is-narrow-mobile is-6-tablet is-6-desktop my-2">
+                    <div class="column is-6-tablet is-6-desktop my-2">
                         <div class="card card__box-shadow">
                             <div class="columns is-mobile">
-                                <div class="column is-narrow-mobile is-6 is-offset-3">
+                                <div class="column is-6 is-offset-3">
                                     <div class="card-image card__box-shadow--blue">
                                         <figure class="image is-2by3 has-background-primary-dark mt-3">
                                             <img src="{{ book.cover }}" alt="Book cover for {{ book.title }}">
@@ -73,16 +73,16 @@
                                 </div>
                             </div>
                             <div class="card-content card__bg--light">
-                                <h2 class=" is-size-3-mobile is-size-2 has-text-centered has-text-weight-light text__shadow--light">{{ book.series_code }}: {{ book.title }}</h2>
+                                <h2 class="subtitle is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.series_code }}: {{ book.title }}</h2>
                                     {% if book.number == "" %}
-                                        <h3 class="is-size-5-mobile is-size-4 has-text-centered">Unnumbered book</h3>
+                                        <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
                                     {% elif not book.number == "null" %}
-                                        <h3 class="is-size-5-mobile is-size-4 has-text-centered">Book number {{book.number}}</h3>
+                                        <h3 class="subtitle is-4 has-text-centered">Book number {{book.number}}</h3>
                                     <!-- remove? -->
                                     {% else %}
-                                        <h3 class="is-size-5-mobile is-size-4 has-text-centered">Unnumbered book</h3>
+                                        <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
                                     {% endif %}
-                                <div class="book-list__info is-size-5">
+                                <div class="book-list__info is-size-4">
                                     <ul>
                                         <li>
                                             {% if book.e_book %}
@@ -192,11 +192,11 @@
             </div> <!-- columns book -->
             <!-- pagination  -->
             <div class="columns is-centered is-multiline is-mobile">
-                <div class="column is-8">
+                <div class="column is-10">
                     <div class="pagination-container my-5 is-size-4 has-text-centered ">
                         {% if books|length > 0 %}
                             <div class="columns is-centered is-multiline">
-                                <div class="column is-8 has-text-centered has-background-white">
+                                <div class="column is-10 has-text-centered has-background-white">
                                         {{ pagination.links }}
                                         {{ pagination.info }}
                                 </div>
