@@ -3,9 +3,9 @@
 
 <section class="hero is-fullheight-with-navbar bg__img--starry-sky text--color-light text__bg--transparent-dark">
     <div class="hero-body">
-        <div class="container text_bg--transparent-darker">
+        <div class="container p-4 text_bg--transparent-darker">
             <h1 class="title is-1 has-text-weight-light has-text-centered hero_heading heading__text--shadow">Log in</h1>
-            <form class="form p-4" method="POST" action="{{ url_for('login') }}">
+            <form class="form" method="POST" action="{{ url_for('login') }}">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                 <!-- Username -->
                 <div class="columns is-centered">
@@ -59,7 +59,11 @@
                     </div>
                 </div>
             </form>
-
+            <div class="columns is-centered">
+                    <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                        <p class="is-size-5 has-text-white has-text-weight-medium"> No account yet? <a class="card__bg--light px-2" href="{{ url_for('register') }}">Register here</a></p>
+                    </div>
+            </div>
         </div>
     </div>
 </section>

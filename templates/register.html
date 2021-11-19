@@ -3,13 +3,13 @@
 
 <section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky">
     <div class="hero-body">
-        <div class="container text_bg--transparent-darker">
+        <div class="container text_bg--transparent-darker p-4">
             <h1 class="title is-1 has-text-weight-light has-text-centered hero_heading heading__text--shadow">Register</h1>
             <p class="is-size-4 has-background-info-light has-text-black px-3 mx-3 mb-4 card__border--groove">Register a free account to add series and/or books to your favourites, mark books as finished, add books to your wish list, and write reviews!</p>
             <ul class="is-size-4 has-background-info-light has-text-black px-3 mx-3 mb-4 card__border--groove">
                 <li>All fields marked "required" must be completed.</li>
             </ul>
-            <form class="form p-4" method="POST" action="{{ url_for('register') }}">
+            <form class="form" method="POST" action="{{ url_for('register') }}">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                 <!-- Username -->
                 <div class="columns is-centered">
@@ -82,7 +82,11 @@
                     </div>
                 </div>
             </form>
-
+            <div class="columns is-centered">
+                    <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+                        <p class="is-size-5 has-text-white has-text-weight-medium"> Already registered? <a class="card__bg--light px-2" href="{{ url_for('login') }}">Log in here</a></p>
+                    </div>
+            </div>
         </div>
     </div>
 </section>
