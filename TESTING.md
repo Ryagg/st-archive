@@ -959,4 +959,15 @@ No issues were reported viewing the site in Chrome, Firefox, Edge or Opera.
 
 ## **Responsiveness**
 
-Bulma is '100% Responsive' and 'Designed for mobile first'. Columns will resize themselves. Therefore, unlike with Bootstrap, no additional measures had to be taken to change the number of columns (equivalent of rows in Bootstrap) depending on the viewport. To test the results, I used [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) and [Sizzy](https://sizzy.co/). On the iPhone 5 several headings are not being displayed correctly, e.g. 'Caretaker' can't be displayed in one line. For long book titles, e.g. 'Bloodletter', this also happens on other devices/viewports. Apart from that, the site content is displayed correctly on all viewports.
+Bulma is '100% Responsive' and 'Designed for mobile first'. Columns will resize themselves. Therefore, unlike with Bootstrap, no additional measures had to be taken to change the number of columns (equivalent of rows in Bootstrap) depending on the viewport. To test the results, I used [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) and [Sizzy](https://sizzy.co/). For viewports < 425px several book titles ('Bloodletter', 'The Enterprise War', 'The Peacekeepers' and 'Wonderlands') are not being displayed correctly. Please refer to the Bugs section below. Apart from that, the site content is displayed correctly on all viewports.
+
+---
+
+---
+
+## **Bugs**
+
+-   The subject line for most of my commit messages is too long. Starting with [commit 78ae3d029ad4dc7d26fffa6d74847d3cf14a1c2d](https://github.com/Ryagg/st-archive/commit/78ae3d029ad4dc7d26fffa6d74847d3cf14a1c2d) I limited the subject line to 50 characters and added a body where necessary.
+    For viewports < 425px long book titles ('Bloodletter', 'The Enterprise War', 'The Peacekeepers' and 'Wonderlands') don't fit into one line and are being displayed in two lines instead. Further reducing the text size while still using the title or subtitle class reduces the readability for all viewports. Keeping the h2-class but using the Bulma-Class for normal text breaks the responsiveness. Replacing the h2-class with the p-class is not an option because the content is a heading and the correct semantic structure is important, especially for screen readers.
+-   If there are no reviews for a series there is no information ('No reviews yet') being displayed. Attempts to copy the code from the favourites books section on the profile page failed.
+-   The 'Edit review' and 'Delete review' buttons on the profile page are neither centred nor vertically aligned with the text above them.
