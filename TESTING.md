@@ -7,11 +7,11 @@ The following user requirements and expectations were developed based on the use
 #### **Expectation: being able to browse through the content without having to register first**
 
 -   Requirement: allow users to easily access the main content of the site without having to register or log in
--   Implementation: both the page for all books (sorted by title) and the page for all books of the selected series can be accessed through the navbar. The sticky navbar at the top of the page furthermore facilitates easy navigation. See the screenshots [here](images/readme/usertests/user-expectation-1.jpg) and [here](images/readme/usertests/user-expectation-1-example-2.jpg).
+-   Implementation: both the page for all books (sorted by title) and the page for all books of the selected series can be accessed through the navbar. The sticky navbar at the top of the page furthermore facilitates easy navigation. See the screenshots [here](documentation/testing/usertests/user-expectation-1.jpg) and [here](documentation/testing/usertests/user-expectation-1-example-2.jpg).
 
-![user-expectation-1](images/readme/usertests/user-expectation-1.jpg)
+![user-expectation-1](documentation/testing/usertests/user-expectation-1.jpg)
 
-![user-expectation-1-example-2](images/readme/usertests/user-expectation-1-example-2.jpg)
+![user-expectation-1-example-2](documentation/testing/usertests/user-expectation-1-example-2.jpg)
 
 #### **Expectation: being able to search for books by title**
 
@@ -20,27 +20,27 @@ The following user requirements and expectations were developed based on the use
 
           mongo.db.books.create_index([("title", "text"), ("blurb", "text")])
 
-    A search bar has been placed at the top of the all_books and series pages. Search results are displayed beneath the search bar and by clicking on 'Reset' the user is redirected to the originating page. See a screenshot for a search result [here](images/readme/usertests/user-expectation-2.jpg).
+    A search bar has been placed at the top of the all_books and series pages. Search results are displayed beneath the search bar and by clicking on 'Reset' the user is redirected to the originating page. See a screenshot for a search result [here](documentation/testing/usertests/user-expectation-2.jpg).
 
-![user-expectation-2](images/readme/usertests/user-expectation-2.jpg)
+![user-expectation-2](documentation/testing/usertests/user-expectation-2.jpg)
 
 #### **Expectation: being able to see in what order the books have been published and/or should be read**
 
 -   Requirement: Retrieve and display information helping users discern the order of publication.
--   Implementation: Where available, the book number within a series is being displayed. For the pages displaying all books of a selected series, the titles are sorted by number. For series without numbering, the titles have been added to the database in their correct order and are displayed in this order. See the screenshots [here](images/readme/usertests/user-expectation-3.jpg) and [here](images/readme/usertests/user-expectation-3-example-2.jpg). The year in which the story of each book starts (timespan) has been added to the database where available. Currently, there is no option to sort books by timespan. This is both due to this information not being available for all books and Star Trek stories often having multiple storylines taking place in different timespans. And of course, there are stories featuring time travel.
+-   Implementation: Where available, the book number within a series is being displayed. For the pages displaying all books of a selected series, the titles are sorted by number. For series without numbering, the titles have been added to the database in their correct order and are displayed in this order. See the screenshots [here](documentation/testing/usertests/user-expectation-3.jpg) and [here](documentation/testing/usertests/user-expectation-3-example-2.jpg). The year in which the story of each book starts (timespan) has been added to the database where available. Currently, there is no option to sort books by timespan. This is both due to this information not being available for all books and Star Trek stories often having multiple storylines taking place in different timespans. And of course, there are stories featuring time travel.
 
-![user-expectation-3](images/readme/usertests/user-expectation-3.jpg)
+![user-expectation-3](documentation/testing/usertests/user-expectation-3.jpg)
 
-![user-expectation-3-example-2](images/readme/usertests/user-expectation-3-example-2.jpg)
+![user-expectation-3-example-2](documentation/testing/usertests/user-expectation-3-example-2.jpg)
 
 #### **Expectation: being able to read reviews or some form of rating from other users**
 
 -   Requirement: allow users to write reviews and let users see all available reviews. Let users rate books.
--   Implementation: Users who are logged in can [write reviews](images/readme/usertests/user-expectation-4.jpg). The correspondent button at the bottom of the card displaying the information for the selected book redirects the user to the review page. The series code and the book title are already entered into the form and are read-only. This is both to make it easier for the user and to prevent multiple entries for one book due to spelling errors or differences in capitalization. [All reviews](images/readme/usertests/user-expectation-4-example-2.jpg) are accessible through the navbar. The option to rate books has not been implemented. There are no immediate plans to implement this feature, but this decision might be reconsidered at a later time.
+-   Implementation: Users who are logged in can [write reviews](documentation/testing/usertests/user-expectation-4.jpg). The correspondent button at the bottom of the card displaying the information for the selected book redirects the user to the review page. The series code and the book title are already entered into the form and are read-only. This is both to make it easier for the user and to prevent multiple entries for one book due to spelling errors or differences in capitalization. [All reviews](documentation/testing/usertests/user-expectation-4-example-2.jpg) are accessible through the navbar. The option to rate books has not been implemented. There are no immediate plans to implement this feature, but this decision might be reconsidered at a later time.
 
-![user-expectation-4](images/readme/usertests/user-expectation-4.jpg)
+![user-expectation-4](documentation/testing/usertests/user-expectation-4.jpg)
 
-![user-expectation-4-example-2](images/readme/usertests/user-expectation-4-example-2.jpg)
+![user-expectation-4-example-2](documentation/testing/usertests/user-expectation-4-example-2.jpg)
 
 #### **Expectation: being able to write a review for a book and post it to the site**
 
@@ -49,24 +49,24 @@ The following user requirements and expectations were developed based on the use
 #### **Expectation: being able to save books and series as favourites**
 
 -   Requirement: allow users to mark selected books and series and display them as their favourites.
--   Implementation: each book and each series features an ['Add to favourites' button](images/readme/usertests/user-expectation-5.jpg) that adds the book or series to the favourites_books or favourites_series array of the currently logged in user. The items from those arrays are [displayed](images/readme/usertests/user-expectation-5-example-2.jpg) on the profile page. A flash message either confirms that the book or series has been added to the favourites or informs the user that the [book](images/readme/usertests/user-expectation-5-example-3.jpg) or [series](images/readme/usertests/user-expectation-5-example-4.jpg) couldn't be added because it already was in that list.
+-   Implementation: each book and each series features an ['Add to favourites' button](documentation/testing/usertests/user-expectation-5.jpg) that adds the book or series to the favourites_books or favourites_series array of the currently logged in user. The items from those arrays are [displayed](documentation/testing/usertests/user-expectation-5-example-2.jpg) on the profile page. A flash message either confirms that the book or series has been added to the favourites or informs the user that the [book](documentation/testing/usertests/user-expectation-5-example-3.jpg) or [series](documentation/testing/usertests/user-expectation-5-example-4.jpg) couldn't be added because it already was in that list.
 
-![user-expectation-5](images/readme/usertests/user-expectation-5.jpg)
+![user-expectation-5](documentation/testing/usertests/user-expectation-5.jpg)
 
-![user-expectation-5-example-2](images/readme/usertests/user-expectation-5-example-2.jpg)
+![user-expectation-5-example-2](documentation/testing/usertests/user-expectation-5-example-2.jpg)
 
-![user-expectation-5-example-3](images/readme/usertests/user-expectation-5-example-3.jpg)
+![user-expectation-5-example-3](documentation/testing/usertests/user-expectation-5-example-3.jpg)
 
-![user-expectation-5-example-4](images/readme/usertests/user-expectation-5-example-4.jpg)
+![user-expectation-5-example-4](documentation/testing/usertests/user-expectation-5-example-4.jpg)
 
 #### **Expectation: being able to distinguish between books that have already been read and those that have not been read by the user**
 
 -   Requirement: allow users to add books to separate lists ('finished books' and 'wish list').
--   Implementation: like the above expectation this is implemented via [button](images/readme/usertests/user-expectation-6.jpg) and the [lists](images/readme/usertests/user-expectation-6-example-2.jpg) are displayed on the profile page. In contrast to the expectation above, there are no checks whether a book is already in 'the other list'. This is intentional because a Trekkie might e.g. have finished the audiobook version of a title and still want the paperback or e-book version of the same title or the same format but in another language.
+-   Implementation: like the above expectation this is implemented via [button](documentation/testing/usertests/user-expectation-6.jpg) and the [lists](documentation/testing/usertests/user-expectation-6-example-2.jpg) are displayed on the profile page. In contrast to the expectation above, there are no checks whether a book is already in 'the other list'. This is intentional because a Trekkie might e.g. have finished the audiobook version of a title and still want the paperback or e-book version of the same title or the same format but in another language.
 
-![user-expectation-6](images/readme/usertests/user-expectation-6.jpg)
+![user-expectation-6](documentation/testing/usertests/user-expectation-6.jpg)
 
-![user-expectation-6-example-2](images/readme/usertests/user-expectation-6-example-2.jpg)
+![user-expectation-6-example-2](documentation/testing/usertests/user-expectation-6-example-2.jpg)
 
 #### **Expectation: being able to see which books of a series are needed to either complete it or be up to date**
 
@@ -84,22 +84,24 @@ The following user requirements and expectations were developed based on the use
 #### **Expectation: being able to edit and delete reviews, lists and reading progress**
 
 -   Requirement: allow users to modify their reviews, lists and reading progress and update the correspondent database documents.
--   Implementation: Each review on the profile page features [buttons](images/readme/usertests/user-expectation-7.jpg) that let users [edit](images/readme/usertests/user-expectation-7-example-1.jpg) and delete their reviews. In case of editing, the series code and the book title are already entered into the form and read-only. In case of deletion, a [confirmation modal](images/readme/usertests/user-expectation-7-example-2.jpg) lets users either confirm the deletion or cancel the process. This functionality has not been implemented for list and reading progress yet.
+-   Implementation: Each review on the profile page features [buttons](documentation/testing/usertests/user-expectation-7.jpg) that let users [edit](documentation/testing/usertests/user-expectation-7-example-1.jpg) and delete their reviews. In case of editing, the series code and the book title are already entered into the form and read-only. In case of deletion, a [confirmation modal](documentation/testing/usertests/user-expectation-7-example-2.jpg) lets users either confirm the deletion or cancel the process. This functionality has not been implemented for list and reading progress yet.
 
-![user-expectation-7](images/readme/usertests/user-expectation-7.jpg)
+![user-expectation-7](documentation/testing/usertests/user-expectation-7.jpg)
 
-![user-expectation-7-example-2](images/readme/usertests/user-expectation-7-example-2.jpg)
+![user-expectation-7-example-2](documentation/testing/usertests/user-expectation-7-example-2.jpg)
+
+![user-expectation-7-example-3](documentation/testing/usertests/user-expectation-7-example-3.jpg)
 
 #### **Expectation: being able to contact the site owner**
 
 -   Requirement: allow users to easily get in touch with the site owner.
--   Implementation: the site features a [contact page](images/readme/usertests/user-expectation-8.jpg) where users can send an email. A [flash message](images/readme/usertests/user-expectation-8-example-2.jpg) informs the user that the message has been received. In case of technical difficulties, [another flash message](images/readme/usertests/user-expectation-8-example-3.png) informs the user that the message could not be sent.
+-   Implementation: the site features a [contact page](documentation/testing/usertests/user-expectation-8.jpg) where users can send an email. A [flash message](documentation/testing/usertests/user-expectation-8-example-2.jpg) informs the user that the message has been received. In case of technical difficulties, [another flash message](documentation/testing/usertests/user-expectation-8-example-3.png) informs the user that the message could not be sent.
 
-![user-expectation-8](images/readme/usertests/user-expectation-8.jpg)
+![user-expectation-8](documentation/testing/usertests/user-expectation-8.jpg)
 
-![user-expectation-8-example-2](images/readme/usertests/user-expectation-8-example-2.jpg)
+![user-expectation-8-example-2](documentation/testing/usertests/user-expectation-8-example-2.jpg)
 
-![user-expectation-8-example-3](images/readme/usertests/user-expectation-8-example-3.png)
+![user-expectation-8-example-3](documentation/testing/usertests/user-expectation-8-example-3.png)
 
 #### **Expectation: being able to navigate the site by using a keyboard only**
 
@@ -122,13 +124,13 @@ The following user requirements and expectations were developed based on the use
 #### **Expectation: being able as an admin to add new collections to the site**
 
 -   Requirement: allow users with admin privileges to add new series and books to the site
--   Implementation: for users with admin privileges [additional links](images/readme/usertests/user-expectation-9.jpg) are available in the navbar that redirect to the correspondent forms. See screenshots [here](images/readme/usertests/user-expectation-9-example-2.jpg) and [here](images/readme/usertests/user-expectation-9-example-3.jpg).
+-   Implementation: for users with admin privileges [additional links](documentation/testing/usertests/user-expectation-9.jpg) are available in the navbar that redirect to the correspondent forms. See screenshots [here](documentation/testing/usertests/user-expectation-9-example-2.jpg) and [here](documentation/testing/usertests/user-expectation-9-example-3.jpg).
 
-![user-expectation-9](images/readme/usertests/user-expectation-9.jpg)
+![user-expectation-9](documentation/testing/usertests/user-expectation-9.jpg)
 
-![user-expectation-9-example-2](images/readme/usertests/user-expectation-9-example-2.jpg)
+![user-expectation-9-example-2](documentation/testing/usertests/user-expectation-9-example-2.jpg)
 
-![user-expectation-9-example-3](images/readme/usertests/user-expectation-9-example-3.jpg)
+![user-expectation-9-example-3](documentation/testing/usertests/user-expectation-9-example-3.jpg)
 
 #### **Expectation: being able as an admin to edit collections**
 
@@ -182,21 +184,21 @@ Both entering a wrong password or a wrong username lead to the same generic erro
 
 &#9989; &#9989; Totally working as intended!
 
-![talisman](images/readme/functionality-tests/talisman.jpg)
+![talisman](documentation/testing/functionality-tests/talisman.jpg)
 
-![nonce](images/readme/functionality-tests/nonce.jpg)
+![nonce](documentation/testing/functionality-tests/nonce.jpg)
 
-![nonce-2](images/readme/functionality-tests/nonce-2.jpg)
+![nonce-2](documentation/testing/functionality-tests/nonce-2.jpg)
 
-![seasurf](images/readme/functionality-tests/seasurf.jpg)
+![seasurf](documentation/testing/functionality-tests/seasurf.jpg)
 
-![csrf-token](images/readme/functionality-tests/csrf-token.jpg)
+![csrf-token](documentation/testing/functionality-tests/csrf-token.jpg)
 
-![admin_decorator](images/readme/functionality-tests/admin_decorator.jpg)
+![admin_decorator](documentation/testing/functionality-tests/admin_decorator.jpg)
 
-![admin_error](images/readme/functionality-tests/admin_error.jpg)
+![admin_error](documentation/testing/functionality-tests/admin_error.jpg)
 
-![edit_review-error](images/readme/functionality-tests/edit_review-error.jpg)
+![edit_review-error](documentation/testing/functionality-tests/edit_review-error.jpg)
 
 ---
 
@@ -218,9 +220,9 @@ JS had to be added to make all elements and interactions accessible for keyboard
 
 &#9989; Working as intended. However, I have no experience in using a screen-reader and can't judge how easy my site is to use for users relying on a screen-reader. The same restriction applies to most forms of disabilities. While I have taken great care to make my site accessible for as many users with different forms of disabilities as my current skills and knowledge allow, I can't be sure of the results.
 
-![a11y_css](images/readme/functionality-tests/a11y_css.jpg)
+![a11y_css](documentation/testing/functionality-tests/a11y_css.jpg)
 
-![a11y_js](images\readme\functionality-tests\a11y_js.jpg)
+![a11y_js](documentation/testing/functionality-tests/a11y_js.jpg)
 
 ---
 
@@ -242,9 +244,9 @@ The navbar is visible on all pages except the error pages. This is intentional. 
 
 &#9989; &#9989; Working as intended.
 
-![navbar-1](images/readme/functionality-tests/navbar-1.jpg)
+![navbar-1](documentation/testing/functionality-tests/navbar-1.jpg)
 
-![navbar-2](images/readme/functionality-tests/navbar-2.jpg)
+![navbar-2](documentation/testing/functionality-tests/navbar-2.jpg)
 
 ---
 
@@ -286,7 +288,7 @@ The text informs users about the aim, features and current status of the site. T
 
 &#9989; Working as intended.
 
-![welcome](images/readme/functionality-tests/welcome.jpg)
+![welcome](documentation/testing/functionality-tests/welcome.jpg)
 
 ---
 
@@ -308,7 +310,7 @@ No more than 6 titles (the current per-page setting) are being displayed. A 'pag
 
 &#9989; Working as intended.
 
-![pagination](images/readme/functionality-tests/pagination.jpg)
+![pagination](documentation/testing/functionality-tests/pagination.jpg)
 
 ---
 
@@ -330,9 +332,9 @@ If books are found they are being displayed correctly. If there are no books fou
 
 &#9989; Working as intended.
 
-![search-result](images/readme/usertests/user-expectation-2.jpg)
+![search-result](documentation/testing/usertests/user-expectation-2.jpg)
 
-![search-result-2](images/readme/functionality-tests/search.jpg)
+![search-result-2](documentation/testing/functionality-tests/search.jpg)
 
 ---
 
@@ -354,7 +356,7 @@ All data are picked up from the database and shown to the user.
 
 &#9989; Working as intended.
 
-![information](images/readme/functionality-tests/information.jpg)
+![information](documentation/testing/functionality-tests/information.jpg)
 
 ---
 
@@ -376,13 +378,13 @@ Books are added to the correspondent list and a flash message informs the user a
 
 &#9989; Working as intended.
 
-![buttons](images/readme/usertests/user-expectation-5.jpg)
+![buttons](documentation/testing/usertests/user-expectation-5.jpg)
 
-![added-to-favourites](images/readme/usertests/user-expectation-5-example-2.jpg)
+![added-to-favourites](documentation/testing/usertests/user-expectation-5-example-2.jpg)
 
-![already-in-favourites](images/readme/usertests/user-expectation-5-example-3.jpg)
+![already-in-favourites](documentation/testing/usertests/user-expectation-5-example-3.jpg)
 
-![already-in-favourites-2](images/readme/usertests/user-expectation-5-example-4.jpg)
+![already-in-favourites-2](documentation/testing/usertests/user-expectation-5-example-4.jpg)
 
 ---
 
@@ -404,7 +406,7 @@ All reviews are sorted by series. Within a series, the reviews are sorted by boo
 
 &#9989; Working as intended.
 
-![reviews](images/readme/usertests/user-expectation-4-example-2.jpg)
+![reviews](documentation/testing/usertests/user-expectation-4-example-2.jpg)
 
 ### **Register page**
 
@@ -424,9 +426,9 @@ Accounts with unique usernames get created and the user is redirected to the pro
 
 &#9989; Working as intended.
 
-![new_user](images/readme/functionality-tests/new_user.jpg)
+![new_user](documentation/testing/functionality-tests/new_user.jpg)
 
-## ![registration_error](images/readme/functionality-tests/registration_error.jpg)
+## ![registration_error](documentation/testing/functionality-tests/registration_error.jpg)
 
 ### **Login page**
 
@@ -446,7 +448,7 @@ After logging into the site, users are redirected to their profile page. Enterin
 
 &#9989; Working as intended.
 
-![login_error](images\readme\functionality-tests\login_error.jpg)
+![login_error](documentation/testing/functionality-tests/login_error.jpg)
 
 ---
 
@@ -468,7 +470,7 @@ All lists and their contents are being displayed correctly.
 
 &#9989; Working as intended.
 
-![profile](images/readme/functionality-tests/profile.jpg)
+![profile](documentation/testing/functionality-tests/profile.jpg)
 
 ### **Profile page: user actions**
 
@@ -488,9 +490,9 @@ Clicking on 'Edit review' redirects to a form where the series code and book tit
 
 &#9989; Working as intended.
 
-![edit_review](images/readme/usertests/user-expectation-7-example-1.jpg)
+![edit_review](documentation/testing/usertests/user-expectation-7-example-1.jpg)
 
-![delete_review](images/readme/usertests/user-expectation-7-example-2.jpg)
+![delete_review](documentation/testing/usertests/user-expectation-7-example-2.jpg)
 
 ---
 
@@ -512,7 +514,7 @@ Both links lead to forms. Client-side form validation is used on all required fi
 
 &#9989; Working as intended.
 
-![new_book](images/readme/functionality-tests/new_book.jpg)
+![new_book](documentation/testing/functionality-tests/new_book.jpg)
 
 ---
 
@@ -554,7 +556,7 @@ Entering an invalid URL leads to the 404 page and provides a link back to the ho
 
 &#9989; Working as intended for the 404 page. Since the code for the '500' page is practically identical, I have no reason to doubt that it works as well.
 
-![404](images/readme/functionality-tests/navbar-2.jpg)
+![404](documentation/testing/functionality-tests/navbar-2.jpg)
 
 ---
 
@@ -583,91 +585,91 @@ For validating my HTML code at first the source code from each page of the gener
 
 Result for homepage:
 
-![homepage](images/readme/w3c-results/w3c-markup_homepage.png)
+![homepage](documentation/testing/w3c-results/w3c-markup_homepage.png)
 
 ---
 
 Result for all books page:
 
-![all_books](images/readme/w3c-results/w3c-markup_all-books.png)
+![all_books](documentation/testing/w3c-results/w3c-markup_all-books.png)
 
 ---
 
 Result for series page with Discovery selected:
 
-![series_page-discovery](images/readme/w3c-results/w3c-markup_series-discovery.png)
+![series_page-discovery](documentation/testing/w3c-results/w3c-markup_series-discovery.png)
 
 ---
 
 Result for reviews page:
 
-![reviews](images/readme/w3c-results/w3c-markup_reviews.png)
+![reviews](documentation/testing/w3c-results/w3c-markup_reviews.png)
 
 ---
 
 Result for register page:
 
-![register](images/readme/w3c-results/w3c-markup_register.png)
+![register](documentation/testing/w3c-results/w3c-markup_register.png)
 
 ---
 
 Result for login page:
 
-![login](images\readme\w3c-results\w3c-markup_login.png)
+![login](documentation/testing/w3c-results/w3c-markup_login.png)
 
 ---
 
 Result for add_review page:
 
-![add-review](images/readme/w3c-results/w3c-markup_add-review.png)
+![add-review](documentation/testing/w3c-results/w3c-markup_add-review.png)
 
 ---
 
 Result for edit_review page:
 
-![edit_review](images\readme\w3c-results\w3c-markup_edit-review.png)
+![edit_review](documentation/testing/w3c-results/w3c-markup_edit-review.png)
 
 ---
 
 Result for add_series page:
 
-![add_series](images/readme/w3c-results/w3c-markup_add-series.png)
+![add_series](documentation/testing/w3c-results/w3c-markup_add-series.png)
 
 ---
 
 Result for add_book page:
 
-![add_book](images/readme/w3c-results/w3c-markup_add-book.png)
+![add_book](documentation/testing/w3c-results/w3c-markup_add-book.png)
 
 ---
 
 Result for copyrights page:
 
-![copyrights](images/readme/w3c-results/w3c-markup_copyrights.png)
+![copyrights](documentation/testing/w3c-results/w3c-markup_copyrights.png)
 
 ---
 
 Results for contact page:
 
-![contact](images/readme/w3c-results/w3c-markup_contact.png)
+![contact](documentation/testing/w3c-results/w3c-markup_contact.png)
 
 ---
 
 Results for site_notice page:
 
-![site_notice](images/readme/w3c-results/w3c-markup_site_notice.png)
+![site_notice](documentation/testing/w3c-results/w3c-markup_site_notice.png)
 
 ---
 
 Results for privacy_policy page:
 
-![privacy_policy](images/readme/w3c-results/w3c-markup_privacy_policy.png)
+![privacy_policy](documentation/testing/w3c-results/w3c-markup_privacy_policy.png)
 
 ### **W3C CSS Validator**
 
 The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) reported no errors when using 'Validate by direct input'. 12 warnings were reported due to vendor extensions. Using 'Validate by URI' leads to 9 errors. All of those errors are from the bulma.min.css file. 259 warnings are reported. 12 warnings for vendor extensions from my css-file and the rest for vendor extensions from the bulma.min.css-file.
 
-![w3c-css](images/readme/w3c-results/w3c-css.png)
+![w3c-css](documentation/testing/w3c-results/w3c-css.png)
 
 ---
 
@@ -677,100 +679,100 @@ The [web accessibility evaluation tool](https://wave.webaim.org/) was used to ch
 
 -   **Homepage:**
 
-![homepage](images/readme/wave-results/homepage.jpg)
+![homepage](documentation/testing/wave-results/homepage.jpg)
 
 ---
 
 -   **all_books page**:
 
-![all_books](images\readme\wave-results\all_books.jpg)
+![all_books](documentation/testing/wave-results/all_books.jpg)
 
 ---
 
 -   **series_page** (Discovery, exemplary for all series_pages):
     Two alerts are reported due to redundant links in the navbar. With only two pages of results, both the link for page two of the results as well as the arrow for the next page point to the same URL. The same error gets reported for the 'pagination-bar' at the bottom of the page.
 
-![series_discovery](images/readme/wave-results/series_discovery.jpg)
+![series_discovery](documentation/testing/wave-results/series_discovery.jpg)
 
 ---
 
 -   **reviews page**:
 
-![reviews](images/readme/wave-results/reviews.jpg)
+![reviews](documentation/testing/wave-results/reviews.jpg)
 
 ---
 
 -   **copyright page**:
 
-![copyrights](images\readme\wave-results\copyrights.jpg)
+![copyrights](documentation/testing/wave-results/copyrights.jpg)
 
 ---
 
 -   **contact page**:
 
-![contact](images/readme/wave-results/contact.jpg)
+![contact](documentation/testing/wave-results/contact.jpg)
 
 ---
 
 -   **register page**:
 
-![register](images/readme/wave-results/register.jpg)
+![register](documentation/testing/wave-results/register.jpg)
 
 ---
 
 -   **login page**:
 
-![login](images\readme\wave-results\login.jpg)
+![login](documentation/testing/wave-results/login.jpg)
 
 ---
 
 -   **add_review page**:
 
-![add_review](images\readme\wave-results\add_review.jpg)
+![add_review](documentation/testing/wave-results/add_review.jpg)
 
 ---
 
 -   **profile page**:
 
-![profile](images\readme\wave-results\profile.jpg)
+![profile](documentation/testing/wave-results/profile.jpg)
 
 ---
 
 -   **edit_review page**:
 
-![edit_review](images\readme\wave-results\edit_review.jpg)
+![edit_review](documentation/testing/wave-results/edit_review.jpg)
 
 ---
 
 -   **delete_review page**:
 
-![delete_review](images\readme\wave-results\delete_review.jpg)
+![delete_review](documentation/testing/wave-results/delete_review.jpg)
 
 ---
 
 -   **add_series page**:
 
-![add_series](images\readme\wave-results\add_series.jpg)
+![add_series](documentation/testing/wave-results/add_series.jpg)
 
 ---
 
 -   **add_book page**: 4 of the alerts resulted from short paragraphs ("Available as ebook?", "Available as paperback?", "Available as audiobook?" and "Part of mini-series?") that appear to be headings. The 5th alerts results from a missing label for the select element. Adding an additional label tag did not fix the alert and even led to an error in the W3C Markup validator. I don't know how else to fix it.
 
-![add_book](images/readme/wave-results/add_book.jpg)
+![add_book](documentation/testing/wave-results/add_book.jpg)
 
-![add_book-2](images\readme\wave-results\add_book-2.jpg)
+![add_book-2](documentation/testing/wave-results/add_book-2.jpg)
 
 ---
 
 -   **site_notice page**: all alerts result from short paragraphs that appear to be headings.
 
-![site_notice](images/readme/wave-results/site_notice.jpg)
+![site_notice](documentation/testing/wave-results/site_notice.jpg)
 
 ---
 
 -   **privacy_policy page**: both alerts result from short paragraphs that appear to be headings.
 
-![privacy_policy](images/readme/wave-results/privacy_policy.jpg)
+![privacy_policy](documentation/testing/wave-results/privacy_policy.jpg)
 
 ---
 
@@ -780,7 +782,7 @@ The [web accessibility evaluation tool](https://wave.webaim.org/) was used to ch
 
 The results for both the mobile version and the desktop version are displayed. The low SEO ratings are due to two errors:
 
-![seo-errors](images/readme/lighthouse-results/seo-errors.png)
+![seo-errors](documentation/testing/lighthouse-results/seo-errors.png)
 
 The two mentioned links are navbar-links ('Series' and 'Account') with a dropdown menu. 'Series' and 'Account' are not acting as links and therefore don't have an href attribute.
 I'm not aware that I created a robots.txt.
@@ -789,11 +791,11 @@ I'm not aware that I created a robots.txt.
 
 homepage-mobile:
 
-![homepage-mobile](images/readme/lighthouse-results/homepage-mobile.png)
+![homepage-mobile](documentation/testing/lighthouse-results/homepage-mobile.png)
 
 homepage-desktop:
 
-![homepage-desktop](images/readme/lighthouse-results/homepage-desktop.png)
+![homepage-desktop](documentation/testing/lighthouse-results/homepage-desktop.png)
 
 ---
 
@@ -801,11 +803,11 @@ homepage-desktop:
 
 all_books-mobile:
 
-![all-_books-mobile](images/readme/lighthouse-results/all_books-mobile.png)
+![all-_books-mobile](documentation/testing/lighthouse-results/all_books-mobile.png)
 
 all_books-desktop:
 
-![all_books-desktop](images/readme/lighthouse-results/all_books-desktop.png)
+![all_books-desktop](documentation/testing/lighthouse-results/all_books-desktop.png)
 
 ---
 
@@ -813,11 +815,11 @@ all_books-desktop:
 
 series_discovery-mobile:
 
-![series_discovery-mobile](images/readme/lighthouse-results/series_discovery-mobile.png)
+![series_discovery-mobile](documentation/testing/lighthouse-results/series_discovery-mobile.png)
 
 series_discover-desktop:
 
-![series_discovery-desktop](images/readme/lighthouse-results/series_discovery-desktop.png)
+![series_discovery-desktop](documentation/testing/lighthouse-results/series_discovery-desktop.png)
 
 ---
 
@@ -825,11 +827,11 @@ series_discover-desktop:
 
 reviews-mobile:
 
-![reviews-mobile](images/readme/lighthouse-results/reviews-mobile.png)
+![reviews-mobile](documentation/testing/lighthouse-results/reviews-mobile.png)
 
 reviews-desktop:
 
-![reviews-desktop](images/readme/lighthouse-results/reviews-desktop.png)
+![reviews-desktop](documentation/testing/lighthouse-results/reviews-desktop.png)
 
 ---
 
@@ -837,11 +839,11 @@ reviews-desktop:
 
 copyrights-mobile:
 
-![copyrights-mobile](images/readme/lighthouse-results/copyrights-mobile.png)
+![copyrights-mobile](documentation/testing/lighthouse-results/copyrights-mobile.png)
 
 copyrights-desktop:
 
-![copyrights-desktop](images/readme/lighthouse-results/copyrights-desktop.png)
+![copyrights-desktop](documentation/testing/lighthouse-results/copyrights-desktop.png)
 
 ---
 
@@ -849,11 +851,11 @@ copyrights-desktop:
 
 contact-mobile:
 
-![contact-mobile](images/readme/lighthouse-results/contact-mobile.png)
+![contact-mobile](documentation/testing/lighthouse-results/contact-mobile.png)
 
 contact-desktop:
 
-![contact-desktop](images/readme/lighthouse-results/contact-desktop.png)
+![contact-desktop](documentation/testing/lighthouse-results/contact-desktop.png)
 
 ---
 
@@ -861,11 +863,11 @@ contact-desktop:
 
 register-mobile:
 
-![register-mobile](images/readme/lighthouse-results/register-mobile.png)
+![register-mobile](documentation/testing/lighthouse-results/register-mobile.png)
 
 register-desktop:
 
-![register-desktop](images/readme/lighthouse-results/register-desktop.png)
+![register-desktop](documentation/testing/lighthouse-results/register-desktop.png)
 
 ---
 
@@ -873,11 +875,11 @@ register-desktop:
 
 login-mobile:
 
-![login-mobile](images/readme/lighthouse-results/login-mobile.png)
+![login-mobile](documentation/testing/lighthouse-results/login-mobile.png)
 
 login-desktop:
 
-![login-desktop](images/readme/lighthouse-results/login-desktop.png)
+![login-desktop](documentation/testing/lighthouse-results/login-desktop.png)
 
 ---
 
@@ -885,11 +887,11 @@ login-desktop:
 
 add_review-mobile:
 
-![add_review-mobile](images/readme/lighthouse-results/add_review-mobile.png)
+![add_review-mobile](documentation/testing/lighthouse-results/add_review-mobile.png)
 
 add_review-desktop:
 
-![add_review-desktop](images/readme/lighthouse-results/add_review-desktop.png)
+![add_review-desktop](documentation/testing/lighthouse-results/add_review-desktop.png)
 
 ---
 
@@ -897,61 +899,61 @@ add_review-desktop:
 
 profile-mobile:
 
-![profile-mobile](images/readme/lighthouse-results/profile-mobile.png)
+![profile-mobile](documentation/testing/lighthouse-results/profile-mobile.png)
 
 profile-desktop:
 
-![profile-desktop](images/readme/lighthouse-results/profile-desktop.png)
+![profile-desktop](documentation/testing/lighthouse-results/profile-desktop.png)
 
 -   **edit_review page**:
 
 edit_review-mobile:
 
-![edit_review-mobile](images/readme/lighthouse-results/edit_review-mobile.png)
+![edit_review-mobile](documentation/testing/lighthouse-results/edit_review-mobile.png)
 
 edit_review-desktop:
 
-![edit_review-desktop](images/readme/lighthouse-results/edit_review-desktop.png)
+![edit_review-desktop](documentation/testing/lighthouse-results/edit_review-desktop.png)
 
 -   **add_series page**:
 
 add_series-mobile:
 
-![add_series-mobile](images/readme/lighthouse-results/add_series-mobile.png)
+![add_series-mobile](documentation/testing/lighthouse-results/add_series-mobile.png)
 
 add_series-desktop:
 
-![add_series-desktop](images/readme/lighthouse-results/add_series-desktop.png)
+![add_series-desktop](documentation/testing/lighthouse-results/add_series-desktop.png)
 
 -   **add_book page**:
 
 add_book-mobile:
 
-![add_book-mobile](images/readme/lighthouse-results/add_book-mobile.png)
+![add_book-mobile](documentation/testing/lighthouse-results/add_book-mobile.png)
 
 add_book-desktop:
 
-![add_book-desktop](images/readme/lighthouse-results/add_book-desktop.png)
+![add_book-desktop](documentation/testing/lighthouse-results/add_book-desktop.png)
 
 -   **site_notice page**:
 
 site_notice-mobile:
 
-![site_notice-mobile](images/readme/lighthouse-results/site_notice-mobile.png)
+![site_notice-mobile](documentation/testing/lighthouse-results/site_notice-mobile.png)
 
 site_notice-desktop:
 
-![site_notice-desktop](images/readme/lighthouse-results/site_notice-desktop.png)
+![site_notice-desktop](documentation/testing/lighthouse-results/site_notice-desktop.png)
 
 -   **privacy_policy page**:
 
 privacy_policy-mobile:
 
-![privacy_policy-mobile](images/readme/lighthouse-results/privacy_policy-mobile.png)
+![privacy_policy-mobile](documentation/testing/lighthouse-results/privacy_policy-mobile.png)
 
 privacy_policy-desktop:
 
-![privacy_policy-desktop](images/readme/lighthouse-results/privacy_policy-desktop.png)
+![privacy_policy-desktop](documentation/testing/lighthouse-results/privacy_policy-desktop.png)
 
 ---
 
@@ -963,11 +965,11 @@ No errors were reported for script.js or hideOnErrorPages.js using [JSHint](http
 
 Result for script.js:
 
-![jshint-script](images/readme/jshint-script.png)
+![jshint-script](documentation/testing/jshint-script.png)
 
 Result for hideOnErrorPages.js:
 
-![jshint-hideOnErrorPages](images/readme/jshint-hideOnErrorPages.png)
+![jshint-hideOnErrorPages](documentation/testing/jshint-hideOnErrorPages.png)
 
 ---
 
@@ -977,7 +979,7 @@ Result for hideOnErrorPages.js:
 
 Result for app.py:
 
-![pep8-result](images/readme/pep8-result.png)
+![pep8-result](documentation/testing/pep8-result.png)
 
 ---
 
@@ -995,6 +997,30 @@ Family, friends and colleagues were asked to test the site on their computers an
 
 No issues were reported viewing the site in Chrome, Firefox, Edge or Opera.
 
+-   Edge: all_books page 3:
+
+![edge-all_books-3](documentation/testing/compatibility-tests/edge-all_books-3.jpg)
+
+-   Edge: register page:
+
+![edge-register](documentation/testing/compatibility-tests/edge-register.jpg)
+
+-   Firefox: profile page:
+
+![firefox-profile](documentation\testing\compatibility-tests\firefox-profile.jpg)
+
+-   Firefox: series page (Voyager):
+
+![firefox-series_voyager](documentation/testing/compatibility-tests/firefox-series_voyager.jpg)
+
+-   Opera: add_book page:
+
+![opera-add_book](documentation/testing/compatibility-tests/opera-add_book.jpg)
+
+-   Opera: search result:
+
+![opera-search_result](documentation\testing\compatibility-tests\opera-search_result.jpg)
+
 ---
 
 ---
@@ -1010,6 +1036,7 @@ Bulma is '100% Responsive' and 'Designed for mobile first'. Columns will resize 
 ## **Bugs**
 
 -   The subject line for most of my commit messages is too long. Starting with [commit 78ae3d029ad4dc7d26fffa6d74847d3cf14a1c2d](https://github.com/Ryagg/st-archive/commit/78ae3d029ad4dc7d26fffa6d74847d3cf14a1c2d) I limited the subject line to 50 characters and added a body where necessary.
-    For viewports < 425px long book titles ('Bloodletter', 'The Enterprise War', 'The Peacekeepers' and 'Wonderlands') don't fit into one line and are being displayed in two lines instead. Further reducing the text size while still using the title or subtitle class reduces the readability for all viewports. Keeping the h2-class but using the Bulma-Class for normal text breaks the responsiveness. Replacing the h2-class with the p-class is not an option because the content is a heading and the correct semantic structure is important, especially for screen readers.
+
+-   For viewports < 425px long book titles ('Bloodletter', 'The Enterprise War', 'The Peacekeepers' and 'Wonderlands') don't fit into one line and are being displayed in two lines instead. Further reducing the text size while still using the title or subtitle class reduces the readability for all viewports. Keeping the h2-class but using the Bulma-Class for normal text breaks the responsiveness. Replacing the h2-class with the p-class is not an option because the content is a heading and the correct semantic structure is important, especially for screen readers.
 -   If there are no reviews for a series there is no information ('No reviews yet') being displayed. Attempts to copy the code from the favourites books section on the profile page failed.
 -   The 'Edit review' and 'Delete review' buttons on the profile page are neither centred nor vertically aligned with the text above them.

@@ -56,7 +56,7 @@ The deployed project can be found [here](https://ms3-st-archive.herokuapp.com/).
 #### **Colour Scheme**
 
 To match the site's theme, the following colour scheme was created:
-![Colour palette](images/readme/colour-palette.png) It aims to replicate the familiar colours used for LCARS in Star Trek: The Next Generation. Please refer to the Credit section for more info.
+![Colour palette](documentation/readme/colour-palette.png) It aims to replicate the familiar colours used for LCARS in Star Trek: The Next Generation. Please refer to the Credit section for more info.
 
 #### **Typography**
 
@@ -64,11 +64,11 @@ To match the site's theme, the following fonts were used:
 
 For headings, the Millennium font, which is used on the hull of Starfleet vessels in the Star Trek movies and TV series, is used. A web fonts licence for 250000 pageviews was purchased at [fontshop.com](https://www.fontshop.com/).
 
-![Millennium](images/readme/millenium-20px.png)
+![Millennium](documentation/readme/millenium-20px.png)
 
 For all other text, the BlinkMacSystemFont is used.
 
-![BlinkMacSystemFont](images/readme/blink-mac-system-font-20px.png)
+![BlinkMacSystemFont](documentation/readme/blink-mac-system-font-20px.png)
 
 Initially, the Okuda font was intended as the standard font. But due to user feedback about bad readability, the font was replaced with the BlinkMacSystemFont.
 
@@ -78,7 +78,7 @@ All icons are from [Font Awesome](https://fontawesome.com). Please refer to the 
 
 #### **Imagery**
 
-All background images were taken from [Unsplash](https://unsplash.com). Credit for the individual pictures is given below in the media section. All book covers were obtained from [Memory Alpha](https://memory-alpha.fandom.com/wiki/Portal:Main). For information about the license, please refer to the media section. For sources for each book cover, please refer to the separate [SOURCES.md](SOURCES.md).
+All background images were taken from [Unsplash](https://unsplash.com). Credit for the individual pictures is given below in the media section. All book covers were obtained from [Memory Alpha](https://memory-alpha.fandom.com/wiki/Portal:Main). For information about the license, please refer to the media section. For sources for each book cover, please refer to the separate external [SOURCES.md](https://docs.google.com/spreadsheets/d/1WIVuwc7z_7EODd8w8-m4ykPebElq2aatHh4y49E0bAU/edit?usp=sharing).
 
 ### **Wireframes**
 
@@ -91,7 +91,7 @@ All wireframes for this project can be found in the [wireframes sub-directory](h
 
 ---
 
-![Database Schema](images/readme/db-scheme.png)
+![Database Schema](documentation/readme/db-scheme.png)
 The project uses 4 collections which are stored in MongoDB.
 
 -   The **users** collection stores the username, password and email to enable the user to create an account with a profile page and - as a future feature - to be notified when new books are added to a series from his favourites list. Books that have been added to either the favourites list or the wish list and series that have been added to the favourites list, books that have been marked as finished and all reviews by the user are also stored. Furthermore, information about whether a user is also an admin are stored.
@@ -296,8 +296,12 @@ Cloning a repository creates a local copy on your computer. Follow the steps bel
 3. In the new window, cloning using HTTPS is the default option. Copy the provided link manually or by clicking on the clipboard symbol.
 4. Open Git Bash.
 5. Navigate to your desired directory for the cloned project.
-6. Type 'git clone' followed by the URL copied in step 3.
+6. Type git `clone https://github.com/Ryagg/st-archive.git`
 7. Press **Enter** to create your local clone.
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Ryagg/st-archive)
 
 ---
 
@@ -312,8 +316,8 @@ To deploy the site remotely on [Heroku](https://www.heroku.com/) please follow t
 5. Select the **Settings** tab and click on **Reveal Config Vars** in the section **Config Vars**. Enter your key-value-pairs from your **env.py** file without the quotes. The following variables should be added:
     - IP: `0.0.0.0`
     - PORT: `5000` (other ports may work as well)
-        - SECRET_KEY: `<your secret key>`
-        - MONGO_URI
+    - SECRET_KEY: `<your secret key>`
+    - MONGO_URI
         - Follow these steps to obtain your MONGO_URI:
         - Log in to your MongoDB account
         - Click on `Collections` and select the appropriate database
