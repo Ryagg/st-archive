@@ -653,6 +653,16 @@ Results for contact page:
 
 ---
 
+Results for site_notice page:
+
+![site_notice](images/readme/w3c-results/w3c-markup_site_notice.png)
+
+---
+
+Results for privacy_policy page:
+
+![privacy_policy](images/readme/w3c-results/w3c-markup_privacy_policy.png)
+
 ### **W3C CSS Validator**
 
 The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) reported no errors when using 'Validate by direct input'. 12 warnings were reported due to vendor extensions. Using 'Validate by URI' leads to 9 errors. All of those errors are from the bulma.min.css file. 259 warnings are reported. 12 warnings for vendor extensions from my css-file and the rest for vendor extensions from the bulma.min.css-file.
@@ -744,11 +754,23 @@ The [web accessibility evaluation tool](https://wave.webaim.org/) was used to ch
 
 ---
 
--   **add_book page**: 4 of the alerts resulted from short paragraphs ("Available as ebook?", "Available as paperback?", "Available as audiobook?" and "Part of mini-series?") that appeared to be headings. The 5th alerts results from a missing label for the select element. Adding an additional label tag did not fix the alert and even led to an error in the W3C Markup validator. I don't know else to fix it.
+-   **add_book page**: 4 of the alerts resulted from short paragraphs ("Available as ebook?", "Available as paperback?", "Available as audiobook?" and "Part of mini-series?") that appear to be headings. The 5th alerts results from a missing label for the select element. Adding an additional label tag did not fix the alert and even led to an error in the W3C Markup validator. I don't know how else to fix it.
 
 ![add_book](images/readme/wave-results/add_book.jpg)
 
 ![add_book-2](images\readme\wave-results\add_book-2.jpg)
+
+---
+
+-   **site_notice page**: all alerts result from short paragraphs that appear to be headings.
+
+![site_notice](images/readme/wave-results/site_notice.jpg)
+
+---
+
+-   **privacy_policy page**: both alerts result from short paragraphs that appear to be headings.
+
+![privacy_policy](images/readme/wave-results/privacy_policy.jpg)
 
 ---
 
@@ -910,6 +932,26 @@ add_book-mobile:
 add_book-desktop:
 
 ![add_book-desktop](images/readme/lighthouse-results/add_book-desktop.png)
+
+-   **site_notice page**:
+
+site_notice-mobile:
+
+![site_notice-mobile](images/readme/lighthouse-results/site_notice-mobile.png)
+
+site_notice-desktop:
+
+![site_notice-desktop](images/readme/lighthouse-results/site_notice-desktop.png)
+
+-   **privacy_policy page**:
+
+privacy_policy-mobile:
+
+![privacy_policy-mobile](images/readme/lighthouse-results/privacy_policy-mobile.png)
+
+privacy_policy-desktop:
+
+![privacy_policy-desktop](images/readme/lighthouse-results/privacy_policy-desktop.png)
 
 ---
 

@@ -205,6 +205,10 @@ Flask-Talisman and Flask-SeaSurf are used to improve the application's security.
 
 All elements and interactions on the site are accessible for keyboard-only users. Color alone is never used to transport meaning. The color scheme focuses heavily on blue colours because fewer users are negatively impacted by blue colours than by other colours. Clear instructions, ARIA-labels and tooltips are used to facilitate the usage of the site by users with different forms of disabilities.
 
+#### **General Data Protection Regulation compliance**
+
+The site features both a site notice and a privacy policy. Both pages can be reached through links in the footer. A paid subscription has been bought at [e-recht24.de](https://www.e-recht24.de/) to ensure compliance with all applicable regulations.
+
 ### **Features to be implemented**
 
 ---
