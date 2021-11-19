@@ -1,6 +1,6 @@
 # **ST-Archive**
 
-ST-Archive provides an overview of the novels from the various series across the Star Trek universe. Users can see the novels sorted by series, add books and/or reviews to the database, add favourites to their profiles, and delete favourites from their profiles and manage their data.
+ST-Archive provides an overview of the novels from the various series across the Star Trek universe. Users can see the novels sorted by titel and by series, add books and/or reviews to the database, add favourites to their profiles, and delete reviews from their profiles.
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/ryagg/st-archive?style=plastic)
 ![GitHub language count](https://img.shields.io/github/languages/count/ryagg/st-archive?style=plastic)
@@ -74,7 +74,9 @@ Initially, the Okuda font was intended as the standard font. But due to user fee
 
 #### **Icons**
 
-All icons are from [Font Awesome](https://fontawesome.com). Please refer to the Bug section for info about why not all buttons have been styled with icons.
+All icons on the pages are from [Font Awesome](https://fontawesome.com). Please refer to the Bug section for info about why not all buttons have been styled with icons.
+
+The favicon was purchased from [Iconfinder](https://www.iconfinder.com/icons/5680359/book_fiction_planet_science_space_icon).
 
 #### **Imagery**
 
@@ -183,7 +185,7 @@ After logging out a confirmation flash gets displayed. The session status is cle
 
 #### **Contact page**
 
-The contact page features a contact form. The form uses form validation and all input fields except the subject have to be filled out for the user to be able to submit the form. Users have the option to clear the form content. When the user submits the form a flash message informs the user about the successful submission and the form is cleared. Flask-Mail is used to inform the site owner about user messages including the message text and the user's email address.
+The contact page features a contact form. The form uses form validation and all input fields except the subject have to be filled out for the user to be able to submit the form. Users have the option to clear the form content. When the user submits the form a flash message informs the user about the successful submission and the form is cleared. Flask-Mail in combination with Mailtrap is used to inform the site owner about user messages including the message text and the user's email address.
 
 #### **404 page**
 
@@ -358,7 +360,7 @@ Cloning a repository creates a local copy on your computer. Follow the steps bel
 3. In the new window, cloning using HTTPS is the default option. Copy the provided link manually or by clicking on the clipboard symbol.
 4. Open Git Bash.
 5. Navigate to your desired directory for the cloned project.
-6. Type git `clone https://github.com/Ryagg/st-archive.git`
+6. Type git `clone https://github.com/Ryagg/st-archive.git` or paste the copied address from step 3.
 7. Press **Enter** to create your local clone.
 
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.

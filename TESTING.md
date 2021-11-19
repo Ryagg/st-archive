@@ -242,7 +242,7 @@ The navbar is visible on all pages except the error pages. This is intentional. 
 
 **Verdict**
 
-&#9989; &#9989; Working as intended.
+&#9989; Working as intended.
 
 ![navbar-1](documentation/testing/functionality-tests/navbar-1.jpg)
 
@@ -266,7 +266,7 @@ Like the navbar, the footer is visible on all pages except the error pages. The 
 
 **Verdict**
 
-&#9989; &#9989; Working as intended.
+&#9989; Working as intended.
 
 ---
 
