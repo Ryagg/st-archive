@@ -142,6 +142,10 @@ a.button:active {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.pagination_bg--white {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
 .card__bg--blue-dark {
     background-color: #000088;
 }
