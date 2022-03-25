@@ -21,7 +21,7 @@
                                         {% if favourites_series|length > 0 %}
                                             {% for show in favourites_series|sort(attribute="series_code") %}
                                                 <div class="column is-5-tablet is-3-desktop mx-2 my-2 has-background-link-light card__shadow">
-                                                    <h3 class="title is-3 has-text-centered has-text-weight-light">{{ show.series_code }}</h3>
+                                                    <h3 class="title is-3 has-text-centered my-auto has-text-weight-light">{{ show.series_code }}</h3>
                                                 </div>
                                             {% endfor %}
                                         {% else %}
