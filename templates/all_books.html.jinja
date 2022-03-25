@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html.jinja" %}
 {% block content %}
 
 <section class="hero is-fullheight-with-navbar bg__img--starry-sky text__bg--transparent-dark">
@@ -26,7 +26,7 @@
                                             </div>
                                             <button class="button shadow-dark form__button--bg-blue has-text-white is-size-5 has-text-weight-normal" type="submit">Search
                                             </button>
-                                            <a class="button shadow-dark form__button--bg-orange has-text-white ml-3 is-size-5 has-text-weight-normal" href="{{ url_for('series', series_code=show._id) }}">Reset</a>
+                                            <a class="button shadow-dark form__button--bg-orange has-text-white ml-3 is-size-5 has-text-weight-normal" href="{{ url_for('all_books') }}">Reset</a>
                                         </div>
                                     </div>
                                 </div>
@@ -52,20 +52,15 @@
                 </div>
             </div>
 
-                {% if books|length > 0 %}
-                    <div class="columns is-centered is-multiline">
-                        <div class="column">
-                            <h1 class="title is-3 has-text-centered has-text-weight-light hero_heading heading__text--shadow">All Books from {{ show.series_name }}</h1>
-                                <div class="control has-text-centered">
-                                    <a class="button shadow card__bg--blue-dark text--color-light"
-                                        href="{{ url_for('add_fav_series', series_id=show._id) }}">
-                                            Add {{ show.series_name }} to favourites</a>
-                                </div>
-                        </div>
-                    </div>
-            <!-- All books in series -->
+            <!-- All books sorted by title or search result -->
+            {% if books|length > 0 %}
                 <div class="columns is-centered is-multiline">
-                    {% for book in books|sort(attribute="number") if book.series_code == show.series_code %}
+                    <div class="column">
+                        <h1 class="title is-2 has-text-centered has-text-weight-light hero_heading heading__text--shadow">Books sorted by title</h1>
+                    </div>
+                </div>
+            <div class="columns is-centered is-multiline">
+                    {% for book in books|sort(attribute="title") %}
                     <div class="column is-6-tablet is-6-desktop my-2">
                         <div class="card card__box-shadow">
                             <div class="columns is-mobile">
@@ -78,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="card-content card__bg--light">
-                                <h2 class="subtitle is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.title }}</h2>
+                                <h2 class="subtitle is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.series_code }}: {{ book.title }}</h2>
                                     {% if book.number == "" %}
                                         <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
                                     {% elif not book.number == "null" %}

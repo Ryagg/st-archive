@@ -120,7 +120,7 @@ End Credit
 def index():
     """Render the index page."""
     st_series = list(mongo.db.series.find())
-    return render_template("index.html", series=st_series)
+    return render_template("index.html.jinja", series=st_series)
 
 
 # search function
@@ -134,7 +134,7 @@ def search():
     books_paginate = paginate(books)
     pagination = pagination_args(books)
 
-    return render_template("all_books.html", series=st_series,
+    return render_template("all_books.html.jinja", series=st_series,
                            books=books_paginate, pagination=pagination
                            )
 
@@ -154,7 +154,7 @@ def all_books():
     books_paginate = paginate(books)
     pagination = pagination_args(books)
 
-    return render_template("all_books.html/", books=books_paginate,
+    return render_template("all_books.html.jinja/", books=books_paginate,
                            pagination=pagination, series=st_series,
                            )
 
@@ -172,7 +172,7 @@ def series(series_code):
     books_paginate = paginate(books)
     pagination = pagination_args(books)
 
-    return render_template("series.html/", show=show, shows=shows,
+    return render_template("series.html.jinja/", show=show, shows=shows,
                            books=books_paginate, pagination=pagination,
                            series=st_series
                            )
@@ -188,7 +188,7 @@ def reviews():
 
     st_series = list(mongo.db.series.find())
     all_reviews = list(mongo.db.reviews.find())
-    return render_template("reviews.html", series=st_series,
+    return render_template("reviews.html.jinja", series=st_series,
                            all_reviews=all_reviews)
 
 
@@ -218,7 +218,7 @@ def contact():
         else:
             print("message sent")
     st_series = list(mongo.db.series.find())
-    return render_template("contact.html", series=st_series)
+    return render_template("contact.html.jinja", series=st_series)
 
 
 # copyrights
@@ -227,7 +227,7 @@ def copyrights():
     """Render page with info about copyrights and licenses."""
     st_series = list(mongo.db.series.find())
 
-    return render_template("copyrights.html", series=st_series)
+    return render_template("copyrights.html.jinja", series=st_series)
 
 
 # USER ACCOUNT
@@ -293,7 +293,7 @@ def register():
               f'{request.form.get("username").capitalize()} '
               '<i class="far fa-handshake"></i>'))
         return redirect(url_for("profile", username=session["user"]))
-    return render_template("register.html", series=st_series)
+    return render_template("register.html.jinja", series=st_series)
 
 
 # login
@@ -334,7 +334,7 @@ def login():
                 " Incorrect Username and/or Password "
                 "<i class='fal fa-info-circle has-text-danger'></i>"))
             return redirect(url_for("login"))
-    return render_template("login.html", series=st_series)
+    return render_template("login.html.jinja", series=st_series)
 
 
 # profile
@@ -369,7 +369,7 @@ def profile(username):
         {"_id": {"$in": finished_books_list}})
         )
 
-    return render_template("profile.html", username=username, user=user,
+    return render_template("profile.html.jinja", username=username, user=user,
                            favourites_series=favourites_series,
                            user_reviews=user_reviews, series=st_series,
                            favourites_books=favourites_books,
@@ -535,7 +535,7 @@ def add_review():
     book_series = mongo.db.books.find_one(
             {"title": review_book})["series_code"]
 
-    return render_template("review.html", username=username,
+    return render_template("review.html.jinja", username=username,
                            series=st_series, review_book=review_book,
                            book_series=book_series)
 
@@ -579,7 +579,7 @@ def edit_review(review_id):
                 "<i class='fas fa-do-not-enter has-text-danger'></i>"))
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("edit_review.html",
+    return render_template("edit_review.html.jinja",
                            series=st_series, username=username, review=review)
 
 
@@ -639,7 +639,7 @@ def add_series():
         return redirect(url_for("profile", username=session["user"]))
 
     st_series = list(mongo.db.series.find())
-    return render_template("add_series.html", series=st_series,
+    return render_template("add_series.html.jinja", series=st_series,
                            username=session["user"])
 
 
@@ -672,7 +672,7 @@ def add_book():
         return redirect(url_for("profile", username=session["user"]))
 
     st_series = list(mongo.db.series.find())
-    return render_template("add_book.html", series=st_series,
+    return render_template("add_book.html.jinja", series=st_series,
                            username=session["user"])
 
 
@@ -682,14 +682,14 @@ def add_book():
 def site_notice():
     """Render site notice in compliance with GDPR."""
     st_series = list(mongo.db.series.find())
-    return render_template("site_notice.html", series=st_series)
+    return render_template("site_notice.html.jinja", series=st_series)
 
 
 @app.route("/privacy_policy")
 def privacy_policy():
     """Render privacy policy in compliance with GDPR."""
     st_series = list(mongo.db.series.find())
-    return render_template("privacy_policy.html", series=st_series)
+    return render_template("privacy_policy.html.jinja", series=st_series)
 
 
 # ERROR PAGES
@@ -698,14 +698,14 @@ def privacy_policy():
 @app.errorhandler(404)
 def page_not_found(error):
     """Display 404 page with link to homepage."""
-    return render_template("404.html")
+    return render_template("404.html.jinja")
 
 
 # 500 page
 @app.errorhandler(500)
 def server_error(error):
     """Display 500 page with link to homepage."""
-    return render_template("500.html")
+    return render_template("500.html.jinja")
 
 
 if __name__ == "__main__":

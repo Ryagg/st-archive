@@ -1,15 +1,15 @@
-{% extends "base.html" %}
+{% extends "base.html.jinja" %}
 {% block content %}
 
     <section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky text__bg--transparent-dark">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title is-1 has-text-weight-light has-text-centered heading__text--shadow">Hello, {{ username.capitalize() }} </h1>
+                <h1 class="title is-1 has-text-centered has-text-weight-light heading__text--shadow">Hello, {{ username.capitalize() }} </h1>
                 <p class="subtitle is-2 has-text-centered text--color-light">
-                    Edit your review!
+                    Thanks for adding your review!
                 </p>
 
-                <form class="form" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
+                <form class="form" method="POST" action="{{ url_for('add_review') }}">
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                     <div class="columns">
                         <div class="column">
@@ -17,7 +17,7 @@
                                 <label class="is-size-3 has-text-weight-normal text--color-light" for="book_series">Book series (code)</label>
                                 <div class="control">
                                     <input id="book_series" name="book_series" class="input is-size-4" type="text"
-                                        value="{{ review.book_series }}" readonly>
+                                        value="{{ book_series }}" readonly>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                                 <label class="is-size-3 has-text-weight-normal text--color-light" for="book_title">Book title</label>
                                 <div class="control">
                                     <input id="book_title" name="book_title" class="input is-size-4" type="text"
-                                        value="{{ review.book_title }}" readonly>
+                                        value="{{ review_book }}" readonly>
                                 </div>
                             </div>
                         </div>
@@ -40,22 +40,21 @@
                                 <label class="is-size-3 has-text-weight-normal text--color-light" for="review_text">Review</label>
                                 <div class="control">
                                     <textarea id="review_text" name="review_text" class="textarea is-medium mb-4"
-                                        rows="10" autofocus>{{- review.review_text -}}</textarea>
+                                        placeholder="Write your review here" rows="10" autofocus></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Buttons -->
-                    <div class="columns">
-                        <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <input class="button shadow-dark form__button--bg-blue has-text-white is-size-5" type="submit" value="Submit">
+                                    <input class="button shadow-dark form__button--bg-blue has-text-white" type="submit" value="Submit">
                                 </div>
                                 <div class="control">
-                                    <a class="button shadow-dark form__button--bg-orange has-text-white is-size-5" href="{{ url_for('profile', username=session['user']) }}">Cancel
-                                    </a>
+                                    <button class="button shadow-dark form__button--bg-orange has-text-white" type="reset" value="Clear form">Clear form</button>
                                 </div>
                             </div>
                         </div>

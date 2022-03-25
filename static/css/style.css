@@ -33,7 +33,8 @@ h6 {
 /*----- FOCUS, ACTIVE & HOVER EFFECTS -----*/
 .navbar-item:hover,
 .navbar-link:hover,
-.navbar-burger:hover {
+.navbar-burger:hover,
+.user_action:hover {
     -webkit-text-decoration-line: underline;
     text-decoration-line: underline;
     text-decoration-thickness: 5px;
@@ -271,6 +272,11 @@ a.button.shadow:hover {
     list-style-position: outside;
     list-style-image: none;
     vertical-align: middle;
+}
+
+/*----- BORDER -----*/
+.user_action {
+    outline: 3px solid #bbaa55;
 }
 
 /*----- FOOTER -----*/

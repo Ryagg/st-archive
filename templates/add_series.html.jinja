@@ -1,9 +1,9 @@
-{% extends "base.html" %}
+{% extends "base.html.jinja" %}
 {% block content %}
 
     <section class="hero is-fullheight-with-navbar text--color-light bg__img--starry-sky text__bg--transparent-dark">
         <div class="hero-body">
-            <div class="container text_bg--transparent-darker">
+            <div class="container text_bg--transparent-darker p-3">
                 <h1 class="title is-1 has-text-centered has-text-weight-light heading__text--shadow">Hello, {{ username.capitalize() }} </h1>
 
                 <form class="form p-4" method="POST" action="{{ url_for('add_series') }}">
