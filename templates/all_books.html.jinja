@@ -4,37 +4,6 @@
 <section class="hero is-fullheight-with-navbar bg__img--starry-sky text__bg--transparent-dark">
     <div class="hero-body">
         <div class="container">
-            <!-- Search bar -->
-            <div class="columns">
-                <div class="column">
-                    <div class="card">
-                        <div class="card-content card__bg--light card__box-shadow">
-                            <form class="form" method="POST" action="{{ url_for('search') }}">
-                                <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
-                                <div class="columns is-centered">
-                                    <div class="column is-10-tablet is-8-desktop">
-                                        <div class="field">
-                                            <label for="query" class="is-size-4 has-text-weight-normal mr-2">Search titles and blurbs
-                                            </label>
-                                            <div class="control has-icons-left">
-                                                <input id="query" name="query" class="input is-link  mb-2" type="text" minlength="3"
-                                                    placeholder="Enter query" value=""
-                                                    aria-label="query" required>
-                                                <span class="icon is-left has-text-link">
-                                                    <i class="fal fa-lg fa-file-search"></i>
-                                                </span>
-                                            </div>
-                                            <button class="button shadow-dark form__button--bg-blue has-text-white is-size-5 has-text-weight-normal" type="submit">Search
-                                            </button>
-                                            <a class="button shadow-dark form__button--bg-orange has-text-white ml-3 is-size-5 has-text-weight-normal" href="{{ url_for('all_books') }}">Reset</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- pagination  -->
             <div class="columns is-centered is-multiline is-mobile">
@@ -184,7 +153,12 @@
                             <button id="no-result" class="delete" aria-label="delete"></button>
                         </div>
                         <div class="message-body has-text-weight-medium">
-                            No results found in our memory banks! Click 'Reset' to return to the previous page.
+                            No results found in our memory banks! Choose one of the transporters to return to your desired destination:
+                            <br>
+                            <a class="px-2" href="{{ url_for('index') }}">Home</a>
+                            <a class="px-2" href="{{ url_for('all_books') }}">All Books</a>
+                            <a class="px-2" href="{{ url_for('reviews') }}">Reviews</a>
+                            <a class="px-2" href="{{ url_for('contact') }}">Contact</a>
                         </div>
                     </article>
                 {% endif %}

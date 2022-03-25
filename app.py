@@ -134,8 +134,9 @@ def search():
     books_paginate = paginate(books)
     pagination = pagination_args(books)
 
+
     return render_template("all_books.html.jinja", series=st_series,
-                           books=books_paginate, pagination=pagination
+                           books=books_paginate, pagination=pagination,
                            )
 
 
