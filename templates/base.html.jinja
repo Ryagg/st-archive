@@ -22,7 +22,7 @@
 
     <header>
         <!-- Navbar -->
-        <nav id="navbar" class="navbar is-size-3 is-fixed-top is-transparent">
+        <nav id="navbar" class="navbar is-size-5 is-fixed-top is-transparent">
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{{ url_for('index') }}">
@@ -47,7 +47,7 @@
 
                             <div class="navbar-dropdown is-boxed">
                                 {% for show in series|sort(attribute="series_name") %}
-                                    <a class="navbar-item is-size-3" href="{{ url_for('series', series_code=show._id) }}">
+                                    <a class="navbar-item is-size-5" href="{{ url_for('series', series_code=show._id) }}">
                                         {{ show.series_name }}
                                     </a>
                                 {% endfor %}
@@ -66,26 +66,26 @@
                             </a>
                             <div class="navbar-dropdown is-boxed">
                                 {% if session.user %}
-                                    <a class="navbar-item is-size-3"
+                                    <a class="navbar-item is-size-5"
                                         href="{{ url_for('profile', username=session['user']) }}">
                                         Profile
                                     </a>
                                 {% if session.admin == True %}
-                                    <a class="navbar-item is-size-3" href="{{ url_for('add_series') }}">
+                                    <a class="navbar-item is-size-5" href="{{ url_for('add_series') }}">
                                         Add series as admin
                                     </a>
-                                    <a class="navbar-item is-size-3" href="{{ url_for('add_book') }}">
+                                    <a class="navbar-item is-size-5" href="{{ url_for('add_book') }}">
                                         Add book as admin
                                     </a>
                                 {% endif %}
-                                    <a class="navbar-item is-size-3" href="{{ url_for('logout') }}">
+                                    <a class="navbar-item is-size-5" href="{{ url_for('logout') }}">
                                         Log Out
                                     </a>
                                 {% else %}
-                                    <a class="navbar-item is-size-3" href="{{ url_for('login') }}">
+                                    <a class="navbar-item is-size-5" href="{{ url_for('login') }}">
                                         Login
                                     </a>
-                                    <a class="navbar-item is-size-3" href="{{ url_for('register') }}">
+                                    <a class="navbar-item is-size-5" href="{{ url_for('register') }}">
                                         Register
                                     </a>
                                 {% endif %}
@@ -103,8 +103,8 @@
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                                     <div class="field">
                                         <div class="control has-icons-left">
-                                            <input id="query" name="query" class="input is-link" type="text" minlength="3"
-                                                placeholder="Search titles and blurbs" value="" aria-label="query" required>
+                                            <input id="query" name="query" class="input is-small is-link" type="text" minlength="3"
+                                                placeholder="Search titles + blurbs" value="" aria-label="query" required>
                                                 <span class="icon is-left has-text-link">
                                                     <i class="fal fa-lg fa-file-search"></i>
                                                 </span>
@@ -144,31 +144,33 @@
     <!-- footer -->
     <footer id="footer" class="footer footer_padding--less">
         <div class="level">
-            <div class="level-item is-size-4">
-                    &copy; Copyright 2021 - Scott Boening.
+            <div class="level-item is-size-5 has-text-centered">
+                    &copy; Copyright 2022 - Scott Boening.
             </div>
-            <div class="level-item is-size-4">
+            <div class="level-item is-size-5 has-text-centered">
                 <a class="navbar-item" href="{{ url_for('site_notice') }}">
                     Site Notice
                 </a>
             </div>
-            <div class="level-item is-size-4">
+            <div class="level-item is-size-5 has-text-centered">
                 <a class="navbar-item" href="{{ url_for('privacy_policy') }}">
                     Privacy Policy
                 </a>
             </div>
-            <div class="level-item is-size-4">
+            <div class="level-item is-size-5 has-text-centered">
+                <span class="mx-3">
                     <a href="http://www.twitter.com/scottboening" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-lg fa-twitter footer_social" aria-hidden="true"></i>
                         <span class="sr-only sr-only-focusable has-text-black">Twitter</span>
                     </a>
-            </div >
-            <div class="level-item is-size-4">
+                </span>
+                <span class="mx-3">
                     <a href="https://github.com/Ryagg" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-lg fa-github footer_social" aria-hidden="true"></i>
                         <span class="sr-only sr-only-focusable has-text-black">Github profile</span>
                     </a>
-            </div>
+                </span>
+            </div >
         </div>
     </footer>
 
