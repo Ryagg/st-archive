@@ -18,6 +18,17 @@ flask-mail = "*"
 flask-talisman = "*"
 flask-seasurf = "*"
 flask-paginate = "*"
+playwright = "*"
+pytest = "*"
+pytest-playwright = "*"
+pytest-xdist = "*"
+pytest-base-url = "*"
+pytest-forked = "*"
+requests = "*"
+certifi = "*"
+urllib3 = "*"
+websockets = "*"
+isort = "*"
 
 [dev-packages]
 
