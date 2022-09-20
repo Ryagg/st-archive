@@ -43,9 +43,9 @@
                             </div>
                             <div class="card-content card__bg--light">
                                 <h2 class="subtitle is-3 has-text-centered has-text-weight-light text__shadow--light">{{ book.series_code }}: {{ book.title }}</h2>
-                                    {% if book.number == "" %}
+                                    {% if book.number == 999 |int %}
                                         <h3 class="subtitle is-4 has-text-centered">Unnumbered book</h3>
-                                    {% elif not book.number == "null" %}
+                                    {% elif not book.number == 999 | int %}
                                         <h3 class="subtitle is-4 has-text-centered">Book number {{book.number}}</h3>
                                     <!-- remove? -->
                                     {% else %}
