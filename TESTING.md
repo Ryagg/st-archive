@@ -1042,7 +1042,6 @@ Bulma is '100% Responsive' and 'Designed for mobile first'. Columns will resize 
 ![long-titles](documentation/testing/bugs/long-titles.jpg)
 
 -   If there are no reviews for a series there is no information ('No reviews yet') being displayed. Attempts to copy the code from the favourites books section on the profile page failed.
--   The 'Edit review' and 'Delete review' buttons on the profile page are neither centred nor vertically aligned with the text above them.
 
 ![review-buttons](documentation/testing/bugs/review-buttons.jpg)
 
