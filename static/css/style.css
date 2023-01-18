@@ -281,6 +281,11 @@ a.button.shadow:hover {
 /*----- BORDER -----*/
 .user_action {
     outline: 3px solid #bbaa55;
+    padding-bottom: 5px;
+}
+
+.border_down {
+    outline: 3px 3px 10px solid #bbaa55;
 }
 
 /*----- FOOTER -----*/
