@@ -16,7 +16,7 @@
                         </div>
                     </section>
                     <section>
-                        <div class="columns is-multiline">
+                        <div class="columns is-centered is-multiline">
                             {% if all_reviews|length > 0 %}
                                 {% for review in all_reviews|sort(attribute="number") if review.book_series == show.series_code %}
                                     <div class="column">
@@ -36,9 +36,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                {% else %}
+                                    <div class="column">
+                                        <p class="is-size-4 has-text-weight-medium mb-4 has-text-centered">No reviews yet.</p>
+                                    </div>
                                 {% endfor %}
                             {% else %}
-                                <p class="is-size-4 mb-4">No reviews yet.</p>
+                                <div class="column">
+                                    <p class="is-size-4 has-text-weight-medium mb-4 has-text-centered mb-4">No reviews yet.</p>
+                                </div>
                             {% endif %}
                         </div>
                     </section>

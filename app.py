@@ -24,8 +24,8 @@ csrf = SeaSurf(app)
 # whitelist domains for content security policy
 csp = {
     'base-uri': [
-       '\'unsafe-inline\' \'self\'',
-       ],
+        '\'unsafe-inline\' \'self\'',
+    ],
     'default-src': [
         '\'unsafe-inline\' \'self\'',
         '*.fontawesome.com',
@@ -40,14 +40,14 @@ csp = {
         '*.herokuapp.com',
         '*.jquery.com',
         '*.jsdelivr.net'
-        ],
+    ],
     'script-src-elem': [
-            '\'unsafe-inline\' \'self\'',
-            '*.fontawesome.com',
-            '*.herokuapp.com',
-            '*.jquery.com',
-            '*.jsdelivr.net'
-        ]
+        '\'unsafe-inline\' \'self\'',
+        '*.fontawesome.com',
+        '*.herokuapp.com',
+        '*.jquery.com',
+        '*.jsdelivr.net'
+    ]
 }
 
 # add HTTP security headers and nonce
@@ -108,6 +108,7 @@ def pagination_args(books):
     total = len(books)
     return Pagination(page=page, per_page=PER_PAGE, total=total)
 
+
 """
 End Credit
 """
@@ -133,7 +134,6 @@ def search():
     books = list(mongo.db.books.find({"$text": {"$search": query}}))
     books_paginate = paginate(books)
     pagination = pagination_args(books)
-
 
     return render_template("all_books.html.jinja", series=st_series,
                            books=books_paginate, pagination=pagination,
@@ -292,7 +292,7 @@ def register():
         session["admin"] = False
         flash(Markup('Registration successful! Welcome to ST-Archive, '
               f'{request.form.get("username").capitalize()} '
-              '<i class="far fa-handshake"></i>'))
+                     '<i class="far fa-handshake"></i>'))
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html.jinja", series=st_series)
 
@@ -368,7 +368,7 @@ def profile(username):
     finished_books_list = user["finished_books"]
     finished_books = list(mongo.db.books.find(
         {"_id": {"$in": finished_books_list}})
-        )
+    )
 
     return render_template("profile.html.jinja", username=username, user=user,
                            favourites_series=favourites_series,
@@ -414,7 +414,7 @@ def add_fav_series(series_id):
         mongo.db.users.find_one_and_update(
             {"username": session["user"]},
             {"$push": {"favourites_series": show_name}}
-            )
+        )
         flash(Markup("<i class='fal fa-info-square'></i> "
                      "Incoming message from ST-Archive: "
                      f"'{show_name}' has been added to your favourites! "
@@ -534,7 +534,7 @@ def add_review():
     st_series = list(mongo.db.series.find())
     review_book = request.args['title']
     book_series = mongo.db.books.find_one(
-            {"title": review_book})["series_code"]
+        {"title": review_book})["series_code"]
 
     return render_template("review.html.jinja", username=username,
                            series=st_series, review_book=review_book,
@@ -567,7 +567,7 @@ def edit_review(review_id):
                 {"$set":
                     {"review_text": updated_review["review_text"]
                      }}
-                                        )
+            )
             flash(Markup("<i class='fal fa-check-circle has-text-success'></i>"
                          " Incoming message from ST-Archive: "
                          "Your update to your review has been successfuly "
@@ -575,9 +575,9 @@ def edit_review(review_id):
             return redirect(url_for("profile", username=session["user"]))
     else:
         flash(Markup(
-                "<i class='fas fa-do-not-enter has-text-danger'></i>"
-                " Security alert: Insufficient privileges. Access denied. "
-                "<i class='fas fa-do-not-enter has-text-danger'></i>"))
+            "<i class='fas fa-do-not-enter has-text-danger'></i>"
+            " Security alert: Insufficient privileges. Access denied. "
+            "<i class='fas fa-do-not-enter has-text-danger'></i>"))
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("edit_review.html.jinja",

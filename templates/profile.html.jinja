@@ -152,13 +152,15 @@
                                                     <p class="is-size-4">{{ review.review_text }}</p>
                                                     <!-- Buttons for user actions -->
                                                     <div class="column">
-                                                        <div class="field is-grouped">
-                                                            <div class="control">
+                                                        <div class="field is-grouped is-grouped-centered">
+                                                            <p class="control">
                                                                 <a class="button shadow-dark form__button--bg-blue has-text-white"
                                                                     href="{{ url_for('edit_review', review_id=review._id) }}">Edit review</a>
-                                                            </div>
-                                                            <span id="delete-review" class="button shadow-dark form__button--bg-orange has-text-white modal-button"
+                                                            </p>
+                                                            <p class="control">
+                                                                <span id="delete-review" class="button shadow-dark form__button--bg-orange has-text-white modal-button"
                                                                 data-target="modal-card" tabindex="0">Delete review</span>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
