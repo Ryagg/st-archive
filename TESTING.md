@@ -1041,8 +1041,6 @@ Bulma is '100% Responsive' and 'Designed for mobile first'. Columns will resize 
 
 ![long-titles](documentation/testing/bugs/long-titles.jpg)
 
--   If there are no reviews for a series there is no information ('No reviews yet') being displayed. Attempts to copy the code from the favourites books section on the profile page failed.
-
 -   Some wireframes in my repo start with upper cases instead of lower cases although the same wireframes are shown starting with lower cases both in VS Code and my File explorer. Even using TinyJPG to optimize those images and commit them in [commit 22d7b3fcf5594d658bb2278c017c465db14599c8](https://github.com/Ryagg/st-archive/commit/22d7b3fcf5594d658bb2278c017c465db14599c8) didn't change this.
 
 Wireframes in repo:
