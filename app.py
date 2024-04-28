@@ -77,7 +77,7 @@ Cloud.config.update = ({
 })
 
 # pass keyword param to avoid pymongo error 'SSL: CERTIFICATE_VERIFY_FAILED'
-mongo = PyMongo(app, ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
+mongo = PyMongo(app, ssl=True, tlsAllowInvalidCertificates=True)
 
 
 # Books pagination limit
