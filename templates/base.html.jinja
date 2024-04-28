@@ -9,7 +9,8 @@
         content="Backend-dev milestone project about Star Trek novels for Code Institute's Diploma in Software Development">
     <meta name="keywords" content="Star Trek, Original Series, Next Generation, DS9, Voyager, Enterprise, Discovery, Picard">
     <meta name="author" content="Scott Boening">
-    <script nonce="{{ csp_nonce() }}" src="https://kit.fontawesome.com/83ff66539b.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/fontawesome.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/brands.css') }}" type="text/css">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
