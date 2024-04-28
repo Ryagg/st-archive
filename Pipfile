@@ -18,6 +18,8 @@ flask-mail = "*"
 flask-talisman = "*"
 flask-seasurf = "*"
 flask-paginate = "*"
+werkzeug = "~=2.0.0"
+jinja2 = "~=3.0.3"
 
 [dev-packages]
 
